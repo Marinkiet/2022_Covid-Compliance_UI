@@ -1,0 +1,26 @@
+.footer
+{
+    overflow: hidden;
+    position: sticky;
+    background-color:#93E2D8;
+    padding:20px 10px;
+    
+
+    top: 100%;
+    
+}
+a
+{
+    text-decoration: none;
+    color: white;
+    padding: 0px 3px;
+}
+.txt_copy
+{
+    text-align: center;
+    font-size: 11px;
+}
+.txt_follow
+{
+    color: white;
+}

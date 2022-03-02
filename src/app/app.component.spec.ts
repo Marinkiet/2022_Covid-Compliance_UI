@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Covid_Compliance'`, () => {
+  it(`should have as title 'Covid_Compliance_UI'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Covid_Compliance');
+    expect(app.title).toEqual('Covid_Compliance_UI');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Covid_Compliance app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Covid_Compliance_UI app is running!');
   });
 });
