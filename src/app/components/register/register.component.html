@@ -7,54 +7,75 @@
         <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
         <div class="form_1">
     
+        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+
             <mat-label class="txt_head">Create Account</mat-label>
     
             <br><br>
             <mat-form-field appearance="fill">
         
                 <mat-label>First Name</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput formControlName="fname" >
+                <mat-error *ngIf="(fname.touched || submitted)&& fname.errors?.required">Name is required</mat-error>
         
+              
             </mat-form-field>
             &nbsp;&nbsp;
             <mat-form-field appearance="fill">
         
                 <mat-label>Last Name</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput formControlName="lname" >
+                <mat-error *ngIf="(lname.touched || submitted)&& lname.errors?.required">Name is required</mat-error>
+        
         
             </mat-form-field>
             <br><br>
             <mat-form-field appearance="fill">
         
                 <mat-label>Username</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput formControlName="uname" >
+                <mat-error *ngIf="(uname.touched || submitted)&& uname.errors?.required">Username is required</mat-error>
+        
+                <mat-hint>staff/student number</mat-hint>
         
             </mat-form-field>
             &nbsp;&nbsp;
             <mat-form-field appearance="fill">
         
                 <mat-label>Password</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="pword" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                
+                <mat-error *ngIf="(pword.touched || submitted)&& pword.errors?.required">Password is required</mat-error>
+
+                <mat-error *ngIf="(pword.touched && pword.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
+
+
+                <mat-hint>password</mat-hint>
         
             </mat-form-field>
             <br><br>
             <mat-form-field appearance="fill">
         
                 <mat-label>Confirm Password</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="con_pword" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-hint>Re-type password</mat-hint>
         
             </mat-form-field>
             <br><br>
             <mat-form-field appearance="fill">
         
                 <mat-label>E-mail</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput formControlName="email" >
+                <mat-error *ngIf="(email.touched || submitted)&& email.errors?.required">E-mail is required</mat-error>
+                <mat-error *ngIf="email.touched && email.errors?.email">Enter a valid email address</mat-error>
+         
+                <mat-hint>Tut4life email</mat-hint>
         
             </mat-form-field>
         
@@ -62,8 +83,8 @@
             <mat-form-field appearance="fill">
         
                 <mat-label>Phone Number</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
+                <input matInput>
+                <mat-hint>optional</mat-hint>
         
             </mat-form-field>
         
@@ -73,9 +94,8 @@
                 <mat-label>Campus</mat-label>
                 <mat-select>
         
-                    <mat-option>South</mat-option>
-                    <mat-option>North</mat-option>
-        
+                    <mat-option *ngFor="let campus of campuses" [value]="campus"> {{campus}} </mat-option>
+                   
                 </mat-select>
         
             </mat-form-field>
@@ -85,8 +105,8 @@
                 <mat-label>Are You Vaccinated</mat-label>
                 <mat-select>
         
-                    <mat-option value="y">Yes</mat-option>
-                    <mat-option value="n">No</mat-option>
+                    <mat-option *ngFor="let vac_opt of vac_opts" [value]="vac_opt">{{vac_opt}}</mat-option>
+                   
         
                 </mat-select>
         
@@ -100,7 +120,7 @@
             <br><br>
         
         
-        
+        </form>
         </div>
         
     <br><br>

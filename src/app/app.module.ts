@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
 
+//Services
+import { CustomvalidationService } from './services/customvalidation.service';
 
 
 @NgModule({
@@ -28,7 +30,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
     BrowserAnimationsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [CustomvalidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
