@@ -64,6 +64,9 @@
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+
+                
+            <!--<mat-error *ngIf="(con_pword.touched && con_pword.errors?.passwordMismatch)">Password should match</mat-error>-->
                 <mat-hint>Re-type password</mat-hint>
         
             </mat-form-field>

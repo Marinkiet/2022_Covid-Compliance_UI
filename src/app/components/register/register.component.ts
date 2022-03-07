@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,10 +10,11 @@ import { CustomvalidationService } from 'src/app/services/customvalidation.servi
 export class RegisterComponent implements OnInit {
   //customvalidator: any;
 
-  constructor(private customvalidator:CustomvalidationService)
+  constructor(private customvalidator:CustomvalidationService,private formBuilder: FormBuilder)
   {
-    
+
   }
+
 
   registerform:any;
   campuses:any[]=['','south','north'];
@@ -28,15 +30,18 @@ export class RegisterComponent implements OnInit {
         fname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
         lname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
         uname:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
-        pword:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternValidator()]),
-        con_pword:new FormControl('',[Validators.required,Validators.minLength(8)]),
+        pword:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternPassValidator()]),
+        con_pword:new FormControl('',[Validators.required]),
         email:new FormControl('',[Validators.required,Validators.email]),
         phone:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
-        
-       
-      }
-    )
+      },
+      {
+        validators: this.customvalidator.passwordMatch('pword','con_pword')
+      
+      });
   }
+
+
 
   get fname()
   {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators} from '@angular/forms';
+import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ export class LoginComponent implements OnInit
  {
 
   hide=true;
-  constructor() { }
+  constructor(private customValidator:CustomvalidationService) { }
   submitted=false;
 
   loginForm:any;
@@ -22,7 +23,7 @@ export class LoginComponent implements OnInit
     ({
 
       username:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$'),Validators.minLength(5)]),
-      password:new FormControl('',[Validators.required,Validators.minLength(8)])
+      password:new FormControl('',[Validators.required,Validators.minLength(8),this.customValidator.patternPassValidator()])
 
     })
   }

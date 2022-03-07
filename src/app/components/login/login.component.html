@@ -7,7 +7,7 @@
         <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
         <div class="form_1">
     
-            <form [formGroup]="loginForm">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
                 <mat-label class="txt_head">Login</mat-label>
     
                 <br><br>
@@ -28,12 +28,16 @@
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
 
+                  <mat-error *ngIf="(password.touched || submitted)&& password.errors?.required">Password is required</mat-error>
+
+                <mat-error *ngIf="(password.touched && password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
                     <mat-hint>Minimum of 8 characters</mat-hint>
-            
                 </mat-form-field>
                 <br><br>
-                
-                <button mat-raised-button type="submit">Login</button>
+                <br>
+                <button mat-raised-button type="submit">Login</button> &nbsp;&nbsp;
+
+                <button mat-raised-button routerLink="/resetpass">Forgot Password</button>
                 <br><br>
             
                 <mat-label>Don`t have an account? <span class="txt_sign_up"><a routerLink="/register">Sign-up</a></span></mat-label>

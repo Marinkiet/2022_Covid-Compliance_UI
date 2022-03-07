@@ -13,6 +13,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { CustomvalidationService } from './services/customvalidation.service';
     RegisterComponent,
     FooterComponent,
     LoginComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    ResetpasswordComponent
    
   ],
   imports: [
