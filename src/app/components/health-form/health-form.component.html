@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Health Form</h1>
+<div mat-dialog-content>
+
+
+    <mat-form-field appearance="outline">
+        <mat-label>Are You Vaccinated? </mat-label>
+        <mat-select formControlName="vstatus" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Have you experianced any recent coughs? </mat-label>
+        <mat-select formControlName="recentCough" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Do you have difficulty Breathing? </mat-label>
+        <mat-select formControlName="difficultyBreathing" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Have you experianced any recent loss of taste? </mat-label>
+        <mat-select formControlName="lossOfTaste" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Have you experianced any recent heavy headache? </mat-label>
+        <mat-select formControlName="heavyHeadache" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+        <button style="margin-left:10px" mat-raised-button color="primary" routerLink="/qrcode">Submit</button>
+      </div>
+</div>
+
+    

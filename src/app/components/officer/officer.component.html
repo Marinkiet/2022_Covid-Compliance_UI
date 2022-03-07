@@ -1,0 +1,12 @@
+<div class="temp">
+    <h1>Temperature</h1>
+<span>Normal temperature: {{temp}}</span><br/>
+<br>
+<label>Enter temperature:</label>
+<br/>
+<input type="number"  placeholder="E.g 36,4" [value]="temp2" [(ngModel)]="temp2">
+<br/><br>
+<button (click)="validateTemp(temp2)">Submit</button>
+<h2 [(ngModel)] = "messg">{{messg}}</h2>
+
+</div>
