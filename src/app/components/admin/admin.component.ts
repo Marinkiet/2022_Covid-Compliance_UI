@@ -13,7 +13,7 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AdminComponent implements OnInit {
 
-  displayedColumns: string[] = ['officer_id', 'officer_firstName', 'officer_lastName', 'officer_emailAddress','officer_phoneNumber','officer_gender','officer_oldPassword','officer_newPassword'];
+  displayedColumns: string[] = ['officer_id', 'officer_firstName', 'officer_lastName', 'officer_emailAddress','officer_phoneNumber','officer_gender','officer_oldPassword','officer_newPassword','action'];
   dataSource !: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -43,6 +43,12 @@ export class AdminComponent implements OnInit {
       error:()=>{
         alert("Error while fetching officer data");
       }
+    })
+  }
+  editOfficer(row:any){
+    this.dialog.open(AddOfficerComponent,{
+      width:'30%',
+      data:row
     })
   }
   applyFilter(event: Event) {
