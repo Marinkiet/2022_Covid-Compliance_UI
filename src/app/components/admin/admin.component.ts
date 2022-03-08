@@ -28,6 +28,11 @@ export class AdminComponent implements OnInit {
   openDialog() {
     this.dialog.open(AddOfficerComponent, {
       width: '30%'
+      //if the value is saved refresh page auto
+    }).afterClosed().subscribe(val=>{
+      if(val === 'saved'){
+        this.getAllOfficers();
+      }
     });
 
   }
@@ -49,8 +54,13 @@ export class AdminComponent implements OnInit {
     this.dialog.open(AddOfficerComponent,{
       width:'30%',
       data:row
-    })
-  }
+    }).afterClosed().subscribe(val=>{
+      if(val === 'Updated'){
+        this.getAllOfficers();
+      }
+  })
+}
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();

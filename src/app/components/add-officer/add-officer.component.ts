@@ -48,7 +48,7 @@ export class AddOfficerComponent implements OnInit {
         this.officerForm.controls['officer_gender'].setValue(this.editData.officer_gender);
         this.officerForm.controls['officer_oldPassword'].setValue(this.editData.officer_oldPassword);
         this.officerForm.controls['officer_newPassword'].setValue(this.editData.officer_newPassword);
-
+        this.officerForm.controls['officer_phoneNumber'].setValue(this.editData.officer_phoneNumber);
     }
   }
   addOfficer(){
@@ -60,7 +60,7 @@ export class AddOfficerComponent implements OnInit {
       .subscribe({
         next:(res)=>{
           alert('officer registered successfully');
-          this.dialogRef.close(); //close form once saved
+          this.dialogRef.close('saved'); //close form once saved
         },
         error:()=>{
          alert('Could no register officer ');
