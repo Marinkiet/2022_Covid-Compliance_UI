@@ -21,6 +21,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
@@ -66,6 +67,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
     MatNativeDateModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatProgressSpinnerModule
   ],
   providers: [CustomvalidationService],
   bootstrap: [AppComponent]
