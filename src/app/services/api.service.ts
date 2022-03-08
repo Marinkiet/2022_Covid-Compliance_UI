@@ -14,4 +14,10 @@ export class ApiService {
   getOfficer(){
     return this.http.get<any>("http://localhost:3000/officers/");
   }
+  putOfficer(data:any,id:number){
+    return this.http.put<any>("http://localhost:3000/officers/"+id,data);
+  }
+  deleteOfficer(id:number){
+    return this.http.delete<any>("http://localhost:3000/officers/"+id)
+  }
 }
