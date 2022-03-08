@@ -30,15 +30,6 @@
         
             </mat-form-field>
             <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Username</mat-label>
-                <input matInput formControlName="uname" >
-                <mat-error *ngIf="(uname.touched || submitted)&& uname.errors?.required">Username is required</mat-error>
-        
-                <mat-hint>staff/student number</mat-hint>
-        
-            </mat-form-field>
             &nbsp;&nbsp;
             <mat-form-field appearance="fill">
         
@@ -116,7 +107,7 @@
             </mat-form-field>
             
             <br>
-            <button mat-raised-button routerLink="login" >Register</button>
+            <button mat-raised-button routerLink="login" routerLink="/login">Register</button>
             <br><br>
         
             <mat-label>Are you already registered? <span class="txt_sign_in"><a routerLink="/login">Sign-in</a></span></mat-label>
