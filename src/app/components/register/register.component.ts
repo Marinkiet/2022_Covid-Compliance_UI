@@ -37,7 +37,6 @@ export class RegisterComponent implements OnInit {
       },
       {
         validators: this.customvalidator.passwordMatch('pword','con_pword')
-      
       });
   }
 
@@ -83,8 +82,5 @@ export class RegisterComponent implements OnInit {
       console.table(this.registerform.value);
     }
   }
-
-
-
 
 }

@@ -1,0 +1,15 @@
+.right-nav {
+    display: flex;
+    flex: 1 1 auto;
+  }
+.left-nav{
+    display: flex;
+    margin-left: 20px;
+    text-decoration: none;
+    
+}
+.left-nav:visited{
+    color: white;
+    text-decoration: none;
+
+}

@@ -22,7 +22,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-
+import {MatCardModule} from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -31,6 +32,9 @@ import { OfficerComponent } from './components/officer/officer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { AddOfficerComponent } from './components/add-officer/add-officer.component';
 
 
 @NgModule({
@@ -45,7 +49,10 @@ import { ContactusComponent } from './components/contactus/contactus.component';
     OfficerComponent,
     HomeComponent,
     AboutUsComponent,
-    ContactusComponent
+    ContactusComponent,
+    UserProfileComponent,
+    AdminComponent,
+    AddOfficerComponent
    
   ],
   imports: [
@@ -67,7 +74,11 @@ import { ContactusComponent } from './components/contactus/contactus.component';
     MatNativeDateModule,
     MatRadioModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule,
+    HttpClientModule
+    
+    
   ],
   providers: [CustomvalidationService],
   bootstrap: [AppComponent]

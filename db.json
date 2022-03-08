@@ -1,0 +1,47 @@
+{
+  "officers": [
+    {
+      "officer_id": "123456789",
+      "officer_firstName": "John",
+      "officer_lastName": "Doe",
+      "officer_emailAddress": "john@123.com",
+      "officer_phoneNumber": "0798855221",
+      "officer_gender": "Male",
+      "officer_oldPassword": "123",
+      "officer_newPassword": "123",
+      "id": 1
+    },
+    {
+      "officer_id": "888888779",
+      "officer_firstName": "billy",
+      "officer_lastName": "smithson",
+      "officer_emailAddress": "smithson@gmail.com",
+      "officer_phoneNumber": "123456789",
+      "officer_gender": "Female",
+      "officer_oldPassword": "555",
+      "officer_newPassword": "555",
+      "id": 2
+    },
+    {
+      "officer_id": "13126545",
+      "officer_firstName": "dsfjvb",
+      "officer_lastName": "dfjnvjdf",
+      "officer_emailAddress": "sfdjbv",
+      "officer_phoneNumber": "dfbvjhd",
+      "officer_gender": "Male",
+      "officer_oldPassword": "kdfjvj",
+      "officer_newPassword": "jsdfbvj",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
