@@ -60,7 +60,17 @@ export class AdminComponent implements OnInit {
       }
   })
 }
-
+deleteOfficer(id:number){
+this.api.deleteOfficer(id)
+.subscribe({
+  next:(res)=>{
+    alert('Officer Deleted');
+    this.getAllOfficers();
+  },error:()=>{
+    alert('Could not delete Officer');
+  }
+})
+}
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
