@@ -24,6 +24,11 @@ import { MatDividerModule } from '@angular/material/divider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatSortModule} from '@angular/material/sort';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -76,7 +81,10 @@ import { AddOfficerComponent } from './components/add-officer/add-officer.compon
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
     
     
   ],

@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddOfficerComponent } from 'src/app/components/add-officer/add-officer.component';
 import { ApiService } from 'src/app/services/api.service';
+import {AfterViewInit, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -9,6 +13,11 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AdminComponent implements OnInit {
 
+  displayedColumns: string[] = ['officer_id', 'officer_firstName', 'officer_lastName', 'officer_emailAddress','officer_phoneNumber','officer_gender','officer_oldPassword','officer_newPassword'];
+  dataSource !: MatTableDataSource<any>;
+
+  @ViewChild(MatPaginator) paginator !: MatPaginator;
+  @ViewChild(MatSort) sort !: MatSort;
   constructor( 
     private dialog: MatDialog,
     private api:ApiService) { }
@@ -26,11 +35,23 @@ export class AdminComponent implements OnInit {
     this.api.getOfficer()
     .subscribe({
       next:(res)=>{
-        console.log(res)
+        //console.log(res)
+        this.dataSource = new MatTableDataSource(res);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
-      error:(err)=>{
+      error:()=>{
         alert("Error while fetching officer data");
       }
     })
   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 }
+

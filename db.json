@@ -21,18 +21,8 @@
       "officer_oldPassword": "555",
       "officer_newPassword": "555",
       "id": 2
-    },
-    {
-      "officer_id": "13126545",
-      "officer_firstName": "dsfjvb",
-      "officer_lastName": "dfjnvjdf",
-      "officer_emailAddress": "sfdjbv",
-      "officer_phoneNumber": "dfbvjhd",
-      "officer_gender": "Male",
-      "officer_oldPassword": "kdfjvj",
-      "officer_newPassword": "jsdfbvj",
-      "id": 3
     }
+   
   ],
   "comments": [
     {

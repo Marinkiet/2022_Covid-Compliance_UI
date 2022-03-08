@@ -13,3 +13,15 @@
     text-decoration: none;
 
 }
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+.officer-container{
+max-width: 97%;
+margin: 0 auto;
+}
