@@ -28,6 +28,8 @@ import { ResetpasswordComponent } from './components/resetpassword/resetpassword
 import { HealthFormComponent } from './components/health-form/health-form.component';
 import { OfficerComponent } from './components/officer/officer.component';
 import { HomeComponent } from './components/home/home.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { ContactusComponent } from './components/contactus/contactus.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { HomeComponent } from './components/home/home.component';
     ResetpasswordComponent,
     HealthFormComponent,
     OfficerComponent,
-    HomeComponent
+    HomeComponent,
+    AboutUsComponent,
+    ContactusComponent
    
   ],
   imports: [
