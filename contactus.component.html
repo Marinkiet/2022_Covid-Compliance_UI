@@ -1,0 +1,57 @@
+<div class="welcome_message">
+
+    <div class="txt_welcome">
+
+        <br><br>
+       
+</div>
+
+<section class="hero is-primary is-bold">
+    <div class="hero-body">
+    <div class="container">
+        <h1 class="title">Contact Covid Complieace Team </h1> 
+
+    </div>
+    </div>
+
+</section>
+
+<section class="section">
+    <div class="row">
+        <div class="column">
+         
+    <div class="container">
+        <form (ngSubmit)="submitForm()" >
+            <div class="field">
+                <label class="label">Name</label>
+                <br>
+                <input type="text" name="name" class="input" [(ngModel)]="name" >
+            </div>
+            
+            <div class="field">
+                <label class="label">Last Name</label>
+                <br>
+                <input type="text" name="lname" class="input" [(ngModel)]="lastname">
+            </div>
+            
+            <div class="field">
+                <label class="label">Email</label>
+                <br>
+                <input type="email" name="email" class="input" [(ngModel)]="email">
+            </div>
+            
+            <div class="field2">
+                <label class="label">Your Message</label>
+                <br>
+                <textarea name="message" class="textarea" [(ngModel)]="message" ></textarea>
+            </div>
+           
+            <button type="Submit" class="button is-large is-warnig">
+                Submit!
+            </button>
+
+        </form>
+    </div>
+        </div>
+    </div>
+</section>
