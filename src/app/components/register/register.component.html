@@ -1,53 +1,101 @@
 <div class="back_color">
-
-    
     <div class="content">
-
-
         <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
         <div class="form_1">
-    
-        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
-
             <mat-label class="txt_head">Create Account</mat-label>
-    
-            <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>First Name</mat-label>
-                <input matInput formControlName="fname" >
-                <mat-error *ngIf="(fname.touched || submitted)&& fname.errors?.required">Name is required</mat-error>
-        
-              
-            </mat-form-field>
-            &nbsp;&nbsp;
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Last Name</mat-label>
-                <input matInput formControlName="lname" >
-                <mat-error *ngIf="(lname.touched || submitted)&& lname.errors?.required">Name is required</mat-error>
-        
-        
-            </mat-form-field>
-            <br><br>
-            &nbsp;&nbsp;
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" formControlName="pword" >
-                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>
+        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+ 
+            <div class="example-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Identiy Number</mat-label>
+                    <input matInput formControlName="fname" placeholder="StudentNum/IDNum/StaffNum">
+                    <mat-error *ngIf="(userid.touched || submitted)&& fname.errors?.required">Identity Number required</mat-error>
+                </mat-form-field>
                 
-                <mat-error *ngIf="(pword.touched || submitted)&& pword.errors?.required">Password is required</mat-error>
-
-                <mat-error *ngIf="(pword.touched && pword.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
-
-
-                <mat-hint>password</mat-hint>
+                <mat-form-field appearance="fill">
         
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" >
+                    <mat-error *ngIf="(email.touched || submitted)&& email.errors?.required">E-mail is required</mat-error>
+                    <mat-error *ngIf="email.touched && email.errors?.email">Enter a valid email address</mat-error>
+             
+                </mat-form-field>
+            </div>
+
+            <div class="example-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <input matInput formControlName="fname" >
+                    <mat-error *ngIf="(fname.touched || submitted)&& fname.errors?.required">First Name is required</mat-error>
+                </mat-form-field>
+               
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput formControlName="lname" >
+                    <mat-error *ngIf="(lname.touched || submitted)&& lname.errors?.required">Last Name is required</mat-error>
+                </mat-form-field>
+           
+         
+        </div>
+        <div class="example-container">
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input matInput>
+                <mat-hint>optional</mat-hint>
             </mat-form-field>
-            <br><br>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Campus</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let i of campuses" [value]="i"> {{i}} </mat-option>
+                </mat-select>
+            </mat-form-field>
+       </div>
+
+       <div class="example-container">
+        <mat-form-field appearance="fill">
+            <mat-label>Are You Vaccinated</mat-label>
+            <mat-select>
+                <mat-option *ngFor="let vac_opt of vac_opts" [value]="vac_opt">{{vac_opt}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <!--Basic File Input-->
+        <!--<input type="file" class="file-upload" onchange="console.log(event.target.files)"> -->
+    </div>
+
+    <input type="file" class="file-input"
+    (change)="onFileSelected($event)" #fileUpload>
+
+    <div class="file-upload">
+
+     {{fileName || "Upload Vaccination card."}}
+
+   <button mat-mini-fab color="primary" class="upload-btn"
+    (click)="fileUpload.click()">
+
+ <mat-icon>attach_file</mat-icon>
+   </button>
+
+ </div>
+        <div class="example-container">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="pword" >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            
+            <mat-error *ngIf="(pword.touched || submitted)&& pword.errors?.required">Password is required</mat-error>
+
+            <mat-error *ngIf="(pword.touched && pword.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
+            <mat-hint>password</mat-hint>
+           
+        </mat-form-field>
             <mat-form-field appearance="fill">
         
                 <mat-label>Confirm Password</mat-label>
@@ -61,68 +109,17 @@
                 <mat-hint>Re-type password</mat-hint>
         
             </mat-form-field>
-            <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>E-mail</mat-label>
-                <input matInput formControlName="email" >
-                <mat-error *ngIf="(email.touched || submitted)&& email.errors?.required">E-mail is required</mat-error>
-                <mat-error *ngIf="email.touched && email.errors?.email">Enter a valid email address</mat-error>
-         
-                <mat-hint>Tut4life email</mat-hint>
-        
-            </mat-form-field>
-        
-            &nbsp;&nbsp;
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Phone Number</mat-label>
-                <input matInput>
-                <mat-hint>optional</mat-hint>
-        
-            </mat-form-field>
-        
-            <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Campus</mat-label>
-                <mat-select>
-        
-                    <mat-option *ngFor="let campus of campuses" [value]="campus"> {{campus}} </mat-option>
-                   
-                </mat-select>
-        
-            </mat-form-field>
-            <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Are You Vaccinated</mat-label>
-                <mat-select>
-        
-                    <mat-option *ngFor="let vac_opt of vac_opts" [value]="vac_opt">{{vac_opt}}</mat-option>
-                   
-        
-                </mat-select>
-        
-            </mat-form-field>
-            
-            <br>
+       </div>
+       
             <button mat-raised-button routerLink="login" routerLink="/login">Register</button>
             <br><br>
         
             <mat-label>Are you already registered? <span class="txt_sign_in"><a routerLink="/login">Sign-in</a></span></mat-label>
             <br><br>
         
-        
         </form>
         </div>
-        
-    <br><br>
-    
-        <app-footer></app-footer>
-    
     </div>
-
-
 </div>
+
 

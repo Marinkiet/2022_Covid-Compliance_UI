@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
@@ -9,24 +10,25 @@ import { CustomvalidationService } from 'src/app/services/customvalidation.servi
 })
 export class RegisterComponent implements OnInit {
   //customvalidator: any;
-
-  constructor(private customvalidator:CustomvalidationService,private formBuilder: FormBuilder)
-  {
-
-  }
-
-
+  fileName = '';
   registerform:any;
-  campuses:any[]=['','south','north'];
-  vac_opts:any[]=['','Yes','No'];
+  campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
+  vac_opts:any[]=['Yes','No'];
   submitted=false;
   hide=true;
- 
+
+  constructor(
+    private customvalidator:CustomvalidationService,
+    private formBuilder: FormBuilder,
+    private http:HttpClient
+    )
+  {}
   ngOnInit()
   {
     this.registerform=new FormGroup
     (
       {
+        userid:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
         fname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
         lname:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
         uname:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
@@ -39,9 +41,29 @@ export class RegisterComponent implements OnInit {
         validators: this.customvalidator.passwordMatch('pword','con_pword')
       });
   }
+  onFileSelected(event:any) {
+
+    const file:File = event.target.files[0];
+
+    if (file) {
+
+        this.fileName = file.name;
+
+        const formData = new FormData();
+
+        formData.append("filename", file);
+
+        const upload$ = this.http.post("http://localhost:3000/users/", formData);
+
+        upload$.subscribe();
+    }
+}
 
 
-
+  get userid()
+  {
+    return this.registerform.get('userid');
+  }
   get fname()
   {
     return this.registerform.get('fname');
