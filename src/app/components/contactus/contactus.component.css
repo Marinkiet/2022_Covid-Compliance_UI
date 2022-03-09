@@ -1,0 +1,36 @@
+
+  /* Style the container/contact section */
+  .container{
+    background-image: url('/assets/backdrop.jpg');
+    height: 100%;
+    overflow-y: hidden;
+}
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  td {
+    padding-right: 8px;
+  }
+  .container-content{
+    text-align: center;
+    width: fit-content;
+    margin: 50px auto  ;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    color:white;
+    background-color: rgba(128, 128, 128, 0.432);
+    height: 80%;
+    border-radius: 0.7em;
+}
