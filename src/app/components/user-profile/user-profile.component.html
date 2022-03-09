@@ -1,0 +1,73 @@
+<div class="container" >
+  <div class="container-content">
+    <br><br>
+       <mat-card-title>Profile</mat-card-title>    
+    <br><br>
+    <hr>
+    <br>
+    <form [formGroup]="userProfile">
+        <div class="example-container">
+
+            <mat-form-field appearance="fill">
+                <mat-label>User Id</mat-label>
+                <input formControlName="userid" matInput  readonly>
+                <mat-icon matSuffix>id</mat-icon>
+              </mat-form-field>
+
+        
+          <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <input formControlName="gender" matInput placeholder="Placeholder" readonly>
+            <mat-icon matSuffix>face</mat-icon>
+          </mat-form-field>
+    
+        </div>
+        <div class="example-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input formControlName="lastName" matInput placeholder="Placeholder" >
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input formControlName="firstName" matInput readonly>
+            <mat-icon matSuffix>person</mat-icon>
+          </mat-form-field>
+
+        </div>
+        <div class="example-container">
+
+        
+          <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input formControlName="emailAddress" matInput placeholder="Email Address" >
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+      
+          <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input formControlName="phoneNumber" matInput placeholder="Phone Number" >
+            <mat-icon matSuffix>phone</mat-icon>
+          </mat-form-field>
+        </div>
+        <div class="example-container">
+          <mat-form-field appearance="fill">
+            <mat-label>Old Password</mat-label>
+            <input formControlName="oldPassword" matInput  readonly>
+            <mat-icon matSuffix>password</mat-icon>
+          </mat-form-field>
+          
+          <mat-form-field appearance="fill">
+            <mat-label>New Password</mat-label>
+            <input formControlName="newPassword" matInput placeholder="New Password" >
+            <mat-icon matSuffix>password</mat-icon>
+          </mat-form-field>
+        </div>
+    </form>
+    <div class="btns">
+      <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/home">Close</button>
+      <button style="margin-left:10px" mat-raised-button color="primary">Update</button>
+    </div>
+  </div>
+</div>
