@@ -6,6 +6,9 @@ import {AfterViewInit, ViewChild} from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { MatSidenav } from '@angular/material/sidenav';
+import { delay } from 'rxjs/operators';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -20,11 +23,16 @@ export class AdminComponent implements OnInit {
   @ViewChild(MatSort) sort !: MatSort;
   constructor( 
     private dialog: MatDialog,
-    private api:ApiService) { }
+    private api:ApiService,
+    private observer: BreakpointObserver) { }
 
   ngOnInit(): void {
     this.getAllOfficers();
   }
+
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav;
+
   openDialog() {
     this.dialog.open(AddOfficerComponent, {
       width: '30%'
@@ -36,6 +44,21 @@ export class AdminComponent implements OnInit {
     });
 
   }
+  ngAfterViewInit() {
+    this.observer
+      .observe(['(max-width: 800px)'])
+      .pipe(delay(1))
+      .subscribe((res) => {
+        if (res.matches) {
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
+        } else {
+          this.sidenav.mode = 'side';
+          this.sidenav.open();
+        }
+      });
+  }
+  
   getAllOfficers(){
     this.api.getOfficer()
     .subscribe({
