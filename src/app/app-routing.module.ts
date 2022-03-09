@@ -9,7 +9,7 @@ import { OfficerComponent } from './components/officer/officer.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ContactusComponent } from './components/contactus/contactus.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
 const routes: Routes = [
  {path:'',component:WelcomeComponent},
