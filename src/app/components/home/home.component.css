@@ -82,3 +82,7 @@ mat-divider {
     text-decoration: none;
 
 }
+.mat-drawer-container {
+    background-image: url('/assets/backdrop.jpg');
+    color: #fff;
+}
