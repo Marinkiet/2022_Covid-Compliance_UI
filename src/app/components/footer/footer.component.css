@@ -1,26 +1,21 @@
 .footer
 {
-    overflow: hidden;
-    position: sticky;
+    position: fixed;
     background-color:#93E2D8;
     padding:20px 10px;
+    flex:1;
+    display: flex;
+    width: 100%;
+}
+.icons{
+    margin-left:10px;
+    align-content: space-between ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.right-icon{
+    display: flex;
+    flex: 1 1 auto;
     
-
-    top: 100%;
-    
-}
-a
-{
-    text-decoration: none;
-    color: white;
-    padding: 0px 3px;
-}
-.txt_copy
-{
-    text-align: center;
-    font-size: 11px;
-}
-.txt_follow
-{
-    color: white;
 }
