@@ -59,12 +59,11 @@ export class AddOfficerComponent implements OnInit {
       this.api.postOfficer(this.officerForm.value)
       .subscribe({
         next:(res)=>{
-          alert('officer registered successfully');
+          //alert('officer registered successfully');
           this.dialogRef.close('saved'); //close form once saved
         },
         error:()=>{
          alert('Could no register officer ');
- 
         }
         
       })
@@ -78,7 +77,7 @@ export class AddOfficerComponent implements OnInit {
 this.api.putOfficer(this.officerForm.value,this.editData.id)
 .subscribe({
   next:(res)=>{
-    alert("Updated Officer Successfully");
+    //alert("Updated Officer Successfully");
     this.officerForm.reset();
     this.dialogRef.close('Updated');
   },error:()=>{

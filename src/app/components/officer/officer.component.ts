@@ -3,7 +3,6 @@ import { ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
-import { MatDialog } from '@angular/material/dialog';
 @Component({
   selector: 'app-officer',
   templateUrl: './officer.component.html',

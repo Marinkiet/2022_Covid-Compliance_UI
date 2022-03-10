@@ -87,7 +87,7 @@ deleteOfficer(id:number){
 this.api.deleteOfficer(id)
 .subscribe({
   next:(res)=>{
-    alert('Officer Deleted');
+   // alert('Officer Deleted');
     this.getAllOfficers();
   },error:()=>{
     alert('Could not delete Officer');
