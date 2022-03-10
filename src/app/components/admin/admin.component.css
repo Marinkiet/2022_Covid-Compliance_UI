@@ -1,18 +1,4 @@
-.right-nav {
-    display: flex;
-    flex: 1 1 auto;
-  }
-.left-nav{
-    display: flex;
-    margin-left: 20px;
-    text-decoration: none;
-    
-}
-.left-nav:visited{
-    color: white;
-    text-decoration: none;
 
-}
 table {
     width: 100%;
   }
@@ -29,16 +15,19 @@ margin-right: 10px;
 
 }
 mat-toolbar {
-  background: #f03c69;
-  color: whitesmoke;
+  background:#003883;
+  color: #ffffff;
+  height: 60px;
+  text-align: center;
+  margin-left: -14px;
 }
 
 mat-sidenav {
   margin: 16px;
   width: 200px;
   border-right: none;
-  background: #fc038c;
-  color: whitesmoke;
+  background: #ffffff;
+  color: #003883;
   border-radius: 10px;
   padding: 16px;
   text-align: center;
@@ -55,9 +44,8 @@ mat-sidenav {
   align-items: center;
 
   font-size: 2rem;
-  color: lightgray;
+  color: rgb(255, 255, 255);
 }
-
 mat-sidenav-container {
   height: calc(100vh - 65px);
 }
@@ -89,13 +77,14 @@ mat-icon {
 .designation {
   margin-top: 2px;
   font-size: 0.7rem;
-  color: lightgrey;
+  color: rgb(255, 254, 254);
 }
+
 
 mat-divider {
   margin-top: 16px;
   margin-bottom: 16px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 0, 0, 0.5);
 }
 .right-nav {
   display: flex;
@@ -108,11 +97,28 @@ mat-divider {
   
 }
 .left-nav:visited{
-  color: white;
+  color: #f7f7f7;
   text-decoration: none;
 
 }
 .mat-drawer-container {
-  background-image: url('/assets/backdrop.jpg');
-  color: #fff;
+  background-image: url('../../../assets/logo4.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-blend-mode: soft-light;
+  /*background-color: red;*/
+  color: #003883;
+}
+.logo{
+  width: 170px;
+  height: fit-content;
+  background-color: white ;
+  margin-right: 20px;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #003883;
+}
+mat-toolbar[_ngcontent-qtv-c178] {
+  background: #dbdbdb;
+  color: whitesmoke;
 }
