@@ -9,12 +9,13 @@
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
         <input formControlName="officer_firstName" matInput >
+        <mat-icon matSuffix>face</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Last Name</mat-label>
         <input formControlName="officer_lastName" matInput placeholder="Placeholder" >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix>face</mat-icon>
       </mat-form-field>
    
       <mat-form-field appearance="fill">
@@ -34,19 +35,19 @@
       <mat-form-field appearance="fill">
         <mat-label>Phone Number</mat-label>
         <input formControlName="officer_phoneNumber" matInput placeholder="Phone Number" >
-        <mat-icon matSuffix>phone_in_talk</mat-icon>
+        <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{passwType}}</mat-label>
         <input formControlName="officer_oldPassword" matInput >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix>password</mat-icon>
       </mat-form-field>
       
       <mat-form-field appearance="fill">
         <mat-label>{{passwTypeConfirm}}</mat-label>
         <input formControlName="officer_newPassword" matInput placeholder="New Password" >
-        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-icon matSuffix>password</mat-icon>
       </mat-form-field>
       
 </form>
