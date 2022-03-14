@@ -11,8 +11,15 @@
                 <mat-label class="txt_head">Login</mat-label>
     
                 <br><br>
+
                 <mat-form-field appearance="fill">
-            
+                    <mat-label>User Type</mat-label>
+                    <mat-select formControlName="user_type">
+                        <mat-option *ngFor="let i of user_type" [value]="i">{{i}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <br><br>
+                <mat-form-field appearance="fill">
                     <mat-label>Username</mat-label>
                     <input matInput formControlName="username">
                     <mat-error *ngIf="username.invalid && username.touched">Username Reguired</mat-error>
