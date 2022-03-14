@@ -1,0 +1,247 @@
+
+<mat-toolbar class="mat-elevation-z8">
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+
+    </button>
+    <img class="logo" src="../../../assets/logo6.png">
+        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+  
+
+    <span class="right-nav"></span>
+    <button mat-raised-button color="warn" routerLink="/login">Get Started</button>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/aboutus">
+            <mat-icon>information</mat-icon>
+            <span>About Us</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/contactus">
+            <mat-icon>phone</mat-icon>
+            <span>Contact Us</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/help">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+            <div class="container">
+                <div class="box">
+
+                    <div class="title">
+                        <span class="block"></span>
+                        <h1>COVID CAMPLIANCE<span></span></h1>
+                    </div>
+            
+                    <div class="role">
+                        <div class="block"></div>
+                        <p>Tshwane University of Technology</p>
+                    </div>
+            
+                </div>
+            </div>
+     
+        
+        <section>
+           
+            <div class="container2">
+                <div class="carousel">
+                    <input type="radio" name="slides" checked="checked" id="slide-1">
+                    <input type="radio" name="slides" id="slide-2">
+                    <input type="radio" name="slides" id="slide-3">
+                    <input type="radio" name="slides" id="slide-4">
+                    <input type="radio" name="slides" id="slide-5">
+                    <input type="radio" name="slides" id="slide-6">
+                    <ul class="carousel__slides">
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img src="../../../assets/landingpage-images/vacc.jpg" alt="">
+                                </div>
+                                <figcaption>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <span class="credit">Why should I Vaccinate?</span>
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img src="../../../assets/landingpage-images/mask.jpg" alt="">
+                                </div>
+                                <figcaption>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <span class="credit">Why should i wear a Mask?</span>                            
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img src="../../../assets/landingpage-images/sani.jpg" alt="">
+                                </div>
+                                <figcaption>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <span class="credit">Why should I Sanitise?</span>                            
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img src="../../../assets/landingpage-images/wash.jpg" alt="">
+                                </div>
+                                <figcaption>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <span class="credit">Why should I wash my hands?</span>                            
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img src="../../../assets/landingpage-images/stay.jpg" alt="">
+                                </div>
+                                <figcaption>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <span class="credit">Why should I stay home when i feel sick or show possible symptoms?</span>                            
+                                </figcaption>
+                            </figure>
+                        </li>
+                        <li class="carousel__slide">
+                            <figure>
+                                <div>
+                                    <img src="../../../assets/landingpage-images/dist.jpg" alt="">
+                                </div>
+                                <figcaption>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    <span class="credit">Why should I social distance?</span>                            
+                                </figcaption>
+                            </figure>
+                        </li>
+                    </ul>    
+                    <ul class="carousel__thumbnails">
+                        <li>
+                            <label for="slide-1"><img src="../../../assets/landingpage-images/stop.jpg" alt=""></label>
+                        </li>
+                        <li>
+                            <label for="slide-2"><img src="../../../assets/landingpage-images/mask2.jpg" alt=""></label>
+                        </li>
+                        <li>
+                            <label for="slide-3"><img src="../../assets/landingpage-images/sani2.jpg" alt=""></label>
+                        </li>
+                        <li>
+                            <label for="slide-4"><img src="../../../assets/landingpage-images/wash2.jpg" alt=""></label>
+                        </li>
+                        <li>
+                            <label for="slide-5"><img src="../../../assets/landingpage-images/stay2.jpg" alt=""></label>
+                        </li>
+                        <li>
+                            <label for="slide-6"><img src="../../../assets/landingpage-images/dist2.jpg" alt=""></label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                 Mattis aliquam faucibus purus in massa tempor.
+                  Pellentesque massa placerat duis ultricies lacus sed turpis.
+                   Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                   Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                   Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                   In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                    Faucibus a pellentesque sit amet.
+                 Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Mattis aliquam faucibus purus in massa tempor.
+                     Pellentesque massa placerat duis ultricies lacus sed turpis.
+                      Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                      Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                      Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                      In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                       Faucibus a pellentesque sit amet.
+                    Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Mattis aliquam faucibus purus in massa tempor.
+                         Pellentesque massa placerat duis ultricies lacus sed turpis.
+                          Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                          Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                          Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                          In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                           Faucibus a pellentesque sit amet.
+                        Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            Mattis aliquam faucibus purus in massa tempor.
+                             Pellentesque massa placerat duis ultricies lacus sed turpis.
+                              Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                              Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                              Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                              In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                               Faucibus a pellentesque sit amet.
+                            Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Mattis aliquam faucibus purus in massa tempor.
+                                 Pellentesque massa placerat duis ultricies lacus sed turpis.
+                                  Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                                  Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                                  Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                                  In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                                   Faucibus a pellentesque sit amet.
+                                Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                    Mattis aliquam faucibus purus in massa tempor.
+                                     Pellentesque massa placerat duis ultricies lacus sed turpis.
+                                      Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                                      Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                                      Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                                      In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                                       Faucibus a pellentesque sit amet.
+                                    Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                        Mattis aliquam faucibus purus in massa tempor.
+                                         Pellentesque massa placerat duis ultricies lacus sed turpis.
+                                          Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                                          Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                                          Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                                          In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                                           Faucibus a pellentesque sit amet.
+                                        Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                            Mattis aliquam faucibus purus in massa tempor.
+                                             Pellentesque massa placerat duis ultricies lacus sed turpis.
+                                              Nisl purus in mollis nunc. Aliquet eget sit amet tellus cras adipiscing. 
+                                              Malesuada pellentesque elit eget gravida cum. Sed vulputate mi sit amet. 
+                                              Sed egestas egestas fringilla phasellus faucibus. Natoque penatibus et magnis dis parturient. 
+                                              In hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit.
+                                               Faucibus a pellentesque sit amet.
+                                            Id semper risus in hendrerit gravida rutrum quisque non tellus.</p>
+            
+        </section>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

@@ -7,7 +7,6 @@ import { MaterialModule } from './material/material.module';
 import { RegisterComponent } from './components/register/register.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
-import { WelcomeComponent } from './components/welcome/welcome.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -40,6 +39,7 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { AddOfficerComponent } from './components/add-officer/add-officer.component';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
 
 
 @NgModule({
@@ -48,7 +48,6 @@ import { AddOfficerComponent } from './components/add-officer/add-officer.compon
     RegisterComponent,
     FooterComponent,
     LoginComponent,
-    WelcomeComponent,
     ResetpasswordComponent,
     HealthFormComponent,
     OfficerComponent,
@@ -57,7 +56,8 @@ import { AddOfficerComponent } from './components/add-officer/add-officer.compon
     ContactusComponent,
     UserProfileComponent,
     AdminComponent,
-    AddOfficerComponent
+    AddOfficerComponent,
+    LandingPageComponent
    
   ],
   imports: [
