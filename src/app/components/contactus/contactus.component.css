@@ -1,0 +1,228 @@
+
+mat-toolbar {
+    background: blue;
+    color: whitesmoke;
+}
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: blue;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+  
+}
+  mat-icon {
+        margin-right: 8px;
+    }
+.avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+ 
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+    font-size: 2rem; 
+    margin-left: 20px;
+    text-decoration: none;
+    
+}
+.left-nav:visited{
+    color: white;
+    text-decoration: none;
+
+}
+
+body{
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    
+}
+
+.contact_form{
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    background: #fff;
+    margin: 10px 0px;
+}
+
+.contact_form > * {
+    width: 50%;
+}
+
+.contact_form .first_container{
+    background-image: linear-gradient(45deg, rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../../../assets/home2.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.contact_form .first_container .infor div{
+    margin: 24px 0;
+}
+
+.infor div h3{
+color: #fff;
+font-size: 18px;
+font-weight: 400;
+line-height: 1.2;
+padding-bottom: 10px;
+}
+
+.infor div:first-of-type p{
+    max-width: 260px;
+    color: #999;
+}
+
+.infor div p{
+    color: #00ad5f;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.second_container{
+    padding: 30px;
+    margin-bottom: 5px;
+}
+
+.second_container h2{
+    font-size: 30px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.second_container form{
+    display: flex;
+    flex-direction: column;
+    margin: 24px 0;
+}
+
+.second_container form .form_group{
+    margin-bottom: 10px;
+}
+
+.second_container form .form_group * {
+    min-height: 50px;
+    border: 1px solid #e6e6e6;
+    padding: 0 20px;
+}
+
+.second_container form .form_group label{
+    display: flex;
+    align-items: center;
+    width: 100%;
+   
+    font-size: 15px;
+    color: #333;
+    text-transform: uppercase;
+    margin-top: -1px;
+}
+
+.second_container form .form_group:first-of-type input{
+    width: 50.1%;
+    margin-right: -5px;
+}
+
+.second_container form .form_group input{
+    width: 100%;
+    font-size: 15px;
+    margin-top: -2px;
+}
+
+.second_container form .form_group input::placeholder,
+.second_container form .form_group textarea::placeholder{
+    color: #999;
+}
+
+.second_container form .form_group textarea{
+    width: 100%;
+    min-height: 80px;
+    resize: none;
+    padding: 10px 20px;
+    margin-top: -1px;
+}
+
+.second_container form button{
+    width: 100px;
+    height: 25px;
+    color: whitesmoke;
+    background: blue;
+    font-size: 16px;
+    font-weight: 600;
+    justify-items: flex-end;
+    border: 0;
+    position: relative;
+    left: calc(50% - 100px);
+    cursor: pointer;
+}
+
+.second_container form button:hover{
+    background: lightskyblue;
+}
+
+@media(max-width: 800px){
+    .contact_form{
+        flex-direction: column-reverse;
+        width: 90vw;
+    }
+}
+
+@media(max-width: 700px){
+    .contact_form{
+        flex-direction: column-reverse;
+        width: 90vw;
+    }
+    .contact_form > * {
+        width: 100%;
+    }
+    .contact_form .first_container{
+        padding: 40px 0;
+    }
+}
