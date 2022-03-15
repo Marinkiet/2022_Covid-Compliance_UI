@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators} from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
-import { HealthFormComponent } from '../health-form/health-form.component';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,10 +12,10 @@ export class LoginComponent implements OnInit
   hide=true;
   constructor(
     private customValidator:CustomvalidationService,
-    private dialog: MatDialog) { }
+    ) { }
   submitted=false;
   user_type:string[]=['Admin','Officer','Guest','Staff','Student'];
-
+  linktoqrcode="/login";
   loginForm:any;
 
   ngOnInit()
@@ -46,13 +44,9 @@ export class LoginComponent implements OnInit
     this.submitted=true;
     if(this.loginForm.valid)
     {
-      alert('form submitted successfully');
-      console.table(this.loginForm.value);
+      //alert('form submitted successfully');
+      this.linktoqrcode="/qrcode";
+      //console.table(this.loginForm.value);
     }
-  }
-  openDialog() {
-    this.dialog.open(HealthFormComponent, {
-      width: '30%'
-    });
   }
 }

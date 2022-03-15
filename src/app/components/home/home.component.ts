@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
       });
     }
     ngAfterViewInit() {
+      this.openDialog();   //open dialog imediatly when clicking qrcode and after clicking login button
       this.observer
         .observe(['(max-width: 800px)'])
         .pipe(delay(1))
