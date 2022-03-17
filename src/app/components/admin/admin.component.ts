@@ -42,7 +42,6 @@ export class AdminComponent implements OnInit {
         this.getAllOfficers();
       }
     });
-
   }
   ngAfterViewInit() {
     this.observer

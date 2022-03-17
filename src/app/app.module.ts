@@ -40,8 +40,9 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AdminComponent } from './components/admin/admin.component';
 import { AddOfficerComponent } from './components/add-officer/add-officer.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-
-
+import { ReportComponent } from './components/report/report.component';
+import { ReportItemComponent } from './components/report/report-item/report-item.component';
+import { DatePipe } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +58,11 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     UserProfileComponent,
     AdminComponent,
     AddOfficerComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ReportComponent,
+    ReportItemComponent,
+    
+    
    
   ],
   imports: [
@@ -84,11 +89,12 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    
     
     
   ],
-  providers: [CustomvalidationService],
+  providers: [CustomvalidationService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

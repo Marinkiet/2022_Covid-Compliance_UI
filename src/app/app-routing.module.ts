@@ -11,6 +11,8 @@ import { ContactusComponent } from './components/contactus/contactus.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { ReportComponent } from './components/report/report.component';
+import { ReportItemComponent } from './components/report/report-item/report-item.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -23,7 +25,9 @@ const routes: Routes = [
  {path:'contactus',component:ContactusComponent},
  {path:'userprofile',component:UserProfileComponent},
  {path:'admin',component:AdminComponent},
- {path:'qrcode',component:HomeComponent}
+ {path:'qrcode',component:HomeComponent},
+ {path:'report',component:ReportComponent},
+ {path:'report-item',component:ReportItemComponent}
 ];
 
 @NgModule({
@@ -34,4 +38,4 @@ export class AppRoutingModule { }
 export const routingMods={HealthFormComponent,HomeComponent,AboutUsComponent,
   ContactusComponent,OfficerComponent,LoginComponent,
   RegisterComponent,UserProfileComponent,ResetpasswordComponent,AdminComponent,
-  LandingPageComponent}
+  LandingPageComponent,ReportComponent,ReportItemComponent}
