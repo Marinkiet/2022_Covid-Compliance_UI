@@ -4,7 +4,12 @@ import { ApiService } from '../../../services/api.service';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ViewEncapsulation } from '@angular/core';
 import { DatePipe } from '@angular/common';
-import  jsPDF  from "jspdf";
+import  {jsPDF}  from "jspdf";  
+//import html2canvas from 'html2canvas';
+import * as html2pdf from 'html2pdf.js'
+
+
+//import * as jsPDF from "jspdf"; 
 
 @Component({
   selector: 'app-report-item',
@@ -38,22 +43,16 @@ export class ReportItemComponent implements OnInit {
       });
       console.log(this.reportForm.value);
     }
-    public SavePDF(): void {  
-      let content=this.content.nativeElement;  
-      let doc = new jsPDF();  
-      let _elementHandlers =  
-      {  
-        '#editor':function(element: any, renderer: any ){  
-          return true;  
-        }  
-      };  
-    /*  doc.fromHTML(content.innerHTML,15,15,{  
-        'width':190,  
-        'elementHandlers':_elementHandlers  
-      }); */ 
-    
-      doc.save('test.pdf');  
-    }  
-  
+    public SavePDF(): void {
+      var element = document.getElementById('content');
+  var opt = {
+    margin:       0.25,
+    filename:     'record.pdf',
+    image:        { type: 'jpeg', quality: 0.98 },
+    html2canvas:  { scale: 2 },
+    jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().from(element).set(opt).save();
+    }
+}  
 
-}

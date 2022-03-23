@@ -9,13 +9,16 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 import { ReportItemComponent } from './report-item/report-item.component';
+import * as html2pdf from 'html2pdf.js'
+import { DatePipe } from '@angular/common';
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-
+  currentDateTime =this.datepipe.transform((new Date), 'MM/dd/yyyy h:mm:ss');
   displayedColumns: string[] = ['officer_id', 'user_id', 'user_type', 'form_id','date','temperature','comments','action'];
   dataSource !: MatTableDataSource<any>;
 
@@ -24,7 +27,8 @@ export class ReportComponent implements OnInit {
   constructor( 
     private dialog: MatDialog,
     private api:ApiService,
-    private observer: BreakpointObserver) { }
+    private observer: BreakpointObserver,
+    public datepipe: DatePipe) { }
 
     ngOnInit(): void {
       this.getRecords();
@@ -81,4 +85,15 @@ export class ReportComponent implements OnInit {
       editOfficer(row:any){
 
       }
+      download(){
+        var element = document.getElementById('table');
+    var opt = {
+      margin:       0.25,
+      filename:     'recordstable.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2 },
+      jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
 }
