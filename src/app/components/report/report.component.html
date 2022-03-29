@@ -16,11 +16,10 @@
         <h3>Covid Compliance</h3>
         <a class="left-nav"  routerLink="/aboutus"><h3 class="nav-color">About Us</h3></a>
         <a class="left-nav"  routerLink="/contactus"><h3 class="nav-color">Contact Us</h3></a>
-        <a class="left-nav"  routerLink="/admin"><h3 class="nav-color">Officers</h3></a>
+        <a class="left-nav"  routerLink="/manageofficers"><h3 class="nav-color">Officers</h3></a>
         <a class="left-nav" routerLink="/report"><h3 class="nav-color">Report</h3></a>
   
     <span class="right-nav"></span>
-    <button mat-raised-button color="warn" (click)="openDialog()">Add Officer</button>
   
   </mat-toolbar>
   
@@ -42,17 +41,16 @@
             <span>Profile</span>
         </button>
   
-        <button mat-button class="menu-button">
-            <mat-icon>announcement</mat-icon>
-            <span>Notifications</span>
-        </button>
+        <button mat-button class="menu-button" routerLink="/manageofficers">
+          <mat-icon>accessibility_new</mat-icon>
+          <span>Officers</span>
+  
+        </button> <button mat-button class="menu-button" routerLink="/report">
+          <mat-icon>assignment</mat-icon>
+          <span>Report</span>
+      </button>
   
         <mat-divider></mat-divider>
-  
-        <button mat-button class="menu-button">
-            <mat-icon>settings</mat-icon>
-            <span>Settings</span>
-        </button>
   
         <button mat-button class="menu-button">
             <mat-icon>help</mat-icon>
@@ -63,6 +61,7 @@
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
         </button>
+        
   
     </mat-sidenav>
   
@@ -127,7 +126,7 @@
                         <button mat-icon-button color="basic"(click)="openDialog()">
                             <mat-icon>folder_shared</mat-icon>
                         </button>
-                        <button mat-icon-button color="accent"(click)="editOfficer(row)">
+                        <button mat-icon-button color="accent"  (click)="download()">
                           <mat-icon>download</mat-icon>
                       </button>
                      </td>
@@ -144,14 +143,13 @@
                 <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users">
                 </mat-paginator>
                 <button mat-icon-button color="basic" (click)="download()">
-                  <mat-icon>download</mat-icon>
+                  <mat-icon>download</mat-icon>                                   
                   <span>{{currentDateTime}}</span> 
 
               </button>
-                          </div>
-              
+          </div>
+              </div>
         </div>
-      </div>
   
     </mat-sidenav-content>
   

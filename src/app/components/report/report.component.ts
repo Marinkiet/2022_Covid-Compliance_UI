@@ -9,7 +9,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 import { ReportItemComponent } from './report-item/report-item.component';
-import * as html2pdf from 'html2pdf.js'
+import * as html2pdf from 'html2pdf.js';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -28,7 +28,8 @@ export class ReportComponent implements OnInit {
     private dialog: MatDialog,
     private api:ApiService,
     private observer: BreakpointObserver,
-    public datepipe: DatePipe) { }
+    public datepipe: DatePipe,
+    ) { }
 
     ngOnInit(): void {
       this.getRecords();
@@ -44,7 +45,7 @@ export class ReportComponent implements OnInit {
        
       });
     }
-
+    
     getRecords(){
       this.api.getRecord()
       .subscribe({
@@ -96,4 +97,5 @@ export class ReportComponent implements OnInit {
     };
     html2pdf().from(element).set(opt).save();
   }
+  
 }
