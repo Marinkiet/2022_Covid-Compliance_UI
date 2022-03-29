@@ -63,10 +63,7 @@ mat-divider {
   margin-bottom: 16px;
   background-color: rgba(255, 0, 0, 0.5);
 }
-.right-nav {
-  display: flex;
-  flex: 1 1 auto;
-}
+
 .left-nav{
   display: flex;
   margin-left: 20px;
