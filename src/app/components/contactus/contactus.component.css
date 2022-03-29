@@ -5,16 +5,8 @@ mat-toolbar {
   text-align: center;
   margin-left: -14px;
 }
-
-mat-sidenav {
-  margin: 16px;
-  width: 200px;
-  border-right: none;
-  background: #ffffff;
-  color: #003883;
-  border-radius: 10px;
-  padding: 16px;
-  text-align: center;
+.mat-drawer{
+  visibility: none;
 }
 
 .content {
@@ -116,6 +108,7 @@ mat-divider {
     height: 80%;
     border-radius: 0.7em;
 }
+
 .mat-drawer-container {
   background-image: url('../../../assets/logo4.jpg');
   background-repeat: no-repeat;
@@ -133,4 +126,7 @@ mat-divider {
 }
 .mat-raised-button.mat-primary{
   background-color:#e6b102;
+}
+.mat-divider{
+  background-color: #f7f7f7;
 }
