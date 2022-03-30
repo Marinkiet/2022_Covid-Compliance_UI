@@ -102,7 +102,7 @@ mat-divider {
 
 }
 .mat-drawer-container {
-  background-image: url('../../assets/logo4.jpg');
+  background-image: url('../../../assets/logo4.jpg');
   background-repeat: no-repeat;
   background-size:cover;
   background-blend-mode: soft-light;

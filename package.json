@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "exceljs": "^4.3.0",
+    "file-saver": "^2.0.5",
     "html-to-pdfmake": "^2.3.10",
     "html2canvas": "^1.4.1",
     "html2pdf.js": "^0.10.1",
@@ -30,6 +32,7 @@
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "users": "^2.0.0",
+    "xlsx": "^0.18.5",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

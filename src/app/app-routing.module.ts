@@ -13,6 +13,7 @@ import { AdminComponent } from './components/admin/admin.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { ReportComponent } from './components/report/report.component';
 import { ReportItemComponent } from './components/report/report-item/report-item.component';
+import { ManageofficersComponent } from './components/manageofficers/manageofficers.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -27,7 +28,8 @@ const routes: Routes = [
  {path:'admin',component:AdminComponent},
  {path:'qrcode',component:HomeComponent},
  {path:'report',component:ReportComponent},
- {path:'report-item',component:ReportItemComponent}
+ {path:'report-item',component:ReportItemComponent},
+ {path:'manageofficers',component:ManageofficersComponent}
 ];
 
 @NgModule({
@@ -38,4 +40,4 @@ export class AppRoutingModule { }
 export const routingMods={HealthFormComponent,HomeComponent,AboutUsComponent,
   ContactusComponent,OfficerComponent,LoginComponent,
   RegisterComponent,UserProfileComponent,ResetpasswordComponent,AdminComponent,
-  LandingPageComponent,ReportComponent,ReportItemComponent}
+  LandingPageComponent,ReportComponent,ReportItemComponent,ManageofficersComponent}

@@ -27,7 +27,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -43,6 +42,7 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
 import { ReportComponent } from './components/report/report.component';
 import { ReportItemComponent } from './components/report/report-item/report-item.component';
 import { DatePipe } from '@angular/common';
+import { ManageofficersComponent } from './components/manageofficers/manageofficers.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +61,7 @@ import { DatePipe } from '@angular/common';
     LandingPageComponent,
     ReportComponent,
     ReportItemComponent,
+    ManageofficersComponent,
     
     
    
