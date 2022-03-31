@@ -17,7 +17,7 @@ import { delay } from 'rxjs/operators';
 })
 export class ManageofficersComponent implements OnInit {
 
-  displayedColumns: string[] = ['officer_id', 'officer_firstName', 'officer_lastName', 'officer_emailAddress','officer_phoneNumber','officer_gender','officer_oldPassword','officer_newPassword','action'];
+  displayedColumns: string[] = ['Officer_id','Campus_id', 'First_name', 'Last_name','Gender','Cellphone_number','Email','Password','action'];
   dataSource !: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -62,9 +62,8 @@ export class ManageofficersComponent implements OnInit {
   getAllOfficers(){
     this.api.getOfficer()
     .subscribe({
-      next:(res)=>{
-        //console.log(res)
-        this.dataSource = new MatTableDataSource(res);
+      next:(res:any)=>{
+        this.dataSource = new MatTableDataSource(res.data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       },
@@ -83,7 +82,7 @@ export class ManageofficersComponent implements OnInit {
       }
   })
 }
-deleteOfficer(id:number){
+DeleteOfficer(id:number){
 this.api.deleteOfficer(id)
 .subscribe({
   next:(res)=>{

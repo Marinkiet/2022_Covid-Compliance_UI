@@ -43,6 +43,7 @@ import { ReportComponent } from './components/report/report.component';
 import { ReportItemComponent } from './components/report/report-item/report-item.component';
 import { DatePipe } from '@angular/common';
 import { ManageofficersComponent } from './components/manageofficers/manageofficers.component';
+import { OfficerRecordsComponent } from './components/officer-records/officer-records.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,6 +63,7 @@ import { ManageofficersComponent } from './components/manageofficers/manageoffic
     ReportComponent,
     ReportItemComponent,
     ManageofficersComponent,
+    OfficerRecordsComponent,
     
     
    

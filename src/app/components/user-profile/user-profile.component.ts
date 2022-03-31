@@ -18,7 +18,8 @@ export class UserProfileComponent implements OnInit {
   constructor( 
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
-    private observer: BreakpointObserver) { }
+    private observer: BreakpointObserver,
+    ) { }
 
   ngOnInit(): void {
     this.userProfile = this.formBuilder.group({
@@ -32,6 +33,7 @@ export class UserProfileComponent implements OnInit {
       newPassword: ['', Validators.required],
 
     });
+    
   }
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
@@ -55,4 +57,5 @@ export class UserProfileComponent implements OnInit {
         }
       });
   }
+  
 }

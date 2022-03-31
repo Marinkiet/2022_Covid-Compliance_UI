@@ -26,8 +26,8 @@
 
         <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
 
-        <h4 class="name">User Name</h4>
-        <p class="designation">Student/Officer</p>
+        <h4 class="name">Officer Name</h4>
+        <p class="designation">Officer</p>
 
         <mat-divider></mat-divider>
 
@@ -40,24 +40,16 @@
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
+        <button mat-button class="menu-button" routerLink="/officerrecords">
+            <mat-icon>assignment</mat-icon>
+            <span>Records</span>
+        </button>
 
+        <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>announcement</mat-icon>
             <span>Notifications</span>
         </button>
-
-        <button mat-button class="menu-button" routerLink="/qrcode">
-            <mat-icon>qr_code</mat-icon>
-            <span>QR code</span>
-        </button>
-
-        <mat-divider></mat-divider>
-
-        <button mat-button class="menu-button">
-            <mat-icon>settings</mat-icon>
-            <span>Settings</span>
-        </button>
-
         <button mat-button class="menu-button">
             <mat-icon>help</mat-icon>
             <span>Help</span>
@@ -74,7 +66,7 @@
         <div class="container" >
             <div class="container-content">
         <h1>Normal temperature is Around: 37&#8451;</h1>
-        <hr>
+        <mat-divider></mat-divider>
         <br>
         <label>Enter temperature:</label>
         <br>
@@ -85,8 +77,8 @@
         <br>
             <button mat-raised-button color="warn" (click)="validateTemp(temp2)">Submit</button>
             <br>
-            <hr>
-        <h2 [(ngModel)] = "messg">{{messg}}</h2>
+            <mat-divider></mat-divider>
+            <h2 [(ngModel)] = "messg">{{messg}}</h2>
         
             </div>
         </div>
