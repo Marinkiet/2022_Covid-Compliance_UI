@@ -44,6 +44,7 @@ import { ReportItemComponent } from './components/report/report-item/report-item
 import { DatePipe } from '@angular/common';
 import { ManageofficersComponent } from './components/manageofficers/manageofficers.component';
 import { OfficerRecordsComponent } from './components/officer-records/officer-records.component';
+import { StudentcardComponent } from './studentcard/studentcard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,6 +65,7 @@ import { OfficerRecordsComponent } from './components/officer-records/officer-re
     ReportItemComponent,
     ManageofficersComponent,
     OfficerRecordsComponent,
+    StudentcardComponent,
     
     
    

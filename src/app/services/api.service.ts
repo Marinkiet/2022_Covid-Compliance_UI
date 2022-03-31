@@ -28,7 +28,7 @@ export class ApiService {
     return this.http.put<GetAllOfficers[]>("http://localhost:3000/update_officer/officer/:Officer_id",officer_id);
   }
   deleteOfficer(id:number):Observable<GetAllOfficers[]>{
-    return this.http.delete<GetAllOfficers[]>("http://localhost:3000/delete_officer/officer/:Officer_id"+id);
+    return this.http.delete<GetAllOfficers[]>("http://localhost:3000/delete_officer/officer/"+id);
   }
 
   getRecord():Observable<GetAllRecords[]>{
