@@ -1,0 +1,95 @@
+
+        <div class="dialogscroll">
+
+            <mat-card class="student-card">
+
+                <mat-card-header>
+
+                    <mat-card-title>Student Card</mat-card-title>
+                    <mat-card-subtitle>Student Details</mat-card-subtitle>
+                
+                </mat-card-header>
+
+                     <img class="avatar" src="../../../assets/social-care.png"  mat-card-image>
+
+                <mat-card-content>
+
+                   <!--<mat-label>Year:2021</mat-label><br><br>
+                    <mat-label>Institute:Tshwane <br> University <br> Of Technology</mat-label><br><br>
+                    <mat-label>Username:218179088</mat-label><br><br>
+                    <mat-label>Campus:South</mat-label><br><br>
+                    -->
+                    
+                    <ul  *ngFor="let user of users;">
+
+                        <li>Student number:{{user.User_id}}</li><br>
+                        <li>First Name:{{user.First_name}}</li><br>
+                        <li>Last Name:{{user.Last_name}}</li> <br>
+                        <li>Email:{{user.Email}}</li>
+
+                    </ul>
+                    <br>
+                   
+                <h3>Generated temperature is:{{studenttemp}}</h3>
+                </mat-card-content>
+
+               
+            </mat-card>
+
+            <br><br>
+        
+            <mat-card>
+
+               
+
+                    <h2>Normal temperature is Around: 37&#8451;</h2>
+            
+                    <mat-label>Enter temperature:</mat-label>
+            
+                    <form [formGroup]="tempForm">
+    
+                        <mat-form-field appearance="fill">
+                            <mat-label>Temperature</mat-label>
+                            <input formControlName="Tempareture" matInput type="number"placeholder="E.g 36,4" [value]="Tempareture.value" >
+                        
+                            <mat-error>Temperature required</mat-error>
+                        </mat-form-field>
+                        <br><br>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Health Status</mat-label>
+                            <input formControlName="Health_status_reason" matInput type="text"placeholder="1=yes 0=no" [value]="Health_status_reason.value" >
+                        
+                            <mat-error>Access required</mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Grant Access</mat-label>
+                            <input formControlName="isAllowedEntrence" matInput type="number"placeholder="1=yes 0=no" [value]="isAllowedEntrence.value" >
+                        
+                            <mat-error>Access required</mat-error>
+                        </mat-form-field>
+                        <br><br>
+
+
+                        <button (click)="onSubmit()"  mat-raised-button color="warn">Submit Temperature</button>
+                        <h3 >status: <br> {{message}}</h3>
+
+                 
+                    </form>
+    
+                    
+
+                        
+                   
+
+               
+               
+            </mat-card>
+            
+        
+        </div>
+
+
+        
+
