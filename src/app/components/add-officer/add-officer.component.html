@@ -3,24 +3,30 @@
 <form [formGroup]="officerForm">
     <mat-form-field appearance="fill">
         <mat-label>User Id</mat-label>
-        <input formControlName="officer_id" matInput  >
+        <input formControlName="Officer_id" matInput  >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Campus</mat-label>
+        <input formControlName="Campus_id" matInput >
+        <mat-icon matSuffix>face</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>First Name</mat-label>
-        <input formControlName="officer_firstName" matInput >
+        <input formControlName="First_name" matInput >
         <mat-icon matSuffix>face</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Last Name</mat-label>
-        <input formControlName="officer_lastName" matInput placeholder="Placeholder" >
+        <input formControlName="Last_name" matInput placeholder="Placeholder" >
         <mat-icon matSuffix>face</mat-icon>
       </mat-form-field>
    
       <mat-form-field appearance="fill">
         <mat-label>Gender</mat-label>
-        <mat-select formControlName="officer_gender"  placeholder="Gender">
+        <mat-select formControlName="Gender"  placeholder="Gender">
           <mat-option value="Male">Male</mat-option>
           <mat-option value="Female">Female</mat-option>
         </mat-select>
@@ -28,25 +34,25 @@
 
       <mat-form-field appearance="fill">
         <mat-label>Email Address</mat-label>
-        <input formControlName="officer_emailAddress" matInput placeholder="Email Address" >
+        <input formControlName="Email" matInput placeholder="Email Address" >
         <mat-icon matSuffix>mail_outline</mat-icon>
       </mat-form-field>
    
       <mat-form-field appearance="fill">
         <mat-label>Phone Number</mat-label>
-        <input formControlName="officer_phoneNumber" matInput placeholder="Phone Number" >
+        <input formControlName="Cellphone_number" matInput placeholder="Phone Number" >
         <mat-icon matSuffix>phone</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>{{passwType}}</mat-label>
-        <input formControlName="officer_oldPassword" matInput >
+        <input formControlName="Password" matInput >
         <mat-icon matSuffix>password</mat-icon>
       </mat-form-field>
       
       <mat-form-field appearance="fill">
         <mat-label>{{passwTypeConfirm}}</mat-label>
-        <input formControlName="officer_newPassword" matInput placeholder="New Password" >
+        <input formControlName="Password" matInput placeholder="New Password" >
         <mat-icon matSuffix>password</mat-icon>
       </mat-form-field>
       

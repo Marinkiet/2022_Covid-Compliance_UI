@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "officer_id": "123456789",
+      "user_id": "220563310",
+      "user_type": "Student",
+      "form_id": "1",
+      "date": "03/04/2021",
+      "temperature": "37.5",
+      "comments": "",
+      "id": 1
+    },
+    {
+      "officer_id": "123456789",
+      "user_id": "220563310",
+      "user_type": "Student",
+      "form_id": "2",
+      "date": "03/04/2022",
+      "temperature": "36.8",
+      "comments": "No sanitizer at gate",
+      "id": 1
+    },
+    {
+      "officer_id": "2456810125",
+      "user_id": "0006141021083",
+      "user_type": "Guest",
+      "form_id": "1",
+      "date": "12/04/2022",
+      "temperature": "37.2",
+      "comments": "",
+      "id": 1
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

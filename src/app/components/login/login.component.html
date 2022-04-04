@@ -14,15 +14,15 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>User Type</mat-label>
-                    <mat-select formControlName="user_type">
-                        <mat-option *ngFor="let i of user_type" [value]="i">{{i}}</mat-option>
+                    <mat-select formControlName="user_type" [(ngModel)]="selectedUser">
+                        <mat-option *ngFor="let user of users" [value]="user.id" >{{user.type}}</mat-option>
                     </mat-select>
                 </mat-form-field>
                 <br><br>
                 <mat-form-field appearance="fill">
                     <mat-label>Username</mat-label>
-                    <input matInput formControlName="username">
-                    <mat-error *ngIf="username.invalid && username.touched">Username Reguired</mat-error>
+                    <input matInput formControlName="User_id">
+                    <mat-error *ngIf="User_id.invalid && User_id.touched">Username Reguired</mat-error>
                     <mat-hint>student/staff number</mat-hint>
             
                 </mat-form-field>
@@ -30,19 +30,19 @@
                 <mat-form-field appearance="fill">
             
                     <mat-label>Password</mat-label>
-                    <input matInput  [type]="hide ? 'password' : 'text'" formControlName="password" >
+                    <input matInput  [type]="hide ? 'password' : 'text'" formControlName="Password" >
                     <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                     </button>
 
-                  <mat-error *ngIf="(password.touched || submitted)&& password.errors?.required">Password is required</mat-error>
+                    <mat-error *ngIf="(Password.touched || submitted)&& Password.errors?.required">Password is required</mat-error>
 
-                <mat-error *ngIf="(password.touched && password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
+                    <mat-error *ngIf="(Password.touched && Password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
                     <mat-hint>Minimum of 8 characters</mat-hint>
                 </mat-form-field>
                 <br><br>
                 <br>
-                <button mat-raised-button type="submit" routerLink="/qrcode">Login</button> &nbsp;&nbsp;
+                <button mat-raised-button [disabled]="loginForm.invalid" (click)="UserSelected(selectedUser)" href="officer">Login</button> &nbsp;&nbsp;
 
                 <button mat-raised-button routerLink="/resetpass">Forgot Password</button>
                 <br><br>
@@ -52,7 +52,9 @@
 
             </form>
             
-        
+            <p>selected value is {{selectedUser}}</p><br>
+            <p>selected {{usertype}}</p><br>
+
         
         
         </div>

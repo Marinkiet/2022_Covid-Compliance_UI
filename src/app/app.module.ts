@@ -27,7 +27,6 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -40,8 +39,12 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AdminComponent } from './components/admin/admin.component';
 import { AddOfficerComponent } from './components/add-officer/add-officer.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
-
-
+import { ReportComponent } from './components/report/report.component';
+import { ReportItemComponent } from './components/report/report-item/report-item.component';
+import { DatePipe } from '@angular/common';
+import { ManageofficersComponent } from './components/manageofficers/manageofficers.component';
+import { OfficerRecordsComponent } from './components/officer-records/officer-records.component';
+import { StudentcardComponent } from './components/studentcard/studentcard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +60,14 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     UserProfileComponent,
     AdminComponent,
     AddOfficerComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    ReportComponent,
+    ReportItemComponent,
+    ManageofficersComponent,
+    OfficerRecordsComponent,
+    StudentcardComponent,
+    
+    
    
   ],
   imports: [
@@ -84,11 +94,14 @@ import { LandingPageComponent } from './components/landing-page/landing-page.com
     HttpClientModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    
+
+    
     
     
   ],
-  providers: [CustomvalidationService],
+  providers: [CustomvalidationService,DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {

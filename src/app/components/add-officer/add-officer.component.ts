@@ -24,14 +24,14 @@ export class AddOfficerComponent implements OnInit {
 
   ngOnInit(): void {
     this.officerForm = this.formBuilder.group({
-      officer_id: ['', Validators.required],
-      officer_firstName: ['', Validators.required],
-      officer_lastName: ['', Validators.required],
-      officer_emailAddress: ['', Validators.required],
-      officer_phoneNumber: ['', Validators.required],
-      officer_gender: ['', Validators.required],
-      officer_oldPassword: ['', Validators.required],
-      officer_newPassword: ['', Validators.required],
+      Officer_id: ['', Validators.required],
+      Campus_id: ['', Validators.required],
+      First_name: ['', Validators.required],
+      Last_name: ['', Validators.required],
+      Gender: ['', Validators.required],
+      Cellphone_number: ['', Validators.required],
+      Email: ['', Validators.required],
+      Password: ['', Validators.required],
 
     });
     //check if row data is reflecting from the dialog then patch into dialof input fields
@@ -41,14 +41,14 @@ export class AddOfficerComponent implements OnInit {
       this.lblType = "Edit Officer"; 
       this.passwType="Old Password";
       this.passwTypeConfirm = "New Password";
-        this.officerForm.controls['officer_id'].setValue(this.editData.officer_id);
-        this.officerForm.controls['officer_firstName'].setValue(this.editData.officer_firstName);
-        this.officerForm.controls['officer_lastName'].setValue(this.editData.officer_lastName);
-        this.officerForm.controls['officer_emailAddress'].setValue(this.editData.officer_emailAddress);
-        this.officerForm.controls['officer_gender'].setValue(this.editData.officer_gender);
-        this.officerForm.controls['officer_oldPassword'].setValue(this.editData.officer_oldPassword);
-        this.officerForm.controls['officer_newPassword'].setValue(this.editData.officer_newPassword);
-        this.officerForm.controls['officer_phoneNumber'].setValue(this.editData.officer_phoneNumber);
+        this.officerForm.controls['Officer_id'].setValue(this.editData.Officer_id);
+        this.officerForm.controls['Campus_id'].setValue(this.editData.Campus_id);
+        this.officerForm.controls['First_name'].setValue(this.editData.First_name);
+        this.officerForm.controls['Last_name'].setValue(this.editData.Last_name);
+        this.officerForm.controls['Gender'].setValue(this.editData.Gender);
+        this.officerForm.controls['Cellphone_number'].setValue(this.editData.Cellphone_number);
+        this.officerForm.controls['Email'].setValue(this.editData.Email);
+        this.officerForm.controls['Password'].setValue(this.editData.Password);
     }
   }
   addOfficer(){
@@ -58,7 +58,7 @@ export class AddOfficerComponent implements OnInit {
     if(this.officerForm.valid){
       this.api.postOfficer(this.officerForm.value)
       .subscribe({
-        next:(res)=>{
+        next:(res:any)=>{
           //alert('officer registered successfully');
           this.dialogRef.close('saved'); //close form once saved
         },
@@ -74,7 +74,7 @@ export class AddOfficerComponent implements OnInit {
   
   }
   updateOfficer(){
-this.api.putOfficer(this.officerForm.value,this.editData.id)
+this.api.putOfficer(this.officerForm.value)
 .subscribe({
   next:(res)=>{
     //alert("Updated Officer Successfully");
