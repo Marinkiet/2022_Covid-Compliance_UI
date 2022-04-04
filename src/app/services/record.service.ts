@@ -15,11 +15,16 @@ export class RecordService {
   {
     return this.http.get<Record[]>('http://localhost/phpmyadmin/index.php?route=/table/structure&db=covid_compliance&table=record');
   }*/
-  getofficerRecord(){
+  /* getofficerRecord(){
     return this.http.get<any>("http://localhost:3000/get_all_records/record");
+  } */
+  
+  getRecord():Observable<Record[]>
+  {
+    return this.http.get<Record[]>('http://localhost:3000/retrieve_entered_student/record');
   }
   getPendingRecord():Observable<Record[]>
   {
-    return this.http.get<Record[]>('http://localhost:3000/officerrec');
+    return this.http.get<Record[]>('http://localhost:3000/retrieve_all_form/record');
   }
 }

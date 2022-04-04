@@ -1,24 +1,27 @@
+import { AdminService } from './../../services/admin.service';
+import { Typeuser } from './../../interfaces/usertypes/typeuser';
+import { Router } from '@angular/router';
+import { first, map } from 'rxjs';
+//import { userlogin } from './../../services/user.service';
+import { UserService } from 'src/app/services/user.service';
+import { OfficerLogin } from './../../interfaces/user';
+import { OfficerService } from './../../services/officer.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup,Validators} from '@angular/forms';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
-import { OfficerService } from './../../services/officer.service';
-import { Router } from '@angular/router';
-import { UserService } from 'src/app/services/user.service';
-import { AdminService } from './../../services/admin.service';
-import { first, map } from 'rxjs';
-import { Typeuser } from './../../interfaces/usertypes/typeuser';
 import { Typelist } from 'src/app/interfaces/usertypes/typelist';
+import { Token } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl:'./login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit
  {
   [x: string]: any;
+
   hide=true;
-  routepage='/';
   constructor(
     private router:Router,
     private userservice:UserService,
@@ -32,9 +35,11 @@ export class LoginComponent implements OnInit
   loginForm:any;
   value:any;
   userinfo:any;
+
+
   ngOnInit()
   {
-    
+
     this.loginForm=new FormGroup
     ({
       user_type:new FormControl('',[Validators.required]),
@@ -42,14 +47,15 @@ export class LoginComponent implements OnInit
       Password:new FormControl('',[Validators.required,Validators.minLength(8),this.customValidator.patternPassValidator()])
 
     })
+
   }
+
   users = Typelist;
   selectedUser!: Typeuser;
 
   onSelectuser(userType:Typeuser):void
   {
     this.selectedUser=userType;
-    
   }
   
   get User_id()
@@ -67,17 +73,21 @@ get Password()
  UserSelected(value:any)
  {
   this.customFunction(value);
+
   switch(value)
   {
     case 1:
       {
         alert('This is the admin talking');
+        
+
         this.adminservice.loginAdmin(this.loginForm.value).pipe(first()).subscribe(
           data => {
+
+
             if (data.message == 'Successful') {
-             //const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/admin'; 
-             // this.router.navigate(['/admin']);
-             this.routepage = '/admin'
+              /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
+              this.router.navigate(['admin']);
             }
             else if (data.message == 'Unsuccessful') {
               alert(' Admin Please Enter valid credentials');
@@ -98,10 +108,10 @@ get Password()
           data => {
 
             console.log("This is the message:"+data.message)
-            
             if(data.message == 'Successful') {
-              // const redirect = this.officerservice.redirecturl ? this.officerservice.redirecturl : '/officer'; 
-              //this.router.navigate(['/officer']);
+              
+              /* const redirect = this.officerservice.redirecturl ? this.officerservice.redirecturl : '/officer'; */
+              this.router.navigate(['officer']);
             }
             else if (data.message == 'Unsuccessful') {
               alert('Officer Please valid credentials');
@@ -113,7 +123,6 @@ get Password()
         );
 
       }
-
       break;
 
       //student login part
@@ -129,7 +138,6 @@ get Password()
               {
                 /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
                 this.router.navigate(['qrcode']);
-
               }
               else if (data.message =='Unsuccessful')
               {
@@ -146,7 +154,6 @@ get Password()
     case 4:
       {
         alert('This is the Visitor talking');
-
       }
       break;
 
@@ -168,12 +175,206 @@ usertype!:string;
 
   onSubmit()
   {
-    /*this.submitted=true;
-    if(this.loginForm.valid)
-    {
-      //alert('form submitted successfully');
-      this.linktoqrcode="/qrcode";
-      //console.table(this.loginForm.value);
-    }*/
+
   }
+
+
 }
+
+
+
+
+
+
+//Commented snippets
+
+//On submit
+
+/* this.submitted=true;
+   if(this.loginForm.valid)
+   {
+    //this.checkUser(this.user_type);
+    // console.log('The user who jus t logged in,is a ')
+     //alert('form submitted successfully');
+     //console.table(this.loginForm.value);
+   } */
+
+
+//user data
+
+
+            //console.log(data);
+
+/* console.log("Is the user logged in "+this.userservice.isLoggedIn()); */
+/* if(this.userservice.isLoggedIn())
+{
+  this.router.navigate(['qrcode']);
+} */
+/* if(data.message=='success')//No auth guard
+{
+  this.router.navigate(['qrcode']);
+  console.log(data.message);
+  //this.router.navigate(['qrcode']);
+} */
+
+    //console.log(data);
+
+/* console.log("Is the user logged in "+this.userservice.isLoggedIn()); */
+/* if(this.userservice.isLoggedIn())
+{
+  this.router.navigate(['qrcode']);
+} */
+/* if(data.message=='success')//No auth guard
+{
+  this.router.navigate(['qrcode']);
+  console.log(data.message);
+  //this.router.navigate(['qrcode']);
+} */
+
+
+
+
+//For checking user type did not work
+
+ //Testing
+
+  //typeName!: string;
+
+/*
+
+checkUser():void
+ {
+ 
+   for (let outer = 0; outer < this.users.length;outer++)
+   {
+     /* this.typeName =usertype[outer]; */
+     
+     /* if(this.typeName==="Officer")
+      {
+          this.officerservice.loginOfficer(this.loginForm.value).subscribe
+          (
+            (response) => {
+             console.log(response)
+               const officer = response;
+               console.log(officer)
+               this.router.navigate(['officer'])
+               console.log('Logged as Officer');
+             },
+             (error: any) => console.log('this is the error' + error),
+             () => console.log('Done login officer in'),
+           );
+
+      }
+     else */ 
+   /*   if (this.users[outer].id===3)
+    {
+       {
+         this.userservice.loginUser(this.loginForm.value).pipe(first()).subscribe(
+             data=>
+             { */
+               //console.log(data);
+
+               /* console.log("Is the user logged in "+this.userservice.isLoggedIn()); */
+               /* if(this.userservice.isLoggedIn())
+               {
+                 this.router.navigate(['qrcode']);
+               } */
+               /* if(data.message=='success')//No auth guard
+               {
+                 this.router.navigate(['qrcode']);
+                 console.log(data.message);
+                 //this.router.navigate(['qrcode']);
+               } */
+
+/*              if (data.message == 'success')
+               {
+                 const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode';
+                 this.router.navigate([redirect]);
+               }
+                
+             },
+             (error: any) => console.log('this is the error' + error),
+             () => console.log('Done login student in'),
+           );
+
+       }
+    }
+  
+  }
+ }
+
+
+*/ 
+
+/*  checkUser(usertype:string[])
+{
+ 
+ for (let outer = 0; outer < usertype.length;outer++)
+ {
+   this.typeName=this.user_type[outer];
+   
+   switch(this.typeName)
+   {
+
+     case "Admin":
+       {
+         //console.log('Login as admin');
+       }
+       break;
+
+     case "Officer":
+       {
+         this.officerservice.loginOfficer(this.loginForm.value).subscribe
+         (
+           (response) => {
+             console.log(response)
+             const officer = response;
+             console.log(officer)
+             this.router.navigate(['officer'])
+             console.log('Logged as Officer');
+           },
+           (error: any) => console.log('this is the error' + error),
+           () => console.log('Done login officer in'),
+         );
+
+       }
+       break;
+
+     case "Guest":
+       {
+         //console.log('Login as Guest');
+       }
+       break;
+
+     case "Staff":
+       {
+         //console.log('Login as Staff');
+       }
+       break;
+
+     case "Student":
+       {
+         this.userservice.loginUser(this.loginForm.value).subscribe
+           (
+             (response) => {
+               console.log(response)
+               const userinfo = response;
+               console.log(userinfo)
+               this.router.navigate(['qrcode'])
+               console.log('Logged as student');
+             },
+             (error: any) => console.log('this is the error' + error),
+             () => console.log('Done login student in'),
+           );
+          
+       }
+       break;
+     default:
+     {
+       
+     }
+  
+   }
+ }
+ 
+} */

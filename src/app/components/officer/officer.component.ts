@@ -33,6 +33,7 @@ export class OfficerComponent implements OnInit {
   }
   ngOnInit(): void {
     this.onGetRecord();
+    this.onGetPending();
 
   }
   users!: User[];
@@ -111,7 +112,7 @@ export class OfficerComponent implements OnInit {
 
     onGetRecord(): void 
     {
-      this.api.getRecord().subscribe(
+      this.recordservice.getRecord().subscribe(
         (response: any) => {
           //console.log(response)
           this.records = response.data;

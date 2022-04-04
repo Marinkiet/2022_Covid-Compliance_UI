@@ -49,9 +49,9 @@ export class ReportComponent implements OnInit {
     getRecords(){
       this.api.getRecord()
       .subscribe({
-        next:(res)=>{
+        next:(res:any)=>{
           //console.log(res)
-          this.dataSource = new MatTableDataSource(res);
+          this.dataSource = new MatTableDataSource(res.data);
           this.dataSource.paginator = this.paginator;
           this.dataSource.sort = this.sort;
         },

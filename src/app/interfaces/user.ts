@@ -35,7 +35,7 @@ export interface Record
 {
     Officer_id:string;
     User_id:string;
-    Form_Check:string;
+    Form_check:string;
     Date:string;
     Tempareture:Number;
     isAllowedEntrence:Number;
@@ -45,7 +45,7 @@ export interface GetAllRecords
 {
     Officer_id:string;
     User_id:string;
-    Form_Check:string;
+    Form_check:string;
     Date:string;
     Tempareture:Number;
     isAllowedEntrence:Number;
