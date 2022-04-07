@@ -6,11 +6,17 @@
     <!--  <input type='textarea' rows="4" cols="100" formControlName="comments">
   -->
  
- <textarea formControlName="comments" matInput placeholder="Example..."></textarea>
+    <textarea formControlName="Comment" matInput placeholder="Example..."></textarea>
 
     </mat-form-field>
     
+    <mat-form-field>
+      <mat-label>Leave a name</mat-label>
+      <input formControlName="username" matInput placeholder="Name & Surname">
+      <mat-hint>Optional</mat-hint>
+    </mat-form-field>
 
+    <br><br>
     <button mat-raised-button (click)='onComment()'>Comment</button>
 
     <p class="feed"><br>{{message_2}}</p>

@@ -1,4 +1,4 @@
-import { UpdateRecord, UserLogin } from './../interfaces/user';
+import { RegisterUser, UpdateRecord, UserLogin } from './../interfaces/user';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map, Observable,observable} from 'rxjs';
@@ -15,7 +15,7 @@ import { User } from '../interfaces/user';
   password:string;
 } */
 
-export interface userregister
+/* export interface userregister
 {
   firstNames:string;
   lastName:string;
@@ -25,7 +25,7 @@ export interface userregister
   campId:string;
   email:string;
   token:string;
-}
+} */
 @Injectable({
   providedIn: 'root'
 })
@@ -83,18 +83,22 @@ export class UserService
   }
 
 
-
-  registerUser(user:userregister)
+/*   registerUser(user:RegisterUser)
   {
-    return this.http.post<any>(`http://localhost:3000/add_user/user`,{firstNames:user.firstNames,lastName:user.lastName ,username:user.username,password:user.password,cellphone:user.cellphone,email:user.email,campId:user.campId}).pipe(
-      map((token)=>
+    return this.http.post<any>(`http://localhost:3000/add_user/user`,{firstNames:user.firstNames,lastName:user.lastName ,username:user.userId,password:user.password,cellphone:user.cellphone,email:user.email,campId:user.campId}).pipe(
+      map((user)=>
       {
-        console.log('token');
-        localStorage.setItem('token',token.access_token);
-        return token;
+        console.log('user');
+        return user;
       })
     )
+  }  */
+
+  registerUser(data : any){
+    return this.http.post<any>("http://localhost:3000/add_user/user",data)
   }
+
+
 
 
 

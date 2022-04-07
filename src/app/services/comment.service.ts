@@ -12,7 +12,7 @@ export class CommentService {
 
   postComment(comment:Comments)
   {
-    return this.http.post<any>(`http://localhost:3000/something/something`,comment).pipe(
+    return this.http.post<any>(`http://localhost:3000/insert_feedback/feedback`,comment).pipe(
       map((comments)=>
       {
         return comments;

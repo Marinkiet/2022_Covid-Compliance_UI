@@ -83,5 +83,19 @@ export interface UpdateRecord
 
 export interface Comments
 {
-    comments:string;
+    Comment:string;
+    username:string;
+}
+
+export interface RegisterUser
+{
+    cellphone:string;
+    userId:string;
+    lastName:string;
+    campId:number;
+    gender:string;
+    type:number;
+    email:string;
+    password:string;
+    firstNames:string;
 }

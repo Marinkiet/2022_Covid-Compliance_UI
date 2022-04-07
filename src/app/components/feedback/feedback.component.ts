@@ -20,36 +20,43 @@ export class FeedbackComponent implements OnInit {
   {
     this.commentForm=new FormGroup
     ({
-      comments:new FormControl('',Validators.required)
+      Comment:new FormControl('',Validators.required),
+      username:new FormControl('')
     })
   }
 
-  get comments()
+  get username()
   {
-    return this.commentForm.get('comments');
+    return this.commentForm.get('username');
+  }
+  get Comment()
+  {
+    return this.commentForm.get('Comment');
   }
 
+  
   message:any;
   message_2:any;
+
 
   onComment()
   {
     if(this.commentForm.valid)
     {
       alert('comment submitted');
-      console.log('Comments by User'+ this.comments);
+      console.log('Comments by User'+ this.Comment);
+      this.onPostComment();
       this.message='Feedback submitted';
     }
 
     else if(this.commentForm.invalid)
     {
       alert('comment invalid');
-      console.log('Comments by User'+ this.comments);
+      console.log('Comments by User'+ this.Comment);
       this.message_2='Incorrect Feedback format';
     }
 
   }
-
 
   onPostComment()
   {
@@ -62,8 +69,6 @@ export class FeedbackComponent implements OnInit {
       { console.log(error);
         this.alertify.eror(error.error)
       }
-
-    
     )
   }
     
