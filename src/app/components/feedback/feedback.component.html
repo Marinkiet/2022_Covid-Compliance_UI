@@ -1,0 +1,19 @@
+<form [formGroup]="commentForm">
+
+    <mat-form-field>
+
+    <mat-label>Leave a comment</mat-label><br>
+    <!--  <input type='textarea' rows="4" cols="100" formControlName="comments">
+  -->
+ 
+ <textarea formControlName="comments" matInput placeholder="Example..."></textarea>
+
+    </mat-form-field>
+    
+
+    <button mat-raised-button (click)='onComment()'>Comment</button>
+
+    <p class="feed"><br>{{message_2}}</p>
+    <p><br>{{message}}</p>
+    
+</form>

@@ -81,3 +81,7 @@ export interface UpdateRecord
     //Record_id:number;
 }
 
+export interface Comments
+{
+    comments:string;
+}

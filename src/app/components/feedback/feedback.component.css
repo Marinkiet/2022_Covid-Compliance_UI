@@ -1,0 +1,21 @@
+form
+{
+    width:15%;
+    margin:auto;
+    padding:5%;
+    background:#003883;
+    color:white;
+
+}
+button
+{
+    background: #e91e1e;
+}
+p
+{
+    color:green;
+}
+feed
+{
+    color:red;
+}
