@@ -41,6 +41,17 @@ export interface Record
     isAllowedEntrence:Number;
     Health_status_reason:string;
 }
+
+export interface PendingRecord
+{
+    Officer_id:string;
+    User_id:string;
+    Form_check:string;
+    Date:string;
+    Tempareture:Number;
+    isAllowedEntrence:Number;
+    Health_status_reason:string;
+}
 export interface GetAllRecords
 {
     Officer_id:string;

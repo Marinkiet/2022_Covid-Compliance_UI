@@ -105,14 +105,18 @@ export class RegisterComponent implements OnInit {
     this.submitted=true;
     if(this.registerform.valid)
     {
-      alert('form submitted successfully');
+      //alert('form submitted successfully');
       console.table(this.registerform.value);
       this. RegisterUser();
     }
 
     if(this.registerform.invalid)
     {
+<<<<<<< HEAD
       alert('Form not valid');
+=======
+      //alert('Form not valid');
+>>>>>>> main
     }
   }
 
