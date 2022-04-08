@@ -1,0 +1,25 @@
+{
+  "officerrec": [
+    {
+      "Record_id":2,
+      "Officer_id": "123456789",
+      "User_id":218752263,
+      "Form_check":2,
+      "Date":"03/04/2021",
+      "Tempareture":36.4,
+      "isAllowedEntrence":1,
+      "Health_status_reason":"JUMBO"
+
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
