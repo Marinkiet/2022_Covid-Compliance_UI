@@ -51,7 +51,8 @@ export class AddOfficerComponent implements OnInit {
         this.officerForm.controls['Password'].setValue(this.editData.Password);
     }
   }
-  addOfficer(){
+  addOfficer()
+  {
    // console.log(this.officerForm.value);
    //if we not adding then we edit
    if(!this.editData){

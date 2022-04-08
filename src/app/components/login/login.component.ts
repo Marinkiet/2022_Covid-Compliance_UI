@@ -78,7 +78,7 @@ get Password()
   {
     case 1:
       {
-        alert('This is the admin talking');
+        //alert('This is the admin talking');
         
 
         this.adminservice.loginAdmin(this.loginForm.value).pipe(first()).subscribe(
@@ -102,7 +102,7 @@ get Password()
 
     case 2:
       {
-        alert('This is the Officer talking');
+        //alert('This is the Officer talking');
 
         this.officerservice.loginOfficer(this.loginForm.value).pipe(first()).subscribe(
           data => {
@@ -128,7 +128,7 @@ get Password()
       //student login part
     case 3:
       {
-        alert('This is the Student');
+        //alert('This is the Student');
       
           this.userservice.loginUser(this.loginForm.value).pipe(first()).subscribe(
             data => {

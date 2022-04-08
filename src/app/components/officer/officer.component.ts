@@ -8,8 +8,11 @@ import { StudentcardComponent } from '../studentcard/studentcard.component';
 import { UserService } from 'src/app/services/user.service';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
-import { User,Record } from 'src/app/interfaces/user';
+import { User,Record, PendingRecord } from 'src/app/interfaces/user';
 import { RecordService } from 'src/app/services/record.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
 @Component({
   selector: 'app-officer',
@@ -36,11 +39,15 @@ export class OfficerComponent implements OnInit {
     this.onGetPending();
 
   }
+
+  
   users!: User[];
   records!:Record[];
-  pendingRecords!:Record[];
+  pendingRecords!:PendingRecord[];
+
 
     @ViewChild(MatSidenav)
+    
     sidenav!: MatSidenav;
   
    
@@ -115,9 +122,13 @@ export class OfficerComponent implements OnInit {
       this.recordservice.getRecord().subscribe(
         (response: any) => {
           //console.log(response)
-          this.records = response.data;
-         console.log(response.data);
+          //this.records = response.data;
+         //console.log(response.data);
          // console.log(this.users)
+
+         this.dataSource = new MatTableDataSource(response.data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
         },
         (error: any) => console.log('this is the error' + error),
         () => console.log('Done getting officer'),
@@ -129,13 +140,61 @@ export class OfficerComponent implements OnInit {
       this.recordservice.getPendingRecord().subscribe(
         (response:any) => {
           //console.log(response)
-          this.pendingRecords = response.data;
-         //console.log(response.data);
+          //this.pendingRecords = response.data;
+         //console.log("This is the info from server "+response.data);
          //console.log(this.pendingRecords);
+
+
+        this.dataSourcePending = new MatTableDataSource(response.data);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+
         },
         (error: any) => console.log('this is the error' + error),
         () => console.log('Done getting officer'),
       );
     }
+
+
+
+
+
+
+    //table data
+
+    displayedColumns: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
+    dataSource !: MatTableDataSource<Record>;
+    @ViewChild(MatPaginator) paginator !: MatPaginator;
+    @ViewChild(MatSort) sort !: MatSort;
+    applyFilter(event: Event)
+    {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      }
+    }
+
+
+    //Access Pending
+
+    displayedColumnPending: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
+    dataSourcePending !: MatTableDataSource<PendingRecord>;
+    //@ViewChild(MatPaginator) paginatorPending!: MatPaginator;
+    //@ViewChild(MatSort) sortPending !: MatSort;
+
+    @ViewChild('paginatorPending')
+  paginatorPending!: MatPaginator;
+    applyFilterPending(event: Event)
+    {
+      const filterValue = (event.target as HTMLInputElement).value;
+      this.dataSourcePending.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSourcePending.paginator) {
+        this.dataSourcePending.paginator.firstPage();
+      }
+    }
+
 
 }
