@@ -110,3 +110,10 @@ export interface RegisterUser
     password:string;
     firstNames:string;
 }
+
+export interface Images
+{
+    pic_path:string;
+    image_id:number;
+    pictureName:string;
+}

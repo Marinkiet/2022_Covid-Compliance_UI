@@ -1,4 +1,4 @@
-import { RegisterUser, UpdateRecord, UserLogin } from './../interfaces/user';
+import { Images, RegisterUser, UpdateRecord, UserLogin } from './../interfaces/user';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map, Observable,observable} from 'rxjs';
@@ -111,6 +111,11 @@ export class UserService
   getUser(username:string):Observable<User>
   {
     return this.http.get<User>(`http://localhost:3000/view_user/user/${username}`)
+  }
+
+  getImage(imagename:number):Observable<Images>
+  {
+    return this.http.get<Images>(`http://localhost:3000/select_image/image/${imagename}`)
   }
  
 

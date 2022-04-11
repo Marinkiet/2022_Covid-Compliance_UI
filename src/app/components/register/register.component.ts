@@ -112,11 +112,7 @@ export class RegisterComponent implements OnInit {
 
     if(this.registerform.invalid)
     {
-<<<<<<< HEAD
-      alert('Form not valid');
-=======
       //alert('Form not valid');
->>>>>>> main
     }
   }
 

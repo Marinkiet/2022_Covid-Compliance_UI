@@ -8,11 +8,12 @@ import { StudentcardComponent } from '../studentcard/studentcard.component';
 import { UserService } from 'src/app/services/user.service';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
-import { User,Record, PendingRecord } from 'src/app/interfaces/user';
+import { User,Record, PendingRecord, Images } from 'src/app/interfaces/user';
 import { RecordService } from 'src/app/services/record.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-officer',
@@ -25,23 +26,8 @@ export class OfficerComponent implements OnInit {
   temp = 37.0;
   isScan=false;
 
-  validateTemp(temp2:number){
-    if (temp2 >=36.1 && temp2 <=37.2) {
-      this.messg="Allow access";
-    }else if(temp2 > 37.2){
-      this.messg ="Deny access,Temperature too high";
-    }else{
-      this.messg ="Deny access,Temperature too low";
-    }
-  }
-  ngOnInit(): void {
-    this.onGetRecord();
-    this.onGetPending();
-
-  }
-
-  
-  users!: User[];
+    users!: User[];
+    images!:Images[];
   records!:Record[];
   pendingRecords!:PendingRecord[];
 
@@ -58,7 +44,107 @@ export class OfficerComponent implements OnInit {
       public dialog:MatDialog,
       private api:ApiService) {}
 
-    ngAfterViewInit() {
+  validateTemp(temp2:number){
+    if (temp2 >=36.1 && temp2 <=37.2) {
+      this.messg="Allow access";
+    }else if(temp2 > 37.2){
+      this.messg ="Deny access,Temperature too high";
+    }else{
+      this.messg ="Deny access,Temperature too low";
+    }
+  }
+
+  formsearch!:FormGroup
+
+  ngOnInit(): void
+   {
+    this.onGetRecord();
+    this.onGetPending();
+
+    this.formsearch=new FormGroup
+    ({
+      search:new FormControl('',Validators.required)
+    })
+
+  }
+
+  get search()
+  {
+    return this.formsearch.get('search');
+  }
+  
+
+  //show card
+apimessage=''
+    getStudentCard=false;
+    studentdetails()
+    {
+      if(this.formsearch.valid)
+      {
+        //this.getStudentCard=true;
+        this.userservice.getUser(`${this.search?.value}`).subscribe(
+          (response: any) => 
+          {
+            if(response.message=='Successful')
+            {
+              this.getStudentCard=true;
+              this.apimessage="";
+              console.log(response)
+              this.users = response.data;
+              this.getImage();
+              console.log(this.users)
+            }
+            else if(response.message=='Unsuccessful')
+            {
+              this.getStudentCard=false;
+              this.apimessage="Please enter the correct student number";
+            }
+          },
+          (error: any) => console.log('this is the error' + error),
+          () => console.log('Done getting user'),
+        );
+      }
+      else if(this.formsearch.invalid)
+      {
+        this.getStudentCard=false;
+      }
+      
+    }
+
+
+
+    getImage()
+    {
+      this.userservice.getImage(26).subscribe(
+        (response: any) => 
+        {
+            console.log(response)
+            this.images = response.data;
+    
+        },
+        (error: any) => console.log('this is the error' + error),
+        () => console.log('Done getting user'),
+      );
+    }
+
+
+    //Check the search input if its empy or null
+
+    studentCheck():boolean
+    {
+      if(typeof this.search!='undefined' && this.search)
+      {
+        return false;
+      }
+      return true;
+    }
+
+  //End card
+
+
+
+  ngAfterViewInit()
+  {
       this.observer
         .observe(['(max-width: 800px)'])
         .pipe(delay(1))

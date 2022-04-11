@@ -64,6 +64,7 @@ export class FeedbackComponent implements OnInit {
       (comments:Comments)=>
       {
         console.log('commented')
+        this.commentForm.reset();
       },
       error=>
       { console.log(error);

@@ -73,9 +73,78 @@
         <hr>
 
 
+        <!--Searching of student number-->
+        <div class="container-content">
+
+            <form [formGroup]="formsearch" (ngSubmit)="studentdetails()">
+
+                <mat-form-field>
+
+                    <mat-label>Enter Lost Student Number</mat-label><br>
+                     <input type="text" matInput formControlName="search">
+
+                </mat-form-field>
+
+                <button mat-raised-button><mat-icon>search</mat-icon></button>
+            </form>
+    
+        </div>
 
 
-<!-- This is the table for the access granted one-->
+
+        <!--Student Card here-->
+
+        <div class="officer-container">
+
+           <p class="apimessage">{{apimessage}}</p> 
+            <mat-card *ngIf="getStudentCard" >
+              
+                <mat-card-header>
+
+                    <mat-card-title>Student Card</mat-card-title>
+                    <mat-card-subtitle>Student Details</mat-card-subtitle>
+                
+                </mat-card-header>
+
+            
+                    <!--  <img class="avatar" src="../../../assets/social-care.png"  mat-card-image>
+ -->
+
+                     <ul  *ngFor="let image of images;">
+
+                        <li><img src={{image.pic_path}}></li>
+                        <li>{{image.pictureName}}</li>
+                        
+                    </ul>
+                <mat-card-content>
+                    
+                    <ul  *ngFor="let user of users;">
+
+                        <li>Student number:{{user.User_id}}</li><br>
+                        <li>First Name:{{user.First_name}}</li><br>
+                        <li>Last Name:{{user.Last_name}}</li> <br>
+                        <li>Email:{{user.Email}}</li>
+
+                    </ul>
+                    <br>
+                </mat-card-content>
+
+            </mat-card>
+
+
+        </div>
+
+
+
+        <!--Student card end here-->
+
+       
+
+
+        <!--End of searching student number-->
+
+    <br>
+    <!-- This is the table for the access granted one-->
 
 <div class="officer-container">
 
@@ -301,6 +370,6 @@
 
         </div> -->
     
-</div> 
+<!-- </div> 
 
-</mat-sidenav-container>
+</mat-sidenav-container> -->
