@@ -1,3 +1,47 @@
+
+<mat-toolbar class="mat-elevation-z8">
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'">
+
+        
+
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+
+    </button>
+    <img class="logo" src="../../../assets/logo6.png">
+    <a class="left-nav"  routerLink="/home"><h3>Home</h3></a>
+    <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+            <div class="container">
+                <div class="box">
+
+                    <div class="title">
+                        <span class="block"></span>
+                        <h1>COVID COMPLIANCE<span></span></h1>
+                    </div>
+            
+                    <div class="role">
+                        <div class="block"></div>
+                        <p>Tshwane University of Technology</p>
+                    </div>
+            
+                </div>
+            </div>
+<div class="back_color">
+
+
+
 <div class="back_color">
     <div class="content">
         <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
@@ -28,14 +72,14 @@
                 <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
                     <input matInput formControlName="firstNames" >
-                    <mat-error *ngIf="(firstNames.touched || submitted) && firstNames.errors?.required">First Name is required</mat-error>
+                    <mat-error *ngIf="(firstNames.touched || submitted)&& firstNames.errors?.required">First Name is required</mat-error>
                 </mat-form-field>
                
 
                 <mat-form-field appearance="fill">
                     <mat-label>Last Name</mat-label>
                     <input matInput formControlName="lastName" >
-                    <mat-error *ngIf="(lastName.touched || submitted) && lastName.errors?.required">Last Name is required</mat-error>
+                    <mat-error *ngIf="(lastName.touched || submitted)&& lastName.errors?.required">Last Name is required</mat-error>
                 </mat-form-field>
            
          
@@ -44,7 +88,7 @@
         
             <mat-form-field appearance="fill">
                 <mat-label>Phone Number</mat-label>
-                <input matInput formControlName="cellphone">
+                <input matInput>
                 <mat-hint>optional</mat-hint>
             </mat-form-field>
 
@@ -80,41 +124,38 @@
  <mat-icon>attach_file</mat-icon>
    </button>
 
- </div>  
+ </div>
         <div class="example-container">
 
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput  type='text' formControlName="password" >
-                    <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                    </button> -->
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
             
             <mat-error *ngIf="(password.touched || submitted)&& password.errors?.required">Password is required</mat-error>
 
             <mat-error *ngIf="(password.touched && password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
             <mat-hint>password</mat-hint>
            
-
         </mat-form-field>
             <mat-form-field appearance="fill">
         
                 <mat-label>Confirm Password</mat-label>
-                <input matInput type="text" formControlName="confirm_password" >
-                 <!-- <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                     <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                </button>  -->
+                </button>
 
                 
             <!--<mat-error *ngIf="(con_pword.touched && con_pword.errors?.passwordMismatch)">Password should match</mat-error>-->
                 <mat-hint>Re-type password</mat-hint>
         
             </mat-form-field>
-            
        </div>
        
-            <br>
-            <button mat-raised-button [disabled]="registerform.invalid">Register</button>
+            <button mat-raised-button routerLink="login" [disabled]="registerform.invalid">Register</button>
             <br><br>
         
             <mat-label>Are you already registered? <span class="txt_sign_in"><a routerLink="/login">Sign-in</a></span></mat-label>

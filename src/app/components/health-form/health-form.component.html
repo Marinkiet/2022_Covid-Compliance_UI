@@ -1,10 +1,19 @@
-<h1 mat-dialog-title>Health Form</h1>
-<div mat-dialog-content>
+<form [formGroup]="healthform" (ngSubmit)="postHealthData()">
 
+  <h1 mat-dialog-title>Health Form</h1>
+<div mat-dialog-content>
 
     <mat-form-field appearance="outline">
         <mat-label>Are You Vaccinated? </mat-label>
         <mat-select formControlName="vstatus" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Do you have Convid-19? </mat-label>
+        <mat-select formControlName="covid19" placeholder="No">
           <mat-option value="Yes">Yes</mat-option>
           <mat-option value="No">No</mat-option>
         </mat-select>
@@ -41,11 +50,21 @@
           <mat-option value="No">No</mat-option>
         </mat-select>
       </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Have you been in contact with a person infected with ? </mat-label>
+        <mat-select formControlName="infectedPerson" placeholder="No">
+          <mat-option value="Yes">Yes</mat-option>
+          <mat-option value="No">No</mat-option>
+        </mat-select>
+      </mat-form-field>
       
       <div mat-dialog-action [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
-        <button style="margin-left:10px" mat-raised-button color="primary" routerLink="/qrcode">Submit</button>
+        <button style="margin-left:10px" mat-raised-button color="primary" *ngIf="close"  (click)="postHealthData()">Submit</button>
       </div>
 </div>
 
-    
+
+</form>
+

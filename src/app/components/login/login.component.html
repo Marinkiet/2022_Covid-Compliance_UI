@@ -1,3 +1,64 @@
+
+<mat-toolbar class="mat-elevation-z8">
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+
+    </button>
+    <img class="logo" src="../../../assets/logo6.png">
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/aboutus">
+            <mat-icon>information</mat-icon>
+            <span>About Us</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/contactus">
+            <mat-icon>phone</mat-icon>
+            <span>Contact Us</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/help">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+            <div class="container">
+                <div class="box">
+
+                    <div class="title">
+                        <span class="block"></span>
+                        <h1>COVID COMPLIANCE<span></span></h1>
+                    </div>
+            
+                    <div class="role">
+                        <div class="block"></div>
+                        <p>Tshwane University of Technology</p>
+                    </div>
+            
+                </div>
+            </div>
 <div class="back_color">
 
     
@@ -14,6 +75,9 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>User Type</mat-label>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon matSuffix>people</mat-icon>
+                    </button>
                     <mat-select formControlName="user_type" [(ngModel)]="selectedUser">
                         <mat-option *ngFor="let user of users" [value]="user.id" >{{user.type}}</mat-option>
                     </mat-select>
@@ -22,8 +86,11 @@
                 <mat-form-field appearance="fill">
                     <mat-label>Username</mat-label>
                     <input matInput formControlName="User_id">
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon matSuffix>face</mat-icon>
+                      </button>
                     <mat-error *ngIf="User_id.invalid && User_id.touched">Username Reguired</mat-error>
-                    <mat-hint>student/staff number</mat-hint>
+                    <mat-hint>Staff/Student Number</mat-hint>
             
                 </mat-form-field>
                 <br><br>
@@ -53,7 +120,7 @@
             </form>
             
             <p>selected value is {{selectedUser}}</p><br>
-            <p>selected {{usertype}}</p><br>
+           
 
         
         

@@ -17,6 +17,7 @@ import { ManageofficersComponent } from './components/manageofficers/manageoffic
 import { OfficerRecordsComponent } from './components/officer-records/officer-records.component';
 import { StudentcardComponent } from './components/studentcard/studentcard.component';
 import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback.component';
+import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -35,7 +36,8 @@ const routes: Routes = [
  {path:'manageofficers',component:ManageofficersComponent},
  {path:'officerrecords',component:OfficerRecordsComponent},
  {path:'student',component:StudentcardComponent},
- {path:'adminfeedback',component:AdminfeedbackComponent}
+ {path:'adminfeedback',component:AdminfeedbackComponent},
+ {path:'officerprofile',component:OfficerprofileComponent}
  
 ];
 

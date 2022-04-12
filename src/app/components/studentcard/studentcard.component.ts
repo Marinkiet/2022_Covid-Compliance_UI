@@ -57,11 +57,14 @@ export class StudentcardComponent implements OnInit {
 
   onGetUser(): void 
   {
-    this.userservice.getUser(`218179088`).subscribe(
-      (response: any) => {
+    this.userservice.getUser('218179088').subscribe(
+      (response: any) =>
+      {
+
         console.log(response)
         this.users = response.data;
         console.log(this.users)
+
       },
       (error: any) => console.log('this is the error' + error),
       () => console.log('Done getting user'),

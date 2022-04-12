@@ -47,6 +47,7 @@ import { OfficerRecordsComponent } from './components/officer-records/officer-re
 import { StudentcardComponent } from './components/studentcard/studentcard.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback.component';
+import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,6 +71,7 @@ import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback
     StudentcardComponent,
     FeedbackComponent,
     AdminfeedbackComponent,
+    OfficerprofileComponent,
     
     
    

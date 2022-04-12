@@ -14,10 +14,10 @@
     <img class="logo" src="../../../assets/logo6.png">
     
         <h3>Covid Compliance</h3>
-        <a class="left-nav"  routerLink="/aboutus"><h3 class="nav-color">About Us</h3></a>
-        <a class="left-nav"  routerLink="/contactus"><h3 class="nav-color">Contact Us</h3></a>
-        <a class="left-nav"  routerLink="/manageofficers"><h3 class="nav-color">Officers</h3></a>
-        <a class="left-nav"  routerLink="/report"><h3 class="nav-color">Report</h3></a>
+      <!--   <a class="left-nav"  routerLink="/aboutus"><h3 class="nav-color">About Us</h3></a>
+        <a class="left-nav"  routerLink="/contactus"><h3 class="nav-color">Contact Us</h3></a> -->
+     <!--    <a class="left-nav"  routerLink="/manageofficers"><h3 class="nav-color">Officers</h3></a>
+        <a class="left-nav"  routerLink="/report"><h3 class="nav-color">Report</h3></a> -->
   
   
     <span class="right-nav"></span>
@@ -33,12 +33,12 @@
         <h4 class="name">ADMIN</h4>
         <mat-divider></mat-divider>
   
-        <button mat-button class="menu-button" routerLink="/home">
+        <button mat-button class="menu-button" routerLink="/admin">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
   
-        <button mat-button class="menu-button" routerLink="/userprofile">
+        <!-- <button mat-button class="menu-button" routerLink="/userprofile">
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
@@ -55,7 +55,7 @@
       <button mat-button class="menu-button" routerLink="/adminfeedback">
         <mat-icon>assignment</mat-icon>
         <span>Feedback</span>
-    </button>
+    </button> -->
         <mat-divider></mat-divider>
   
         <button mat-button class="menu-button">
@@ -141,12 +141,12 @@
               <ng-container matColumnDef="action">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
                 <td mat-cell *matCellDef="let row"> 
-                    <button mat-icon-button color="primary"(click)="editOfficer(row)">
+                   <!--  <button mat-icon-button color="primary"(click)="editOfficer(row)">
                         <mat-icon>edit</mat-icon>
-                    </button>
-                    <button mat-icon-button color="warn" (click)="DeleteOfficer(row.Officer_id)">
+                    </button> -->
+                    <!--<button mat-icon-button color="warn" (click)="DeleteOfficer(row.Officer_id)">
                         <mat-icon>delete</mat-icon>
-                    </button>
+                    </button>-->
                  </td>
               </ng-container>
           

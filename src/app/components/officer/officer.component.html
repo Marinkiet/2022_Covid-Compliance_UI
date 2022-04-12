@@ -15,8 +15,8 @@
     <img class="logo" src="../../../assets/logo6.png">
 
         <h3>Covid Compliance</h3>
-        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
-        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+        <!-- <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a> -->
   
 
 </mat-toolbar>
@@ -31,12 +31,12 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="/home">
+        <button mat-button class="menu-button" routerLink="/officer">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/userprofile">
+        <button mat-button class="menu-button" routerLink="/officerprofile">
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
@@ -74,21 +74,7 @@
 
 
         <!--Searching of student number-->
-        <div class="container-content">
-
-            <form [formGroup]="formsearch" (ngSubmit)="studentdetails()">
-
-                <mat-form-field>
-
-                    <mat-label>Enter Lost Student Number</mat-label><br>
-                     <input type="text" matInput formControlName="search">
-
-                </mat-form-field>
-
-                <button mat-raised-button><mat-icon>search</mat-icon></button>
-            </form>
     
-        </div>
 
 
 
@@ -139,158 +125,176 @@
         <!--Student card end here-->
 
        
+        <div class="container-content">
 
+            <form [formGroup]="formsearch" (ngSubmit)="studentdetails()">
+
+                <mat-form-field>
+
+                    <mat-label>Enter Lost Student Number</mat-label><br>
+                     <input type="text" matInput formControlName="search">
+
+                </mat-form-field>
+
+                <button mat-raised-button><mat-icon>search</mat-icon></button>
+            </form>
+    
+        </div>
 
         <!--End of searching student number-->
-        <hr>
+        <!-- <hr> -->
     <br>
     <!-- This is the table for the access granted one-->
 
-<div class="officer-container">
+    <div class="officer-container">
 
-    <h3>Access Granted</h3>
-    <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
-    </mat-form-field>
+        <h3>Access Granted</h3>
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+        
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="Officer_id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Officer ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.Officer_id}} </td>
+            </ng-container>
+        
+            <!-- Progress Column -->
+            <ng-container matColumnDef="User_id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.User_id}}</td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="Form_check">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Check Form </th>
+                <td mat-cell *matCellDef="let row"> {{row.Form_check}} </td>
+            </ng-container>
+        
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
+            </ng-container>
+        
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="Tempareture">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </th>
+                <td mat-cell *matCellDef="let row"> {{row.Tempareture}} </td>
+            </ng-container>
     
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSource" matSort>
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="isAllowedEntrence">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Access Granted </th>
+                <td mat-cell *matCellDef="let row"> {{row.isAllowedEntrence}} </td>
+            </ng-container>
     
-        <!-- ID Column -->
-        <ng-container matColumnDef="Officer_id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Officer ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.Officer_id}} </td>
-        </ng-container>
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="Health_status_reason">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Health Status </th>
+                <td mat-cell *matCellDef="let row"> {{row.Health_status_reason}} </td>
+            </ng-container>
     
-        <!-- Progress Column -->
-        <ng-container matColumnDef="User_id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.User_id}}</td>
-        </ng-container>
     
-        <!-- Name Column -->
-        <ng-container matColumnDef="Form_check">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Check Form </th>
-            <td mat-cell *matCellDef="let row"> {{row.Form_check}} </td>
-        </ng-container>
     
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="Date">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-            <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
-        </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+            </table>
+        
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
     
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="Tempareture">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </th>
-            <td mat-cell *matCellDef="let row"> {{row.Tempareture}} </td>
-        </ng-container>
-
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="isAllowedEntrence">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Access Granted </th>
-            <td mat-cell *matCellDef="let row"> {{row.isAllowedEntrence}} </td>
-        </ng-container>
-
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="Health_status_reason">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Health Status </th>
-            <td mat-cell *matCellDef="let row"> {{row.Health_status_reason}} </td>
-        </ng-container>
-
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-        </table>
-    
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
     </div>
+    <!-- This is the end of the table-->
+    
 
-</div>
+    <br>
+    <div class="officer-container">
+    
+        <h3>Access Pending</h3>
+        <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilterPending($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+        
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSourcePending" matSort>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="Officer_id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Officer ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.Officer_id}} </td>
+            </ng-container>
+        
+            <!-- Progress Column -->
+            <ng-container matColumnDef="User_id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.User_id}}</td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="Form_check">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Check Form </th>
+                <td mat-cell *matCellDef="let row"> {{row.Form_check}} </td>
+            </ng-container>
+        
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="Date">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+                <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
+            </ng-container>
+        
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="Tempareture">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </th>
+                <td mat-cell *matCellDef="let row"> {{row.Tempareture}} </td>
+            </ng-container>
+    
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="isAllowedEntrence">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Access Granted </th>
+                <td mat-cell *matCellDef="let row"> {{row.isAllowedEntrence}} </td>
+            </ng-container>
+    
+            <!-- Fruit Column -->
+            <ng-container matColumnDef="Health_status_reason">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Health Status </th>
+                <td mat-cell *matCellDef="let row"> {{row.Health_status_reason}} </td>
+            </ng-container>
+    
+    
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumnPending"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumnPending;"></tr>
+        
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+            </table>
+        
+            <mat-paginator #paginatorPending="matPaginator" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
+    
+    </div>
+    
+
+
 <!-- This is the end of the table-->
 
 
 
 
 
-<!-- This is the table for the access granted one-->
-<br>
-<div class="officer-container">
-
-    <h3>Access Pending</h3>
-    <mat-form-field appearance="standard">
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilterPending($event)" placeholder="Ex. Mia" #input>
-    </mat-form-field>
-    
-    <div class="mat-elevation-z8">
-        <table mat-table [dataSource]="dataSourcePending" matSort>
-    
-        <!-- ID Column -->
-        <ng-container matColumnDef="Officer_id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Officer ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.Officer_id}} </td>
-        </ng-container>
-    
-        <!-- Progress Column -->
-        <ng-container matColumnDef="User_id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> User ID </th>
-            <td mat-cell *matCellDef="let row"> {{row.User_id}}</td>
-        </ng-container>
-    
-        <!-- Name Column -->
-        <ng-container matColumnDef="Form_check">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Check Form </th>
-            <td mat-cell *matCellDef="let row"> {{row.Form_check}} </td>
-        </ng-container>
-    
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="Date">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
-            <td mat-cell *matCellDef="let row"> {{row.Date}} </td>
-        </ng-container>
-    
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="Tempareture">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </th>
-            <td mat-cell *matCellDef="let row"> {{row.Tempareture}} </td>
-        </ng-container>
-
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="isAllowedEntrence">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Access Granted </th>
-            <td mat-cell *matCellDef="let row"> {{row.isAllowedEntrence}} </td>
-        </ng-container>
-
-        <!-- Fruit Column -->
-        <ng-container matColumnDef="Health_status_reason">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Health Status </th>
-            <td mat-cell *matCellDef="let row"> {{row.Health_status_reason}} </td>
-        </ng-container>
-
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumnPending"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumnPending;"></tr>
-    
-        <!-- Row shown when there is no matching data. -->
-        <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-        </tr>
-        </table>
-    
-        <mat-paginator #paginatorPending="matPaginator" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
-    </div>
-
-</div>
-<!-- This is the end of the table-->
 
 
 
@@ -303,12 +307,7 @@
 
 
 
-
-
-
-
-
-              <div  class="container">
+              <!-- <div  class="container">
 
                     <div class="container-content">
             
@@ -368,7 +367,7 @@
                 </table>
             </div> 
 
-        </div> 
+        </div>  -->
     
 <!-- </div> 
 

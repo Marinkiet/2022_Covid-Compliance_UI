@@ -120,3 +120,14 @@ export interface Images
     image_id:number;
     pictureName:string;
 }
+export interface FormData
+{
+    vstatus:string;
+    covid19:string;
+    recentCough:string;
+    difficultyBreathing:string;
+    lossOfTaste:string;
+    heavyHeadache:string;
+    infectedPerson:string;
+ 
+}

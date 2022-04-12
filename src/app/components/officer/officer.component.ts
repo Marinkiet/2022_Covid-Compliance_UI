@@ -190,7 +190,7 @@ apimessage=''
       this.recordservice.getRecord().subscribe(
         (response: any) => {
           //console.log(response)
-          //this.records = response.data;
+          this.records = response.data;
          //console.log(response.data);
          // console.log(this.users)
 
@@ -208,7 +208,7 @@ apimessage=''
       this.recordservice.getPendingRecord().subscribe(
         (response:any) => {
           //console.log(response)
-          //this.pendingRecords = response.data;
+          this.pendingRecords = response.data;
          //console.log("This is the info from server "+response.data);
          //console.log(this.pendingRecords);
 

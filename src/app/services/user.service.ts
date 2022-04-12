@@ -134,7 +134,10 @@ export class UserService
   }
 
 
-
+  form(data:FormData)
+  {
+    return this.http.post<FormData>("http://localhost:3000/healthform/user",data)
+  }  
 
 
   

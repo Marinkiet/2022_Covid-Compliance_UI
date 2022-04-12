@@ -17,7 +17,7 @@ import { delay } from 'rxjs/operators';
 })
 export class ManageofficersComponent implements OnInit {
 
-  displayedColumns: string[] = ['Officer_id','Campus_id', 'First_name', 'Last_name','Gender','Cellphone_number','Email','Password','action'];
+  displayedColumns: string[] = ['Officer_id','Campus_id', 'First_name', 'Last_name','Gender','Cellphone_number','Email','Password'];
   dataSource !: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
