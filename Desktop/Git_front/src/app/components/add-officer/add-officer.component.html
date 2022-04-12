@@ -1,0 +1,67 @@
+<h1 mat-dialog-title>{{lblType}}</h1>
+<div mat-dialog-content>
+<form [formGroup]="officerForm">
+    <mat-form-field appearance="fill">
+        <mat-label>User Id</mat-label>
+        <input formControlName="Officer_id" matInput  >
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Campus</mat-label>
+        <input formControlName="Campus_id" matInput >
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input formControlName="First_name" matInput >
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="Last_name" matInput placeholder="Placeholder" >
+        <mat-icon matSuffix>face</mat-icon>
+      </mat-form-field>
+   
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="Gender"  placeholder="Gender">
+          <mat-option value="Male">Male</mat-option>
+          <mat-option value="Female">Female</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email Address</mat-label>
+        <input formControlName="Email" matInput placeholder="Email Address" >
+        <mat-icon matSuffix>mail_outline</mat-icon>
+      </mat-form-field>
+   
+      <mat-form-field appearance="fill">
+        <mat-label>Phone Number</mat-label>
+        <input formControlName="Cellphone_number" matInput placeholder="Phone Number" >
+        <mat-icon matSuffix>phone</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>{{passwType}}</mat-label>
+        <input formControlName="Password" matInput >
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+      
+      <mat-form-field appearance="fill">
+        <mat-label>{{passwTypeConfirm}}</mat-label>
+        <input formControlName="Password" matInput placeholder="New Password" >
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+      
+</form>
+
+      <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+        <button style="margin-left:10px" mat-raised-button color="primary" (click)="addOfficer()">{{actionBtn}}</button>
+      </div>
+</div>
+
+    

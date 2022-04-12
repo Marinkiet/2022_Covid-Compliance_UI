@@ -1,0 +1,86 @@
+
+.mat-form-field{
+    width: 60%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+h2{
+  text-align: center;
+}
+
+.title-details{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.mat-dialog-container {
+    box-shadow: 0px 11px 15px -7px rgb(0 0 0 / 20%), 0px 24px 38px 3px rgb(0 0 0 / 14%), 0px 9px 46px 8px rgb(0 0 0 / 12%);
+    background: #ffffff;
+    color: #000;
+    border-radius: 0;
+}
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    border-style: none;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 100%;
+    width: 100%;
+  }
+  .example-full-width {
+    width: 100%;
+  }
+  .container-content{
+    margin: 10px auto  ;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.example-card {
+  max-width: 100%;
+
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+.logo{
+  width: 170px;
+  height: fit-content;
+  background-color: white ;
+  margin-right: 20px;
+}
+.mat-card {
+  background: white;
+  color: #000;
+}
+.mat-card-header .mat-card-subtitle:not(:first-child) {
+  margin-top: -6px;
+}
+.mat-card-subtitle {
+  color: hsl(0deg 0% 0% / 70%);
+  font-size: 16px;
+}
+.mat-card-title-group {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+}
+.input {
+  cursor: none;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  margin: 0em;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: none;
+}
+.mat-form-field {
+line-height: 2;
+}
+.mat-dialog-content{
+  overflow-x:hidden ;
+}

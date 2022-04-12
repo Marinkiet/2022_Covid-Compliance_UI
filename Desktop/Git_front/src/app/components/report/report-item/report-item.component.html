@@ -1,0 +1,76 @@
+<div id="content" #content>
+<div class="title-details">
+  <img class="logo" src="../../../../assets/logo6.png">
+  <h2 mat-dialog-title>Covid Compliance Record Details</h2>
+</div>
+ 
+
+  <mat-dialog-content class="mat-typography" id="contentToConvert">
+  <form [formGroup]="reportForm" class="example-form container-content">
+    
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>User Name</mat-card-title>
+          <mat-card-subtitle>User ID</mat-card-subtitle>
+        </mat-card-header>
+
+        <table class="example-full-width" cellspacing="0">
+          <tr>
+            <td>
+            <mat-form-field appearance="fill" class="middle_date">
+              <mat-card-title-group>Date:</mat-card-title-group>
+              <input formControlName="date" matInput  >
+            </mat-form-field>
+            </td>
+            <td>
+              <!--<h4 *ngFor="let i of reportForm|keyvalue">Officer ID:{{i.value.officer_id}}</h4-->
+              <mat-form-field appearance="fill">
+                <mat-card-title-group>Officer ID:</mat-card-title-group>
+                  <input formControlName="officer_id" matInput readonly>
+                  <mat-icon matSuffix>accessibility</mat-icon>
+                </mat-form-field>
+              </td> 
+            <td>
+              <mat-form-field appearance="fill">
+                <mat-card-title-group>Form ID:</mat-card-title-group>
+                <input formControlName="form_id" matInput  >
+                <mat-icon matSuffix>assignment</mat-icon>
+              </mat-form-field>
+            </td>
+          </tr>
+          <tr>
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-card-title-group>Temperature:</mat-card-title-group>
+                  <input formControlName="temperature" matInput >
+                  <mat-icon matSuffix>whatshot</mat-icon>
+                </mat-form-field>
+              </td>
+            
+              <td>
+                <mat-form-field appearance="fill">
+                  <mat-card-title-group>Comment:</mat-card-title-group>
+                  <textarea formControlName="comment" matInput ></textarea>
+                </mat-form-field>
+              </td>
+            
+          </tr>
+          </table>
+
+        <mat-card-content>
+          <span>{{currentDateTime}}</span> 
+          <br>
+          <span class="txt_copy">Covid Compliance&copy;2022 </span>
+          
+        </mat-card-content>
+      </mat-card>
+  </form>
+
+        <div mat-dialog-action [align]="'end'">
+          <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+          <button style="margin-left:10px" mat-raised-button color="primary" (click)="SavePDF()">Download</button>
+        </div>
+
+  </mat-dialog-content>
+
+</div>

@@ -1,0 +1,80 @@
+
+      <mat-toolbar class="mat-elevation-z8">
+
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+    
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+    
+        </button>
+        <img class="logo" src="../../../assets/logo6.png" routerLink="/">
+
+        <h3>Covid Compliance</h3>
+        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        
+    <div class="container">
+
+        <form (ngSubmit)="submitForm()" class="example-form container-content" >
+           
+            <h1 class="header">Send us an email.   <mat-icon>email</mat-icon></h1>
+            <mat-divider></mat-divider>
+           <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Identity Number</mat-label>
+                        <input type="text" name="id" [(ngModel)]="id"matInput>
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput type="text" name="fullname"  [(ngModel)]="fullname">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+           
+                <mat-form-field class="example-full-width" appearance="fill">
+                   
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [(ngModel)]="email">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                 
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea name="message" [(ngModel)]="message" matInput placeholder="Ex. It makes me feel..."></textarea>
+              </mat-form-field>
+           
+            <button style="margin-left:10px" mat-raised-button color="primary" type="submit" >Submit</button>
+            <br>
+
+        </form>
+    </div>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

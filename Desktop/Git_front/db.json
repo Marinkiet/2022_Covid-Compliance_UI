@@ -1,0 +1,25 @@
+{
+  "officers": [
+    {
+      "officer_id": "123456789",
+      "officer_firstName": "Johnny",
+      "officer_lastName": "Doe",
+      "officer_emailAddress": "kl@123@gmail.com",
+      "officer_phoneNumber": "0685598785",
+      "officer_gender": "Male",
+      "officer_oldPassword": "Password@123",
+      "officer_newPassword": "Password@123",
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
