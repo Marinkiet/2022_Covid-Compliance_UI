@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Comments } from '../interfaces/user';
 
 @Injectable({
@@ -18,5 +18,10 @@ export class CommentService {
         return comments;
       })
     )
+  }
+
+  getComment():Observable<Comments[]>
+  {
+      return this.http.get<Comments[]>('http://localhost:3000/select_all_feedback/feedback');
   }
 }

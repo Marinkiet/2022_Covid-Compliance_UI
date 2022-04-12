@@ -96,6 +96,9 @@ export interface Comments
 {
     Comment:string;
     username:string;
+    Feedback_id:number;
+    Date:string;
+
 }
 
 export interface RegisterUser

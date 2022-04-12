@@ -91,7 +91,6 @@ apimessage=''
               this.apimessage="";
               console.log(response)
               this.users = response.data;
-              this.getImage();
               console.log(this.users)
             }
             else if(response.message=='Unsuccessful')
@@ -110,23 +109,6 @@ apimessage=''
       }
       
     }
-
-
-
-    getImage()
-    {
-      this.userservice.getImage(26).subscribe(
-        (response: any) => 
-        {
-            console.log(response)
-            this.images = response.data;
-    
-        },
-        (error: any) => console.log('this is the error' + error),
-        () => console.log('Done getting user'),
-      );
-    }
-
 
     //Check the search input if its empy or null
 
@@ -284,3 +266,19 @@ apimessage=''
 
 
 }
+//Commented snippets
+
+
+/*     getImage()
+    {
+      this.userservice.getImage(26).subscribe(
+        (response: any) => 
+        {
+            console.log(response)
+            this.images = response.data;
+    
+        },
+        (error: any) => console.log('this is the error' + error),
+        () => console.log('Done getting user'),
+      );
+    } */

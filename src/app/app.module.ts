@@ -46,6 +46,7 @@ import { ManageofficersComponent } from './components/manageofficers/manageoffic
 import { OfficerRecordsComponent } from './components/officer-records/officer-records.component';
 import { StudentcardComponent } from './components/studentcard/studentcard.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
+import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
     OfficerRecordsComponent,
     StudentcardComponent,
     FeedbackComponent,
+    AdminfeedbackComponent,
     
     
    
