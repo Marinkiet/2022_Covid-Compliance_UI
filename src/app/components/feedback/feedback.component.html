@@ -1,5 +1,7 @@
+<hr>
 <form [formGroup]="commentForm">
 
+  <div class="formstyle">
     <mat-form-field>
 
     <mat-label>Leave a comment</mat-label><br>
@@ -19,7 +21,8 @@
     <br><br>
     <button mat-raised-button (click)='onComment()'>Comment</button>
 
-    <p class="feed"><br>{{message_2}}</p>
-    <p><br>{{message}}</p>
-    
+    <p class="feed">{{message_2}}</p>
+    <p>{{message}}</p>
+  </div>
+
 </form>

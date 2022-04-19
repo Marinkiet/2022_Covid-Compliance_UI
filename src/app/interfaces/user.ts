@@ -1,3 +1,10 @@
+export interface UpdateOfficer
+{
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
+}
+
 export interface User
 {
     User_id:string;
@@ -9,6 +16,12 @@ export interface User
     Cellphone_number:string;
     Email:string;
     Password:string;
+}
+
+export interface UpdateUser {
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
 }
 
 export interface UserLogin
@@ -130,4 +143,37 @@ export interface FormData
     heavyHeadache:string;
     infectedPerson:string;
  
+}
+
+//Marinkie Changes
+export interface getImage {
+    image_id: Number;
+    pictureName: string;
+}
+export interface addImage {
+    image_id: Number;
+    pictureName: string;
+}
+
+export interface updatetheUser {
+    User_id: string;
+    Camp_id: string;
+    First_name: string;
+    Last_name: string;
+    gender: string;
+    Type: string;
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
+}
+export interface getTheUser {
+    User_id: string;
+    Camp_id: string;
+    First_name: string;
+    Last_name: string;
+    Gender: string;
+    Type: string;
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
 }

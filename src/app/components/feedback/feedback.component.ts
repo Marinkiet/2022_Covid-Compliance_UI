@@ -20,7 +20,7 @@ export class FeedbackComponent implements OnInit {
   {
     this.commentForm=new FormGroup
     ({
-      Comment:new FormControl('',Validators.required),
+      Comment:new FormControl(''),
       username:new FormControl('')
     })
   }

@@ -1,4 +1,4 @@
-<p>officerprofile works!</p>
+
 
 <mat-toolbar class="mat-elevation-z8">
 
@@ -16,9 +16,9 @@
     <img class="logo" src="../../../assets/logo6.png">
 
         <h3>Covid Compliance</h3>
-        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+       <!--  <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
         <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
-  
+   -->
 
 </mat-toolbar>
 
@@ -41,11 +41,7 @@
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button> 
-        <button mat-button class="menu-button" routerLink="/officerrecords">
-            <mat-icon>assignment</mat-icon>
-            <span>Records</span>
-        </button>
-
+     
         <mat-divider></mat-divider>
         <button mat-button class="menu-button">
             <mat-icon>announcement</mat-icon>
@@ -56,7 +52,7 @@
             <span>Help</span>
         </button>
         
-        <button mat-button class="menu-button" routerLink="/login">
+        <button mat-button class="menu-button" (click)="deletesession()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
         </button>
@@ -69,71 +65,72 @@
     <br><br>
       <mat-card-title>Profile</mat-card-title>    
     <br><br>
-    <hr>
-    <br>
-    <form [formGroup]="userProfile">
+    
+    <form [formGroup]="officerprofile">
         <div class="example-container">
 
-           <!--  <mat-form-field appearance="fill">
-                <mat-label>User Id</mat-label>
-                <input formControlName="userid" matInput  readonly>
+           <mat-form-field appearance="fill">
+                <mat-label>Officer Id</mat-label>
+                <input formControlName="Officer_id" matInput  readonly>
                 <mat-icon matSuffix>id</mat-icon>
-              </mat-form-field > -->
+            </mat-form-field > 
 
         
-        <!--   <mat-form-field appearance="fill">
+        <!-- <mat-form-field appearance="fill">
             <mat-label>Gender</mat-label>
-            <input formControlName="gender" matInput placeholder="Placeholder" readonly>
+            <input formControlName="Gender" matInput placeholder="Placeholder" readonly>
             <mat-icon matSuffix>face</mat-icon>
-          </mat-form-field> -->
+          </mat-form-field>  -->
     
         </div>
-        <div class="example-container">
-          <!-- <mat-form-field appearance="fill">
+       <!--  <div class="example-container">
+           <mat-form-field appearance="fill">
             <mat-label>Last Name</mat-label>
-            <input formControlName="lastName" matInput placeholder="Placeholder" >
+            <input formControlName="Last_name" matInput placeholder="Placeholder" >
             <mat-icon matSuffix>person</mat-icon>
-          </mat-form-field> -->
+          </mat-form-field> 
       
-          <!-- <mat-form-field appearance="fill">
+           <mat-form-field appearance="fill">
             <mat-label>First Name</mat-label>
-            <input formControlName="firstName" matInput readonly>
+            <input formControlName="First_name" matInput readonly>
             <mat-icon matSuffix>person</mat-icon>
-          </mat-form-field> -->
+          </mat-form-field> 
 
-        </div>
+        </div> -->
         <div class="example-container">
 
         
           <mat-form-field appearance="fill">
             <mat-label>Email Address</mat-label>
-            <input formControlName="emailAddress" matInput placeholder="Email Address" >
+            <input formControlName="Email" matInput placeholder="Email Address" >
             <mat-icon matSuffix>email</mat-icon>
           </mat-form-field>
       
           <mat-form-field appearance="fill">
             <mat-label>Phone Number</mat-label>
-            <input formControlName="phoneNumber" matInput placeholder="Phone Number" >
+            <input formControlName="Cellphone_number" matInput placeholder="Phone Number" >
             <mat-icon matSuffix>phone</mat-icon>
           </mat-form-field>
         </div>
         <div class="example-container">
           <mat-form-field appearance="fill">
-            <mat-label>Old Password</mat-label>
-            <input formControlName="oldPassword" matInput  readonly>
+            <mat-label>Password</mat-label>
+            <input formControlName="Password" matInput>
             <mat-icon matSuffix>password</mat-icon>
           </mat-form-field>
           
-          <mat-form-field appearance="fill">
+         <!--  <mat-form-field appearance="fill">
             <mat-label>New Password</mat-label>
-            <input formControlName="newPassword" matInput placeholder="New Password" >
+            <input formControlName="Old_Password" matInput placeholder="New Password" >
             <mat-icon matSuffix>password</mat-icon>
-          </mat-form-field>
+          </mat-form-field> -->
         </div>
+
+  
     </form>
-    <div class="btns">
+        <div class="btns">
       <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/home">Close</button>
-      <button style="margin-left:10px" mat-raised-button color="primary">Update</button>
+      <button style="margin-left:10px" mat-raised-button color="primary" (click)="onUpdate()" >Update</button>
     </div>
   </div>
 </div>

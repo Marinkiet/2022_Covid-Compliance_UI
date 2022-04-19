@@ -1,7 +1,7 @@
-import { OfficerLogin } from './../interfaces/user';
+import { Officer, OfficerLogin, UpdateOfficer } from './../interfaces/user';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { map } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,18 @@ export class OfficerService {
       })
     )
     /* return this.http.post(`http://localhost:3000/login/user`,user); */
+  }
+
+  getOfficerProfile(id: string): Observable<Officer[]> {
+    return this.http.get<Officer[]>("http://localhost:3000/retrieve_officer/user/"+ id)
+  }
+
+
+  updateofficerInfo(officerdata:UpdateOfficer,id: string):Observable<UpdateOfficer[] >
+  {
+      {
+      return this.http.put<UpdateOfficer[]>("http://localhost:3000/update_officer/officer/:"+id,officerdata);
+    }
   }
   setToken(token: string) {
     localStorage.setItem('token', token);

@@ -14,6 +14,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-officer',
@@ -42,6 +43,7 @@ export class OfficerComponent implements OnInit {
       private userservice:UserService,
       private observer: BreakpointObserver,
       public dialog:MatDialog,
+      private router:Router,
       private api:ApiService) {}
 
   validateTemp(temp2:number){
@@ -58,9 +60,7 @@ export class OfficerComponent implements OnInit {
 
   ngOnInit(): void
    {
-    this.onGetRecord();
-    this.onGetPending();
-
+    this.deleteOtherSessions();
     this.formsearch=new FormGroup
     ({
       search:new FormControl('',Validators.required)
@@ -152,8 +152,7 @@ apimessage=''
         () => console.log('Done getting user'),
       );
     } 
-    public showstudentcard:boolean=false;
-    public btnScan:any='show';
+   
 
 
     openDialog()
@@ -163,122 +162,26 @@ apimessage=''
       dialogref.afterClosed().subscribe(results=>
         {
           console.log(`dialog results:'${results}`)
-        })
-
-
-        
-    }
-
-    scanUser()
-    {
-      this.showstudentcard=!this.showstudentcard;
-    }
-    showUser()
-    {
-      if(this.showstudentcard)
-      {
-        this.btnScan='hide';
-      }
-      else
-      {
-        this.btnScan='show';
-      }
-    }
-
-    onGetRecord(): void 
-    {
-      this.recordservice.getRecord().subscribe(
-        (response: any) => {
-          //console.log(response)
-          this.records = response.data;
-         //console.log(response.data);
-         // console.log(this.users)
-
-         this.dataSource = new MatTableDataSource(response.data);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-        },
-        (error: any) => console.log('this is the error' + error),
-        () => console.log('Done getting officer'),
-      );
-    }
-
-    onGetPending(): void 
-    {
-      this.recordservice.getPendingRecord().subscribe(
-        (response:any) => {
-          //console.log(response)
-          this.pendingRecords = response.data;
-         //console.log("This is the info from server "+response.data);
-         //console.log(this.pendingRecords);
-
-
-        this.dataSourcePending = new MatTableDataSource(response.data);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-
-        },
-        (error: any) => console.log('this is the error' + error),
-        () => console.log('Done getting officer'),
-      );
+        }
+      )
     }
 
 
+  deletesession() {
+    sessionStorage.removeItem('officer_id')
+    this.router.navigate(['/login']);
+  }
 
-
-
-
-    //table data
-
-    displayedColumns: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
-    dataSource !: MatTableDataSource<Record>;
-    @ViewChild(MatPaginator) paginator !: MatPaginator;
-    @ViewChild(MatSort) sort !: MatSort;
-    applyFilter(event: Event)
-    {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSource.paginator) {
-        this.dataSource.paginator.firstPage();
-      }
-    }
-
-
-    //Access Pending
-
-    displayedColumnPending: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
-    dataSourcePending !: MatTableDataSource<PendingRecord>;
-    //@ViewChild(MatPaginator) paginatorPending!: MatPaginator;
-    //@ViewChild(MatSort) sortPending !: MatSort;
-
-    @ViewChild('paginatorPending')
-  paginatorPending!: MatPaginator;
-    applyFilterPending(event: Event)
-    {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSourcePending.filter = filterValue.trim().toLowerCase();
-  
-      if (this.dataSourcePending.paginator) {
-        this.dataSourcePending.paginator.firstPage();
-      }
-    }
-
-
-}
-//Commented snippets
-
-
-/*     getImage()
-    {
-      this.userservice.getImage(26).subscribe(
-        (response: any) => 
-        {
-            console.log(response)
-            this.images = response.data;
+  deleteOtherSessions()
+  {
+    sessionStorage.removeItem('user_id')
+    sessionStorage.removeItem('admin_id')
     
-        },
-        (error: any) => console.log('this is the error' + error),
-        () => console.log('Done getting user'),
-      );
-    } */
+  }
+
+
+  }
+    
+
+
+

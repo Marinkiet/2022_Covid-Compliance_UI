@@ -25,7 +25,7 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+       <!--  <img class="avatar" src="../../../assets/social-care.png" alt = "userImage"> -->
 
         <mat-divider></mat-divider>
 
@@ -96,6 +96,10 @@
                                 </div>
                                 <figcaption>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                      <p> The world is in the midst of a COVID-19 pandemic. As WHO and partners work together on the response -- tracking the pandemic, advising on critical interventions, distributing vital medical supplies to those in need--- they are racing to develop and deploy safe and effective vaccines. </p>
+
+                                   <p> Vaccines save millions of lives each year. Vaccines work by training and preparing the body’s natural defences – the immune system – to recognize and fight off the viruses and bacteria they target. After vaccination, if the body is later exposed to those disease-causing germs, the body is immediately ready to destroy them, preventing illness.</p>
+                                   
                                     <span class="credit">Why should I Vaccinate?</span>
                                 </figcaption>
                             </figure>
@@ -109,7 +113,13 @@
                                 </div>
                                 <figcaption>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should i wear a Mask?</span>                            
+                                    <span class="credit">Why should i wear a Mask?</span>     
+                                         <p>Face coverings limit the volume and travel distance of expiratory droplets dispersed when talking, breathing, and coughing. A face covering without vents or holes will also filter out particles containing the virus from inhaled and exhaled air, reducing the chances of infection.</p>
+
+                                    <p>But, if the mask include an exhalation valve, a wearer that is infected (maybe without having noticed that, and asymptomatic) would transmit the virus outwards through it, despite any certification they can have.</p>
+
+                                    <p>So the masks with exhalation valve are not for the infected wearers, and are not reliable to stop the pandemic in a large scale. Many countries and local jurisdictions encourage or mandate the use of face masks or cloth face coverings by members of the public to limit the spread of the virus.</p>                                                              <span class="credit">Why should i wear a Mask?</span>                            
+                                                      
                                 </figcaption>
                             </figure>
                         </li>
@@ -122,6 +132,9 @@
                                 </div>
                                 <figcaption>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                      <p>Hand sanitizers also may not remove harmful chemicals, such as pesticides and heavy metals like lead. Handwashing reduces the amounts of all types of germs, pesticides, and metals on hands.</p>
+                                    <p>Knowing when to clean your hands and which method to use will give you the best chance of preventing sickness</p>
+                                    
                                     <span class="credit">Why should I Sanitise?</span>                            
                                 </figcaption>
                             </figure>
@@ -135,6 +148,8 @@
                                 </div>
                                 <figcaption>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                      <p>Washing your hands is easy, and it’s one of the most effective ways to prevent the spread of germs. Clean hands can help stop germs from spreading from one person to another and in our communities—including your home, workplace, schools, and childcare facilities.</p>
+                                   
                                     <span class="credit">Why should I wash my hands?</span>                            
                                 </figcaption>
                             </figure>
@@ -148,6 +163,10 @@
                                 </div>
                                 <figcaption>
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                      <p>Social and physical distancing measures aim to slow the spread of disease by stopping chains of transmission of COVID-19 and preventing new ones from appearing.</p>
+
+                                    <p> These measures secure physical distance between people (of at least one metre), and reduce contact with contaminated surfaces, while encouraging and sustaining virtual social connection within families and communities</p>
+                                    
                                     <span class="credit">Why should I stay home when i feel sick or show possible symptoms?</span>                            
                                 </figcaption>
                             </figure>
@@ -191,7 +210,8 @@
          
         </section>
         <section>
-           
+              <button type="file" (click)="getImage(2)">Change Image</button>
+           <input type="file" (change)="addImage()">
             <div class="container2">
                 <div class="carousel">
                     <input type="radio" name="slides" checked="checked" id="slide-1">

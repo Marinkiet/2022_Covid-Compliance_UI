@@ -1,10 +1,11 @@
-form
+.formstyle
 {
     width:20%;
     margin:auto;
     padding:5%;
-    background:#003883;
+    background:#0653b8c2;
     color:white;
+    border-radius:15px;
 
 }
 button

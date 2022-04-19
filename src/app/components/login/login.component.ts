@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit
 
   ngOnInit()
   {
+    this.deletesession();
 
     this.loginForm=new FormGroup
     ({
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit
     this.selectedUser=userType;
   }
   
-  get User_id()
+get User_id()
 {
     return this.loginForm.get('User_id');
 }
@@ -67,6 +68,7 @@ get Password()
   return this.loginForm.get('Password');
 }
  
+
 
 
 //user Type Selection
@@ -88,6 +90,7 @@ get Password()
             if (data.message == 'Successful') {
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
               this.router.navigate(['admin']);
+              sessionStorage.setItem('admin_id',data.User_id);
             }
             else if (data.message == 'Unsuccessful') {
               alert(' Admin Please Enter valid credentials');
@@ -112,6 +115,7 @@ get Password()
               
               /* const redirect = this.officerservice.redirecturl ? this.officerservice.redirecturl : '/officer'; */
               this.router.navigate(['officer']);
+              sessionStorage.setItem('officer_id',data.User_id);
             }
             else if (data.message == 'Unsuccessful') {
               alert('Officer Please valid credentials');
@@ -138,6 +142,7 @@ get Password()
               {
                 /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
                 this.router.navigate(['qrcode']);
+                sessionStorage.setItem('user_id',data.User_id);
               }
               else if (data.message =='Unsuccessful')
               {
@@ -178,6 +183,13 @@ usertype!:string;
 
   }
 
+
+  deletesession()
+  {
+    sessionStorage.removeItem('user_id')
+    sessionStorage.removeItem('admin_id')
+    sessionStorage.removeItem('officer_id')
+  }
 
 }
 

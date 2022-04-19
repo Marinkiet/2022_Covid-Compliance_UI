@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
@@ -21,6 +22,7 @@ export class HomeComponent implements OnInit {
     sidenav!: MatSidenav;
   
     constructor(
+      private router:Router,
       private observer: BreakpointObserver,
       private dialog: MatDialog) {}
     openDialog() {
@@ -43,5 +45,12 @@ export class HomeComponent implements OnInit {
           }
         });
     }
+
+    deletesession()
+    {
+      sessionStorage.removeItem('user_id');
+      this.router.navigate(['/login']);
+    }
+
 
 }

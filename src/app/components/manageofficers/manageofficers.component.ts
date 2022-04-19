@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manageofficers',
@@ -22,7 +23,7 @@ export class ManageofficersComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
-  constructor( 
+  constructor( private router:Router,
     private dialog: MatDialog,
     private api:ApiService,
     private observer: BreakpointObserver) { }
@@ -100,6 +101,13 @@ this.api.deleteOfficer(id)
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+
+  }
+
+  deletesession()
+  {
+    sessionStorage.removeItem('admin_id');
+    this.router.navigate(['/login']);
   }
 }
 

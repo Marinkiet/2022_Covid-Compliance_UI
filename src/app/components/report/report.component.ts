@@ -11,6 +11,7 @@ import { delay } from 'rxjs/operators';
 import { ReportItemComponent } from './report-item/report-item.component';
 import * as html2pdf from 'html2pdf.js';
 import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-report',
@@ -24,7 +25,7 @@ export class ReportComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
-  constructor( 
+  constructor( private router:Router,
     private dialog: MatDialog,
     private api:ApiService,
     private observer: BreakpointObserver,
@@ -96,6 +97,12 @@ export class ReportComponent implements OnInit {
       jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
     };
     html2pdf().from(element).set(opt).save();
+  }
+
+  deletesession()
+  {
+    sessionStorage.removeItem('admin_id')
+    this.router.navigate(['/login']);
   }
   
 }

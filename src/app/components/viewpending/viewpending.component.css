@@ -113,7 +113,7 @@ mat-sidenav-container {
     display: flex;
     flex-direction: column;
     color:white;
-    background-color: rgba(141, 141, 141, 0.315);;
+    background-color: #424242;
     height: 80%;
     border-radius: 0.7em;
 }
@@ -161,8 +161,8 @@ element.style {
   border-radius: 4px;
   flex-wrap: wrap;
   align-items: center;
-  
 }
+
 
 
 
@@ -179,8 +179,9 @@ td, th {
 
 .officer-container{
   max-width: 97%;
- margin-left: 20%;
-  
+  margin: 0 auto;
+  margin-left: 30px;
+  margin-right: 10px;
   
 
   }
@@ -195,3 +196,10 @@ td, th {
   }
 
  
+
+table,mat-paginator
+{
+    width:100%;
+    margin:auto;
+    background-color: rgba(141, 141, 141, 0.315);
+}

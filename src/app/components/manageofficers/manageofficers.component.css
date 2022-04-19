@@ -122,3 +122,9 @@ mat-toolbar[_ngcontent-qtv-c178] {
   background: #dbdbdb;
   color: whitesmoke;
 }
+table,mat-paginator
+{
+    width:100%;
+    margin:auto;
+    background-color: rgba(141, 141, 141, 0.315);
+}

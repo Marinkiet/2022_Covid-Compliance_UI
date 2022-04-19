@@ -1,4 +1,4 @@
-import { Images, RegisterUser, UpdateRecord, UserLogin } from './../interfaces/user';
+import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer } from './../interfaces/user';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map, Observable,observable} from 'rxjs';
@@ -139,6 +139,14 @@ export class UserService
     return this.http.post<FormData>("http://localhost:3000/healthform/user",data)
   }  
 
+
+
+  updateofficerInfo(officerdata: UpdateOfficer, id: string): Observable<UpdateOfficer[]> {
+    {
+      return this.http.put<UpdateOfficer[]>("http://localhost:3000/update/user/:"+ id,officerdata);
+    }
+  }
+  
 
   
 /*  

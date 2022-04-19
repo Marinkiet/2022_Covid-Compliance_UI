@@ -18,6 +18,8 @@ import { OfficerRecordsComponent } from './components/officer-records/officer-re
 import { StudentcardComponent } from './components/studentcard/studentcard.component';
 import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback.component';
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
+import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
+import { ViewpendingComponent } from './components/viewpending/viewpending.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -37,7 +39,9 @@ const routes: Routes = [
  {path:'officerrecords',component:OfficerRecordsComponent},
  {path:'student',component:StudentcardComponent},
  {path:'adminfeedback',component:AdminfeedbackComponent},
- {path:'officerprofile',component:OfficerprofileComponent}
+ {path:'officerprofile',component:OfficerprofileComponent},
+ {path:'viewaccess',component:ViewaccessComponent},
+ {path:'viewpending',component:ViewpendingComponent}
  
 ];
 

@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { delay } from 'rxjs';
 import { Comments } from 'src/app/interfaces/user';
 import { ApiService } from 'src/app/services/api.service';
@@ -23,7 +24,7 @@ export class AdminfeedbackComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
-  constructor( 
+  constructor(private router:Router, 
     private dialog: MatDialog,
     private api:ApiService,
     private observer: BreakpointObserver,
@@ -73,5 +74,13 @@ export class AdminfeedbackComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+
+
+  deletesession()
+  {
+    sessionStorage.removeItem('admin_id');
+    this.router.navigate(['/login']);
   }
 }

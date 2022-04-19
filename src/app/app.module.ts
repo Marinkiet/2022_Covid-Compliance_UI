@@ -48,6 +48,8 @@ import { StudentcardComponent } from './components/studentcard/studentcard.compo
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback.component';
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
+import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
+import { ViewpendingComponent } from './components/viewpending/viewpending.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +74,8 @@ import { OfficerprofileComponent } from './components/officerprofile/officerprof
     FeedbackComponent,
     AdminfeedbackComponent,
     OfficerprofileComponent,
+    ViewaccessComponent,
+    ViewpendingComponent,
     
     
    

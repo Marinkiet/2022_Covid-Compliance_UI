@@ -33,7 +33,7 @@
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="/home">
+        <button mat-button class="menu-button" routerLink="/qrcode">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
@@ -65,7 +65,7 @@
             <span>Help</span>
         </button>
         
-        <button mat-button class="menu-button" routerLink="/login">
+        <button mat-button class="menu-button" (click)="deletesession()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
         </button>
