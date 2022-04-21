@@ -20,10 +20,11 @@ export class OfficerService {
     return this.http.post<OfficerLogin>(`http://localhost:3000/login_officer/officer`, {
       User_id: user.User_id, Password: user.Password
     }).pipe(
-      map((Officers) => {
-        console.log(Officers);
-        this.setToken(Officers.User_id);
-        this.getLoggedInName.emit(true);
+      map((Officers) => 
+      {
+        //console.log(Officers);
+       // this.setToken(Officers.User_id);
+        //this.getLoggedInName.emit(true);
         //console.log('Following is Token');
         //console.log("User id is "+Users.User_id);
         //console.log(Users.User_id);
@@ -46,16 +47,23 @@ export class OfficerService {
       return this.http.put<UpdateOfficer[]>("http://localhost:3000/update_officer/officer/:"+id,officerdata);
     }
   }
-  setToken(token: string) {
+
+ /*  setToken(token: string) {
     localStorage.setItem('token', token);
   }
   /*  getToken() {
      localStorage.getItem('token');
-   } */
+   } 
   deleteToken() {
     localStorage.removeItem('token');
   }
   isLoggedIn() {
     return !!localStorage.getItem('token');
+  } */
+
+  isLoggedIn()
+  {
+    return sessionStorage.getItem('officer_id')!=null;
   }
+
 }

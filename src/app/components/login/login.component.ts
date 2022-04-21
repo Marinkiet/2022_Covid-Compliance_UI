@@ -82,10 +82,8 @@ get Password()
       {
         //alert('This is the admin talking');
         
-
         this.adminservice.loginAdmin(this.loginForm.value).pipe(first()).subscribe(
           data => {
-
 
             if (data.message == 'Successful') {
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */

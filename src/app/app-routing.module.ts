@@ -20,28 +20,31 @@ import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
+import { UserguardGuard } from './guards/userguard.guard';
+import { AdminguardGuard } from './guards/adminguard.guard';
+import { OfficerguardGuard } from './guards/officerguard.guard';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
  {path:'login',component:LoginComponent},
  {path:'resetpass',component:ResetpasswordComponent},
- {path:'healthform',component:HealthFormComponent},
- {path:'officer',component:OfficerComponent},
+ {path:'healthform',component:HealthFormComponent,canActivate:[UserguardGuard]},
+ {path:'officer',component:OfficerComponent,canActivate:[OfficerguardGuard]},
  {path:'home',component:LandingPageComponent},
  {path:'aboutus',component:AboutUsComponent},
  {path:'contactus',component:ContactusComponent},
- {path:'userprofile',component:UserProfileComponent},
- {path:'admin',component:AdminComponent},
- {path:'qrcode',component:HomeComponent},
- {path:'report',component:ReportComponent},
+ {path:'userprofile',component:UserProfileComponent,canActivate:[UserguardGuard]},
+ {path:'admin',component:AdminComponent,canActivate:[AdminguardGuard]},
+ {path:'qrcode',component:HomeComponent,canActivate:[UserguardGuard]},
+ {path:'report',component:ReportComponent,canActivate:[AdminguardGuard]},
  {path:'report-item',component:ReportItemComponent},
- {path:'manageofficers',component:ManageofficersComponent},
- {path:'officerrecords',component:OfficerRecordsComponent},
- {path:'student',component:StudentcardComponent},
- {path:'adminfeedback',component:AdminfeedbackComponent},
- {path:'officerprofile',component:OfficerprofileComponent},
- {path:'viewaccess',component:ViewaccessComponent},
- {path:'viewpending',component:ViewpendingComponent}
+ {path:'manageofficers',component:ManageofficersComponent,canActivate:[AdminguardGuard]},
+ {path:'officerrecords',component:OfficerRecordsComponent,canActivate:[OfficerguardGuard]},
+ {path:'student',component:StudentcardComponent,canActivate:[OfficerguardGuard]},
+ {path:'adminfeedback',component:AdminfeedbackComponent,canActivate:[AdminguardGuard]},
+ {path:'officerprofile',component:OfficerprofileComponent,canActivate:[OfficerguardGuard]},
+ {path:'viewaccess',component:ViewaccessComponent,canActivate:[OfficerguardGuard]},
+ {path:'viewpending',component:ViewpendingComponent,canActivate:[OfficerguardGuard]}
  
 ];
 

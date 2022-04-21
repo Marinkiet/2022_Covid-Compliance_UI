@@ -22,7 +22,7 @@ export class AdminService {
       map((Admins) => {
         console.log(Admins);
 
-        this.setToken(Admins.User_id);
+        //this.setToken(Admins.User_id);
         this.getLoggedInName.emit(true);
         //console.log('Following is Token');
         //console.log("User id is "+Users.User_id);
@@ -36,17 +36,22 @@ export class AdminService {
     )
     /* return this.http.post(`http://localhost:3000/login/user`,user); */
   }
-  setToken(token: string) {
+/*   setToken(token: string) {
     localStorage.setItem('token', token);
   }
   /*  getToken() {
      localStorage.getItem('token');
-   } */
+   } 
   deleteToken() {
     localStorage.removeItem('token');
   }
   isLoggedIn() {
     return !!localStorage.getItem('token');
+  } */
+
+  isLoggedIn()
+  {
+    return sessionStorage.getItem('admin_id')!=null;
   }
 
 

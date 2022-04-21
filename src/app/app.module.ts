@@ -50,6 +50,7 @@ import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
+import { UserguardGuard } from './guards/userguard.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +112,7 @@ import { ViewpendingComponent } from './components/viewpending/viewpending.compo
     
     
   ],
-  providers: [CustomvalidationService,DatePipe],
+  providers: [CustomvalidationService,DatePipe,UserguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
