@@ -1,41 +1,26 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
-import { Router } from '@angular/router';
-import { Typelist } from 'src/app/interfaces/registertypes/typelist';
-import { Typeuser } from 'src/app/interfaces/registertypes/typeuser';
-import { RegisterUser } from 'src/app/interfaces/user';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
-import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-registervisitor',
+  templateUrl: './registervisitor.component.html',
+  styleUrls: ['./registervisitor.component.css']
 })
-export class RegisterComponent implements OnInit {
-  //customvalidator: any;
-  fileName = '';
-  registerform:any;
-  campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
-  vac_opts:any[]=['Yes','No'];
-  submitted=false;
-  hide=true;
+export class RegistervisitorComponent implements OnInit {
 
-  constructor(
-    private router:Router,
-    private userservice:UserService,
-    private customvalidator:CustomvalidationService,
-    private formBuilder: FormBuilder,
-    private http:HttpClient
-    )
-  {}
-  ngOnInit()
+  constructor(private customvalidator:CustomvalidationService) { }
+
+  campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
+  registerform:any;
+  hide=true;
+  submitted=false;
+
+  ngOnInit(): void
   {
     this.registerform=new FormGroup
     (
       {
-        user_type:new FormControl('',[Validators.required]),
         userId:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
         firstNames:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
         lastName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
@@ -48,26 +33,8 @@ export class RegisterComponent implements OnInit {
       {
         validators: this.customvalidator.passwordMatch('password','confirm_password')
       });
-
-      this.checkUserTYpe()
   }
-  onFileSelected(event:any) {
 
-    const file:File = event.target.files[0];
-
-    if (file) {
-
-        this.fileName = file.name;
-
-        const formData = new FormData();
-
-        formData.append("filename", file);
-
-        const upload$ = this.http.post("http://localhost:3000/users/", formData);
-
-        upload$.subscribe();
-    }
-}
 
 
   get userId()
@@ -104,61 +71,7 @@ export class RegisterComponent implements OnInit {
     return this.registerform.get('cellphone');
   }
 
-
-  selected='none';
-  isStaff=false;
-  isVisitor=false;
-  checkUserTYpe()
-  {
-    if(this.selected==null)
-    {
-      this.isStaff=false;
-      this.isVisitor=false;
-      
-    }
-    if(this.selected=='Staff')
-    {
-      this.isStaff=true;
-      this.isVisitor=false;
-      //alert('Staff User selected')
-    }
-    if(this.selected=='Visitor')
-    {
-      this.isVisitor=true;
-      this.isStaff=false;
-    }
-
-  }
-
-
-  onSubmit()
-  {
-    this.submitted=true;
-    if(this.registerform.valid)
-    {
-      //alert('form submitted successfully');
-      console.table(this.registerform.value);
-      this. RegisterUser();
-    }
-
-    if(this.registerform.invalid)
-    {
-      //alert('Form not valid');
-    }
-  }
-
-  //Select which user to be registered as 
-
-
-  
-
-
-  //End of the choosing 
-
-
-
-
-  RegisterUser()
+ /*  RegisterUser()
   {
    //console.log(this.officerForm.value);
    //if we not adding then we edit
@@ -180,6 +93,10 @@ export class RegisterComponent implements OnInit {
     }
   
   
-  }
+  } */
 
+  onSubmit()
+  {
+
+  }
 }

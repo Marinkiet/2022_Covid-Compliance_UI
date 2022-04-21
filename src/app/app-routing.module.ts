@@ -23,6 +23,7 @@ import { ViewpendingComponent } from './components/viewpending/viewpending.compo
 import { UserguardGuard } from './guards/userguard.guard';
 import { AdminguardGuard } from './guards/adminguard.guard';
 import { OfficerguardGuard } from './guards/officerguard.guard';
+import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -44,7 +45,8 @@ const routes: Routes = [
  {path:'adminfeedback',component:AdminfeedbackComponent,canActivate:[AdminguardGuard]},
  {path:'officerprofile',component:OfficerprofileComponent,canActivate:[OfficerguardGuard]},
  {path:'viewaccess',component:ViewaccessComponent,canActivate:[OfficerguardGuard]},
- {path:'viewpending',component:ViewpendingComponent,canActivate:[OfficerguardGuard]}
+ {path:'viewpending',component:ViewpendingComponent,canActivate:[OfficerguardGuard]},
+ {path:'registervisitor',component:RegistervisitorComponent}
  
 ];
 

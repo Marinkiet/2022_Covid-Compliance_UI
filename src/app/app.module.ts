@@ -51,6 +51,7 @@ import { OfficerprofileComponent } from './components/officerprofile/officerprof
 import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
 import { UserguardGuard } from './guards/userguard.guard';
+import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,6 +78,7 @@ import { UserguardGuard } from './guards/userguard.guard';
     OfficerprofileComponent,
     ViewaccessComponent,
     ViewpendingComponent,
+    RegistervisitorComponent,
     
     
    
