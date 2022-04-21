@@ -26,7 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -50,6 +49,9 @@ import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -105,9 +107,6 @@ import { ViewpendingComponent } from './components/viewpending/viewpending.compo
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    
-
-    
     
     
   ],
