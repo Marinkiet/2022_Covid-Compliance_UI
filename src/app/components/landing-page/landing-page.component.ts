@@ -31,13 +31,13 @@ export class LandingPageComponent implements OnInit {
         }
       })
   }
-  addImage(): void {
+  /* addImage(): void {
     this.api.postImage(this.picSrc).subscribe({
       next: (res: any) => {
 
       }
     })
-  }
+  } */
 
   deletesession()
   {

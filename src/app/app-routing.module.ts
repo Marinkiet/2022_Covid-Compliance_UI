@@ -35,7 +35,7 @@ const routes: Routes = [
  {path:'aboutus',component:AboutUsComponent},
  {path:'contactus',component:ContactusComponent},
  {path:'userprofile',component:UserProfileComponent,canActivate:[UserguardGuard]},
- {path:'admin',component:AdminComponent,canActivate:[AdminguardGuard]},
+ {path:'admin',component:AdminComponent},
  {path:'qrcode',component:HomeComponent,canActivate:[UserguardGuard]},
  {path:'report',component:ReportComponent,canActivate:[AdminguardGuard]},
  {path:'report-item',component:ReportItemComponent},

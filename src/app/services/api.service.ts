@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+//import { FileToUpload } from '../interfaces/file-to-upload';
 import { addImage, GetAllOfficers, GetAllRecords, getImage, getTheUser, Officer, updatetheUser } from '../interfaces/user';
 
 @Injectable({
@@ -43,8 +44,13 @@ export class ApiService {
     return this.http.get<getImage>("http://localhost:3000/select_image/image/" + id);
   }
 
-  postImage(data: any): Observable<addImage> {
-    return this.http.post<addImage>("http://localhost:3000/upload_image/image", data);
+  postImage(fileToUpload:File): Observable<boolean>
+  {
+    const formData: FormData = new FormData();
+
+    formData.append('image',fileToUpload, fileToUpload.name);
+    return this.http.post<any>("http://localhost:3000/upload_image/image",formData);
+  
   }
   updateUser(User_id: number): Observable<updatetheUser[]> {
     return this.http.put<updatetheUser[]>("http://localhost:3000/update/user/", User_id);

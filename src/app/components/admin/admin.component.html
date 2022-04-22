@@ -72,7 +72,12 @@
 
   <mat-sidenav-content>
   <h1 style="text-align: center;color: aliceblue;margin-top: 20px;font-weight:500;font-size: xx-large;">Hover over each logo to edit carousel items</h1>
-  <mat-divider></mat-divider>  
+  <mat-divider>
+
+  </mat-divider>  
+
+
+
 
   <div class="flip-container">
     <div class="flip-card">
@@ -83,7 +88,19 @@
           <div class="flip-card-back">
             <h1>Carousel Item 1</h1> 
             <h3>Please Select an Image (png/jpg/gif)</h3> 
-            <p><input type="file"  (change)="selectFile($event)"></p>
+            
+              
+              <input type="text"  (change)="getName(name.value)" #name><br>
+              <input type="file"  (change)="onFileSelected($event)">
+              <button (click)="onUpload()">upload</button>
+          
+
+              <br><br>
+           
+
+              
+
+            
           </div>
         </div>
       </div>
@@ -101,141 +118,29 @@
         </div>
       </div>
     </div>   
-  <div class="flip-container">
-      <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img class="url2-image" [src]="url3" *ngIf="url3" style="height: 300px; width: 400px;">
-            </div>
-            <div class="flip-card-back">
-              <h1>Carousel Item 2</h1> 
-              <h3>Please Select an Image (png/jpg/gif)</h3> 
-              <p><input type="file"  (change)="selectFile3($event)"></p>
-            </div>
-          </div>
-        </div>
   
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <video autoplay loop class="url2-image" [src]="url4" *ngIf="url4"  style="height: 300px; width: 400px;"></video>
-            </div>
-            <div class="flip-card-back">
-              <h1>Carousel Item 2</h1> 
-              <h3>Please Select a Video (.mp4)</h3> 
-              <p><input type="file" (change)="selectFile4($event)"></p>
-            </div>
-          </div>
-        </div>
-    </div>  
-  <div class="flip-container">
-        <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img class="url2-image" [src]="url5" *ngIf="url5" style="height: 300px; width: 400px;">
-              </div>
-              <div class="flip-card-back">
-                <h1>Carousel Item 3</h1> 
-                <h3>Please Select an Image (png/jpg/gif)</h3> 
-                <p><input type="file"  (change)="selectFile5($event)"></p>
-              </div>
-            </div>
-          </div>
-    
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <video autoplay loop class="url2-image" [src]="url6" *ngIf="url6"  style="height: 300px; width: 400px;"></video>
-              </div>
-              <div class="flip-card-back">
-                <h1>Carousel Item 3</h1> 
-                <h3>Please Select a Video (.mp4)</h3> 
-                <p><input type="file" (change)="selectFile6($event)"></p>
-              </div>
-            </div>
-          </div>
-    </div>  
-    <div class="flip-container">
-      <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img class="url2-image" [src]="url7" *ngIf="url7" style="height: 300px; width: 400px;">
-            </div>
-            <div class="flip-card-back">
-              <h1>Carousel Item 4</h1> 
-              <h3>Please Select an Image (png/jpg/gif)</h3> 
-              <p><input type="file"  (change)="selectFile7($event)"></p>
-            </div>
-          </div>
-        </div>
+
+
+
+<button mat-raised-button (click)="onView()"> View Images</button>
+            
+
+
+
+
+
+
+
+<ul  *ngFor="let image of images;">
+
+  <li><img src={{image.pic_path}} width="200px"></li>
+  <!-- <li>{{image.pictureName}}</li> -->
   
-        <div class="flip-card">
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <video autoplay loop class="url2-image" [src]="url8" *ngIf="url8"  style="height: 300px; width: 400px;"></video>
-            </div>
-            <div class="flip-card-back">
-              <h1>Carousel Item 4</h1> 
-              <h3>Please Select a Video (.mp4)</h3> 
-              <p><input type="file" (change)="selectFile8($event)"></p>
-            </div>
-          </div>
-        </div>
-  </div> 
-  <div class="flip-container">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img class="url2-image" [src]="url9" *ngIf="url9" style="height: 300px; width: 400px;">
-          </div>
-          <div class="flip-card-back">
-            <h1>Carousel Item 5</h1> 
-            <h3>Please Select an Image (png/jpg/gif)</h3> 
-            <p><input type="file"  (change)="selectFile9($event)"></p>
-          </div>
-        </div>
-      </div>
+</ul>
 
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <video autoplay loop class="url2-image" [src]="url10" *ngIf="url10"  style="height: 300px; width: 400px;"></video>
-          </div>
-          <div class="flip-card-back">
-            <h1>Carousel Item 5</h1> 
-            <h3>Please Select a Video (.mp4)</h3> 
-            <p><input type="file" (change)="selectFile10($event)"></p>
-          </div>
-        </div>
-      </div>
-</div> 
-<div class="flip-container">
-  <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <img class="url2-image" [src]="url11" *ngIf="url11" style="height: 300px; width: 400px;">
-        </div>
-        <div class="flip-card-back">
-          <h1>Carousel Item 6</h1> 
-          <h3>Please Select an Image (png/jpg/gif)</h3> 
-          <p><input type="file"  (change)="selectFile11($event)"></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <video autoplay loop class="url2-image" [src]="url12" *ngIf="url12"  style="height: 300px; width: 400px;"></video>
-        </div>
-        <div class="flip-card-back">
-          <h1>Carousel Item 6</h1> 
-          <h3>Please Select a Video (.mp4)</h3> 
-          <p><input type="file" (change)="selectFile12($event)"></p>
-        </div>
-      </div>
-    </div>
-</div> 
+<br>
   </mat-sidenav-content>
 
+
 </mat-sidenav-container>
+
