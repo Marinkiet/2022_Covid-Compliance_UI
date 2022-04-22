@@ -50,6 +50,14 @@ export class RegisterComponent implements OnInit {
       });
 
       this.checkUserTYpe()
+   /*  if(this.registerform.invalid)
+    {
+      alert('Form not valid');
+    } */
+    if(this.registerform.valid)
+    {
+      alert('Form not valid');
+    }
   }
   onFileSelected(event:any) {
 
@@ -143,7 +151,7 @@ export class RegisterComponent implements OnInit {
 
     if(this.registerform.invalid)
     {
-      //alert('Form not valid');
+      alert('Form not valid');
     }
   }
 

@@ -1,24 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RegisterUser } from 'src/app/interfaces/user';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-registervisitor',
-  templateUrl: './registervisitor.component.html',
-  styleUrls: ['./registervisitor.component.css']
+  selector: 'app-registeruser',
+  templateUrl: './registeruser.component.html',
+  styleUrls: ['./registeruser.component.css']
 })
-export class RegistervisitorComponent implements OnInit {
+export class RegisteruserComponent implements OnInit {
 
-  constructor(private customvalidator:CustomvalidationService) { }
+  constructor(
+    private userservice:UserService,private router:Router,private customvalidator:CustomvalidationService) { }
 
   campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
-  visitorRegForm:any;
+  userRegForm:any;
   hide=true;
   submitted=false;
 
   ngOnInit(): void
   {
-    this.visitorRegForm=new FormGroup
+    this.userRegForm=new FormGroup
     (
       {
         userId:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
@@ -39,46 +43,48 @@ export class RegistervisitorComponent implements OnInit {
 
   get userId()
   {
-    return this.visitorRegForm.get('userId');
+    return this.userRegForm.get('userId');
   }
   get firstNames()
   {
-    return this.visitorRegForm.get('firstNames');
+    return this.userRegForm.get('firstNames');
   }
 
   get lastName()
   {
-    return this.visitorRegForm.get('lastName');
+    return this.userRegForm.get('lastName');
   }
   get username()
   {
-    return this.visitorRegForm.get('username');
+    return this.userRegForm.get('username');
   }
   get password()
   {
-    return this.visitorRegForm.get('password');
+    return this.userRegForm.get('password');
   }
   get confirm_password()
   {
-    return this.visitorRegForm.get('confirm_password');
+    return this.userRegForm.get('confirm_password');
   }
   get email()
   {
-    return this.visitorRegForm.get('email');
+    return this.userRegForm.get('email');
   }
    get cellphone()
   {
-    return this.visitorRegForm.get('cellphone');
+    return this.userRegForm.get('cellphone');
   }
 
- /*  RegisterUser()
+
+
+  RegisterUser()
   {
    //console.log(this.officerForm.value);
    //if we not adding then we edit
    
-    if(this.registerform.valid)
+    if(this.userRegForm.valid)
     {
-      this.userservice.registerUser(this.registerform.value)
+      this.userservice.registerUser(this.userRegForm.value)
       .subscribe({
         next:(res:RegisterUser)=>{
           alert('User registered successfully');
@@ -93,10 +99,17 @@ export class RegistervisitorComponent implements OnInit {
     }
   
   
-  } */
+  }
+
 
   onSubmit()
   {
-
+    this.submitted=true;
+    if(this.userRegForm.valid)
+    {
+      //alert('form submitted successfully');
+      console.table(this.userRegForm.value);
+      this. RegisterUser();
+    }
   }
 }

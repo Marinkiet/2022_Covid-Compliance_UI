@@ -1,5 +1,5 @@
 
-        <form [formGroup]="visitorRegForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="userRegForm" (ngSubmit)="onSubmit()">
  
             <div class="example-container">
 
@@ -83,7 +83,7 @@
             </mat-form-field>
        </div>
        
-            <button mat-raised-button routerLink="login" [disabled]="visitorRegForm.invalid">Register</button>
+            <button mat-raised-button routerLink="login" [disabled]="userRegForm.invalid">Register</button>
             <br><br>
         
             <mat-label>Are you already registered? <span class="txt_sign_in"><a routerLink="/login">Sign-in</a></span></mat-label>

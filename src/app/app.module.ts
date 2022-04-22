@@ -52,6 +52,7 @@ import { ViewaccessComponent } from './components/viewaccess/viewaccess.componen
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
 import { UserguardGuard } from './guards/userguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
+import { RegisteruserComponent } from './components/registeruser/registeruser.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -79,6 +80,7 @@ import { RegistervisitorComponent } from './components/registervisitor/registerv
     ViewaccessComponent,
     ViewpendingComponent,
     RegistervisitorComponent,
+    RegisteruserComponent,
     
     
    
