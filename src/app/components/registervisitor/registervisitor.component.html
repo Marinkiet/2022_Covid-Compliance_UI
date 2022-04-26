@@ -4,17 +4,17 @@
             <div class="example-container">
 
                 <mat-form-field appearance="fill">
-                    <mat-label>Identiy Number</mat-label>
-                    <input matInput formControlName="userId" placeholder="ID">
-                    <mat-error *ngIf="(userId.touched || submitted)&& userId.errors?.required">Identity Number required</mat-error>
+                    <mat-label>ID Number</mat-label>
+                    <input matInput formControlName="Visitor_id" placeholder="ID Number">
+                    <mat-error *ngIf="(Visitor_id.touched || submitted)&& Visitor_id.errors?.required">Identity Number required</mat-error>
                 </mat-form-field>
                 
                 <mat-form-field appearance="fill">
         
                     <mat-label>E-mail</mat-label>
-                    <input matInput formControlName="email" >
-                    <mat-error *ngIf="(email.touched || submitted)&& email.errors?.required">E-mail is required</mat-error>
-                    <mat-error *ngIf="email.touched && email.errors?.email">Enter a valid email address</mat-error>
+                    <input matInput formControlName="Email" >
+                    <mat-error *ngIf="(Email.touched || submitted)&& Email.errors?.required">E-mail is required</mat-error>
+                    <mat-error *ngIf="Email.touched && Email.errors?.email">Enter a valid email address</mat-error>
              
                 </mat-form-field>
             </div>
@@ -23,15 +23,15 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
-                    <input matInput formControlName="firstNames" >
-                    <mat-error *ngIf="(firstNames.touched || submitted)&& firstNames.errors?.required">First Name is required</mat-error>
+                    <input matInput formControlName="First_name" >
+                    <mat-error *ngIf="(First_name.touched || submitted)&& First_name.errors?.required">First Name is required</mat-error>
                 </mat-form-field>
                
 
                 <mat-form-field appearance="fill">
                     <mat-label>Last Name</mat-label>
-                    <input matInput formControlName="lastName" >
-                    <mat-error *ngIf="(lastName.touched || submitted)&& lastName.errors?.required">Last Name is required</mat-error>
+                    <input matInput formControlName="Last_name" >
+                    <mat-error *ngIf="(Last_name.touched || submitted)&& Last_name.errors?.required">Last Name is required</mat-error>
                 </mat-form-field>
            
          
@@ -40,8 +40,9 @@
         
             <mat-form-field appearance="fill">
                 <mat-label>Phone Number</mat-label>
-                <input matInput>
-                <mat-hint>optional</mat-hint>
+                <input matInput formControlName="Cellphone_number">
+                <mat-error *ngIf="(Cellphone_number.touched || submitted)&& Cellphone_number.errors?.required">Cell Phone Number required</mat-error>
+                <!-- <mat-hint>optional</mat-hint> -->
             </mat-form-field>
 
             <mat-form-field appearance="fill">
@@ -57,14 +58,14 @@
 
         <mat-form-field appearance="fill">
             <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password" >
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
             
-            <mat-error *ngIf="(password.touched || submitted)&& password.errors?.required">Password is required</mat-error>
+            <mat-error *ngIf="(Password.touched || submitted)&& Password.errors?.required">Password is required</mat-error>
 
-            <mat-error *ngIf="(password.touched && password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
+            <p><mat-error *ngIf="(Password.touched && Password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error></p>
             <mat-hint>password</mat-hint>
            
         </mat-form-field>
@@ -77,7 +78,7 @@
                 </button>
 
                 
-            <!--<mat-error *ngIf="(con_pword.touched && con_pword.errors?.passwordMismatch)">Password should match</mat-error>-->
+            <p><mat-error *ngIf="(confirm_password.touched && confirm_password.errors?.passwordMismatch)">Password should match</mat-error></p>
                 <mat-hint>Re-type password</mat-hint>
         
             </mat-form-field>

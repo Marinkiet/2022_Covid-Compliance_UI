@@ -32,7 +32,7 @@ export class RegisteruserComponent implements OnInit {
         password:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternPassValidator()]),
         confirm_password:new FormControl('',[Validators.required]),
         email:new FormControl('',[Validators.required,Validators.email]),
-        cellphone:new FormControl(''),
+        cellphone: new FormControl('', [Validators.required]),
       },
       {
         validators: this.customvalidator.passwordMatch('password','confirm_password')
@@ -92,7 +92,7 @@ export class RegisteruserComponent implements OnInit {
           console.log(res);
         },
         error:()=>{
-         alert('Could no register officer ');
+         alert('Could no register User ');
         }
         
       })

@@ -1,6 +1,9 @@
+import { RegisterVisitor } from './../../interfaces/user';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+import { VisitorserviceService } from 'src/app/services/visitorservice.service';
 
 @Component({
   selector: 'app-registervisitor',
@@ -9,7 +12,7 @@ import { CustomvalidationService } from 'src/app/services/customvalidation.servi
 })
 export class RegistervisitorComponent implements OnInit {
 
-  constructor(private customvalidator:CustomvalidationService) { }
+  constructor(private visitorservice:VisitorserviceService,private router:Router,private customvalidator:CustomvalidationService) { }
 
   campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
   visitorRegForm:any;
@@ -21,14 +24,14 @@ export class RegistervisitorComponent implements OnInit {
     this.visitorRegForm=new FormGroup
     (
       {
-        userId:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
-        firstNames:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-        lastName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      //username:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
-        password:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternPassValidator()]),
+        Visitor_id:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
+        First_name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+        Last_name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      
+        Password:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternPassValidator()]),
         confirm_password:new FormControl('',[Validators.required]),
-        email:new FormControl('',[Validators.required,Validators.email]),
-        cellphone:new FormControl(''),
+        Email:new FormControl('',[Validators.required,Validators.email]),
+        Cellphone_number: new FormControl('',[Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]),
       },
       {
         validators: this.customvalidator.passwordMatch('password','confirm_password')
@@ -37,66 +40,69 @@ export class RegistervisitorComponent implements OnInit {
 
 
 
-  get userId()
+  
+  get Visitor_id()
   {
-    return this.visitorRegForm.get('userId');
+    return this.visitorRegForm.get('Visitor_id');
   }
-  get firstNames()
+  get First_name()
   {
-    return this.visitorRegForm.get('firstNames');
+    return this.visitorRegForm.get('First_name');
   }
 
-  get lastName()
+  get Last_name()
   {
-    return this.visitorRegForm.get('lastName');
+    return this.visitorRegForm.get('Last_name');
   }
-  get username()
+  get Password()
   {
-    return this.visitorRegForm.get('username');
-  }
-  get password()
-  {
-    return this.visitorRegForm.get('password');
+    return this.visitorRegForm.get('Password');
   }
   get confirm_password()
   {
     return this.visitorRegForm.get('confirm_password');
   }
-  get email()
+  get Email()
+  {
+    return this.visitorRegForm.get('Email');
+  }
+/*   get email()
   {
     return this.visitorRegForm.get('email');
-  }
-   get cellphone()
+  } */
+  get Cellphone_number()
   {
-    return this.visitorRegForm.get('cellphone');
+    return this.visitorRegForm.get('Cellphone_number');
   }
 
- /*  RegisterUser()
+   RegisterVisitor()
   {
    //console.log(this.officerForm.value);
    //if we not adding then we edit
    
-    if(this.registerform.valid)
+     if (this.visitorRegForm.valid)
     {
-      this.userservice.registerUser(this.registerform.value)
+       this.visitorservice.registerVisitor(this.visitorRegForm.value)
       .subscribe({
-        next:(res:RegisterUser)=>{
+        next:(res:RegisterVisitor)=>{
           alert('User registered successfully');
           this.router.navigate(['login']);
           console.log(res);
         },
         error:()=>{
-         alert('Could no register officer ');
+         alert('Could no register Visitor ');
         }
         
       })
     }
   
   
-  } */
+  } 
 
   onSubmit()
   {
-
+    
+      this.RegisterVisitor()
+    
   }
 }

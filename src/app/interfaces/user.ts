@@ -43,6 +43,12 @@ export interface OfficerLogin
     User_id:string;
     Password:string;
 }
+export interface VisitorLogin
+{
+    message: string;
+    User_id:string;
+    Password:string;
+}
 
 export interface Record
 {
@@ -112,6 +118,19 @@ export interface Comments
     Feedback_id:number;
     Date:string;
 
+}
+
+export interface RegisterVisitor
+{
+    Cellphone_number: string;
+    Visitor_id: string;
+    First_name: string;
+    Campus_id: number;
+    Gender: string;
+    type: number;
+    Email: string;
+    Password: string;
+    Last_name: string;
 }
 
 export interface RegisterUser
