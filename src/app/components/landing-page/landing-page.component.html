@@ -69,7 +69,7 @@
             </div>
       
    
-        <div class="container1">
+        <!-- <div class="container1">
             <div class="carousel">
                 <input type="radio" id="carousel-1" name="carousel[]" checked>
                 <input type="radio" id="carousel-2" name="carousel[]">
@@ -77,11 +77,11 @@
                 <input type="radio" id="carousel-4" name="carousel[]">
                 <input type="radio" id="carousel-5" name="carousel[]">
                 <ul class="carousel__items">
-                    <li class="carousel__item"><img src={{thesrc}} alt=""></li>
-                    <li class="carousel__item"><img src={{thesrc1}} alt=""></li>
-                    <li class="carousel__item"><img src={{thesrc2}} alt=""></li>
-                    <li class="carousel__item"><img src={{thesrc3}} alt=""></li>
-                    <li class="carousel__item"><img src={{thesrc4}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc1}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc2}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc3}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc4}} alt=""></li>
                 </ul>
              <div class="carousel__prev">
                  <label for="carousel-1"></label>
@@ -97,19 +97,84 @@
                <label for="carousel-4"></label>
                <label for="carousel-5"></label>
              </div>
-             <div class="carousel__nav">
+              <div class="carousel__nav">
                <label for="carousel-1"></label>
                <label for="carousel-2"></label>
                <label for="carousel-3"></label>
                <label for="carousel-4"></label>
                <label for="carousel-5"></label>
-             </div>
+             </div> 
            </div>
-         </div>     
-         <hr> 
+         </div>      -->
+
+         <div class="img-container">
+         <section class="the-animated-images">
+            <div class="slider">
+                <figure>
+                    <div class="slide">
+                      <img src={{thesrc}}>
+                    </div>
+                    <div class="slide">
+                      <img src={{thesrc1}}>
+                    </div>
+                    <div class="slide">
+                      <img src={{thesrc2}}>
+                    </div>
+                    <div class="slide">
+                      <img src={{thesrc3}}>
+                    </div>
+                    <div class="slide">
+                      <img src={{thesrc4}}>
+                    </div>
+        
+                </figure>
+            </div>
+
+        </section>
+    </div>
+    <br>
+
+    <section>
+
+
+        <div class="infobox1">
+
+            <h2>Something</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur
+             adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
+             sunt! Temporibus exercitationem est quod!</p>
+             
+        </div>
+
+        <div class="infobox1">
+
+            <h2>Something</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
+                sunt! Temporibus exercitationem est quod!</p>
+
+        </div>
+
+        <div class="infobox1">
+
+            <h2>Something</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
+                sunt! Temporibus exercitationem est quod!</p>
+
+        </div>
+        <div class="clearFloat">
+
+        </div>
+
+    </section>
+         
    <app-feedback></app-feedback> 
-
-
+   <hr> 
+   <app-footer></app-footer>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

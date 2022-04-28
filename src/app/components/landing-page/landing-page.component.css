@@ -549,6 +549,7 @@ mat-divider {
 }
 .carousel__item img {
     width: 100%;
+    background-size: cover;
     vertical-align: middle;
 }
 .carousel__prev > label, .carousel__next > label {
@@ -616,3 +617,80 @@ mat-divider {
     width: 20px;
     height: 20px;
 }
+
+
+
+
+
+
+.img-container
+{
+
+    width: 90%;
+    height:100vh;
+    min-width: 900px;
+    margin: 50px auto ;
+    
+}
+.slider{
+
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    }
+    
+    .slider figure div{
+    float: left;
+    width: 20%;
+  }
+  .slider figure {
+
+    position: relative;
+    width: 500%;
+    margin: 0;
+    animation: animate 70s infinite;
+  }
+  .slider figure img{
+    height: 100vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    float: left;
+    box-sizing: border-box;
+  }
+  @keyframes animate{
+    0%{left:0%;}
+    10%{left:0%;}
+    12%{left:-100%;}
+    22%{left:-100%;}
+    24%{left:-200%;}
+    34%{left:-200%;}
+    36%{left:-300%;}
+    46%{left:-300%;}
+    48%{left:-400%;}
+    58%{left:-400%;}
+    60%{left:-300%;}
+    70%{left:-300%;}
+    72%{left:-200%;}
+    82%{left:-200%;}
+    84%{left:-100%;}
+    94%{left:-100%;}
+    96%{left:0%;}
+  }
+
+  .infobox1
+  {
+
+      float:left;
+      width:25%;
+      margin-left:5%;
+      background-color: #e6b102;;
+      padding:2.5%
+
+  }
+  .clearFloat
+  {
+      clear: both;
+  }
