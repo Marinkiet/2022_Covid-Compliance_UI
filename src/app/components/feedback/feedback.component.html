@@ -1,28 +1,34 @@
-<hr>
-<form [formGroup]="commentForm">
 
-  <div class="formstyle">
-    <mat-form-field>
 
-    <mat-label>Leave a comment</mat-label><br>
-    <!--  <input type='textarea' rows="4" cols="100" formControlName="comments">
-  -->
- 
-    <textarea formControlName="Comment" matInput placeholder="Example..."></textarea>
-
-    </mat-form-field>
-    
-    <mat-form-field>
-      <mat-label>Leave a name</mat-label>
-      <input formControlName="username" matInput placeholder="Name & Surname">
-      <mat-hint>Optional</mat-hint>
-    </mat-form-field>
-
-    <br><br>
-    <button mat-raised-button (click)='onComment()'>Comment</button>
-
-    <p class="feed">{{message_2}}</p>
-    <p>{{message}}</p>
+<div class="feed-container">
+  <div >
+    <img src="https://raw.githubusercontent.com/ICEP-DEV/2022_Covid-Compliance_UI/5e58607f2bd7f3ef0ec0dec17e10c33b12a313bb/src/assets/feed.jpg" height="257px" width="300px">
   </div>
+  <form [formGroup]="commentForm">
 
-</form>
+    <div class="formstyle">
+      <mat-form-field>
+  
+      <mat-label>Leave a comment</mat-label><br>
+      <!--  <input type='textarea' rows="4" cols="100" formControlName="comments">
+    -->
+   
+      <textarea formControlName="Comment" matInput placeholder="Example..."></textarea>
+  
+      </mat-form-field>
+      
+      <mat-form-field>
+        <mat-label>Leave a name</mat-label>
+        <input formControlName="username" matInput placeholder="Name & Surname">
+        <mat-hint>Optional</mat-hint>
+      </mat-form-field>
+  
+      <br><br>
+      <button mat-raised-button (click)='onComment()'>Comment</button>
+  
+      <p class="feed">{{message_2}}</p>
+      <p>{{message}}</p>
+    </div>
+  
+  </form>
+</div>

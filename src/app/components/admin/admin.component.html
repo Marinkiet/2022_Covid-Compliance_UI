@@ -67,80 +67,52 @@
           <span>Logout</span>
       </button>
       
-
-  </mat-sidenav>
+</mat-sidenav>
 
   <mat-sidenav-content>
-  <h1 style="text-align: center;color: aliceblue;margin-top: 20px;font-weight:500;font-size: xx-large;">Hover over each logo to edit carousel items</h1>
-  <mat-divider>
+      
+        <h1 class="header">Hover over each logo to edit carousel items</h1>
+       
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                <div class="flip-card-front">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Carousel Image Items</h1> 
+                    <h3>Please Select an Image (png/jpg/gif)</h3>      
+                    <input type="text"  (change)="getName(name.value)" #name><br>
+                    <input type="file"  (change)="onFileSelected($event)">
+                    <button (click)="onUpload()">upload</button>
+                    <br><br>   
+                </div>
+                </div>
+            </div>
 
-  </mat-divider>  
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                <div class="flip-card-front">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Carousel Video Items</h1> 
+                    <h3>Please Select a Video (.mp4)</h3> 
+                    <input type="text"  (change)="getName(name.value)" #name><br>
+                    <input type="file"  (change)="onFileSelected($event)">
+                    <button (click)="onUpload()">upload</button>
+                </div>
+                </div>
+            </div>
+            </div>  
+            <h1 class="header">Uploaded Images</h1>
 
-
-
-
-  <div class="flip-container">
-    <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <img class="url2-image" [src]="url" *ngIf="url" style="height: 300px; width: 400px;">
-          </div>
-          <div class="flip-card-back">
-            <h1>Carousel Item 1</h1> 
-            <h3>Please Select an Image (png/jpg/gif)</h3> 
-            
-              
-              <input type="text"  (change)="getName(name.value)" #name><br>
-              <input type="file"  (change)="onFileSelected($event)">
-              <button (click)="onUpload()">upload</button>
-          
-
-              <br><br>
-           
-
-              
-
-            
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card">
-        <div class="flip-card-inner">
-          <div class="flip-card-front">
-            <video autoplay loop class="url2-image" [src]="url2" *ngIf="url2"  style="height: 300px; width: 400px;"></video>
-          </div>
-          <div class="flip-card-back">
-            <h1>Carousel Item 1</h1> 
-            <h3>Please Select a Video (.mp4)</h3> 
-            <p><input type="file" (change)="selectFile2($event)"></p>
-          </div>
-        </div>
-      </div>
-    </div>   
-  
-
-
-
-<button mat-raised-button (click)="onView()"> View Images</button>
-            
-
-
-
-
-
-
-
-<ul  *ngFor="let image of images;">
-
-  <li><img src={{image.pic_path}} width="200px"></li>
-  <!-- <li>{{image.pictureName}}</li> -->
-  
-</ul>
-
-<br>
-  </mat-sidenav-content>
-
-
+            <div class="carousel-images">
+                <ul  *ngFor="let image of images;">
+                <li><img   src={{image.pic_path}} height="300px" width="400px"></li>
+                <li><video  loop src={{image.pic_path}} autoplay height="300px" width="400px"></video></li>
+                </ul>
+        
+                <br>
+            </div>
+      
+     </mat-sidenav-content>
 </mat-sidenav-container>
-
