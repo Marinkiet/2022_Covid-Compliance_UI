@@ -13,13 +13,13 @@ export class LandingPageComponent implements OnInit {
   clickEventsubscription !: Subscription;
 
   constructor(private router:Router,private api: ApiService) { }
-  picSrc = "../../../assets/landingpage-images/vacc.jpg";
+ // picSrc = "../../../assets/landingpage-images/vacc.jpg";
   ngOnInit(): void 
   {
     this.deletesession();
   }
-
-  getImage(id: number): void {
+  
+  /*getImage(id: number): void {
     this.api.getImage(id)
       .subscribe({
         next: (res: any) => {
@@ -37,7 +37,7 @@ export class LandingPageComponent implements OnInit {
 
       }
     })
-  }
+  }*/
 
   deletesession()
   {

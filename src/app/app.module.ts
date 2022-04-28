@@ -26,7 +26,6 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 //Services
 import { CustomvalidationService } from './services/customvalidation.service';
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
@@ -50,8 +49,14 @@ import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
+<<<<<<< HEAD
 import { UserguardGuard } from './guards/userguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
+=======
+
+
+
+>>>>>>> 918bb7e9be221e3dd56e0c59cf15717d6ea9a7ca
 @NgModule({
   declarations: [
     AppComponent,
@@ -108,9 +113,6 @@ import { RegistervisitorComponent } from './components/registervisitor/registerv
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    
-
-    
     
     
   ],
