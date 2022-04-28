@@ -8,13 +8,12 @@ import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./add-officer.component.css']
 })
 export class AddOfficerComponent implements OnInit {
-
   officerForm !: FormGroup;
   actionBtn:string ='Save';
   lblType:string = 'Add Officer';
   passwType:string = 'Password';
   passwTypeConfirm = 'Confirm Password';
-  constructor( 
+  constructor(
     private formBuilder: FormBuilder,
     private api:ApiService,
     private dialogRef : MatDialogRef<AddOfficerComponent>,
@@ -36,9 +35,10 @@ export class AddOfficerComponent implements OnInit {
     });
     //check if row data is reflecting from the dialog then patch into dialof input fields
     //console.log(this.editData);
+
     if(this.editData){
       this.actionBtn = "Update";
-      this.lblType = "Edit Officer"; 
+      this.lblType = "Edit Officer";
       this.passwType="Old Password";
       this.passwTypeConfirm = "New Password";
         this.officerForm.controls['Officer_id'].setValue(this.editData.Officer_id);
@@ -50,6 +50,15 @@ export class AddOfficerComponent implements OnInit {
         this.officerForm.controls['Email'].setValue(this.editData.Email);
         this.officerForm.controls['Password'].setValue(this.editData.Password);
     }
+    const draft = sessionStorage.getItem("userEdits");
+    if (draft){
+      this.officerForm.setValue(JSON.parse(draft));
+    }
+    this.officerForm.valueChanges
+        .pipe(
+
+        )
+        .subscribe( val =>{ sessionStorage.setItem("userEdits", JSON.stringify(val))});
   }
   addOfficer()
   {
@@ -64,15 +73,15 @@ export class AddOfficerComponent implements OnInit {
           this.dialogRef.close('saved'); //close form once saved
         },
         error:()=>{
-         alert('Could no register officer ');
+         alert('Could not register officer ');
         }
-        
+
       })
     }
    }else{
      this.updateOfficer()
    }
-  
+
   }
   updateOfficer(){
 this.api.putOfficer(this.officerForm.value)
