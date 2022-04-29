@@ -648,7 +648,7 @@ mat-divider {
     position: relative;
     width: 500%;
     margin: 0;
-    animation: animate 70s infinite;
+    animation: animate 150s infinite;
   }
   .slider figure img{
     height: 100vh;

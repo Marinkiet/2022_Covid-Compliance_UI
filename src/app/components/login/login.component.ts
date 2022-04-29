@@ -158,7 +158,7 @@ get Password()
 
     case 4:
       {
-        alert('This is the Visitor talking');
+        //alert('This is the Visitor talking');
         this.visitorservice.loginVisitor(this.loginForm.value).pipe(first()).subscribe(
           data => {
         

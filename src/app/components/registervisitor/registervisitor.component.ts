@@ -31,7 +31,7 @@ export class RegistervisitorComponent implements OnInit {
         Password:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternPassValidator()]),
         confirm_password:new FormControl('',[Validators.required]),
         Email:new FormControl('',[Validators.required,Validators.email]),
-        Cellphone_number: new FormControl('',[Validators.required, Validators.pattern('^(0|[1-9][0-9]*)$')]),
+        Cellphone_number: new FormControl('',[Validators.required, Validators.pattern('^(27|27|0)[0-9]{2}( |-)?[0-9]{3}( |-)?[0-9]{4}( |-)?(x[0-9]+)?(ext[0-9]+)?')]),
       },
       {
         validators: this.customvalidator.passwordMatch('password','confirm_password')

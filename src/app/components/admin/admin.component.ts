@@ -41,12 +41,14 @@ export class AdminComponent implements OnInit {
     formData.set('name', this.name)
     formData.set('pic_path', this.pic_path)
     //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
+
     this.http.post('http://localhost:3000/upload_image/image', formData).subscribe(
       res => {
         console.log(res)
       }
     )
     this.onView();
+    
   }
 
   pic: string = 'pic_path-1650626677588.png';

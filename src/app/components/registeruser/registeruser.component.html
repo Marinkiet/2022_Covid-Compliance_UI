@@ -5,6 +5,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Staff/Student Number</mat-label>
+                    <mat-icon matSuffix>edit</mat-icon>
                     <input matInput formControlName="userId" placeholder="Staff/Student Number<">
                     <mat-error *ngIf="(userId.touched || submitted)&& userId.errors?.required">Identity Number required</mat-error>
                 </mat-form-field>
@@ -13,6 +14,7 @@
         
                     <mat-label>E-mail</mat-label>
                     <input matInput formControlName="email" >
+                    <mat-icon matSuffix>mail</mat-icon>
                     <mat-error *ngIf="(email.touched || submitted)&& email.errors?.required">E-mail is required</mat-error>
                     <mat-error *ngIf="email.touched && email.errors?.email">Enter a valid email address</mat-error>
              
@@ -23,6 +25,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>First Name</mat-label>
+                    <mat-icon matSuffix>face</mat-icon>
                     <input matInput formControlName="firstNames" >
                     <mat-error *ngIf="(firstNames.touched || submitted)&& firstNames.errors?.required">First Name is required</mat-error>
                 </mat-form-field>
@@ -30,6 +33,7 @@
 
                 <mat-form-field appearance="fill">
                     <mat-label>Last Name</mat-label>
+                    <mat-icon matSuffix>face</mat-icon>
                     <input matInput formControlName="lastName" >
                     <mat-error *ngIf="(lastName.touched || submitted)&& lastName.errors?.required">Last Name is required</mat-error>
                 </mat-form-field>
@@ -40,6 +44,7 @@
         
             <mat-form-field appearance="fill">
                 <mat-label>Phone Number</mat-label>
+                <mat-icon matSuffix>phone</mat-icon>
                 <input matInput formControlName="cellphone">
                 <mat-error *ngIf="(cellphone.touched || submitted)&& cellphone.errors?.required">Cell Phone Number required</mat-error>
                 <!-- <mat-hint>optional</mat-hint> -->
@@ -47,6 +52,7 @@
 
             <mat-form-field appearance="fill">
                 <mat-label>Campus</mat-label>
+                <mat-icon matSuffix>place</mat-icon>
                 <mat-select>
                     <mat-option *ngFor="let i of campuses" [value]="i"> {{i}} </mat-option>
                 </mat-select>
