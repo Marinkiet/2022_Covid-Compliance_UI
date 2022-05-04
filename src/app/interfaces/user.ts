@@ -115,7 +115,7 @@ export interface Comments
 {
     Comment:string;
     username:string;
-    Feedback_id:number;
+    Feed_id:number;
     Date:string;
 
 }
