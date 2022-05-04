@@ -53,6 +53,11 @@ import { ViewpendingComponent } from './components/viewpending/viewpending.compo
 import { UserguardGuard } from './guards/userguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
+<<<<<<< HEAD
+=======
+import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
+import { LandingInformationComponent } from './components/landing-information/landing-information.component';
+>>>>>>> main
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,6 +86,11 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
     ViewpendingComponent,
     RegistervisitorComponent,
     RegisteruserComponent,
+<<<<<<< HEAD
+=======
+    NewsfeedComponent,
+    LandingInformationComponent,
+>>>>>>> main
     
     
    
