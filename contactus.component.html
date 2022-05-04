@@ -1,57 +1,62 @@
-<div class="welcome_message">
 
-    <div class="txt_welcome">
+      <mat-toolbar class="mat-elevation-z8">
 
-        <br><br>
-       
-</div>
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
 
-<section class="hero is-primary is-bold">
-    <div class="hero-body">
-    <div class="container">
-        <h1 class="title">Contact Covid Complieace Team </h1> 
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+    
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+    
+        </button>
+        <img class="logo" src="../../../assets/logo6.png" routerLink="/">
 
-    </div>
-    </div>
+        <h3>Covid Compliance</h3>
+        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
 
-</section>
 
-<section class="section">
-    <div class="row">
-        <div class="column">
-         
-    <div class="container">
-        <form (ngSubmit)="submitForm()" >
-            <div class="field">
-                <label class="label">Name</label>
-                <br>
-                <input type="text" name="name" class="input" [(ngModel)]="name" >
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+
+        <div class="container">
+            <div style="text-align:center">
+              <h2>Contact Us</h2>
+              <p>Brouse by our app , or leave us a message:</p>
             </div>
-            
-            <div class="field">
-                <label class="label">Last Name</label>
-                <br>
-                <input type="text" name="lname" class="input" [(ngModel)]="lastname">
+            <div class="row">
+              <div class="column">
+                <img class="img" src="../../../assets/Coronavirus COVID-19.jpg" style="width:80%">
+              </div>
+              <div class="column">
+                <form action="/action_page.php">
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+                  <label for="Campus">Campus</label>
+                  <select id="campus" name="campus">
+                    <option value="Soshanguve">Soshanguve</option>
+                    <option value="Emalahleni">Emalahleni</option>
+                    <option value="Garankuwa">Garankuwa</option>
+                  </select>
+                  <label for="subject">Subject</label>
+                  <textarea id="subject" name="subject" placeholder="Write something.." style="height:170px"></textarea>
+                  <input type="submit" value="Submit">
+                </form>
+              </div>
             </div>
-            
-            <div class="field">
-                <label class="label">Email</label>
-                <br>
-                <input type="email" name="email" class="input" [(ngModel)]="email">
-            </div>
-            
-            <div class="field2">
-                <label class="label">Your Message</label>
-                <br>
-                <textarea name="message" class="textarea" [(ngModel)]="message" ></textarea>
-            </div>
-           
-            <button type="Submit" class="button is-large is-warnig">
-                Submit!
-            </button>
+          </div>
 
-        </form>
-    </div>
-        </div>
-    </div>
-</section>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
