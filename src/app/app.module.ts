@@ -53,11 +53,9 @@ import { ViewpendingComponent } from './components/viewpending/viewpending.compo
 import { UserguardGuard } from './guards/userguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
 import { RegisteruserComponent } from './components/registeruser/registeruser.component';
-<<<<<<< HEAD
-=======
 import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { LandingInformationComponent } from './components/landing-information/landing-information.component';
->>>>>>> main
+import { QrCodeComponent } from './components/qr-code/qr-code.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -86,11 +84,9 @@ import { LandingInformationComponent } from './components/landing-information/la
     ViewpendingComponent,
     RegistervisitorComponent,
     RegisteruserComponent,
-<<<<<<< HEAD
-=======
     NewsfeedComponent,
     LandingInformationComponent,
->>>>>>> main
+    QrCodeComponent,
     
     
    

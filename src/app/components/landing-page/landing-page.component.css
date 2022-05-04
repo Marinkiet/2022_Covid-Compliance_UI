@@ -629,11 +629,7 @@ mat-divider {
     width: 90%;
     height:100vh;
     min-width: 900px;
-<<<<<<< HEAD
-    margin: 50px auto ;
-=======
     margin: 10px auto ;
->>>>>>> main
     
 }
 .slider{
@@ -686,12 +682,6 @@ mat-divider {
 
   .infobox1
   {
-<<<<<<< HEAD
-
-      float:left;
-      width:25%;
-      margin-left:5%;
-=======
       float:left;
       width:350px;
       height:350px;
@@ -701,16 +691,10 @@ mat-divider {
       margin-left:10px;
       margin-top:10px;
       margin-bottom:10px;
->>>>>>> main
       background-color: #e6b102;;
       padding:2.5%
 
   }
-<<<<<<< HEAD
-  .clearFloat
-  {
-      clear: both;
-=======
 
   .clearFloat
   {
@@ -726,5 +710,4 @@ mat-divider {
       align-items: center;
       width:80%;
       margin:auto;
->>>>>>> main
   }

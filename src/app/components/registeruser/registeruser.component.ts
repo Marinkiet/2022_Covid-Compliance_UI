@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { first } from 'rxjs';
 import { RegisterUser } from 'src/app/interfaces/user';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { UserService } from 'src/app/services/user.service';
@@ -82,14 +83,26 @@ export class RegisteruserComponent implements OnInit {
    //console.log(this.officerForm.value);
    //if we not adding then we edit
    
+ 
+
     if(this.userRegForm.valid)
     {
       this.userservice.registerUser(this.userRegForm.value)
-      .subscribe({
-        next:(res:RegisterUser)=>{
-          alert('User registered successfully');
-          this.router.navigate(['login']);
-          console.log(res);
+      .pipe(first()).subscribe({
+        next:(res)=>
+        {
+          console.log(res.message);
+          if(res.message == 'Successful')
+          {
+            alert('User registered successfully');
+             this.router.navigate(['login']);
+           
+          }
+          else if(res.message == 'Unsuccessful')
+          {
+            alert('Email already registered Please re-register')
+            
+          }
         },
         error:()=>{
          alert('Could no register User ');
