@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { Typelist } from 'src/app/interfaces/registertypes/typelist';
+import { Typeuser } from 'src/app/interfaces/registertypes/typeuser';
 import { RegisterUser } from 'src/app/interfaces/user';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { UserService } from 'src/app/services/user.service';
@@ -33,6 +35,7 @@ export class RegisterComponent implements OnInit {
     this.registerform=new FormGroup
     (
       {
+        user_type:new FormControl('',[Validators.required]),
         userId:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
         firstNames:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
         lastName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
@@ -45,6 +48,16 @@ export class RegisterComponent implements OnInit {
       {
         validators: this.customvalidator.passwordMatch('password','confirm_password')
       });
+
+      this.checkUserTYpe()
+   /*  if(this.registerform.invalid)
+    {
+      alert('Form not valid');
+    } */
+    if(this.registerform.valid)
+    {
+      alert('Form not valid');
+    }
   }
   onFileSelected(event:any) {
 
@@ -100,6 +113,32 @@ export class RegisterComponent implements OnInit {
   }
 
 
+  selected='none';
+  isStaff=false;
+  isVisitor=false;
+  checkUserTYpe()
+  {
+    if(this.selected==null)
+    {
+      this.isStaff=false;
+      this.isVisitor=false;
+      
+    }
+    if(this.selected=='Staff')
+    {
+      this.isStaff=true;
+      this.isVisitor=false;
+      //alert('Staff User selected')
+    }
+    if(this.selected=='Visitor')
+    {
+      this.isVisitor=true;
+      this.isStaff=false;
+    }
+
+  }
+
+
   onSubmit()
   {
     this.submitted=true;
@@ -112,9 +151,19 @@ export class RegisterComponent implements OnInit {
 
     if(this.registerform.invalid)
     {
-      //alert('Form not valid');
+      alert('Form not valid');
     }
   }
+
+  //Select which user to be registered as 
+
+
+  
+
+
+  //End of the choosing 
+
+
 
 
   RegisterUser()

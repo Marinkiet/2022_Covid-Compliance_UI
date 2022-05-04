@@ -50,9 +50,9 @@ export class UserService
           {
             console.log(Users);
 
-            this.setToken(Users.User_id);
+            //this.setSeesion();
             this.getLoggedInName.emit(true);
-            //console.log('Following is Token');
+            //console.log('Following is Token '+this.setSeesion(user.User_id));
             //console.log("User id is "+Users.User_id);
             //console.log(Users.User_id);
             //console.log(Users.Password);
@@ -64,10 +64,12 @@ export class UserService
         ) 
     /* return this.http.post(`http://localhost:3000/login/user`,user); */
   }
-  setToken(token: string)
+
+
+  /* setSeesion(token: string)
   {
-    localStorage.setItem('token',token);
-  }
+    sessionStorage.setItem('token',token);
+  } */
  /*  getToken() {
     localStorage.getItem('token');
   } */
@@ -77,9 +79,23 @@ export class UserService
 
 
 
+/*   setToken(token: string)
+  {
+    localStorage.setItem('token',token);
+  }
+ /*  getToken() {
+    localStorage.getItem('token');
+  } 
+  deleteToken() {
+    localStorage.removeItem('token');
+  } 
+  */
+
+
+
   isLoggedIn()
   {
-    return !!localStorage.getItem('token');
+    return sessionStorage.getItem('user_id')!=null;
   }
 
 
@@ -94,7 +110,8 @@ export class UserService
     )
   }  */
 
-  registerUser(data : any){
+  registerUser(data : any)
+  {
     return this.http.post<any>("http://localhost:3000/add_user/user",data)
   }
 

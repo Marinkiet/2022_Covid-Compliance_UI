@@ -1,4 +1,4 @@
-import { Component, OnInit,Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CommentService } from 'src/app/services/comment.service';
 import { first, map } from 'rxjs';
@@ -12,72 +12,64 @@ import { Comments } from 'xlsx';
 export class FeedbackComponent implements OnInit {
   alertify: any;
 
-  constructor(private commentservice:CommentService) { }
+  constructor(private commentservice: CommentService) { }
 
-  commentForm!:FormGroup;
+  commentForm!: FormGroup;
 
-  ngOnInit(): void
-  {
-    this.commentForm=new FormGroup
-    ({
-      Comment:new FormControl(''),
-      username:new FormControl('')
-    })
+  ngOnInit(): void {
+    this.commentForm = new FormGroup
+      ({
+        Comment: new FormControl(''),
+        username: new FormControl('')
+      })
   }
 
-  get username()
-  {
+  get username() {
     return this.commentForm.get('username');
   }
-  get Comment()
-  {
+  get Comment() {
     return this.commentForm.get('Comment');
   }
 
-  
-  message:any;
-  message_2:any;
+
+  message: any;
+  message_2: any;
 
 
-  onComment()
-  {
-    if(this.commentForm.valid)
-    {
-      alert('comment submitted');
-      console.log('Comments by User'+ this.Comment);
+  onComment() {
+    if (this.commentForm.valid) {
+      //salert('comment submitted');
+      console.log('Comments by User' + this.Comment?.value);
       this.onPostComment();
-      this.message='Feedback submitted';
+      this.commentForm.reset()
+      this.message = 'Comment submitted';
     }
 
-    else if(this.commentForm.invalid)
-    {
+    else if (this.commentForm.invalid) {
       alert('comment invalid');
-      console.log('Comments by User'+ this.Comment);
-      this.message_2='Incorrect Feedback format';
+      console.log('Comments by User' + this.Comment?.value);
+      this.message_2 = 'Incorrect Feedback format';
     }
 
   }
 
-  onPostComment()
-  {
+  onPostComment() {
     this.commentservice.postComment(this.commentForm.value).subscribe(
-      (comments:Comments)=>
-      {
+      (comments:any) => {
         console.log('commented')
         this.commentForm.reset();
       },
-      error=>
-      { console.log(error);
+      error => {
+        console.log(error);
         this.alertify.eror(error.error)
       }
     )
   }
-    
+
 }
-    
-    
-    
-  
+
+
+
 
 
 

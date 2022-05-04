@@ -11,6 +11,7 @@ import { FormControl,FormGroup,Validators} from '@angular/forms';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { Typelist } from 'src/app/interfaces/usertypes/typelist';
 import { Token } from '@angular/compiler';
+import { VisitorserviceService } from 'src/app/services/visitorservice.service';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit
   constructor(
     private router:Router,
     private userservice:UserService,
+    private visitorservice:VisitorserviceService,
     private officerservice:OfficerService,
     private customValidator:CustomvalidationService,
     private adminservice:AdminService,
@@ -82,10 +84,8 @@ get Password()
       {
         //alert('This is the admin talking');
         
-
         this.adminservice.loginAdmin(this.loginForm.value).pipe(first()).subscribe(
           data => {
-
 
             if (data.message == 'Successful') {
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
@@ -146,7 +146,7 @@ get Password()
               }
               else if (data.message =='Unsuccessful')
               {
-                alert(' Student Please valid credentials');
+                alert(' Student Please Enter valid credentials');
               }
 
             },
@@ -158,13 +158,52 @@ get Password()
 
     case 4:
       {
-        alert('This is the Visitor talking');
+        //alert('This is the Visitor talking');
+        this.visitorservice.loginVisitor(this.loginForm.value).pipe(first()).subscribe(
+          data => {
+        
+            console.log(data);
+            console.log(data.message);
+            if (data.message == 'Successful')
+            {
+              /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
+              this.router.navigate(['qrcode']);
+              sessionStorage.setItem('user_id',data.User_id);
+            }
+            else if (data.message =='Unsuccessful')
+            {
+              alert(' Visitor Please Enter valid credentials');
+            }
+
+          },
+          (error: any) => console.log('this is the error' + error),
+          () => console.log('Done login Visitor in'),
+        );
       }
       break;
 
     case 5:
       {
         alert('This is the staff talking');
+        this.userservice.loginUser(this.loginForm.value).pipe(first()).subscribe(
+          data => {
+        
+
+            if (data.message == 'Successful')
+            {
+              /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
+              this.router.navigate(['qrcode']);
+              sessionStorage.setItem('user_id',data.User_id);
+            }
+            else if (data.message =='Unsuccessful')
+            {
+              alert(' Staff Please Enter valid credentials');
+            }
+
+          },
+          (error: any) => console.log('this is the error' + error),
+          () => console.log('Done login Staff in'),
+        );
       }
       break;
   }

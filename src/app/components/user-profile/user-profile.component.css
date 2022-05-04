@@ -112,7 +112,7 @@ mat-sidenav {
   mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
-    background-color: rgba(255, 0, 0, 0.5);
+    background-color: rgba(255, 0, 0, 0.822);
   }
   .right-nav {
     display: flex;

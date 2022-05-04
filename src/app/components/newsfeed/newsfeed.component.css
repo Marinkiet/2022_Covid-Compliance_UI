@@ -1,0 +1,54 @@
+.infobox1
+{
+    float:left; 
+    width:300px;
+    height:140px;
+    overflow:hidden;
+   /*  height:fit-content; */
+    
+    margin-left:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    background-color: #e6b102;;
+    padding:2.5%
+
+}
+
+.clearFloat
+{
+    clear: both;
+} 
+.info-container
+{
+    /* display: flex; */
+   /*  background-color: red; */
+    justify-content:center;
+    /* text-align: center; */
+    padding:33px 15;
+    align-items: center;
+    width:50%;
+    overflow-y:auto;
+    height:150px;
+    margin:10px auto;
+}
+.newsfeed
+{
+    /* position:sticky;
+    top: 0; */
+
+       /* display: flex; */
+   /*  background-color: red; */
+   justify-content:center;
+   /* text-align: center; */
+   padding:33px 15;
+   align-items: center;
+   width:50%;
+   overflow-y:auto;
+
+   margin:10px auto;
+
+}
+hr
+{
+    width:50%;
+}
