@@ -49,14 +49,10 @@ import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback
 import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
 import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
 import { ViewpendingComponent } from './components/viewpending/viewpending.component';
-<<<<<<< HEAD
 import { UserguardGuard } from './guards/userguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
-=======
 
 
-
->>>>>>> 918bb7e9be221e3dd56e0c59cf15717d6ea9a7ca
 @NgModule({
   declarations: [
     AppComponent,
@@ -84,9 +80,9 @@ import { RegistervisitorComponent } from './components/registervisitor/registerv
     ViewaccessComponent,
     ViewpendingComponent,
     RegistervisitorComponent,
-    
-    
-   
+
+
+
   ],
   imports: [
     BrowserModule,
@@ -113,12 +109,12 @@ import { RegistervisitorComponent } from './components/registervisitor/registerv
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    
-    
+
+
   ],
   providers: [CustomvalidationService,DatePipe,UserguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  
+
  }
