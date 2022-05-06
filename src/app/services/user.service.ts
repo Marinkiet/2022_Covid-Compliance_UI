@@ -153,10 +153,8 @@ export class UserService
 
   form(data:FormData)
   {
-    return this.http.post<FormData>("http://localhost:3000/healthform/user",data)
+    return this.http.post<FormData>("http://localhost:3000/insert_healthform/user",{data})
   }  
-
-
 
   updateofficerInfo(officerdata: UpdateOfficer, id: string): Observable<UpdateOfficer[]> {
     {

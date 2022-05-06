@@ -174,7 +174,7 @@ apimessage=''
 
   deleteOtherSessions()
   {
-    sessionStorage.removeItem('user_id')
+    //sessionStorage.removeItem('user_id')
     sessionStorage.removeItem('admin_id')
     
   }

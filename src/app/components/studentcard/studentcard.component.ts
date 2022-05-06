@@ -57,7 +57,7 @@ export class StudentcardComponent implements OnInit {
 
   onGetUser(): void 
   {
-    this.userservice.getUser('216979443').subscribe(
+    this.userservice.getUser(`${sessionStorage.getItem('user_id')}`).subscribe(
       (response: any) =>
       {
 

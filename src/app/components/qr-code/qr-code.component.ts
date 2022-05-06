@@ -9,7 +9,21 @@ export class QrCodeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  qrImg:any
+  ngOnInit()
+  {
+    this.generateQrCode();
   }
 
+ 
+
+  generateQrCode()
+  {
+    console.log(sessionStorage.getItem('user_id'))
+    if(!sessionStorage.getItem('user_id'))
+      return;
+      this.qrImg=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${sessionStorage.getItem('user_id')}`
+    
+
+  }
 }

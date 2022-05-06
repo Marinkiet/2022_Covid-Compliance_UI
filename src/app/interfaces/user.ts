@@ -154,6 +154,7 @@ export interface Images
 }
 export interface FormData
 {
+    User_id:string;
     vstatus:string;
     covid19:string;
     recentCough:string;

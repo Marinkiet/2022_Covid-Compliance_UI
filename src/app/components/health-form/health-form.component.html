@@ -3,6 +3,13 @@
   <h1 mat-dialog-title>Health Form</h1>
 <div mat-dialog-content>
 
+
+  <mat-form-field appearance="outline">
+    <mat-label>Student Number </mat-label>
+    <input matInput formControlName="User_id" placeholder="No" readonly>
+   
+  </mat-form-field>
+
     <mat-form-field appearance="outline">
         <mat-label>Are You Vaccinated? </mat-label>
         <mat-select formControlName="vstatus" placeholder="No">
@@ -61,7 +68,7 @@
       
       <div mat-dialog-action [align]="'end'">
         <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
-        <button style="margin-left:10px" mat-raised-button color="primary" *ngIf="close"  (click)="postHealthData()">Submit</button>
+        <button style="margin-left:10px" mat-raised-button color="primary" mat-dialog-close (click)="postHealthData()">Submit</button>
       </div>
 </div>
 

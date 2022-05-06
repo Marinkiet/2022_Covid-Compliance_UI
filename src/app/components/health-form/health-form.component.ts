@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { first } from 'rxjs';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
-//import { HealthformService } from 'src/app/services/healthform.service';
-import { UserService } from 'src/app/services/user.service';
+import { HealthformService } from 'src/app/services/health-form.service';
+/* import { HealthFormService } from 'src/app/services/health-form.service'; */
+/* import { HealthformService } from 'src/app/services/healthform.service'; */
 
 @Component({
   selector: 'app-health-form',
@@ -17,17 +18,19 @@ export class HealthFormComponent implements OnInit {
   submitted=false;
   hide=true;
   constructor(
-    private formService:UserService, 
+    /* private formService:HealthFormService,  */
+    private formservice:HealthformService,
     private formBuilder: FormBuilder,
     )
      { }
 
   ngOnInit(): void {
 
-    this.closeForm();
+    
     this.healthform=new FormGroup
     (
       {
+        User_id:new FormControl(''),
         vstatus:new FormControl('',[Validators.required]),
         covid19:new FormControl('',[Validators.required]),
         recentCough:new FormControl('',[Validators.required]),
@@ -40,8 +43,14 @@ export class HealthFormComponent implements OnInit {
     
     );
 
+    this.setUserId()
+
   }
  
+  get User_id()
+  {
+    return this.healthform.get('User_id');
+  }
   get vstatus()
   {
     return this.healthform.get('vstatus');
@@ -73,24 +82,22 @@ export class HealthFormComponent implements OnInit {
   }
   
 
-  close=false;
-  closeForm()
+
+  setUserId()
   {
-    if(this.healthform.valid)
-    {
-      this.close=true;
-    }
+    this.healthform.controls['User_id'].setValue(sessionStorage.getItem('user_id'))
   }
+
   postHealthData()
   {
    
-    this.formService.form(this.healthform.value).pipe(first()).subscribe(
-      data => {
-        console.log(data)
-      },
-     
-    
-    );
+    this.formservice.form(this.healthform.value).pipe(first()).subscribe(
+        data => {
+          console.log(data)
+        },
+      
+      
+      );
 
   /*   if(this.healthform.valid){
       alert('form valid');

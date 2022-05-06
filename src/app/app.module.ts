@@ -117,10 +117,6 @@ import { QrCodeComponent } from './components/qr-code/qr-code.component';
     MatPaginatorModule,
     MatSortModule,
     
-
-    
-    
-    
   ],
   providers: [CustomvalidationService,DatePipe,UserguardGuard],
   bootstrap: [AppComponent]
