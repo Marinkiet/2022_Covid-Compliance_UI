@@ -19,7 +19,7 @@
    -->
 
     <span class="right-nav"></span>
-    <button mat-raised-button color="warn" (click)="openDialog()">Health Form</button>
+    <button  mat-raised-button *ngIf="buttoncheck" color="warn" (click)="openDialog()">Health Form</button>
 
 </mat-toolbar>
 
@@ -78,7 +78,7 @@
             <mat-spinner></mat-spinner>
         </div> -->
 
-        <app-qr-code></app-qr-code>
+        <app-qr-code *ngIf="formcheck"></app-qr-code>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

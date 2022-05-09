@@ -197,3 +197,17 @@ export interface getTheUser {
     Email: string;
     Password: string;
 }
+
+
+export interface statsData{
+    Students:Number;
+    
+    
+ }
+  export interface flueData{
+        Total:Number;
+ }
+ export interface visitorData{
+            Total:Number;
+         }
+            

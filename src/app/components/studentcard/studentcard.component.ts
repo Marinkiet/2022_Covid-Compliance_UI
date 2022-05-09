@@ -3,7 +3,7 @@ import { User } from 'src/app/interfaces/user';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { delay } from 'rxjs';
 @Component({
   selector: 'app-studentcard',
@@ -13,33 +13,50 @@ import { delay } from 'rxjs';
 export class StudentcardComponent implements OnInit {
   isValue!: boolean;
   
-  constructor(private route:Router,private userservice:UserService,@Inject(MAT_DIALOG_DATA)public users:User[])
+  constructor(private route:Router,private userservice:UserService,private activatedRoute:ActivatedRoute)
   {
 
   }
 
 
   tempForm: any;
+  User_id_Param:any;
   ngOnInit(): void
   {
-    this.onGetUser();
+
+    this.activatedRoute.paramMap.subscribe((params:ParamMap)=>
+    {
+      this.User_id_Param=params.get('User_id')
+      this.onGetUser(this.User_id_Param)
+    })
+
+   // alert(this.User_id_Param)
+    //this.onGetUser();
     this.tempForm=new FormGroup
     ({
 
         Tempareture:new FormControl('',[Validators.required]),
         isAllowedEntrence:new FormControl('',[Validators.required]),
-        Health_status_reason:new FormControl('',[Validators.required]),
-        //Officer_id: new FormControl('')
+        //Health_status_reason:new FormControl('',[Validators.required]),
+        Officer_id: new FormControl('')
       
     }) 
-    
+
+    /* alert(sessionStorage.getItem('officer_id')) */
+
+    this.setOfficerId();
   }
 
 
- /*  get Officer_id()
+  setOfficerId()
+  {
+    this.tempForm.controls['Officer_id'].setValue(sessionStorage.getItem('officer_id'))
+  }
+
+  get Officer_id()
   {
     return this.tempForm.get('Officer_id');
-  } */
+  }
 
   get Tempareture()
   {
@@ -55,7 +72,11 @@ export class StudentcardComponent implements OnInit {
     return this.tempForm.get('Health_status_reason');
   }
 
-  onGetUser(): void 
+
+  
+
+
+/*   onGetUser(): void 
   {
     this.userservice.getUser(`${sessionStorage.getItem('user_id')}`).subscribe(
       (response: any) =>
@@ -69,15 +90,33 @@ export class StudentcardComponent implements OnInit {
       (error: any) => console.log('this is the error' + error),
       () => console.log('Done getting user'),
     );
+  } */
+
+  users!: User[];
+  onGetUser(User_id)
+  {
+    this.userservice.getUser(`${User_id}`).subscribe(
+      (response: any) => {
+        if (response.message == 'Successful') {
+          console.log(response)
+          this.users = response.data;
+          console.log(this.users)
+        }
+      },
+      (error: any) => console.log('this is the error' + error),
+      () => console.log('Done getting user'),
+    );
   }
+
 
   onUpdateRecord()
   {
-    this.userservice.updateRecord(this.tempForm.value,2).subscribe(
+    this.userservice.updateRecord(this.tempForm.value,this.User_id_Param).subscribe(
       (response: any)=>
       {
         console.log(response);
         console.log('Update successful');
+        
       },
       (error: any) => console.log('this is the error' + error),
       () => console.log('Done getting user'),
@@ -111,14 +150,16 @@ export class StudentcardComponent implements OnInit {
 
   async onSubmit()
   {
-    this.route.navigate(['officer']);
+    this.route.navigate(['viewpending']);
     if(this.tempForm.valid && this.checkAccessValue(this.isAllowedEntrence))
     {
-      //alert('Form is valid')
+      
       this.temperatureCheck(this.Tempareture.value);
-      await delay(1000);
+      await delay(500);
       this.onUpdateRecord();
-      location.reload();
+      alert('data inserted');
+      this.route.navigate(['viewpending']);
+      //location.reload();
       this.tempForm.reset();
       
     }
@@ -172,6 +213,7 @@ export class StudentcardComponent implements OnInit {
       console.log(this.message)
     }
   }
+
 
 
 

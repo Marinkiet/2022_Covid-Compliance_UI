@@ -1,4 +1,4 @@
-import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer } from './../interfaces/user';
+import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer, GetAllOfficers, GetAllRecords } from './../interfaces/user';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map, Observable,observable} from 'rxjs';
@@ -136,18 +136,18 @@ export class UserService
   }
  
 
-  updateRecord(officer:UpdateRecord,Record_id:number)
+  updateRecord(officer: UpdateRecord, User_id:any):Observable<GetAllRecords[]>
   {
-    return this.http.put<any>(`http://localhost:3000/updateRecord/record/${Record_id}`,officer).pipe(
-      map((record)=>
-      {
+    return this.http.put<any>(`http://localhost:3000/updateRecord/record/${User_id}`, officer).pipe(
+      map((record) => {
         console.log(record);
-       // console.log("This is the temperature "+officer.Tempareture);
-       
-       //console.log("This is the temperature "+officer.Record_id);
+        // console.log("This is the temperature "+officer.Tempareture);
+
+        //console.log("This is the temperature "+officer.Record_id);
         return record;
       })
     )
+    
   }
 
 

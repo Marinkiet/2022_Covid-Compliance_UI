@@ -116,7 +116,7 @@ export class ViewaccessComponent implements OnInit {
 
     //table data
 
-    displayedColumns: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
+    displayedColumns: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Status'];
     dataSource !: MatTableDataSource<Record>;
     @ViewChild(MatPaginator) paginator !: MatPaginator;
     @ViewChild(MatSort) sort !: MatSort;

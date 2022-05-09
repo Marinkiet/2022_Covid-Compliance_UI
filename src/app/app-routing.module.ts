@@ -1,5 +1,5 @@
 import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
@@ -24,6 +24,8 @@ import { UserguardGuard } from './guards/userguard.guard';
 import { AdminguardGuard } from './guards/adminguard.guard';
 import { OfficerguardGuard } from './guards/officerguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
+import { Stats } from 'fs';
+import { StatsComponent } from './components/stats/stats.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -45,9 +47,12 @@ const routes: Routes = [
  {path:'adminfeedback',component:AdminfeedbackComponent,canActivate:[AdminguardGuard]},
  {path:'officerprofile',component:OfficerprofileComponent,canActivate:[OfficerguardGuard]},
  {path:'viewaccess',component:ViewaccessComponent,canActivate:[OfficerguardGuard]},
- {path:'viewpending',component:ViewpendingComponent,canActivate:[OfficerguardGuard]},
- {path:'registervisitor',component:RegistervisitorComponent}
- 
+ {path:'viewpending',component:ViewpendingComponent,canActivate:[OfficerguardGuard],},
+ {path:'registervisitor',component:RegistervisitorComponent},
+ {path:'studentcard',component:StudentcardComponent},
+  { path: 'studentcard/:User_id', component: StudentcardComponent,/*  canActivate: [OfficerguardGuard] */},
+  { path: '**',redirectTo:'ViewpendingComponent'}//if they put any route without the user id it loads the view pending
+ ,{path:'stats',component:StatsComponent}
 ];
 
 @NgModule({

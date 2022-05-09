@@ -73,6 +73,7 @@ export class ManageofficersComponent implements OnInit {
       }
     })
   }
+  
   editOfficer(row:any){
     this.dialog.open(AddOfficerComponent,{
       width:'30%',

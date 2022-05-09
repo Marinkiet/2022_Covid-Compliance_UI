@@ -1,0 +1,307 @@
+mat-toolbar {
+    background:#003883;
+    color: #ffffff;
+    height: 60px;
+    text-align: center;
+    margin-left: -14px;
+  }
+  .mat-drawer{
+    visibility: none;
+  }
+  
+  .content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+  }
+  
+  mat-sidenav-container {
+    height: calc(100vh - 65px);
+  }
+  
+  .menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+  
+  
+  }
+  mat-icon {
+        margin-right: 8px;
+    }
+  .avatar {
+    margin-top: 16px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .name {
+    margin-top: 8px;
+    font-weight: normal;
+  }
+  
+  .designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: rgb(255, 254, 254);
+  }
+  
+  
+  mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+  
+  .left-nav{
+    display: flex;
+    margin-left: 20px;
+    text-decoration: none;
+    
+  }
+  .left-nav:visited{
+    color: #f7f7f7;
+    text-decoration: none;
+  
+  }
+   
+  .header{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+    .example-form {
+      min-width: 150px;
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }
+    td {
+      padding-right: 8px;
+    }
+    .container-content{
+      text-align: center;
+      width: fit-content;
+      margin: 50px auto  ;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      color:black;
+      background-color:white;
+      height: 80%;
+      border-radius: 0.7em;
+  }
+  
+  .mat-drawer-container {
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-blend-mode:hue;
+    overflow-y: hidden;
+    background-color: white;
+    /*background-color: red;*/
+  }
+  .logo{
+    width: 170px;
+    height: fit-content;
+    background-color: white ;
+    margin-right: 20px;
+  }
+  .mat-raised-button.mat-primary{
+    background-color:#e6b102;
+  }
+  .mat-divider{
+    background-color: #f7f7f7;
+    background-size:contain;
+  }
+/************/
+.details-cards{
+/*background-image: url(../../../assets/lo);*/
+background:url(../../../assets/videos/covid.gif);
+background-size: cover;
+background-repeat: no-repeat;
+height: 600px;
+}
+/*****************dsgfv****************/
+.container0 ,.container1{
+    max-width: 700px;
+     margin: 0 auto;
+}
+.container0 > h1 {
+    text-align: left;
+    margin-top: 20px;
+     margin-bottom: 30px;
+}
+.container1 > h1 {
+        text-align: right;
+        margin-top: 20px;
+         margin-bottom: 30px;
+}
+
+hr.icon {
+margin: 25px auto 30px;
+padding: 0;
+border: 0;
+border-top: solid 3px;
+text-align: center;
+}
+
+hr.icon:after {
+content: "\f0e7";
+display: inline-block;
+position: relative;
+top: -1.7rem;
+padding: 0 1rem;
+font-family: FontAwesome;
+font-size: 3rem;
+background-color: #fff; 
+}
+
+.meet-heading{
+text-align: center;
+margin-top: 20px;
+font-size: 20px;
+}
+/*********************fgfhfgn************************/
+/* Float four columns side by side */
+.column1 {
+    float: left;
+    width: 25%;
+    padding: 0 10px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .row1 {margin: 0 -5px;}
+  
+  /* Clear floats after the columns */
+  .row1:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 700px) {
+    .column1 {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+
+ .row1{
+     display: flex;
+     justify-content: space-around;
+     margin: 0 150px 50px;
+ }
+  /* Style the counter cards */
+  .card1 {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    width: 260px;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #e6b102;
+    font-style: italic;
+    font-size: 16px;
+}
+/**********************************************/
+
+.box{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  .card{
+    position: relative;
+    width: 230px;
+    height: 250px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 4px;
+    box-shadow:0 2px 10px rgba(0,0,0,.2);
+  }
+  .card:before,
+  .card:after
+  {
+    content:"";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: #fff;
+    transition: 0.5s;
+    z-index:-1;
+  }
+  .card:hover:before{
+  transform: rotate(20deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  }
+  .card:hover:after{
+  transform: rotate(10deg);
+  box-shadow: 0 2px 20px rgba(0,0,0,.2);
+  }
+  .card .imgBx{
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  bottom: 10px;
+  right: 10px;
+  background: #222;
+  transition: 0.5s;
+  z-index: 1;
+  }
+  
+  .card:hover .imgBx
+  {
+    bottom: 80px;
+  }
+
+  .card .imgBx img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+  .card .details{
+      position: absolute;
+      left: 10px;
+      right: 10px;
+      bottom: 10px;
+      height: 60px;
+      text-align: center;
+  }
+
+  .card .details h2{
+   margin: 0;
+   padding: 0;
+   font-weight: 600;
+   font-size: 20px;
+   color: #777;
+  } 
+
+  .card .details h2 span{
+  font-weight: 500;
+  font-size: 16px;
+  color: #f38695;
+  display: block;
+  margin-top: 5px;
+   } 

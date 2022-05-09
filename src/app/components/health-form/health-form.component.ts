@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { first } from 'rxjs';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { HealthformService } from 'src/app/services/health-form.service';
@@ -21,6 +22,7 @@ export class HealthFormComponent implements OnInit {
     /* private formService:HealthFormService,  */
     private formservice:HealthformService,
     private formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<HealthFormComponent>,
     )
      { }
 
@@ -94,9 +96,8 @@ export class HealthFormComponent implements OnInit {
     this.formservice.form(this.healthform.value).pipe(first()).subscribe(
         data => {
           console.log(data)
+        this.dialogRef.close('formchecked');
         },
-      
-      
       );
 
   /*   if(this.healthform.valid){

@@ -9,7 +9,13 @@
     overflow-y: hidden;
     text-align: center;
     display: flex;
-    width: 80%;
+    width: 600px;
+    margin:10% auto; 
+    /* background-color: red;  */
+  }
+  .student-card
+  {
+    background-color:rgb(116, 116, 116);
   }
   ul li
   {

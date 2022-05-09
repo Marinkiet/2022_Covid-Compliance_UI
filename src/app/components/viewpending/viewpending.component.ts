@@ -6,10 +6,11 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { delay } from 'rxjs';
-import { PendingRecord, User } from 'src/app/interfaces/user';
+import { Images, PendingRecord, User } from 'src/app/interfaces/user';
 import { ApiService } from 'src/app/services/api.service';
 import { RecordService } from 'src/app/services/record.service';
 import { UserService } from 'src/app/services/user.service';
+import { StudentcardComponent } from '../studentcard/studentcard.component';
 
 @Component({
   selector: 'app-viewpending',
@@ -30,6 +31,7 @@ export class ViewpendingComponent implements OnInit
   
    
     constructor(
+      
       private recordservice:RecordService ,
       private userservice:UserService,
       private observer: BreakpointObserver,
@@ -65,12 +67,7 @@ export class ViewpendingComponent implements OnInit
     }
    
 
-
-
-  
-
- 
-
+//officerid=sessionStorage.getItem('officer_id')
     onGetPending(): void 
     {
       this.recordservice.getPendingRecord().subscribe(
@@ -100,7 +97,7 @@ export class ViewpendingComponent implements OnInit
 
     //Access Pending
 
-    displayedColumnPending: string[] = ['Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
+  displayedColumnPending: string[] = ['User_id', 'Form_check', 'Date', 'Tempareture', 'isAllowedEntrence','Status','Machine'];
     dataSourcePending !: MatTableDataSource<PendingRecord>;
     @ViewChild(MatPaginator) paginatorPending!: MatPaginator;
     @ViewChild(MatSort) sortPending !: MatSort;
@@ -117,4 +114,42 @@ export class ViewpendingComponent implements OnInit
     }
 
 
+  getStudentCard = false;
+
+  studentdetails(User_id)
+  {
+    {
+      let dialogref = this.dialog.open(StudentcardComponent, {
+        height: '800px',
+        width: '50%',
+        data:{User:User_id}
+      });
+      dialogref.afterClosed().subscribe(results => {
+        console.log(`dialog results:'${results}`)
+      }
+      )
+    }
+
+    //this.getStudentCard=true;
+
+
+   /*  this.userservice.getUser(`${User_id}`).subscribe(
+      (response: any) => {
+        if (response.message == 'Successful') {
+          this.getStudentCard = true;
+          //this.apimessage = "";
+          console.log(response)
+          this.users = response.data;
+          console.log(this.users)
+        }
+        else if (response.message == 'Unsuccessful') {
+          this.getStudentCard = false;
+          //this.apimessage = "Please enter the correct student number";
+        }
+      },
+      (error: any) => console.log('this is the error' + error),
+      () => console.log('Done getting user'),
+    ); */
+
+  }
 }
