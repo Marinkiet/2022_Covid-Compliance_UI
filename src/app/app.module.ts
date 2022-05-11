@@ -57,6 +57,7 @@ import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { LandingInformationComponent } from './components/landing-information/landing-information.component';
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { StatsComponent } from './components/stats/stats.component';
+import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,6 +90,7 @@ import { StatsComponent } from './components/stats/stats.component';
     LandingInformationComponent,
     QrCodeComponent,
     StatsComponent,
+    AdminfeedComponent,
     
     
    

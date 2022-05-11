@@ -4,20 +4,15 @@
 <section class="info-container">
 
 
-    <div class="infobox1">
+    <div class="infobox1" *ngFor="let newsfeed of news">
 
-        <h3>Why Vaccinate</h3>
+        <h3>{{newsfeed.Title}}</h3>
 
-        <p>In the wake of an outbreak of coronavirus that began in China in 2019, Harvard T.H. Chan School of Public Health experts have been speaking to a variety of media outlets and writing articles about the pandemic. We’ll be updating this article on a regular basis. Here’s a selection of stories in which they offer comments and context:
-
-            2022
-            April 29: The 3 pandemic metrics that could tell us what’s next (Vox)
-            
-            Hospital data, new data on emerging variants, and data on long COVID are three metrics that experts say they’re watching to shed light on what’s happening now with the pandemic and what’s likely to happen in the future. Commenting on long COVID, William Hanage, associate professor of epidemiology, said, “We need a much better study of long COVID. It is real and will likely lead to a sustained cost in terms of chronic illness for a large number of people, but how large that number is remains uncertain.”</p>
+        <p>{{newsfeed.News}}</p>
          
     </div>
 
-    <div class="infobox1">
+<!--     <div class="infobox1">
 
         <h3>Eat Healthy Food</h3>
 
@@ -32,7 +27,7 @@
          adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
          sunt! Temporibus exercitationem est quod!</p>
          
-    </div>
+    </div> -->
 
     <div class="clearFloat"></div>
 

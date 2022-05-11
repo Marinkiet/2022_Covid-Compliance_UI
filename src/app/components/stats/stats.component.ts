@@ -26,10 +26,7 @@ export class StatsComponent implements OnInit {
   @ViewChild(MatSort) sort !: MatSort;
 
   constructor(
-    private dialog: MatDialog,
-    private statsServices: StatsService,
     private api:StatsService,
-    private api2:ApiService,
     private router:Router
     ) { 
     Chart.register(...registerables);
@@ -42,19 +39,20 @@ sum:any
 totalStaff:any
 
 
-  ngOnInit(): void {
-this.getStats();
-this.getflue();
-this.statsDiagrams();
-this.getvisitor();
+  ngOnInit(): void
+  {
+      this.getStats();
+      this.getflue();
+      this.statsDiagrams();
+      this.getvisitor();
 
-this.sum=Number(sessionStorage.getItem('totalflue'))/(Number(sessionStorage.getItem('totalvisitors'))+Number(sessionStorage.getItem('totalstaff')))*100
+      this.sum=Number(sessionStorage.getItem('totalflue'))/(Number(sessionStorage.getItem('totalvisitors'))+Number(sessionStorage.getItem('totalstaff')))*100
 
-this.totalStaff=(Number(sessionStorage.getItem('totalvisitors'))+Number(sessionStorage.getItem('totalstaff')))
+      this.totalStaff=(Number(sessionStorage.getItem('totalvisitors'))+Number(sessionStorage.getItem('totalstaff')))
 
-sessionStorage.setItem('staff',this.totalStaff)
-//alert("total staff "+this.totalStaff)
-//alert('The infected is '+this.sum);
+      sessionStorage.setItem('staff',this.totalStaff)
+      //alert("total staff "+this.totalStaff)
+      //alert('The infected is '+this.sum);
   
 }
  
@@ -105,12 +103,16 @@ getflue() {
 //total visitors
 visitors!:visitorData[]
 getvisitor() {
-  this.api.getVisitor()
-  .subscribe({
-    next:(res:any)=>{
+
+  
+  this.api.getVisitor().subscribe({
+    next:(res:any)=>
+    {
+      alert("Something")
       console.log(res)
       this.visitors=res.data
       console.log(this.visitors[0].Total);
+     
       sessionStorage.setItem('totalvisitors',`${this.visitors[0].Total}`)
       //alert(`${this.visitors[0].Total}`)
       

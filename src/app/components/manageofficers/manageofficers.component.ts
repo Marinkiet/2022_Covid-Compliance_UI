@@ -23,6 +23,7 @@ export class ManageofficersComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
+  
   constructor( private router:Router,
     private dialog: MatDialog,
     private api:ApiService,

@@ -143,6 +143,13 @@ export class StudentcardComponent implements OnInit {
     return Math.floor(Math.random() * (max - min + 1)) + min; 
   }
 
+  MachineId=this.getRandomInt(212432,412432);
+  getRandomMachineInt(min: number, max: number) : number
+  {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min; 
+  }
 
   //Check entrace status
   //temp2:number=0.0;

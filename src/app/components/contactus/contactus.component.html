@@ -30,7 +30,7 @@
         
     <div class="container">
 
-        <form (ngSubmit)="submitForm()" class="example-form container-content" >
+        <form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="example-form container-content" >
            
             <h1 class="header">Send us an email.   <mat-icon>email</mat-icon></h1>
             <mat-divider></mat-divider>
@@ -39,13 +39,13 @@
                     <td>
                         <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Identity Number</mat-label>
-                        <input type="text" name="id" [(ngModel)]="id"matInput>
+                        <input type="text" matInput formControlName="User_id">
                         </mat-form-field>
                     </td>
                     <td>
                         <mat-form-field class="example-full-width" appearance="fill">
                         <mat-label>Full Name</mat-label>
-                        <input matInput type="text" name="fullname"  [(ngModel)]="fullname">
+                        <input matInput type="text" formControlName="fullname">
                         </mat-form-field>
                     </td>
                 </tr>
@@ -54,11 +54,11 @@
                 <mat-form-field class="example-full-width" appearance="fill">
                    
                     <mat-label>Email</mat-label>
-                    <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com" [(ngModel)]="email">
-                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                    <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="contactForm.hasError('email') && !contactForm.hasError('required')">
                       Please enter a valid email address
                     </mat-error>
-                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                    <mat-error *ngIf="contactForm.hasError('required')">
                       Email is <strong>required</strong>
                     </mat-error>
                   </mat-form-field>
@@ -66,7 +66,7 @@
                  
             <mat-form-field class="example-full-width" appearance="fill">
                 <mat-label>Message</mat-label>
-                <textarea name="message" [(ngModel)]="message" matInput placeholder="Ex. It makes me feel..."></textarea>
+                <textarea formControlName="message" matInput placeholder="Ex. It makes me feel..."></textarea>
               </mat-form-field>
            
             <button style="margin-left:10px" mat-raised-button color="primary" type="submit" >Submit</button>
