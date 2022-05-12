@@ -1,66 +1,98 @@
 
-      <mat-toolbar class="mat-elevation-z8">
+<mat-toolbar class="mat-elevation-z8">
 
-        <img class="logo" src="../../../assets/logo6.png" routerLink="/">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
 
-        <h3>Covid Compliance</h3>
-        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
-        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
 
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+
+  </button>
+  <img class="logo" src="../../../assets/logo6.png">
+     <!--  <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+      <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+
+-->
+  <span class="right-nav"></span>
+  <button mat-raised-button color="warn" routerLink="/login">Get Started</button>
 
 </mat-toolbar>
+
 <mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
+     <!--  <img class="avatar" src="../../../assets/social-care.png" alt = "userImage"> -->
 
+      <mat-divider></mat-divider>
 
-<div class="details-cards">    
-    <h1 style="text-align: center; font-size: 30px;margin-bottom: 20px;padding-top: 20px;">About</h1>
-   
-<div class="row1">
-    <div class="column1">
-      <div class="card1">
-        <h1>Who are we</h1>
-            
-            <hr class="icon">
-            
-            <p>Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p> 
-              
-             <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>
-           
+      <button mat-button class="menu-button" routerLink="/home">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+
+      <button mat-button class="menu-button" routerLink="/aboutus">
+          <mat-icon>information</mat-icon>
+          <span>About Us</span>
+      </button>
+
+      <button mat-button class="menu-button" routerLink="/contactus">
+          <mat-icon>phone</mat-icon>
+          <span>Contact Us</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-button class="menu-button" routerLink="/help">
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+      </button>
+  </mat-sidenav>
+<mat-sidenav-content>
+ 
+  <div class="container-about">
+
+    <div class="card-about">
+      <div class="face face1">
+        <div class="content-about">
+          <span class="stars"></span>
+          <h2 class="card-1">Who we are</h2>
+          <p class="card-1">Java is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible.</p>
+        </div>
       </div>
+     
     </div>
-    
-    <div class="column1">
-        <div class="card1">
-          <h1>Our Vision</h1>
-              
-              <hr class="icon">
-              
-              <p>Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p> 
-                
-               <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>
-             
+  
+    <div class="card-about">
+      <div class="face face1">
+        <div class="content-about">
+          <span class="stars"></span>
+          <h2 class="card-2">Our Vision</h2>
+          <p class="card-2">C# is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped and component-oriented programming disciplines.</p>
         </div>
       </div>
-      <div class="column1">
-        <div class="card1">
-          <h1>Our Mission</h1>
-              
-              <hr class="icon">
-              
-              <p>Donec id elit non mi porta gravida at eget metus. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis euismod semper. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p> 
-                
-               <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper.</p>
-             
+   
+    </div>
+  
+    <div class="card-about">
+      <div class="face face1">
+        <div class="content-about">
+          <span class="stars"></span>
+          <h2 class="card-3">Our Mission</h2>
+          <p class="card-3">C# is a general-purpose, multi-paradigm programming language encompassing static typing, strong typing, lexically scoped and component-oriented programming disciplines.</p>
         </div>
       </div>
-</div>
-</div> 
+   
+    </div>
+  </div>
+ 
 <div class="meet-heading">
 
     <h1 style="color: black;font-size: 30px;">Meet the team</h1>
 
 </div>
+<div class="images">
 <div class="box">
     <div class="card">
       <div class="imgBx">
@@ -176,4 +208,8 @@
       </div>
 
 </div>
+</div>
+<app-footer></app-footer>
+  </mat-sidenav-content>
+  
 <mat-sidenav-container>

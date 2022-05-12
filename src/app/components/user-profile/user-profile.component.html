@@ -12,7 +12,7 @@
             </mat-icon>
     
         </button>
-        <img class="logo" src="../../../assets/logo6.png">
+        <img class="logo" src="../../../assets/logo6.png" alt="logo">
 
         <h3>Covid Compliance</h3>
       
@@ -87,18 +87,28 @@
       <div class="container-content">
         <br><br>
           <mat-card-title>Profile</mat-card-title>    
-        <br><br>
        <!--  <mat-divider></mat-divider> -->
       
         <form [formGroup]="userProfile">
 
-          
-
+          <ul  *ngFor="let image of images;">
+            <li><img   src= height="300px" width="400px" alt="picture"></li>
+           
+         
+          <img class="avatar" src={{image}} alt = "userImage">
+        </ul>
+          <br><br>
+          <input type="file" placeholder="upload image" (change)="onFileSelected($event)">
+           <br>
+          <br>
+         <button type="submit" mat-raised-button color="warn" (click)="onUpload()">Upload Profile</button>
+         
+          <br><br>
             <div class="example-container">
 
                 <mat-form-field appearance="fill">
                     <mat-label >User id</mat-label>
-                    <input formControlName="User_id" matInput readonly>
+                    <input formControlName="User_id" matInput readonly placeholder="Student/Staff number">
                     <mat-icon matSuffix>id</mat-icon>
                   </mat-form-field>
 
@@ -155,7 +165,7 @@
             <div class="example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Password</mat-label>
-                <input formControlName="Password" matInput  >
+                <input formControlName="Password" matInput placeholder="password" >
                 <mat-icon matSuffix>password</mat-icon>
               </mat-form-field>
               
@@ -170,7 +180,7 @@
         </form>
         <div class="btns">
           <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/qrcode">Close</button>
-          <button style="margin-left:10px" mat-raised-button color="primary" (click)="onUpdate()">{{actionBtn}}</button>
+          <button style="margin-left:10px" mat-raised-button color="primary"  (click)="onUpdate()">{{actionBtn}}</button>
         </div>
       </div>
     </div>

@@ -51,7 +51,17 @@ iframe
       padding:2.5%
 
   }
+  .clearFloat
+  {
+      clear:both;
+     
+  }
 hr
 {
     width:90%;
 }
+.space
+{
+    margin-bottom:65px;
+  
+} 

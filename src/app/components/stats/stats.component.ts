@@ -108,7 +108,7 @@ getvisitor() {
   this.api.getVisitor().subscribe({
     next:(res:any)=>
     {
-      alert("Something")
+      //alert("Something")
       console.log(res)
       this.visitors=res.data
       console.log(this.visitors[0].Total);

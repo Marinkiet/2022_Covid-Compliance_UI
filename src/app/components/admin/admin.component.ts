@@ -54,10 +54,11 @@ export class AdminComponent implements OnInit {
   pic: string = 'pic_path-1650626677588.png';
   images!: ViewImage[];
 
+  image:any
   onView() {
     this.http.get('http://localhost:3000/select_all_image/').subscribe(
       (res: any) => {
-        this.images = res.data
+        this.image = res.data
         /* console.log("This is the paths "+this.images[0].pic_path);
         console.log(this.images[0].pic_path); */
         //console.log(res)

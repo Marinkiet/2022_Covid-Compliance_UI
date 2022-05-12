@@ -11,7 +11,7 @@
       </mat-icon>
 
   </button>
-  <img class="logo" src="../../../assets/logo6.png">
+  <img class="logo" src="../../../assets/logo6.png" alt="logo">
   
       <h3>Covid Compliance</h3>
 
@@ -94,7 +94,7 @@
                     <h1>Carousel Image Items</h1> 
                     <h3>Please Select an Image (png/jpg/gif)</h3>      
                     <!-- <input type="text"  (change)="getName(name.value)" #name> --><br>
-                    <input type="file"  (change)="onFileSelected($event)">
+                    <input type="file"  (change)="onFileSelected($event)" placeholder="Upload image">
                     <button (click)="onUpload()">upload</button>
                     <br><br>   
                 </div>
@@ -108,8 +108,8 @@
                 <div class="flip-card-back">
                     <h1>Carousel Video Items</h1> 
                     <h3>Please Select a Video (.mp4)</h3> 
-                    <input type="text"  (change)="getName(name.value)" #name><br>
-                    <input type="file"  (change)="onFileSelected($event)">
+                    <input type="text"  (change)="getName(name.value)" #name placeholder="Image name"><br>
+                    <input type="file"  (change)="onFileSelected($event)" placeholder="upload image">
                     <button (click)="onUpload()">upload</button>
                 </div>
                 </div>
@@ -119,7 +119,7 @@
 
             <div class="carousel-images">
                 <ul  *ngFor="let image of images;">
-                <li><img   src={{image.pic_path}} height="300px" width="400px"></li>
+                <li><img   src={{image.pic_path}} height="300px" width="400px" alt="picture"></li>
                 <li><video  loop src={{image.pic_path}} autoplay height="300px" width="400px"></video></li>
                 </ul>
         

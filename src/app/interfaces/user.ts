@@ -199,6 +199,7 @@ export interface getTheUser {
 }
 
 
+//Wisan
 export interface statsData{
     Students:Number;
     
@@ -210,4 +211,10 @@ export interface statsData{
  export interface visitorData{
             Total:Number;
          }
+//end of Wisan
+
+export interface addProfile {
+            image_id: Number;
+            pictureName: string;
+        }
             
