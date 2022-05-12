@@ -1,22 +1,21 @@
+<mat-toolbar class="mat-elevation-z8">
 
-      <mat-toolbar class="mat-elevation-z8">
-
-        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
 
             <mat-icon *ngIf="!sidenav.opened">
                 menu
             </mat-icon>
-    
+
             <mat-icon *ngIf="sidenav.opened">
                 close
             </mat-icon>
-    
-        </button>
-        <img class="logo" src="../../../assets/logo6.png">
 
-        <h3>Covid Compliance</h3>
-      
-  
+        </button>
+    <img class="logo" src="../../../assets/logo6.png">
+
+    <h3>Covid Compliance</h3>
+
+
 
     <span class="right-nav"></span>
     <button mat-raised-button color="warn" (click)="openDialog()">Health Form</button>
@@ -26,9 +25,9 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+        <img class="avatar" src="../../../assets/social-care.png" alt="userImage">
 
-        <h4 class="name">User Name</h4>
+        <h4 class="name">user name</h4>
         <p class="designation">Student</p>
 
         <mat-divider></mat-divider>
@@ -43,12 +42,12 @@
             <span>profile</span>
         </button>
 
-       <!--  <button mat-button class="menu-button" routerLink="/userprofile">
+        <!--  <button mat-button class="menu-button" routerLink="/userprofile">
           <mat-icon>A</mat-icon>
           <span>About Us</span>
       </button> -->
 
-     <!--  <button mat-button class="menu-button" routerLink="/userprofile">
+        <!--  <button mat-button class="menu-button" routerLink="/userprofile">
         <mat-icon>phone</mat-icon>
         <span>Contact Us</span>
     </button> -->
@@ -62,7 +61,7 @@
           <mat-icon>qr_code</mat-icon>
           <span>QR code</span>
       </button>
-      
+
         <mat-divider></mat-divider>
 
         <button mat-button class="menu-button">
@@ -74,7 +73,7 @@
             <mat-icon>help</mat-icon>
             <span>Help</span>
         </button>
-        
+
         <button mat-button class="menu-button" (click)="deletesession()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
@@ -82,98 +81,94 @@
 
     </mat-sidenav>
 
-    <mat-sidenav-content>       
-    <div class="container" >
-      <div class="container-content">
-        <br><br>
-          <mat-card-title>Profile</mat-card-title>    
-        <br><br>
-       <!--  <mat-divider></mat-divider> -->
-      
-        <form [formGroup]="userProfile">
+    <mat-sidenav-content>
+        <div class="container">
+            <div class="container-content">
+                <br><br>
+                <mat-card-title>Profile</mat-card-title>
+                <br><br>
+                <!--  <mat-divider></mat-divider> -->
 
-          
+                <form [formGroup]="userProfile">
 
-            <div class="example-container">
 
-                <mat-form-field appearance="fill">
-                    <mat-label >User id</mat-label>
-                    <input formControlName="User_id" matInput readonly>
-                    <mat-icon matSuffix>id</mat-icon>
-                  </mat-form-field>
 
-                  <!-- <mat-form-field appearance="fill">
+                    <div class="example-container">
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>User id</mat-label>
+                            <input formControlName="User_id" matInput readonly>
+                            <mat-icon matSuffix>id</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email Address</mat-label>
+                            <input formControlName="Email" matInput placeholder="Email Address">
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <!-- <mat-form-field appearance="fill">
                     <mat-label>Type</mat-label>
                     <input formControlName="Type" matInput  readonly>
                     <mat-icon matSuffix>face</mat-icon>
                   </mat-form-field> -->
-        
-            </div>
-            <!-- <div class="example-container">
+
+                    </div>
+                    <!-- <div class="example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Last Name</mat-label>
                 <input formControlName="Last_name" matInput readonly>
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
-          
+
               <mat-form-field appearance="fill">
                 <mat-label>First Name</mat-label>
                 <input formControlName="First_name" matInput readonly>
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
               </div> -->
-              <div class="example-container">
+                    <div class="example-container">
 
-             <!--  <mat-form-field appearance="fill">
+                        <!--  <mat-form-field appearance="fill">
                 <mat-label>Gender</mat-label>
                 <input formControlName="Gender" matInput  readonly>
                 <mat-icon matSuffix>face</mat-icon>
               </mat-form-field> -->
 
-            <!--   <mat-form-field appearance="fill">
+                        <!--   <mat-form-field appearance="fill">
                 <mat-label>Campus Name</mat-label>
                 <input formControlName="Camp_id" matInput readonly>
                 <mat-icon matSuffix>place</mat-icon>
               </mat-form-field> -->
-            </div>
-            <div class="example-container">
+                    </div>
+                    <div class="example-container">
 
-            
-              
-              <mat-form-field appearance="fill">
-                <mat-label>Email Address</mat-label>
-                <input formControlName="Email" matInput placeholder="Email Address" >
-                <mat-icon matSuffix>email</mat-icon>
-              </mat-form-field>
-          
-              <mat-form-field appearance="fill">
-                <mat-label>Phone Number</mat-label>
-                <input formControlName="Cellphone_number" matInput placeholder="Phone Number" >
-                <mat-icon matSuffix>phone</mat-icon>
-              </mat-form-field>
-            </div>
-            <div class="example-container">
-              <mat-form-field appearance="fill">
-                <mat-label>Password</mat-label>
-                <input formControlName="Password" matInput  >
-                <mat-icon matSuffix>password</mat-icon>
-              </mat-form-field>
-              
-           <!--    <mat-form-field appearance="fill">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Phone Number</mat-label>
+                            <input formControlName="Cellphone_number" matInput placeholder="Phone Number">
+                            <mat-icon matSuffix>phone</mat-icon>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Password</mat-label>
+                            <input formControlName="Password" matInput>
+                            <mat-icon matSuffix>password</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="example-container">
+                        <!--    <mat-form-field appearance="fill">
                 <mat-label>New Password</mat-label>
                 <input formControlName="newPassword" matInput placeholder="New Password" >
                 <mat-icon matSuffix>password</mat-icon>
               </mat-form-field> -->
+                    </div>
+
+
+                </form>
+                <div class="btns">
+                    <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/qrcode">Close</button>
+                    <button style="margin-left:10px" mat-raised-button color="primary" (click)="onUpdate()">{{actionBtn}}</button>
+                </div>
             </div>
-
-
-        </form>
-        <div class="btns">
-          <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/qrcode">Close</button>
-          <button style="margin-left:10px" mat-raised-button color="primary" (click)="onUpdate()">{{actionBtn}}</button>
         </div>
-      </div>
-    </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
-   

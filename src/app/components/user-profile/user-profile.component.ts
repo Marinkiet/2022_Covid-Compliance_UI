@@ -1,15 +1,24 @@
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HealthFormComponent } from '../health-form/health-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { delay } from 'rxjs/operators';
+import { catchError, delay, switchMap, tap, map} from 'rxjs/operators';
 import { ApiService } from 'src/app/services/api.service';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
+import {HttpEventType, HttpEvent} from '@angular/common/http';
+
+export interface File{
+  data: any;
+  progress:number;
+  inProgress: boolean;
+
+}
+
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -17,9 +26,17 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserProfileComponent implements OnInit {
   userProfile !: FormGroup;
+  form=this.userProfile;
   actionBtn:string = "Update";
 
-  constructor( 
+  @ViewChild("fileUpload", {static:false}) fileUpload: ElementRef; //file upload
+  file:File ={
+     data:null,
+     inProgress:false,
+     progress:0
+  }; //file upload
+
+  constructor(
     private router:Router,
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
@@ -30,11 +47,14 @@ export class UserProfileComponent implements OnInit {
 
     users!: User[];
     userInte!:User;
+   // url: any;
+   // msg = "";
+
   ngOnInit(): void
   {
     this.userProfile = this.formBuilder.group
     ({
-    
+
       User_id: ['', Validators.required],
       //Camp_id: ['', Validators.required],
       //First_name: ['', Validators.required],
@@ -46,13 +66,49 @@ export class UserProfileComponent implements OnInit {
       Password: ['', Validators.required],
       //newPassword: ['', Validators.required],
     });
-    
+
     this.getUserProfile(`${sessionStorage.getItem('user_id')}`);
    // alert(`${sessionStorage.getItem('user_id')}`)
-  
     //this.userProfile.controls['Password'].setValue(this.userInte.User_id);
    // this.userProfile.controls['Password'].setValue(this.userInte.Password);
   }
+
+  //selectFile(event: any) {
+   // this.api.postImage(this.url)
+   //   .subscribe({
+   //     next: (res: any) => {
+          //alert('officer registered successfully');
+   //       console.log(res)
+   //     },
+   //     error: () => {
+   //       alert('Could not upload images ');
+//        }
+
+//      })
+
+   // if (!event.target.files[0] || event.target.files[0].length == 0) {
+   //   this.msg = 'You must select an image';
+   //   return;
+   // }
+
+   // var mimeType = event.target.files[0].type;
+
+   // if (mimeType.match(/image\/*/) == null) {
+     // this.msg = "Only images are supported jpg/jpeg/png/gif";
+      //return;
+   // }
+
+   // var reader = new FileReader();
+    //reader.readAsDataURL(event.target.files[0]);
+
+   // reader.onload = (_event) => {
+    //  this.msg = "";
+    //  this.url = reader.result;
+      //this.api.postImage(this.url).subscribe({next:(res:any)=>{}})
+   // }
+  //}
+
+
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
 
@@ -89,10 +145,12 @@ export class UserProfileComponent implements OnInit {
                 this.userProfile.controls['User_id'].setValue(this.users[0].User_id);
                 this.userProfile.controls['Password'].setValue(this.users[0].Password);
                 this.userProfile.controls['Cellphone_number'].setValue(this.users[0].Cellphone_number);
-                
                 this.userProfile.controls['Email'].setValue(this.users[0].Email);
-                
+
+
               }})}
+
+
 
 
   updateUser(userid: string) {
@@ -103,8 +161,8 @@ export class UserProfileComponent implements OnInit {
            this.userProfile.controls['User_id'].setValue(this.users[0].User_id);
           this.userProfile.controls['Password'].setValue(this.users[0].Password);
           this.userProfile.controls['Cellphone_number'].setValue(this.users[0].Cellphone_number);
-          this.userProfile.controls['Email'].setValue(this.users[0].Email); 
- 
+          this.userProfile.controls['Email'].setValue(this.users[0].Email);
+
           //this.officerprofile.reset();
          alert('User details UPdated')
         }, error: () => {
@@ -129,9 +187,44 @@ export class UserProfileComponent implements OnInit {
         sessionStorage.removeItem('user_id')
         this.router.navigate(['/login']);
       }
-  
-}
-  
+
+    /*
+      onClick(){
+        const fileInput = this.fileUpload.nativeElement;
+        fileInput.click();
+        fileInput.onchange = () => {
+          this.file = {
+            data: fileInput.files[0],
+            inProgress:false,
+            progress:0
+          };
+          this.fileUpload.nativeElement.value = '';
+          this.uploadFile()
+        }
+      }
+     uploadFile(){
+       const file= this.file;
+       const formData = new FormData;
+       formData.append('file',this.file.data);
+        this.userservice.uploadProfileImage(formData).pipe(
+          map((event) =>{
+           switch (event.type){
+             case HttpEventType.UploadProgress:
+               this.file.progress = Math.round(event.loaded *100 / event.total)
+               break;
+               case HttpEventType.Response:
+                 return event;
+           }
+          })).subscribe((event:any) =>{
+            if(typeof (event) === 'object'){
+              this.form.patchValue({profile_pic: event.body.profile_pic});
+            }
+          }
+          )
+     }
+
+}*/
+
 
 /*   updateUser()
   {
@@ -152,5 +245,5 @@ export class UserProfileComponent implements OnInit {
          console.log(res)
          this.userProfile.patchValue(res);
        //  this.userProfile.controls.name.patchValue(res.name); // set value of single property
- 
-       }})} */
+
+       }})} */ }
