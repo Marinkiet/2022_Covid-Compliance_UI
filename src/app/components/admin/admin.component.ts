@@ -38,8 +38,8 @@ export class AdminComponent implements OnInit {
 
   onUpload() {
     let formData = new FormData()
-    formData.set('name', this.name)
-    formData.set('pic_path', this.pic_path)
+    formData.append('name', this.name)
+    formData.append('pic_path', this.pic_path)
     //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
 
     this.http.post('http://localhost:3000/upload_image/image', formData).subscribe(
@@ -54,11 +54,11 @@ export class AdminComponent implements OnInit {
   pic: string = 'pic_path-1650626677588.png';
   images!: ViewImage[];
 
-  image:any
+  
   onView() {
     this.http.get('http://localhost:3000/select_all_image/').subscribe(
       (res: any) => {
-        this.image = res.data
+        this.images = res.data
         /* console.log("This is the paths "+this.images[0].pic_path);
         console.log(this.images[0].pic_path); */
         //console.log(res)

@@ -26,7 +26,7 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+        <img class="avatar" src={{profilePicture}} alt = "userImage">
 
         <h4 class="name">User Name</h4>
         <p class="designation">Student</p>
@@ -90,13 +90,29 @@
        <!--  <mat-divider></mat-divider> -->
       
         <form [formGroup]="userProfile">
+<!-- 
+        <ul  *ngFor="let image of images">
 
-          <ul  *ngFor="let image of images;">
-            <li><img   src= height="300px" width="400px" alt="picture"></li>
-           
-         
-          <img class="avatar" src={{image}} alt = "userImage">
-        </ul>
+            <li><img src="../../../assets/social-care.png" height="300px" width="400px" alt="picture"></li>
+             <li><img class="avatar" src={{image}} height="300px" width="400px"  alt = "userImage"></li>
+
+        </ul> -->
+       
+    <!--     <ul *ngFor="let image of profile_pics;" >
+          
+          <li><img class="avatar" src="../../../assets/social-care.png" height="300px" width="400px" alt="picture"></li>
+        
+          <li><img class="avatar" src={{profilePicture}} height="300px" width="400px" alt="picture"></li>
+
+        </ul> -->
+
+        
+          
+         <!--  <li><img class="avatar" src="../../../assets/social-care.png" height="300px" width="400px" alt="picture"></li> -->
+        
+          <img class="avatar" src={{profilePicture}} height="300px" width="400px" alt="picture">
+
+        
           <br><br>
           <input type="file" placeholder="upload image" (change)="onFileSelected($event)">
            <br>

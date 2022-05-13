@@ -5,6 +5,7 @@ import { map, Observable,observable} from 'rxjs';
 //import { userlogin} from '../interfaces/user';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/user';
+import { ViewProfilePicture } from '../interfaces/file-to-upload';
 //import { EventEmitter } from 'stream';
 
 
@@ -135,6 +136,10 @@ export class UserService
     return this.http.get<Images>(`http://localhost:3000/select_image/image/${imagename}`)
   }
  
+  onView(username:string):Observable<ViewProfilePicture>
+  {
+    return this.http.get<ViewProfilePicture>(`http://localhost:3000/select_pp/view/${username}`);
+  }
 
   updateRecord(officer: UpdateRecord, User_id:any):Observable<GetAllRecords[]>
   {

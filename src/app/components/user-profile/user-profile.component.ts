@@ -11,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
-import { ViewImage } from 'src/app/interfaces/file-to-upload';
+import { ViewImage, ViewProfilePicture } from 'src/app/interfaces/file-to-upload';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -33,9 +33,12 @@ export class UserProfileComponent implements OnInit {
 
     users!: User[];
     userInte!:User;
+    profilePicture:any
   ngOnInit(): void
   {
-    this.onView();
+    //this.view();
+    //alert(this.view())
+    this.profilePicture=this.viewStudentProfile(sessionStorage.getItem('user_id'))
     this.userProfile = this.formBuilder.group
     ({
     
@@ -136,8 +139,62 @@ export class UserProfileComponent implements OnInit {
 
 
 
+      pic_path: any;
+      User_id: string = "";
+    
+    /*   getName(name: string) {
+        this.name = name;
+      } */
+      onFileSelected(event: any) {
+        this.pic_path = event.target.files[0];
+        //console.log('File '+this.pic_path)
+        console.log(this.pic_path)
+      }
+    
+      onUpload() {
+        let formData = new FormData()
+        formData.append('User_id',`${sessionStorage.getItem('user_id')}`)
+        formData.append('pic_path', this.pic_path)
+        //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
+    
+        this.http.put('http://localhost:3000/upload_pp/upload_pp',formData).subscribe(
+          res => {
+            console.log(res)
+          }
+        )
+        //this.onView();
+        
+      }
+    
+      //pic: string = 'pic_path-1650626677588.png';
+      //profile_pics!:ViewProfilePicture[];
+    
+    
+      viewStudentProfile(studentNumber)
+      {
+        return `http://localhost:3000/select_pp/view/${studentNumber}`;
+      }
 
-      pic_path:any;
+
+  /*     view():void
+      {
+        this.userservice.onView(`${sessionStorage.getItem('user_id')}`)
+            .subscribe({
+              next:(res:any)=>
+              {
+                alert("Something");
+                console.log(res)
+              }
+      })
+
+      } */
+
+
+}
+  
+
+
+   /*    pic_path:any;
       User_id:any;
       onFileSelected(event: any) {
         this.pic_path = event.target.files[0];
@@ -174,12 +231,14 @@ export class UserProfileComponent implements OnInit {
             /* console.log("This is the paths "+this.images[0].pic_path);
             console.log(this.images[0].pic_path); */
             //console.log(res)
-          }
-        );
-      }
-  
-}
-  
+        //  }
+        //  );
+        //} 
+
+
+        
+
+
 
 /*   updateUser()
   {

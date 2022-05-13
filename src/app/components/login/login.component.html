@@ -111,7 +111,7 @@
                 <br>
                 <button mat-raised-button [disabled]="loginForm.invalid" (click)="UserSelected(selectedUser)" href="officer">Login</button> &nbsp;&nbsp;
 
-                <button mat-raised-button routerLink="/resetpass">Forgot Password</button>
+                <button class='fpass' mat-raised-button routerLink="/resetpass">Forgot Password</button>
                 <br><br>
             
                 <mat-label>Don`t have an account? <span class="txt_sign_up"><a routerLink="/register">Sign-up</a></span></mat-label>
@@ -119,17 +119,19 @@
 
             </form>
             
-            <p>selected value is {{selectedUser}}</p><br>
+            <!-- <p>selected value is {{selectedUser}}</p><br> -->
            
 
         
-        
+           
         </div>
         
     
-
+       
     </div>
-
-
+  
 </div>
+<app-footer></app-footer>
+
+
 
