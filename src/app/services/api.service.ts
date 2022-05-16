@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map, Observable } from 'rxjs';
 //import { FileToUpload } from '../interfaces/file-to-upload';
-import { addImage, GetAllOfficers, GetAllRecords, getImage, getTheUser, Officer, updatetheUser } from '../interfaces/user';
+import { addImage, GetAllOfficers, GetAllRecords, getImage, getTheUser, Officer, UpdatePassword, updatetheUser, User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -58,5 +58,24 @@ export class ApiService {
   getUser(id: string): Observable<getTheUser[]> {
     return this.http.get<getTheUser[]>("http://localhost:3000/view_user/user/"+id)
   }
-  
+   requestReset(body): Observable<any> {
+    return this.http.post("http://localhost:3000/api/resetpassword/req-reset-password", body);
+  }
+
+  newPassword(body): Observable<any> {
+    return this.http.post("http://localhost:3000/api/resetpassword/new-password", body);
+  }
+
+  ValidPasswordToken(body): Observable<any> {
+    return this.http.post("http://localhost:3000/api/resetpassword/valid-password-token", body);
+  }
+
+  updatePassword(userEmail:string):Observable<UpdatePassword>{
+    return this.http.put<UpdatePassword>("http://localhost:3000/reset_password/:email",userEmail);
+  }
+  getoldUser(username:string):Observable<User>
+  {
+    return this.http.get<User>(`http://localhost:3000/view_user/user/${username}`)
+  }
+
 }

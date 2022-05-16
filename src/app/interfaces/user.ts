@@ -16,6 +16,11 @@ export interface User
     Cellphone_number:string;
     Email:string;
     Password:string;
+    profile_pic:string;
+}
+
+export interface UpdatePassword{
+    Password:string;
 }
 
 export interface UpdateUser {

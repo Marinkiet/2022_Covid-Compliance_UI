@@ -1,7 +1,7 @@
-import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer, GetAllOfficers, GetAllRecords } from './../interfaces/user';
+import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer, GetAllOfficers, GetAllRecords, UpdatePassword } from './../interfaces/user';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { map, Observable,observable} from 'rxjs';
+import { map, Observable} from 'rxjs';
 //import { userlogin} from '../interfaces/user';
 import { environment } from 'src/environments/environment';
 import { User } from '../interfaces/user';
@@ -131,6 +131,8 @@ export class UserService
     return this.http.get<User>(`http://localhost:3000/view_user/user/${username}`)
   }
 
+
+
   getImage(imagename:number):Observable<Images>
   {
     return this.http.get<Images>(`http://localhost:3000/select_image/image/${imagename}`)
@@ -145,7 +147,7 @@ export class UserService
   {
     return this.http.put<any>(`http://localhost:3000/updateRecord/record/${User_id}`, officer).pipe(
       map((record) => {
-        console.log(record);
+        //console.log(record);
         // console.log("This is the temperature "+officer.Tempareture);
 
         //console.log("This is the temperature "+officer.Record_id);
@@ -154,7 +156,17 @@ export class UserService
     )
     
   }
+  updatePassword(email:string,User_id:any):Observable<User[]>{
+    return this.http.put<any>(`http://localhost:3000/reset_password/reset_password/${User_id}`,email).pipe(
+      map((record) => {
+        console.log('tHE '+record);
+        return record;
+      })
+    )
+    
 
+  }
+ 
 
   form(data:FormData)
   {

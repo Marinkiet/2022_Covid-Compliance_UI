@@ -154,7 +154,10 @@ ul {
 
 .content
 {
-    width:60%;
+    width:80%;
     margin: auto;
 }
 
+.title{
+  margin-top: 2%;
+}

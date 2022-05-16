@@ -58,6 +58,7 @@ import { LandingInformationComponent } from './components/landing-information/la
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { StatsComponent } from './components/stats/stats.component';
 import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +92,7 @@ import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
     QrCodeComponent,
     StatsComponent,
     AdminfeedComponent,
+    UpdatePasswordComponent,
     
     
    

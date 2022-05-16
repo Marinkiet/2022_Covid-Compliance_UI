@@ -82,6 +82,7 @@ section {
 
 .container {
     width: 100%;
+    margin-top:2%;
     height: 30%;
    /* background: #232323;*/
     display: flex;

@@ -258,7 +258,7 @@ section {
 .content
 {
     /*background-image: url('../../../assets/backdrop.jpg');*/
-    height:70vh; 
+    height:100vh; 
     margin: 0;
     padding: 10px;
     overflow:hidden;

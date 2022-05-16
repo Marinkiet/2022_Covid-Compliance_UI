@@ -27,6 +27,7 @@ import { RegistervisitorComponent } from './components/registervisitor/registerv
 import { Stats } from 'fs';
 import { StatsComponent } from './components/stats/stats.component';
 import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 const routes: Routes = [
  {path:'',component:LandingPageComponent},
  {path:'register',component:RegisterComponent},
@@ -51,8 +52,10 @@ const routes: Routes = [
  {path:'viewpending',component:ViewpendingComponent,canActivate:[OfficerguardGuard],},
  {path:'registervisitor',component:RegistervisitorComponent},
  {path:'studentcard',component:StudentcardComponent},
+ {path:'updatePassword',component:UpdatePasswordComponent},
  {path:'newsfeed',component:AdminfeedComponent,canActivate:[AdminguardGuard]},
  {path: 'studentcard/:User_id', component: StudentcardComponent,/*  canActivate: [OfficerguardGuard] */},
+ {path:'reset_password/reset_password/:User_id',component:UpdatePasswordComponent},
  {path: '**',redirectTo:'ViewpendingComponent'}//if they put any route without the user id it loads the view pending
  ,{path:'stats',component:StatsComponent,canActivate:[AdminguardGuard]}
 ];
@@ -66,4 +69,4 @@ export const routingMods={HealthFormComponent,HomeComponent,AboutUsComponent,
   ContactusComponent,OfficerComponent,LoginComponent,
   RegisterComponent,UserProfileComponent,ResetpasswordComponent,AdminComponent,
   LandingPageComponent,ReportComponent,ReportItemComponent,ManageofficersComponent,
-  OfficerRecordsComponent,StudentcardComponent}
+  OfficerRecordsComponent,StudentcardComponent,UpdatePasswordComponent}

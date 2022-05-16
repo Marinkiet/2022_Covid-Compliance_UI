@@ -13,7 +13,9 @@ import { delay } from 'rxjs';
 export class StudentcardComponent implements OnInit {
   isValue!: boolean;
   
-  constructor(private route:Router,private userservice:UserService,private activatedRoute:ActivatedRoute)
+  constructor(private route:Router,
+    private userservice:UserService,
+    private activatedRoute:ActivatedRoute)
   {
 
   }
@@ -21,9 +23,11 @@ export class StudentcardComponent implements OnInit {
 
   tempForm: any;
   User_id_Param:any;
+  profilePicture:any;
+
   ngOnInit(): void
   {
-
+//    alert(this.profilePicture)
     this.activatedRoute.paramMap.subscribe((params:ParamMap)=>
     {
       this.User_id_Param=params.get('User_id')
@@ -39,10 +43,9 @@ export class StudentcardComponent implements OnInit {
         isAllowedEntrence:new FormControl('',[Validators.required]),
         //Health_status_reason:new FormControl('',[Validators.required]),
         Officer_id: new FormControl('')
-      
     }) 
 
-    /* alert(sessionStorage.getItem('officer_id')) */
+   //  alert(sessionStorage.getItem('officer_id')) 
 
     this.setOfficerId();
   }
@@ -93,14 +96,14 @@ export class StudentcardComponent implements OnInit {
   } */
 
   users!: User[];
-  onGetUser(User_id)
+  onGetUser(User_id:string)
   {
     this.userservice.getUser(`${User_id}`).subscribe(
       (response: any) => {
         if (response.message == 'Successful') {
-          console.log(response)
+          alert(response)
           this.users = response.data;
-          console.log(this.users)
+          alert(this.users)
         }
       },
       (error: any) => console.log('this is the error' + error),
@@ -123,9 +126,6 @@ export class StudentcardComponent implements OnInit {
     )
     
   }
-
-
-  //token:string='';
 
   token=this.GetToken();
 
