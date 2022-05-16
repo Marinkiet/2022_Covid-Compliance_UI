@@ -51,7 +51,7 @@ ul {
 .footer {
     background-color: #003883;
     padding: 70px 0;
-    margin-left: -14px;
+    /* margin-left: -14px; */
 }
 
 .footer-col {

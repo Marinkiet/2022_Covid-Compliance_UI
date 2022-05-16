@@ -1,4 +1,3 @@
-
 <mat-toolbar class="mat-elevation-z8">
 
     <button mat-icon-button *ngIf="sidenav.mode === 'over'">
@@ -11,8 +10,12 @@
 
     </button>
     <img class="logo" src="../../../assets/logo6.png">
-    <a class="left-nav"  routerLink="/home"><h3>Home</h3></a>
-    <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+    <a class="left-nav" routerLink="/home">
+        <h3>Home</h3>
+    </a>
+    <a class="left-nav" routerLink="/aboutus">
+        <h3>About Us</h3>
+    </a>
 
 </mat-toolbar>
 
@@ -23,37 +26,38 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-            <div class="container">
-                <div class="box">
+        <div class="container">
+            <div class="box">
 
-                    <div class="title">
-                        <span class="block"></span>
-                        <h1>COVID COMPLIANCE<span></span></h1>
-                    </div>
-            
-                    <div class="role">
-                        <div class="block"></div>
-                        <p>Tshwane University of Technology</p>
-                    </div>
-            
+                <div class="title">
+                    <span class="block"></span>
+                    <h1>COVID COMPLIANCE<span></span></h1>
                 </div>
+                <br>
+
+                <div class="role">
+                    <div class="block"></div>
+                    <p>Tshwane University of Technology</p>
+                </div>
+
             </div>
-<div class="back_color">
+        </div>
+        <div class="back_color">
 
 
 
-<div class="back_color">
-    <div class="content">
-        <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
-        <div class="form_1">
-            <mat-label class="txt_head">Create Account</mat-label>
-         
-           
-           
-        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
- 
+            <div class="back_color">
+                <div class="content">
+                    <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
+                    <div class="form_1">
+                        <mat-label class="txt_head">Create Account</mat-label>
 
-            <!-- <mat-form-field appearance="fill">
+
+
+                        <form [formGroup]="registerform" (ngSubmit)="onSubmit()">
+
+
+                            <!-- <mat-form-field appearance="fill">
                 <mat-label>User Type</mat-label>
                     <mat-icon matSuffix>people</mat-icon>
                 <mat-select formControlName="user_type" [(ngModel)]="selectedUser">
@@ -66,29 +70,27 @@
             <p>is staff {{isStaff}}</p><br>
             <p>is visistor {{isVisistor}}</p><br> -->
 
-            <mat-form-field appearance="fill">
+                            <mat-form-field appearance="fill">
 
-                <mat-label>Select an option</mat-label>
-                <mat-select [(value)]="selected" (selectionChange)="checkUserTYpe()">
-                  <mat-option>None</mat-option>
-                  <mat-option value="Staff">Staff/Student</mat-option>
-                  <mat-option value="Visitor">Visitor</mat-option>
-                 
-                </mat-select>
-            </mat-form-field>
-              
-             <!--  <p>You selected: {{selected}}</p> -->
-               <app-registervisitor *ngIf="isVisitor"></app-registervisitor>
-                <app-registeruser *ngIf="isStaff"></app-registeruser>
-                
-   
-        </form>
+                                <mat-label>Select an option</mat-label>
+                                <mat-select [(value)]="selected" (selectionChange)="checkUserTYpe()">
+                                    <mat-option>None</mat-option>
+                                    <mat-option value="Staff">Staff/Student</mat-option>
+                                    <mat-option value="Visitor">Visitor</mat-option>
 
-       
-        </div>
-    </div>
-</div>
+                                </mat-select>
+                            </mat-form-field>
 
-<app-footer></app-footer>
+                            <!--  <p>You selected: {{selected}}</p> -->
+                            <app-registervisitor *ngIf="isVisitor"></app-registervisitor>
+                            <app-registeruser *ngIf="isStaff"></app-registeruser>
 
 
+                        </form>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <app-footer></app-footer>

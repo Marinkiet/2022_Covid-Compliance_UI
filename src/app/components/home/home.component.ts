@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
   
 
   ngOnInit(): void {
-    if(this.buttoncheck==true && this.formcheck==false)
+  /*   if(this.buttoncheck==true && this.formcheck==false)
       {
         this.openDialog();   //open dialog imediatly when clicking qrcode and after clicking login button
-      }
+      } */
      
   }
 
@@ -29,14 +29,18 @@ export class HomeComponent implements OnInit {
     constructor(
       private router:Router,
       private observer: BreakpointObserver,
-      private dialog: MatDialog) {}
+      private dialog: MatDialog){}
+
+
   /* openDialog() {
     this.dialog.open(HealthFormComponent, {
       width: '30%'
     });
   } */
-    ngAfterViewInit() {
-     
+
+
+  ngAfterViewInit()
+  {     
       this.observer
         .observe(['(max-width: 800px)'])
         .pipe(delay(1))
@@ -59,10 +63,11 @@ export class HomeComponent implements OnInit {
 
     formcheck=false;
     buttoncheck=true;
-  openDialog() {
+  openDialog()
+  {
     this.dialog.open(HealthFormComponent, {
       width: '30%'
-    }).afterClosed().subscribe(val => 
+  }).afterClosed().subscribe(val => 
       {
         if (val === 'formchecked')
         {
