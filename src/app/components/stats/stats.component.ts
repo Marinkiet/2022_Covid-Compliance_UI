@@ -28,9 +28,9 @@ export class StatsComponent implements OnInit {
   constructor(
     private api:StatsService,
     private router:Router
-    ) { 
+    ) {
     Chart.register(...registerables);
-    
+
 
   }
 
@@ -53,9 +53,9 @@ totalStaff:any
       sessionStorage.setItem('staff',this.totalStaff)
       //alert("total staff "+this.totalStaff)
       //alert('The infected is '+this.sum);
-  
+
 }
- 
+
 
   //// total people
   users!:statsData[]
@@ -73,7 +73,7 @@ totalStaff:any
       },
       error:()=>{
         alert("Error while fetching record data");
-        
+
       }
     })
   }
@@ -87,14 +87,14 @@ getflue() {
       this.userFlues=res.data
       //console.log(this.userFlues[0].Total);
       sessionStorage.setItem('totalflue',`${this.userFlues[0].Total}`)
-      
+
       this.dataSource = new MatTableDataSource(res.data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     },
     error:()=>{
       alert("Error while fetching record data");
-      
+
     }
   })
 }
@@ -104,7 +104,7 @@ getflue() {
 visitors!:visitorData[]
 getvisitor() {
 
-  
+
   this.api.getVisitor().subscribe({
     next:(res:any)=>
     {
@@ -112,24 +112,24 @@ getvisitor() {
       console.log(res)
       this.visitors=res.data
       console.log(this.visitors[0].Total);
-     
+
       sessionStorage.setItem('totalvisitors',`${this.visitors[0].Total}`)
       //alert(`${this.visitors[0].Total}`)
-      
+
       this.dataSource = new MatTableDataSource(res.data);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     },
     error:()=>{
       alert("Error while fetching record data");
-      
+
     }
   })
 }
 
 /////end
 
-  
+
   statsDiagrams()
   {
     this.Chart =new Chart('canvas',{
@@ -143,13 +143,13 @@ getvisitor() {
                 'red',
                 'blue',
                 'orange'
-                
+
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)'
-               
+
             ],
               borderWidth: 1
           }]
@@ -161,17 +161,17 @@ getvisitor() {
               }
           }
       }
-    })    
-      
-    
- 
+    })
+
+
+
     this.Chart =new Chart('canvas2',{
       type: 'line',
       data: {
-        
+
           labels: ['Visitors', 'Staff', 'Students'],
           datasets: [{
-           
+
               label: 'Spread of Flue..!!!',
               data: [sessionStorage.getItem('totalstaff'),sessionStorage.getItem('totalvisitors'),sessionStorage.getItem('staff')],
               fill: true,
@@ -190,8 +190,8 @@ getvisitor() {
               }
           }
       }
-    })    
-    
+    })
+
   }
 
 
