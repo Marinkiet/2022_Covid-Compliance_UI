@@ -48,6 +48,12 @@ export class OfficerService {
     }
   }
 
+
+  getOfficer(username:string):Observable<Officer>
+  {
+    return this.http.get<Officer>(`http://localhost:3000/view_user/user/${username}`)
+  }
+
  /*  setToken(token: string) {
     localStorage.setItem('token', token);
   }

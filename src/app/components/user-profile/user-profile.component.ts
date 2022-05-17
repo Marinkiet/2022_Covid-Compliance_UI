@@ -85,6 +85,9 @@ export class UserProfileComponent implements OnInit {
 
 
 
+          ShowUsername:any
+          ShowSurname:any
+
           getUserProfile(user:string):void
           {
             this.api.getUser(user)
@@ -96,9 +99,11 @@ export class UserProfileComponent implements OnInit {
                 this.userProfile.controls['User_id'].setValue(this.users[0].User_id);
                 this.userProfile.controls['Password'].setValue(this.users[0].Password);
                 this.userProfile.controls['Cellphone_number'].setValue(this.users[0].Cellphone_number);
-                
                 this.userProfile.controls['Email'].setValue(this.users[0].Email);
-                
+               
+                this.ShowUsername=this.users[0].First_name;
+                this.ShowSurname=this.users[0].Last_name;
+
               }})}
 
 

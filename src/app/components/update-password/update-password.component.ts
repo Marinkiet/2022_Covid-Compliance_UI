@@ -14,6 +14,7 @@ export class UpdatePasswordComponent implements OnInit {
 
   constructor(private userservice:UserService,
     private activatedRoute:ActivatedRoute,
+    private router:Router,
     private route:Router,) { }
 
  
@@ -60,6 +61,7 @@ export class UpdatePasswordComponent implements OnInit {
         {
           console.log(response);
           console.log('Update successful');
+          this.router.navigate(['/login']);
           
         },
         (error: any) => console.log('this is the error' + error),

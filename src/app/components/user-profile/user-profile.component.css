@@ -29,15 +29,17 @@
 }
 .container-content{
   text-align: center;
-  width:fit-content;
+  width: fit-content;
   margin: 35px auto  ;
   padding: 15px;
   display: flex;
   flex-direction: column;
   color:white;
   background-color: #424242;
-  height: 100vh;
+  height: 80%;
   border-radius: 0.7em;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 mat-toolbar {
   background:#003883;
@@ -74,8 +76,9 @@ mat-sidenav {
 
   
   mat-sidenav-container {
-    height: calc(100vh);
+    height: calc(100vh - 65px);
   }
+  
   .menu-button {
     width: 100%;
     display: flex;
@@ -109,7 +112,7 @@ mat-sidenav {
   mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
-    background-color: rgba(255, 0, 0, 0.822);
+    background-color: rgba(255, 0, 0, 0.5);
   }
   .right-nav {
     display: flex;
@@ -134,8 +137,7 @@ mat-sidenav {
   margin-right: 20px;
 }
 .mat-drawer-container {
-  /*background-image: url('../../../assets/logo4.jpg');*/
-  background-color: white;
+  background-image: url('../../../assets/logo4.jpg');
   background-repeat: no-repeat;
   background-size:cover;
   background-blend-mode: soft-light;

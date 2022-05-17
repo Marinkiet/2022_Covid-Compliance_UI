@@ -24,6 +24,6 @@ export class QrCodeComponent implements OnInit {
       return;
       this.qrImg=`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:4200/studentcard/${sessionStorage.getItem('user_id')}`
     
-
+      
   }
 }

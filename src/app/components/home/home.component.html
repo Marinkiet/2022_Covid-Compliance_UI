@@ -19,16 +19,16 @@
    -->
 
     <span class="right-nav"></span>
-    <button  mat-raised-button *ngIf="buttoncheck" color="warn" (click)="openDialog()">Health Form</button>
+    <button  mat-raised-button  color="warn" (click)="openDialog()">Health Form</button>
 
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+        <img class="avatar" src={{profilePicture}} alt = "profile picture">
 
-        <h4 class="name">User Name</h4>
+        <h4 class="name">{{ShowUsername}}<br>{{ShowSurname}}</h4>
         <p class="designation">Student/Officer</p>
 
         <mat-divider></mat-divider>
@@ -48,10 +48,10 @@
             <span>Notifications</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/qrcode">
+     <!--    <button mat-button class="menu-button" routerLink="/qrcode">
             <mat-icon>qr_code</mat-icon>
             <span>QR code</span>
-        </button>
+        </button> -->
 
         <mat-divider></mat-divider>
 
@@ -78,7 +78,7 @@
             <mat-spinner></mat-spinner>
         </div> -->
 
-        <app-qr-code *ngIf="formcheck"></app-qr-code>
+        <app-qr-code *ngIf="theFormIsChecked"></app-qr-code>
     </mat-sidenav-content>
 
    <!--  <app-footer></app-footer> -->

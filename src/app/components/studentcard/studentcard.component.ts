@@ -101,9 +101,9 @@ export class StudentcardComponent implements OnInit {
     this.userservice.getUser(`${User_id}`).subscribe(
       (response: any) => {
         if (response.message == 'Successful') {
-          alert(response)
+          //alert(response)
           this.users = response.data;
-          alert(this.users)
+          //alert(this.users)
         }
       },
       (error: any) => console.log('this is the error' + error),

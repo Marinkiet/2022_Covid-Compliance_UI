@@ -71,7 +71,7 @@ export class AdminfeedComponent implements OnInit {
 
   //table
 
-  displayedColumns: string[] = ['News_id','News', 'Title', 'action'];
+  displayedColumns: string[] = ['News_id','News', 'Title'/* , 'action' */];
   dataSource !: MatTableDataSource<Newsfeed>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -115,7 +115,8 @@ export class AdminfeedComponent implements OnInit {
     this.newsfeedservice.deleteNewsFeed(id)
     .subscribe({
       next:(res)=>{
-       // alert('Officer Deleted');
+        console.log(res)
+        alert('NewsFeed  Deleted');
         this.onGetNewsFeed()
       },error:()=>{
         alert('Could not delete newsfeed');

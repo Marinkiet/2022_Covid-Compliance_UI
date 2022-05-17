@@ -61,6 +61,8 @@ export class OfficerprofileComponent implements OnInit {
       });
   }
   
+  ShowUsername:any
+  ShowSurname:any
   getOfficerProfile(officerid: string): void
   {
     this.officerservice.getOfficerProfile(officerid)
@@ -80,6 +82,8 @@ export class OfficerprofileComponent implements OnInit {
           /* alert(this.users[0].User_id+this.users[0].First_name); */
           //  this.userProfile.controls.name.patchValue(res.name); // set value of single property
 
+          this.ShowUsername=this.officers[0].First_name;
+          this.ShowSurname=this.officers[0].Last_name;
         }
       })
   }

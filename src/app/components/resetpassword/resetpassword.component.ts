@@ -50,7 +50,8 @@ export class ResetpasswordComponent implements OnInit
     if(this.resetForm.valid)
     {
       this.onSendEmail();
-      alert('reset form submitted');
+      alert('Link send to your email');
+      this.router.navigate(['/login']);
       //console.log('Form submitted succesffuly');
     }
   }

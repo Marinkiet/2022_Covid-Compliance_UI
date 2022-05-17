@@ -18,6 +18,17 @@ export interface User
     Password:string;
     profile_pic:string;
 }
+export interface Officer
+{
+    Officer_id:string;
+    Campus_id:string
+    First_name:string;
+    Last_name:string;
+    Gender:string;
+    Cellphone_number:string;
+    Email:string;
+    Password:string;
+}
 
 export interface UpdatePassword{
     Password:string;
