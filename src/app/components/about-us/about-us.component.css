@@ -192,19 +192,98 @@ font-size: 20px;
 /**********************************************/
 
 .box{
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+    /*justify-content: space-between;
     margin-top: 50px;
-    padding: 20px;
+    padding: 20px; */
   }
   .card{
-    position: relative;
+
+    flex:25%;
+    height:100vh;
+  /*   position: relative;
     width: 230px;
-    height: 250px;
+    
     background: #fff;
     margin: 0 auto;
-    border: none;
+    border: none; */
+    
   }
+
+/*   @media (max-width:767px) {
+   .card {
+        flex:100%;
+    }
+} 
+
+@media (max-width:992px) {
+  .card {
+       flex:50%;
+   }
+
+  } */
+
+
+/*media queries for all sizes*/
+
+
+@media screen and (min-width:1024px) {
+  .card {
+     flex:20%;
+  }
+}
+@media screen and (min-device-width: 768px)
+and (max-device-width: 1024px)
+{
+  .card
+  {
+    flex:35%;
+  }
+  
+}
+@media screen and (max-device-width:640px)
+{
+  .card
+  {
+    flex:50%;
+  }
+} 
+
+@media screen and (max-device-width: 480px)
+and (orientation: portrait) {
+  .card
+  {
+    flex:100%;
+  }
+}
+
+@media screen and (max-device-width: 640px)
+and (orientation: landscape) {
+
+  .card{
+    flex:50%;
+  }
+
+}
+
+/*   @media screen  and (max-device-width:640px) {
+    .card {
+       flex:100%;
+    }
+} */
+
+/* @media screen and (min-device-width: 320px) {
+    .card {
+      flex:100%;
+        
+    }
+} */
+
+
+
+  
   .card:before,
   .card:after
   {
