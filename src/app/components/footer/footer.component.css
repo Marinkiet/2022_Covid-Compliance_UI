@@ -108,12 +108,12 @@ ul {
     text-align: center;
     line-height: 40px;
     border-radius: 50%;
-    color: #ffffff;
+    color: #24262b;
     transition: all 0.5s ease;
 }
 
 .footer-col .social-links a:hover {
-    color: #24262b;
+    color: #003883;
     background-color: #ffffff;
 }
 
