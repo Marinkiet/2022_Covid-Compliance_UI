@@ -25,11 +25,7 @@ import { AdminguardGuard } from './guards/adminguard.guard';
 import { OfficerguardGuard } from './guards/officerguard.guard';
 import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
 import { Stats } from 'fs';
-<<<<<<< HEAD
-import { StatsComponent } from './components/stats/stats.component';
-=======
 //import { StatsComponent } from './components/stats/stats.component';
->>>>>>> Hamilton
 import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 const routes: Routes = [
@@ -61,11 +57,7 @@ const routes: Routes = [
  {path: 'studentcard/:User_id', component: StudentcardComponent,/*  canActivate: [OfficerguardGuard] */},
  {path:'reset_password/reset_password/:User_id',component:UpdatePasswordComponent},
  {path: '**',redirectTo:'ViewpendingComponent'}//if they put any route without the user id it loads the view pending
-<<<<<<< HEAD
- ,{path:'stats',component:StatsComponent,canActivate:[AdminguardGuard]}
-=======
  //{path:'stats',component:StatsComponent,canActivate:[AdminguardGuard]}
->>>>>>> Hamilton
 ];
 
 @NgModule({

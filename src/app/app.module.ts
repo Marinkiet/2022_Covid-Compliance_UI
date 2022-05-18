@@ -56,11 +56,7 @@ import { RegisteruserComponent } from './components/registeruser/registeruser.co
 import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
 import { LandingInformationComponent } from './components/landing-information/landing-information.component';
 import { QrCodeComponent } from './components/qr-code/qr-code.component';
-<<<<<<< HEAD
-import { StatsComponent } from './components/stats/stats.component';
-=======
 //import { StatsComponent } from './components/stats/stats.component';
->>>>>>> Hamilton
 import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 @NgModule({
@@ -94,16 +90,10 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
     NewsfeedComponent,
     LandingInformationComponent,
     QrCodeComponent,
-<<<<<<< HEAD
-    StatsComponent,
-=======
    // StatsComponent,
->>>>>>> Hamilton
     AdminfeedComponent,
     UpdatePasswordComponent,
-    
-    
-   
+  
   ],
   imports: [
     BrowserModule,
