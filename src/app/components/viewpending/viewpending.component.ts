@@ -44,12 +44,15 @@ export class ViewpendingComponent implements OnInit
     this.onGetPending();
   }
 
+<<<<<<< HEAD
 
 
  
 
 
 
+=======
+>>>>>>> Hamilton
   ngAfterViewInit()
   {
       this.observer
