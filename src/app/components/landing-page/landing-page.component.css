@@ -215,9 +215,6 @@
         letter-spacing: 5px;
     }
     
-
-    /**/
-    
     .carousel>input[type="radio"]:nth-child(1):checked~.carousel__prev>label:nth-child(5),
     .carousel>input[type="radio"]:nth-child(1):checked~.carousel__next>label:nth-child(2),
     .carousel>input[type="radio"]:nth-child(2):checked~.carousel__prev>label:nth-child(1),
@@ -387,11 +384,9 @@
         ;
         padding: 2.5%
     }
-    
     .clearFloat {
         clear: both;
     }
-    
     .info-container {
         display: flex;
         background-color: red;
