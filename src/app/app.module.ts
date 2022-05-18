@@ -93,9 +93,7 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
    // StatsComponent,
     AdminfeedComponent,
     UpdatePasswordComponent,
-    
-    
-   
+  
   ],
   imports: [
     BrowserModule,
