@@ -44,12 +44,6 @@ export class ViewpendingComponent implements OnInit
     this.onGetPending();
   }
 
-
-
- 
-
-
-
   ngAfterViewInit()
   {
       this.observer
