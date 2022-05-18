@@ -16,20 +16,8 @@
     }
 }
 
-
-/* @media screen and (max-width:630px) {
-    .info-container {
-        display: flex;
-        justify-content: center;
-        width: 45%;
-        margin: 10px auto;
-    }
-} */
-
 .newsfeed {
-    /*  padding: 33px 15;
-    width: 15px;
-    margin: 10px auto; */
+   
     text-align: center;
 }
 
