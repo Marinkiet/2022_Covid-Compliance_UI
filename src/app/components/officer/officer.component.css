@@ -1,3 +1,21 @@
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: blue !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: blue !important;;
+  }
+  
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #e6b102;
+  }
 mat-toolbar {
     background:#003883;
     color: #ffffff;
@@ -90,12 +108,12 @@ mat-sidenav-container {
 .container-content{
     text-align: center;
     width: fit-content;
-    margin: 50px auto  ;
+    margin: 5px auto  ;
     padding: 15px;
     display: flex;
     flex-direction: column;
     color:white;
-    background-color: #424242;
+    background-color: rgba(141, 141, 141, 0.315);;
     height: 80%;
     border-radius: 0.7em;
 }
@@ -143,4 +161,37 @@ element.style {
   border-radius: 4px;
   flex-wrap: wrap;
   align-items: center;
+  
 }
+
+
+
+
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.officer-container{
+  max-width: 97%;
+ margin-left: 20%;
+  
+  
+
+  }
+
+  .apimessage
+  {
+    color:rgba(255, 0, 0, 0.836);
+  }
+  li
+  {
+    list-style:none;
+  }
+
+ 

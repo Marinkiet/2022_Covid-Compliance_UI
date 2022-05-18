@@ -10,13 +10,14 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
 import { User,Record } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-officer-records',
   templateUrl: './officer-records.component.html',
   styleUrls: ['./officer-records.component.css']
 })
 export class OfficerRecordsComponent implements OnInit {
-  displayedColumns: string[] = ['Record_id','Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Health_status_reason'];
+  displayedColumns: string[] = ['Record_id','Officer_id', 'User_id', 'Form_check', 'Date','Tempareture','isAllowedEntrence','Status'];
   dataSource !: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
@@ -26,7 +27,8 @@ export class OfficerRecordsComponent implements OnInit {
     private recordservice:RecordService ,
     private userservice:UserService,
     private api:RecordService,
-    private api2:ApiService
+    private api2:ApiService,
+    private router:Router
     ) { }
 
     @ViewChild(MatSidenav)
@@ -59,7 +61,7 @@ export class OfficerRecordsComponent implements OnInit {
   public showstudentcard:boolean=false;
   public btnScan:any='show';
 
-  
+/*   
   onGetUser(): void
   {
     this.userservice.getUser(`${218179088}`).subscribe(
@@ -71,7 +73,7 @@ export class OfficerRecordsComponent implements OnInit {
       (error: any) => console.log('this is the error' + error),
       () => console.log('Done getting user'),
     );
-  }
+  } */
   onGetRecord()
     {
       this.api2.getRecord()
@@ -113,5 +115,13 @@ export class OfficerRecordsComponent implements OnInit {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+
+
+
+  deletesession() {
+    sessionStorage.removeItem('officer_id')
+    this.router.navigate(['/login']);
   }
 }

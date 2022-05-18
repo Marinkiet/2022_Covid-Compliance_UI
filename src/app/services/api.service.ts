@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { GetAllOfficers, GetAllRecords, Officer } from '../interfaces/user';
+//import { FileToUpload } from '../interfaces/file-to-upload';
+import { addImage, GetAllOfficers, GetAllRecords, getImage, getTheUser, Officer, UpdatePassword, updatetheUser, User } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+ 
 
   constructor(private http:HttpClient) { }
 
@@ -35,5 +37,45 @@ export class ApiService {
     return this.http.get<GetAllRecords[]>("http://localhost:3000/get_all_records/record")
   }
 
+
+
+//Marinkie Changes
+  getImage(id: number): Observable<getImage> {
+    return this.http.get<getImage>("http://localhost:3000/select_image/image/" + id);
+  }
+
+  postImage(fileToUpload:File): Observable<boolean>
+  {
+    const formData: FormData = new FormData();
+
+    formData.append('image',fileToUpload, fileToUpload.name);
+    return this.http.post<any>("http://localhost:3000/upload_image/image",formData);
   
+  }
+  updateUser(User_id: number): Observable<updatetheUser[]> {
+    return this.http.put<updatetheUser[]>("http://localhost:3000/update/user/", User_id);
+  }
+  getUser(id: string): Observable<getTheUser[]> {
+    return this.http.get<getTheUser[]>("http://localhost:3000/view_user/user/"+id)
+  }
+   requestReset(body): Observable<any> {
+    return this.http.post("http://localhost:3000/api/resetpassword/req-reset-password", body);
+  }
+
+  newPassword(body): Observable<any> {
+    return this.http.post("http://localhost:3000/api/resetpassword/new-password", body);
+  }
+
+  ValidPasswordToken(body): Observable<any> {
+    return this.http.post("http://localhost:3000/api/resetpassword/valid-password-token", body);
+  }
+
+  updatePassword(userEmail:string):Observable<UpdatePassword>{
+    return this.http.put<UpdatePassword>("http://localhost:3000/reset_password/:email",userEmail);
+  }
+  getoldUser(username:string):Observable<User>
+  {
+    return this.http.get<User>(`http://localhost:3000/view_user/user/${username}`)
+  }
+
 }

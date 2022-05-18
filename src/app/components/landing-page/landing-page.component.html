@@ -1,4 +1,3 @@
-
 <mat-toolbar class="mat-elevation-z8">
 
     <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
@@ -13,10 +12,10 @@
 
     </button>
     <img class="logo" src="../../../assets/logo6.png">
-        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+    <!--  <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
         <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
   
-
+ -->
     <span class="right-nav"></span>
     <button mat-raised-button color="warn" routerLink="/login">Get Started</button>
 
@@ -25,14 +24,14 @@
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+        <!--  <img class="avatar" src="../../../assets/social-care.png" alt = "userImage"> -->
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="/home">
+        <!--     <button mat-button class="menu-button" routerLink="/home">
             <mat-icon>home</mat-icon>
             <span>Home</span>
-        </button>
+        </button> -->
 
         <button mat-button class="menu-button" routerLink="/aboutus">
             <mat-icon>information</mat-icon>
@@ -50,250 +49,142 @@
         </button>
     </mat-sidenav>
 
+
     <mat-sidenav-content>
-            <div class="container">
-                <div class="box">
+        <div class="container">
+            <div class="box">
 
-                    <div class="title">
-                        <span class="block"></span>
-                        <h1>COVID COMPLIANCE<span></span></h1>
-                    </div>
-            
-                    <div class="role">
-                        <div class="block"></div>
-                        <p>Tshwane University of Technology</p>
-                    </div>
-            
+                <div class="title">
+                    <span class="block"></span>
+                    <h1>COVID COMPLIANCE<span></span></h1>
                 </div>
-            </div>
-     
-        
-        <section>
-           
-            <div class="container2">
-                <div class="carousel">
-                    <input type="radio" name="slides" checked="checked" id="slide-1">
-                    <input type="radio" name="slides" id="slide-2">
-                    <input type="radio" name="slides" id="slide-3">
-                    <input type="radio" name="slides" id="slide-4">
-                    <input type="radio" name="slides" id="slide-5">
-                    <input type="radio" name="slides" id="slide-6">
-                    <ul class="carousel__slides">
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <!--img src="../../../assets/landingpage-images/vacc.jpg" alt=""-->
-                                    <video src="../../../assets/videos/vid2.mp4" autoplay  width="590" height="354" loop alt=""></video>
-
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I Vaccinate?</span>
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <!--img src="../../../assets/landingpage-images/mask.jpg" alt=""-->
-                                    <video src="../../../assets/videos/mask.mp4" autoplay  width="590" height="354" loop alt=""></video>
-
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should i wear a Mask?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <!--img src="../../../assets/landingpage-images/sani.jpg" alt=""-->
-                                    <video src="../../../assets/videos/sani.mp4" autoplay  width="590" height="354" loop alt=""></video>
-
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I Sanitise?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <!--img src="../../../assets/landingpage-images/wash.jpg" alt=""-->
-                                    <video src="../../../assets/videos/wash.mp4" autoplay  width="590" height="354" loop alt=""></video>
-
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I wash my hands?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <!--img src="../../../assets/landingpage-images/stay.jpg" alt=""-->
-                                    <video src="../../../assets/videos/qua.mp4" autoplay  width="590" height="354" loop alt=""></video>
-
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I stay home when i feel sick or show possible symptoms?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <!--img src="../../../assets/landingpage-images/dist.jpg" alt=""-->
-                                    <video src="../../../assets/videos/dist.mp4" autoplay  width="590" height="354" loop alt=""></video>
-
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I keep social distance?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                    </ul>    
-                    <ul class="carousel__thumbnails">
-                        <li>
-                            <label for="slide-1"><img src="../../../assets/landingpage-images/stop.jpg" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-2"><img src="../../../assets/landingpage-images/mask2.jpg" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-3"><img src="../../assets/landingpage-images/sani2.jpg" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-4"><img src="../../../assets/landingpage-images/wash2.jpg" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-5"><img src="../../../assets/landingpage-images/stay2.jpg" alt=""></label>
-                        </li>
-                        <li>
-                            <label for="slide-6"><img src="../../../assets/landingpage-images/dist2.jpg" alt=""></label>
-                        </li>
-                    </ul>
+                <br>
+                <div class="role">
+                    <div class="block"></div>
+                    <p>Tshwane University of Technology</p>
                 </div>
-            </div>
-         
-        </section>
-        <section>
-           
-            <div class="container2">
-                <div class="carousel">
-                    <input type="radio" name="slides" checked="checked" id="slide-1">
-                    <input type="radio" name="slides" id="slide-2">
-                    <input type="radio" name="slides" id="slide-3">
-                    <input type="radio" name="slides" id="slide-4">
-                    <input type="radio" name="slides" id="slide-5">
-                    <input type="radio" name="slides" id="slide-6">
-                    <ul class="carousel__slides">
-                        <li class="carousel__slide">
-                            <img src="../../../assets/stats.PNG" alt="stats">
-                               
-                               
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/mask.jpg" alt="mask">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should i wear a Mask?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/sani.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I Sanitise?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/wash.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I wash my hands?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/stay.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I stay home when i feel sick or show possible symptoms?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/dist.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
-                                    <span class="credit">Why should I social distance?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/dist.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I social distance?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/dist.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    <span class="credit">Why should I social distance?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                        <li class="carousel__slide">
-                            <figure>
-                                <div>
-                                    <img src="../../../assets/landingpage-images/dist.jpg" alt="">
-                                </div>
-                                <figcaption>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing ksdcbjshdv.
-                                   
-                                    <span class="credit">Why should I social distance?</span>                            
-                                </figcaption>
-                            </figure>
-                        </li>
-                    </ul>    
-                   
-                </div>
             </div>
-         
-        </section>
+        </div>
+
+
+        <!-- <div class="container1">
+            <div class="carousel">
+                <input type="radio" id="carousel-1" name="carousel[]" checked>
+                <input type="radio" id="carousel-2" name="carousel[]">
+             <input type="radio" id="carousel-3" name="carousel[]">
+                <input type="radio" id="carousel-4" name="carousel[]">
+                <input type="radio" id="carousel-5" name="carousel[]">
+                <ul class="carousel__items">
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc1}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc2}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc3}} alt=""></li>
+                    <li class="carousel__item"><img class="carousel-image" src={{thesrc4}} alt=""></li>
+                </ul>
+             <div class="carousel__prev">
+                 <label for="carousel-1"></label>
+                 <label for="carousel-2"></label>
+                 <label for="carousel-3"></label>
+                 <label for="carousel-4"></label>
+                 <label for="carousel-5"></label>
+             </div>
+             <div class="carousel__next">
+               <label for="carousel-1"></label>
+               <label for="carousel-2"></label>
+               <label for="carousel-3"></label>
+               <label for="carousel-4"></label>
+               <label for="carousel-5"></label>
+             </div>
+              <div class="carousel__nav">
+               <label for="carousel-1"></label>
+               <label for="carousel-2"></label>
+               <label for="carousel-3"></label>
+               <label for="carousel-4"></label>
+               <label for="carousel-5"></label>
+             </div> 
+           </div>
+         </div>      -->
+
+        <div class="img-container">
+            <section class="the-animated-images">
+                <div class="slider">
+                    <figure>
+                        <div class="slide">
+                            <img src={{thesrc}} alt="slide show">
+                        </div>
+                        <div class="slide">
+                            <img src={{thesrc1}} alt="slide show">
+                        </div>
+                        <div class="slide">
+                            <img src={{thesrc2}} alt="slide show">
+                        </div>
+                        <div class="slide">
+                            <img src={{thesrc3}} alt="slide show">
+                        </div>
+                        <div class="slide">
+                            <img src={{thesrc4}} alt="slide show">
+                        </div>
+
+                    </figure>
+                </div>
+
+            </section>
+        </div>
+        <br>
+
+
+        <app-newsfeed></app-newsfeed>
+        <br>
+        <app-landing-information></app-landing-information>
+
+        <!--  <section class="info-container">
+
+
+        <h1>More Information</h1>
+
+        <div class="infobox1">
+
+            <h2>Why you Should Vaccinate</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur
+             adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
+             sunt! Temporibus exercitationem est quod!</p>
+             
+        </div>
+
+        <div class="infobox1">
+
+            <h2>Let`s read</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
+                sunt! Temporibus exercitationem est quod!</p>
+
+        </div>
+
+        <div class="infobox1">
+
+            <h2>Scan</h2>
+
+            <p>Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Laboriosam veniam placeat sequi eos. Beatae reprehenderit voluptas modi laudantium commodi molestias, neque suscipit expedita magni ab alias aspernatur omnis id possimus, tempora quasi a rerum quas
+                sunt! Temporibus exercitationem est quod!</p>
+
+        </div>
+        <div class="clearFloat">
+
+        </div>
+
+    </section> -->
+
+        <br>
+        <!--  <app-feedback></app-feedback>  -->
+        <!--  <hr>  -->
+
+        <br><br>
+
+        <app-footer></app-footer>
     </mat-sidenav-content>
 
 </mat-sidenav-container>

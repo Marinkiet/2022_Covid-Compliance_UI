@@ -14,11 +14,11 @@
     <img class="logo" src="../../../assets/logo6.png">
     
         <h3>Covid Compliance</h3>
-        <a class="left-nav"  routerLink="/aboutus"><h3 class="nav-color">About Us</h3></a>
+       <!--  <a class="left-nav"  routerLink="/aboutus"><h3 class="nav-color">About Us</h3></a>
         <a class="left-nav"  routerLink="/contactus"><h3 class="nav-color">Contact Us</h3></a>
         <a class="left-nav"  routerLink="/manageofficers"><h3 class="nav-color">Officers</h3></a>
         <a class="left-nav" routerLink="/report"><h3 class="nav-color">Report</h3></a>
-  
+   -->
     <span class="right-nav"></span>
   
   </mat-toolbar>
@@ -31,12 +31,22 @@
         <h4 class="name">ADMIN</h4>
         <mat-divider></mat-divider>
   
-        <button mat-button class="menu-button" routerLink="/home">
+        <button mat-button class="menu-button" routerLink="/admin">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
   
-        <button mat-button class="menu-button" routerLink="/userprofile">
+         <button mat-button class="menu-button" routerLink="/manageofficers">
+          <mat-icon>accessibility_new</mat-icon>
+          <span>Officers</span>
+  
+        </button>
+
+        <!--  <button mat-button class="menu-button" routerLink="/adminfeedback">
+        <mat-icon>assignment</mat-icon>
+        <span>Feedback</span>
+    </button>  -->
+       <!--  <button mat-button class="menu-button" routerLink="/userprofile">
             <mat-icon>person</mat-icon>
             <span>Profile</span>
         </button>
@@ -50,6 +60,10 @@
           <span>Report</span>
       </button>
   
+      <button mat-button class="menu-button" routerLink="/adminfeedback">
+        <mat-icon>assignment</mat-icon>
+        <span>Feedback</span>
+    </button> -->
         <mat-divider></mat-divider>
   
         <button mat-button class="menu-button">
@@ -57,7 +71,7 @@
             <span>Help</span>
         </button>
         
-        <button mat-button class="menu-button" routerLink="/login">
+        <button mat-button class="menu-button" (click)="deletesession()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
         </button>
@@ -110,13 +124,13 @@
                    <!-- Gender -->
                    <ng-container matColumnDef="temperature">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperature </th>
-                    <td mat-cell *matCellDef="let row"> {{row.Temperature}} </td>
+                    <td mat-cell *matCellDef="let row"> {{row.Tempareture}} </td>
                   </ng-container>
       
                    <!-- old Password -->
                    <ng-container matColumnDef="comments">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header> Comments </th>
-                    <td mat-cell *matCellDef="let row"> {{row.comments}} </td>
+                    <td mat-cell *matCellDef="let row"> {{row.Health_status_reason}} </td>
                   </ng-container>
       
                   <!--Save Update button change -->

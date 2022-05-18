@@ -1,3 +1,10 @@
+export interface UpdateOfficer
+{
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
+}
+
 export interface User
 {
     User_id:string;
@@ -9,6 +16,28 @@ export interface User
     Cellphone_number:string;
     Email:string;
     Password:string;
+    profile_pic:string;
+}
+export interface Officer
+{
+    Officer_id:string;
+    Campus_id:string
+    First_name:string;
+    Last_name:string;
+    Gender:string;
+    Cellphone_number:string;
+    Email:string;
+    Password:string;
+}
+
+export interface UpdatePassword{
+    Password:string;
+}
+
+export interface UpdateUser {
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
 }
 
 export interface UserLogin
@@ -30,8 +59,25 @@ export interface OfficerLogin
     User_id:string;
     Password:string;
 }
+export interface VisitorLogin
+{
+    message: string;
+    User_id:string;
+    Password:string;
+}
 
 export interface Record
+{
+    Officer_id:string;
+    User_id:string;
+    Form_check:string;
+    Date:string;
+    Tempareture:Number;
+    isAllowedEntrence:Number;
+    Health_status_reason:string;
+}
+
+export interface PendingRecord
 {
     Officer_id:string;
     User_id:string;
@@ -81,3 +127,110 @@ export interface UpdateRecord
     //Record_id:number;
 }
 
+export interface Comments
+{
+    Comment:string;
+    username:string;
+    Feed_id:number;
+    Date:string;
+
+}
+
+export interface RegisterVisitor
+{
+    Cellphone_number: string;
+    Visitor_id: string;
+    First_name: string;
+    Campus_id: number;
+    Gender: string;
+    type: number;
+    Email: string;
+    Password: string;
+    Last_name: string;
+}
+
+export interface RegisterUser
+{
+    cellphone:string;
+    userId:string;
+    lastName:string;
+    campId:number;
+    gender:string;
+    type:number;
+    email:string;
+    password:string;
+    firstNames:string;
+}
+
+export interface Images
+{
+    pic_path:string;
+    image_id:number;
+    pictureName:string;
+}
+export interface FormData
+{
+    User_id:string;
+    vstatus:string;
+    covid19:string;
+    recentCough:string;
+    difficultyBreathing:string;
+    lossOfTaste:string;
+    heavyHeadache:string;
+    infectedPerson:string;
+ 
+}
+
+//Marinkie Changes
+export interface getImage {
+    image_id: Number;
+    pictureName: string;
+}
+export interface addImage {
+    image_id: Number;
+    pictureName: string;
+}
+
+export interface updatetheUser {
+    User_id: string;
+    Camp_id: string;
+    First_name: string;
+    Last_name: string;
+    gender: string;
+    Type: string;
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
+}
+export interface getTheUser {
+    User_id: string;
+    Camp_id: string;
+    First_name: string;
+    Last_name: string;
+    Gender: string;
+    Type: string;
+    Cellphone_number: string;
+    Email: string;
+    Password: string;
+}
+
+
+//Wisan
+export interface statsData{
+    Students:Number;
+    
+    
+ }
+  export interface flueData{
+        Total:Number;
+ }
+ export interface visitorData{
+            Total:Number;
+         }
+//end of Wisan
+
+export interface addProfile {
+            image_id: Number;
+            pictureName: string;
+        }
+            

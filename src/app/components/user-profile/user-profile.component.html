@@ -12,47 +12,56 @@
             </mat-icon>
     
         </button>
-        <img class="logo" src="../../../assets/logo6.png">
+        <img class="logo" src="../../../assets/logo6.png" alt="logo">
 
         <h3>Covid Compliance</h3>
-        <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
-        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+      
   
 
     <span class="right-nav"></span>
-    <button mat-raised-button color="warn" (click)="openDialog()">Health Form</button>
+   <!--  <button mat-raised-button color="warn" (click)="openDialog()">Health Form</button> -->
 
 </mat-toolbar>
 
 <mat-sidenav-container>
     <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
-        <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+        <img class="avatar" src={{profilePicture}} alt = "userImage">
 
-        <h4 class="name">User Name</h4>
-        <p class="designation">Student/Officer</p>
+        <h4 class="name">{{ShowUsername}}<br>{{ShowSurname}}</h4>
+        <p class="designation">Student</p>
 
         <mat-divider></mat-divider>
 
-        <button mat-button class="menu-button" routerLink="/home">
+        <button mat-button class="menu-button" routerLink="/qrcode">
             <mat-icon>home</mat-icon>
             <span>Home</span>
         </button>
 
         <button mat-button class="menu-button" routerLink="/userprofile">
-            <mat-icon>person</mat-icon>
-            <span>Profile</span>
+            <mat-icon>face</mat-icon>
+            <span>profile</span>
         </button>
+
+       <!--  <button mat-button class="menu-button" routerLink="/userprofile">
+          <mat-icon>A</mat-icon>
+          <span>About Us</span>
+      </button> -->
+
+     <!--  <button mat-button class="menu-button" routerLink="/userprofile">
+        <mat-icon>phone</mat-icon>
+        <span>Contact Us</span>
+    </button> -->
 
         <button mat-button class="menu-button">
             <mat-icon>announcement</mat-icon>
             <span>Notifications</span>
         </button>
 
-        <button mat-button class="menu-button" routerLink="/qrcode">
+     <!--    <button mat-button class="menu-button" routerLink="/qrcode">
           <mat-icon>qr_code</mat-icon>
           <span>QR code</span>
-      </button>
+      </button> -->
       
         <mat-divider></mat-divider>
 
@@ -66,7 +75,7 @@
             <span>Help</span>
         </button>
         
-        <button mat-button class="menu-button" routerLink="/">
+        <button mat-button class="menu-button" (click)="deletesession()">
             <mat-icon>exit_to_app</mat-icon>
             <span>Logout</span>
         </button>
@@ -78,72 +87,114 @@
       <div class="container-content">
         <br><br>
           <mat-card-title>Profile</mat-card-title>    
-        <br><br>
-        <hr>
-        <br>
+       <!--  <mat-divider></mat-divider> -->
+      
         <form [formGroup]="userProfile">
+<!-- 
+        <ul  *ngFor="let image of images">
+
+            <li><img src="../../../assets/social-care.png" height="300px" width="400px" alt="picture"></li>
+             <li><img class="avatar" src={{image}} height="300px" width="400px"  alt = "userImage"></li>
+
+        </ul> -->
+       
+    <!--     <ul *ngFor="let image of profile_pics;" >
+          
+          <li><img class="avatar" src="../../../assets/social-care.png" height="300px" width="400px" alt="picture"></li>
+        
+          <li><img class="avatar" src={{profilePicture}} height="300px" width="400px" alt="picture"></li>
+
+        </ul> -->
+
+        
+          
+         <!--  <li><img class="avatar" src="../../../assets/social-care.png" height="300px" width="400px" alt="picture"></li> -->
+        
+          <img class="avatar" src={{profilePicture}} height="300px" width="400px" alt="picture">
+
+        
+          <br><br>
+          <input type="file" placeholder="upload image" (change)="onFileSelected($event)">
+           <br>
+          <br>
+         <button type="submit" mat-raised-button color="warn" (click)="onUpload()">Upload Profile</button>
+         
+          <br><br>
             <div class="example-container">
 
                 <mat-form-field appearance="fill">
-                    <mat-label>User Id</mat-label>
-                    <input formControlName="userid" matInput  readonly>
+                    <mat-label >User id</mat-label>
+                    <input formControlName="User_id" matInput readonly placeholder="Student/Staff number">
                     <mat-icon matSuffix>id</mat-icon>
                   </mat-form-field>
 
-            
-              <mat-form-field appearance="fill">
-                <mat-label>Gender</mat-label>
-                <input formControlName="gender" matInput placeholder="Placeholder" readonly>
-                <mat-icon matSuffix>face</mat-icon>
-              </mat-form-field>
+                  <!-- <mat-form-field appearance="fill">
+                    <mat-label>Type</mat-label>
+                    <input formControlName="Type" matInput  readonly>
+                    <mat-icon matSuffix>face</mat-icon>
+                  </mat-form-field> -->
         
             </div>
-            <div class="example-container">
+            <!-- <div class="example-container">
               <mat-form-field appearance="fill">
                 <mat-label>Last Name</mat-label>
-                <input formControlName="lastName" matInput placeholder="Placeholder" >
+                <input formControlName="Last_name" matInput readonly>
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
           
               <mat-form-field appearance="fill">
                 <mat-label>First Name</mat-label>
-                <input formControlName="firstName" matInput readonly>
+                <input formControlName="First_name" matInput readonly>
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
+              </div> -->
+              <div class="example-container">
 
+             <!--  <mat-form-field appearance="fill">
+                <mat-label>Gender</mat-label>
+                <input formControlName="Gender" matInput  readonly>
+                <mat-icon matSuffix>face</mat-icon>
+              </mat-form-field> -->
+
+            <!--   <mat-form-field appearance="fill">
+                <mat-label>Campus Name</mat-label>
+                <input formControlName="Camp_id" matInput readonly>
+                <mat-icon matSuffix>place</mat-icon>
+              </mat-form-field> -->
             </div>
             <div class="example-container">
-
-            
+              
               <mat-form-field appearance="fill">
                 <mat-label>Email Address</mat-label>
-                <input formControlName="emailAddress" matInput placeholder="Email Address" >
+                <input formControlName="Email" matInput placeholder="Email Address" >
                 <mat-icon matSuffix>email</mat-icon>
               </mat-form-field>
           
               <mat-form-field appearance="fill">
                 <mat-label>Phone Number</mat-label>
-                <input formControlName="phoneNumber" matInput placeholder="Phone Number" >
+                <input formControlName="Cellphone_number" matInput placeholder="Phone Number" >
                 <mat-icon matSuffix>phone</mat-icon>
               </mat-form-field>
             </div>
             <div class="example-container">
               <mat-form-field appearance="fill">
-                <mat-label>Old Password</mat-label>
-                <input formControlName="oldPassword" matInput  readonly>
+                <mat-label>Password</mat-label>
+                <input formControlName="Password" matInput placeholder="password" >
                 <mat-icon matSuffix>password</mat-icon>
               </mat-form-field>
               
-              <mat-form-field appearance="fill">
+           <!--    <mat-form-field appearance="fill">
                 <mat-label>New Password</mat-label>
                 <input formControlName="newPassword" matInput placeholder="New Password" >
                 <mat-icon matSuffix>password</mat-icon>
-              </mat-form-field>
+              </mat-form-field> -->
             </div>
+
+
         </form>
         <div class="btns">
-          <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/home">Close</button>
-          <button style="margin-left:10px" mat-raised-button color="primary">Update</button>
+          <button mat-raised-button color="warn" mat-dialog-close="" routerLink="/qrcode">Close</button>
+          <button style="margin-left:10px" mat-raised-button color="primary"  (click)="onUpdate()">{{actionBtn}}</button>
         </div>
       </div>
     </div>

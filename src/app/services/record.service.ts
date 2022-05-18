@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Record } from '../interfaces/user';
+import { PendingRecord, Record } from '../interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +23,8 @@ export class RecordService {
   {
     return this.http.get<Record[]>('http://localhost:3000/retrieve_entered_student/record');
   }
-  getPendingRecord():Observable<Record[]>
+  getPendingRecord():Observable<PendingRecord[]>
   {
-    return this.http.get<Record[]>('http://localhost:3000/retrieve_all_form/record');
+    return this.http.get<PendingRecord[]>('http://localhost:3000/retrieve_all_form/record');
   }
 }

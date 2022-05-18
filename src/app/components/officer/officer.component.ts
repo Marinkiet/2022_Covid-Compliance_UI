@@ -8,8 +8,13 @@ import { StudentcardComponent } from '../studentcard/studentcard.component';
 import { UserService } from 'src/app/services/user.service';
 import { ApiService } from 'src/app/services/api.service';
 import { Observable } from 'rxjs';
-import { User,Record } from 'src/app/interfaces/user';
+import { User,Record, PendingRecord, Images } from 'src/app/interfaces/user';
 import { RecordService } from 'src/app/services/record.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-officer',
@@ -22,6 +27,25 @@ export class OfficerComponent implements OnInit {
   temp = 37.0;
   isScan=false;
 
+    users!: User[];
+    images!:Images[];
+  records!:Record[];
+  pendingRecords!:PendingRecord[];
+
+
+    @ViewChild(MatSidenav)
+    
+    sidenav!: MatSidenav;
+  
+   
+    constructor(
+      private recordservice:RecordService ,
+      private userservice:UserService,
+      private observer: BreakpointObserver,
+      public dialog:MatDialog,
+      private router:Router,
+      private api:ApiService) {}
+
   validateTemp(temp2:number){
     if (temp2 >=36.1 && temp2 <=37.2) {
       this.messg="Allow access";
@@ -31,27 +55,78 @@ export class OfficerComponent implements OnInit {
       this.messg ="Deny access,Temperature too low";
     }
   }
-  ngOnInit(): void {
-    this.onGetRecord();
-    this.onGetPending();
+
+  formsearch!:FormGroup
+
+  ngOnInit(): void
+   {
+    this.deleteOtherSessions();
+    this.formsearch=new FormGroup
+    ({
+      search:new FormControl('',Validators.required)
+    })
 
   }
-  users!: User[];
-  records!:Record[];
-  pendingRecords!:Record[];
 
-    @ViewChild(MatSidenav)
-    sidenav!: MatSidenav;
+  get search()
+  {
+    return this.formsearch.get('search');
+  }
   
-   
-    constructor(
-      private recordservice:RecordService ,
-      private userservice:UserService,
-      private observer: BreakpointObserver,
-      public dialog:MatDialog,
-      private api:ApiService) {}
 
-    ngAfterViewInit() {
+  //show card
+apimessage=''
+    getStudentCard=false;
+    studentdetails()
+    {
+      if(this.formsearch.valid)
+      {
+        //this.getStudentCard=true;
+        this.userservice.getUser(`${this.search?.value}`).subscribe(
+          (response: any) => 
+          {
+            if(response.message=='Successful')
+            {
+              this.getStudentCard=true;
+              this.apimessage="";
+              console.log(response)
+              this.users = response.data;
+              console.log(this.users)
+            }
+            else if(response.message=='Unsuccessful')
+            {
+              this.getStudentCard=false;
+              this.apimessage="Please enter the correct student number";
+            }
+          },
+          (error: any) => console.log('this is the error' + error),
+          () => console.log('Done getting user'),
+        );
+      }
+      else if(this.formsearch.invalid)
+      {
+        this.getStudentCard=false;
+      }
+      
+    }
+
+    //Check the search input if its empy or null
+
+    studentCheck():boolean
+    {
+      if(typeof this.search!='undefined' && this.search)
+      {
+        return false;
+      }
+      return true;
+    }
+
+  //End card
+
+
+
+  ngAfterViewInit()
+  {
       this.observer
         .observe(['(max-width: 800px)'])
         .pipe(delay(1))
@@ -77,8 +152,7 @@ export class OfficerComponent implements OnInit {
         () => console.log('Done getting user'),
       );
     } 
-    public showstudentcard:boolean=false;
-    public btnScan:any='show';
+   
 
 
     openDialog()
@@ -88,54 +162,29 @@ export class OfficerComponent implements OnInit {
       dialogref.afterClosed().subscribe(results=>
         {
           console.log(`dialog results:'${results}`)
-        })
-
-
-        
+        }
+      )
     }
 
-    scanUser()
-    {
-      this.showstudentcard=!this.showstudentcard;
-    }
-    showUser()
-    {
-      if(this.showstudentcard)
-      {
-        this.btnScan='hide';
-      }
-      else
-      {
-        this.btnScan='show';
-      }
-    }
 
-    onGetRecord(): void 
-    {
-      this.recordservice.getRecord().subscribe(
-        (response: any) => {
-          //console.log(response)
-          this.records = response.data;
-         console.log(response.data);
-         // console.log(this.users)
-        },
-        (error: any) => console.log('this is the error' + error),
-        () => console.log('Done getting officer'),
-      );
-    }
+  deletesession() {
+    sessionStorage.removeItem('officer_id')
+    this.router.navigate(['/login']);
+  }
 
-    onGetPending(): void 
-    {
-      this.recordservice.getPendingRecord().subscribe(
-        (response:any) => {
-          //console.log(response)
-          this.pendingRecords = response.data;
-         //console.log(response.data);
-         //console.log(this.pendingRecords);
-        },
-        (error: any) => console.log('this is the error' + error),
-        () => console.log('Done getting officer'),
-      );
-    }
+  deleteOtherSessions()
+  {
+    //sessionStorage.removeItem('user_id')
+    sessionStorage.removeItem('admin_id')
+    
+  }
 
-}
+
+  
+
+
+  }
+    
+
+
+

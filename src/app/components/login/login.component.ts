@@ -11,6 +11,7 @@ import { FormControl,FormGroup,Validators} from '@angular/forms';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { Typelist } from 'src/app/interfaces/usertypes/typelist';
 import { Token } from '@angular/compiler';
+import { VisitorserviceService } from 'src/app/services/visitorservice.service';
 
 @Component({
   selector: 'app-login',
@@ -25,6 +26,7 @@ export class LoginComponent implements OnInit
   constructor(
     private router:Router,
     private userservice:UserService,
+    private visitorservice:VisitorserviceService,
     private officerservice:OfficerService,
     private customValidator:CustomvalidationService,
     private adminservice:AdminService,
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit
 
   ngOnInit()
   {
+    this.deletesession();
 
     this.loginForm=new FormGroup
     ({
@@ -58,7 +61,7 @@ export class LoginComponent implements OnInit
     this.selectedUser=userType;
   }
   
-  get User_id()
+get User_id()
 {
     return this.loginForm.get('User_id');
 }
@@ -67,6 +70,7 @@ get Password()
   return this.loginForm.get('Password');
 }
  
+
 
 
 //user Type Selection
@@ -78,16 +82,15 @@ get Password()
   {
     case 1:
       {
-        alert('This is the admin talking');
+        //alert('This is the admin talking');
         
-
         this.adminservice.loginAdmin(this.loginForm.value).pipe(first()).subscribe(
           data => {
-
 
             if (data.message == 'Successful') {
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
               this.router.navigate(['admin']);
+              sessionStorage.setItem('admin_id',data.User_id);
             }
             else if (data.message == 'Unsuccessful') {
               alert(' Admin Please Enter valid credentials');
@@ -102,7 +105,7 @@ get Password()
 
     case 2:
       {
-        alert('This is the Officer talking');
+        //alert('This is the Officer talking');
 
         this.officerservice.loginOfficer(this.loginForm.value).pipe(first()).subscribe(
           data => {
@@ -112,6 +115,7 @@ get Password()
               
               /* const redirect = this.officerservice.redirecturl ? this.officerservice.redirecturl : '/officer'; */
               this.router.navigate(['officer']);
+              sessionStorage.setItem('officer_id',data.User_id);
             }
             else if (data.message == 'Unsuccessful') {
               alert('Officer Please valid credentials');
@@ -128,7 +132,7 @@ get Password()
       //student login part
     case 3:
       {
-        alert('This is the Student');
+        //alert('This is the Student');
       
           this.userservice.loginUser(this.loginForm.value).pipe(first()).subscribe(
             data => {
@@ -138,10 +142,11 @@ get Password()
               {
                 /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
                 this.router.navigate(['qrcode']);
+                sessionStorage.setItem('user_id',data.User_id);
               }
               else if (data.message =='Unsuccessful')
               {
-                alert(' Student Please valid credentials');
+                alert(' Student Please Enter valid credentials');
               }
 
             },
@@ -153,13 +158,52 @@ get Password()
 
     case 4:
       {
-        alert('This is the Visitor talking');
+        //alert('This is the Visitor talking');
+        this.visitorservice.loginVisitor(this.loginForm.value).pipe(first()).subscribe(
+          data => {
+        
+            console.log(data);
+            console.log(data.message);
+            if (data.message == 'Successful')
+            {
+              /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
+              this.router.navigate(['qrcode']);
+              sessionStorage.setItem('user_id',data.User_id);
+            }
+            else if (data.message =='Unsuccessful')
+            {
+              alert(' Visitor Please Enter valid credentials');
+            }
+
+          },
+          (error: any) => console.log('this is the error' + error),
+          () => console.log('Done login Visitor in'),
+        );
       }
       break;
 
     case 5:
       {
         alert('This is the staff talking');
+        this.userservice.loginUser(this.loginForm.value).pipe(first()).subscribe(
+          data => {
+        
+
+            if (data.message == 'Successful')
+            {
+              /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
+              this.router.navigate(['qrcode']);
+              sessionStorage.setItem('user_id',data.User_id);
+            }
+            else if (data.message =='Unsuccessful')
+            {
+              alert(' Staff Please Enter valid credentials');
+            }
+
+          },
+          (error: any) => console.log('this is the error' + error),
+          () => console.log('Done login Staff in'),
+        );
       }
       break;
   }
@@ -178,6 +222,13 @@ usertype!:string;
 
   }
 
+
+  deletesession()
+  {
+    //sessionStorage.removeItem('user_id')
+    sessionStorage.removeItem('admin_id')
+    sessionStorage.removeItem('officer_id')
+  }
 
 }
 

@@ -86,7 +86,8 @@ mat-toolbar {
   
   }
   .mat-drawer-container {
-    background-image: url('../../../assets/logo4.jpg');
+    background-color: rgba(245, 245, 245, 0.363);
+    /*background-image: url('../../../assets/logo4.jpg');*/
     background-repeat: no-repeat;
     background-size:cover;
     background-blend-mode: soft-light;
@@ -105,3 +106,117 @@ mat-toolbar {
     margin-left: 30px;
     margin-right: 10px;
   }
+  /*marinkie changes*/
+
+  .url2-image{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    margin-left: 60px;
+     height: fit-content;
+    width: fit-content;
+    background-size: cover;
+  }
+  ::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: yellow !important;
+   }
+
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: yellow !important;
+  } 
+
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: yellow !important;;
+  }
+
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #e6b102;
+  } 
+
+  .flip-card {
+    background-color: transparent;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front, .flip-card-back {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  .flip-card-front {
+    background-color: transparent;
+    color: black;
+    background-size: cover;
+    background-image: url("../../../assets/logo.png");
+  }
+
+  .flip-card-back {
+    background-color:inherit;
+    color: rgb(0, 0, 0);
+    transform: rotateY(180deg);
+  }
+  .flip-container{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-around;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    background: linear-gradient(-45deg,blue , yellow, white,red );
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+  }
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+.carousel-images{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: white;
+  text-align: center;
+  width: 95%;
+  margin: auto;
+  padding-top: 40px;
+  margin-bottom: 30px;
+}
+ul {
+  list-style-type: none;
+}
+.header{
+  color: rgb(0, 0, 0);
+  margin-left: 35px;
+  margin-top: 20px;
+  font-weight:500;
+  font-size: xx-large;
+}

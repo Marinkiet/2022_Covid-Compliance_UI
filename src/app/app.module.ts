@@ -45,6 +45,20 @@ import { DatePipe } from '@angular/common';
 import { ManageofficersComponent } from './components/manageofficers/manageofficers.component';
 import { OfficerRecordsComponent } from './components/officer-records/officer-records.component';
 import { StudentcardComponent } from './components/studentcard/studentcard.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
+import { AdminfeedbackComponent } from './components/adminfeedback/adminfeedback.component';
+import { OfficerprofileComponent } from './components/officerprofile/officerprofile.component';
+import { ViewaccessComponent } from './components/viewaccess/viewaccess.component';
+import { ViewpendingComponent } from './components/viewpending/viewpending.component';
+import { UserguardGuard } from './guards/userguard.guard';
+import { RegistervisitorComponent } from './components/registervisitor/registervisitor.component';
+import { RegisteruserComponent } from './components/registeruser/registeruser.component';
+import { NewsfeedComponent } from './components/newsfeed/newsfeed.component';
+import { LandingInformationComponent } from './components/landing-information/landing-information.component';
+import { QrCodeComponent } from './components/qr-code/qr-code.component';
+import { StatsComponent } from './components/stats/stats.component';
+import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
+import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +80,19 @@ import { StudentcardComponent } from './components/studentcard/studentcard.compo
     ManageofficersComponent,
     OfficerRecordsComponent,
     StudentcardComponent,
+    FeedbackComponent,
+    AdminfeedbackComponent,
+    OfficerprofileComponent,
+    ViewaccessComponent,
+    ViewpendingComponent,
+    RegistervisitorComponent,
+    RegisteruserComponent,
+    NewsfeedComponent,
+    LandingInformationComponent,
+    QrCodeComponent,
+    StatsComponent,
+    AdminfeedComponent,
+    UpdatePasswordComponent,
     
     
    
@@ -96,12 +123,8 @@ import { StudentcardComponent } from './components/studentcard/studentcard.compo
     MatPaginatorModule,
     MatSortModule,
     
-
-    
-    
-    
   ],
-  providers: [CustomvalidationService,DatePipe],
+  providers: [CustomvalidationService,DatePipe,UserguardGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {

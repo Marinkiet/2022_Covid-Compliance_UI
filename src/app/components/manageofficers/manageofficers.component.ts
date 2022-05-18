@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-manageofficers',
@@ -17,12 +18,13 @@ import { delay } from 'rxjs/operators';
 })
 export class ManageofficersComponent implements OnInit {
 
-  displayedColumns: string[] = ['Officer_id','Campus_id', 'First_name', 'Last_name','Gender','Cellphone_number','Email','Password','action'];
+  displayedColumns: string[] = ['Officer_id','Campus_id', 'First_name', 'Last_name','Gender','Cellphone_number','Email','Password'];
   dataSource !: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild(MatSort) sort !: MatSort;
-  constructor( 
+  
+  constructor( private router:Router,
     private dialog: MatDialog,
     private api:ApiService,
     private observer: BreakpointObserver) { }
@@ -72,6 +74,7 @@ export class ManageofficersComponent implements OnInit {
       }
     })
   }
+  
   editOfficer(row:any){
     this.dialog.open(AddOfficerComponent,{
       width:'30%',
@@ -100,6 +103,13 @@ this.api.deleteOfficer(id)
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+
+  }
+
+  deletesession()
+  {
+    sessionStorage.removeItem('admin_id');
+    this.router.navigate(['/login']);
   }
 }
 

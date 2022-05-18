@@ -1,6 +1,7 @@
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-
+import { Router } from '@angular/router';
+import { PasswresetemailService } from 'src/app/services/passwresetemail.service';
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
@@ -9,17 +10,18 @@ import { Component, OnInit } from '@angular/core';
 export class ResetpasswordComponent implements OnInit
 {
 
-  constructor() { }
+  constructor(private router:Router,
+    private passwresetsev:PasswresetemailService) { }
 
+    resetForm !:FormGroup;
 
-  submitted=false;
-  public resetForm:any
-  ngOnInit()
+  ngOnInit():void
   {
     this.resetForm=new FormGroup
     (
       {
-        email:new FormControl('',[Validators.required])
+        email:new FormControl('',[Validators.required]),
+        User_id:new FormControl('',[Validators.required])
       }
     )
   }
@@ -29,14 +31,28 @@ export class ResetpasswordComponent implements OnInit
   {
     return this.resetForm.get('email');
   }
-
-  onSubmit()
+  get User_id()
   {
-    this.submitted = true;
+    return this.resetForm.get('User_id');
+  }
+  onSendEmail()
+  {
+    this.passwresetsev.sentEmail(this.resetForm.value).subscribe(
+      reset=>
+      {
+        console.log(reset);
+      }
+    )
+  }
+  submitForm()
+  {
+    //this.submitted = true;
     if(this.resetForm.valid)
     {
-      alert('reset form submitted')
-      console.log('Form submitted succesffuly');
+      this.onSendEmail();
+      alert('Link send to your email');
+      this.router.navigate(['/login']);
+      //console.log('Form submitted succesffuly');
     }
   }
 }
