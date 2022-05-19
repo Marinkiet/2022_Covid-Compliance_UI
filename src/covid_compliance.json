@@ -1,0 +1,140 @@
+{
+    "admin": [
+      {
+          "Admin_id": "123456789",
+          "Campus_id": "Johnny",
+          "Gender": "Doe",
+          "Email": "kl@123@gmail.com",
+          "Password": "0685598785",
+          "First_name": "Male",
+          "Last_name": "Password@123"
+      }
+    ],
+
+    "campus": [
+      {
+          "Camp_id": "123456789",
+          "Campus_name": "Johnny"
+      }
+    ],
+
+    "feedback":[
+       {
+          "Feedback_id":"",
+          "username":"",
+          "Comment":"",
+          "Date":""
+       }
+    ],
+    "healthform":[
+        {
+          "Form_id":"",
+          "User_id":"",
+          "Vaccination_status":"",
+          "Covid19":"",
+          "Recent_cough":"",
+          "Difficulty_breath":"",
+          "Weight_lose":"",
+          "Headache":"",
+          "Infected_person":"",
+          "Form_check":"",
+          "Status":""
+        }
+    ],
+    "image":[
+        {
+          "image_id":"",
+          "pictureName":"",
+          "pic_path":""
+        }
+    ],
+    "newsfeed":[
+        {
+          "News_id":"",
+          "Title":"",
+          "News":"",
+          "Date":""
+        }
+    ],
+    "notification":[
+        {
+          "notification_id":"",
+          "admin_id":"",
+          "message":""
+        }
+    ],
+    "officer":[
+          {
+          "Officer_id": "123456789",
+          "Campus_id": "1",
+          "First_name": "Doe",
+          "Last_name": "",
+          "Gender":"",
+          "Cellphone_number": "0685598785",
+          "Email": "",
+          "Profile_pic": "",
+          "Password": "Password@123"
+        }
+    ],
+    "record":[
+        {
+          "Record_id":"",
+          "Officer_id":"",
+          "User_id":"",
+          "Form_id":"",
+          "Form_check":"",
+          "Date":"",
+          "Tempareture":"",
+          "isAllowedEntrence":"",
+          "Status":""
+        }
+    ],
+    "user":[
+        {
+          "no":"1",
+          "User_id":"216405821",
+          "Camp_id":"1",
+          "First_name":"HAMILTON",
+          "Last_name":"MOLEFE",
+          "Gender":"MALE",
+          "Type":"STUDENT",
+          "Cellphone_number":"0712224020",
+          "Email":"hmaputla181@gmail.com",
+          "Password":"Lerato@123",
+          "profile_pic":"",
+          "vaccination_card":""
+        }
+    ],
+    "videos":[
+          {
+            "video_id":"",
+            "video_name":"",
+            "video_path":""
+          }
+    ],
+    "visitor":[
+          {
+             "Visitor_id":"226404700",
+             "Campus_id":"1",
+             "First_name":"antonio",
+             "Last_name":"molefe",
+             "Gender":"m",
+             "Cellphone_number":"0716363630",
+             "Email":"thabo@gmail.com",
+             "Password":"Antonio@123",
+             "vaccination_card":""
+           }
+    ],
+      "visitor_record":[
+          {
+              "visitor_record_id":"",
+              "Officer_id":"",
+              "Visitor_id":"",
+              "Form_check":"",
+              "Date":"",
+              "Temparature":"",
+              "isAllowedEntrance":"",
+              "Health_status_reason":""
+          }
+    ]
+}
