@@ -2,6 +2,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PasswresetemailService } from 'src/app/services/passwresetemail.service';
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-resetpassword',
   templateUrl: './resetpassword.component.html',
@@ -10,7 +11,9 @@ import { PasswresetemailService } from 'src/app/services/passwresetemail.service
 export class ResetpasswordComponent implements OnInit
 {
 
-  constructor(private router:Router,
+  constructor(
+    private toast:NgToastService,
+    private router:Router,
     private passwresetsev:PasswresetemailService) { }
 
     resetForm !:FormGroup;
@@ -20,7 +23,7 @@ export class ResetpasswordComponent implements OnInit
     this.resetForm=new FormGroup
     (
       {
-        email:new FormControl('',[Validators.required]),
+        email:new FormControl('',[Validators.required,Validators.email]),
         User_id:new FormControl('',[Validators.required])
       }
     )
@@ -41,6 +44,8 @@ export class ResetpasswordComponent implements OnInit
       reset=>
       {
         console.log(reset);
+        this.toast.success({detail:"Reset Link",summary:"Password Reset Link Send To Email",duration:3000})
+        this.router.navigate(['/login']);
       }
     )
   }
@@ -50,8 +55,8 @@ export class ResetpasswordComponent implements OnInit
     if(this.resetForm.valid)
     {
       this.onSendEmail();
-      alert('Link send to your email');
-      this.router.navigate(['/login']);
+      //alert('Link send to your email');
+      
       //console.log('Form submitted succesffuly');
     }
   }

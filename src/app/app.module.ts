@@ -60,6 +60,8 @@ import { QrCodeComponent } from './components/qr-code/qr-code.component';
 //import { StatsComponent } from './components/stats/stats.component';
 import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
+import { NgToastModule } from 'ng-angular-popup';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -121,7 +123,7 @@ import { UpdatePasswordComponent } from './components/update-password/update-pas
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    
+    NgToastModule
   ],
   providers: [CustomvalidationService,DatePipe,UserguardGuard],
   bootstrap: [AppComponent]

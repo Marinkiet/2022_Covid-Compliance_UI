@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { VisitorserviceService } from 'src/app/services/visitorservice.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-registervisitor',
@@ -12,7 +13,8 @@ import { VisitorserviceService } from 'src/app/services/visitorservice.service';
 })
 export class RegistervisitorComponent implements OnInit {
 
-  constructor(private visitorservice:VisitorserviceService,private router:Router,private customvalidator:CustomvalidationService) { }
+  constructor(
+    private toast:NgToastService,private visitorservice:VisitorserviceService,private router:Router,private customvalidator:CustomvalidationService) { }
 
   campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
   visitorRegForm:any;
@@ -84,13 +86,17 @@ export class RegistervisitorComponent implements OnInit {
     {
        this.visitorservice.registerVisitor(this.visitorRegForm.value)
       .subscribe({
-        next:(res:RegisterVisitor)=>{
-          alert('User registered successfully');
+        next:(res:RegisterVisitor)=>
+        {
+
+          //alert('User registered successfully');
+          this.toast.success({detail:"Register Message",summary:"Registered Successfully",duration:4000})
           this.router.navigate(['login']);
           console.log(res);
         },
         error:()=>{
-         alert('Could no register Visitor ');
+         //alert('Could no register Visitor ');
+         this.toast.error({detail:"Register Message",summary:"Unable To Register",duration:4000})
         }
         
       })

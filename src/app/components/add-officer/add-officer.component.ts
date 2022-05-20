@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-add-officer',
   templateUrl: './add-officer.component.html',
@@ -14,6 +15,7 @@ export class AddOfficerComponent implements OnInit {
   passwType:string = 'Password';
   passwTypeConfirm = 'Confirm Password';
   constructor(
+    private toast:NgToastService,
     private formBuilder: FormBuilder,
     private api:ApiService,
     private dialogRef : MatDialogRef<AddOfficerComponent>,
@@ -76,6 +78,7 @@ export class AddOfficerComponent implements OnInit {
       this.api.postOfficer(this.officerForm.value)
       .subscribe({
         next:(res:any)=>{
+          this.toast.success({detail:"Add Officer",summary:"Officer Added",duration:3000})
           //alert('officer registered successfully');
           this.dialogRef.close('saved'); //close form once saved
         },
@@ -95,10 +98,12 @@ this.api.putOfficer(this.officerForm.value)
 .subscribe({
   next:(res)=>{
     //alert("Updated Officer Successfully");
+    this.toast.success({detail:"Update Officer",summary:"Officer Details Updated",duration:3000})
     this.officerForm.reset();
     this.dialogRef.close('Updated');
   },error:()=>{
-    alert("Error while updating officer");
+    //alert("Error while updating officer");
+    this.toast.error({detail:"Update Officer",summary:"Could Not Updated \n Officer Details",duration:3000})
   }
 })
   }

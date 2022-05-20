@@ -12,6 +12,7 @@ import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { ViewImage, ViewProfilePicture } from 'src/app/interfaces/file-to-upload';
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -22,6 +23,7 @@ export class UserProfileComponent implements OnInit {
   actionBtn:string = "Update";
 
   constructor( 
+    private toast:NgToastService,
     private router:Router,
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
@@ -118,7 +120,8 @@ export class UserProfileComponent implements OnInit {
           this.userProfile.controls['Email'].setValue(this.users[0].Email); 
  
           //this.officerprofile.reset();
-         alert('User details UPdated')
+          this.toast.success({detail:"Success Message",summary:"Profile Updated",duration:3500})
+        // alert('User details UPdated')
         }, error: () => {
           alert("Error while updating user");
         }

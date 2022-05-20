@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { ContactusService } from 'src/app/services/contactus.service';
 
 @Component({
@@ -18,7 +19,9 @@ export class ContactusComponent implements OnInit
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   */
 
-   constructor(private router:Router,private contactusservice:ContactusService){}
+   constructor(
+     private toast:NgToastService,
+    private router:Router,private contactusservice:ContactusService){}
  
   contactForm!:FormGroup;
   ngOnInit(): void {
@@ -30,7 +33,6 @@ export class ContactusComponent implements OnInit
         fullname:new FormControl(''),
         message:new FormControl(''),
         email:new FormControl('',[Validators.required, Validators.email]),
-
       }
     )
   }
@@ -63,7 +65,8 @@ export class ContactusComponent implements OnInit
        contact=>
        {
          console.log(contact);
-         
+         this.toast.success({detail:"Contact Us",summary:"Message Sent",duration:4000})
+         this.contactForm.reset();
          //this.contactForm.reset();//this.router.navigate(['/contactus'])
        }
      )
@@ -73,7 +76,7 @@ export class ContactusComponent implements OnInit
     if(this.contactForm.valid)
     {
       this.onSendEmail();
-      alert('Submitted Successful');
+      //alert('Submitted Successful');
     }
   }
 

@@ -12,6 +12,7 @@ import { CustomvalidationService } from 'src/app/services/customvalidation.servi
 import { Typelist } from 'src/app/interfaces/usertypes/typelist';
 import { Token } from '@angular/compiler';
 import { VisitorserviceService } from 'src/app/services/visitorservice.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit
 
   hide=true;
   constructor(
+    private toast:NgToastService,
     private router:Router,
     private userservice:UserService,
     private visitorservice:VisitorserviceService,
@@ -91,9 +93,12 @@ get Password()
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
               this.router.navigate(['admin']);
               sessionStorage.setItem('admin_id',data.User_id);
+              this.toast.success({detail:"Login Message",summary:"Login Successfully",duration:4000});
             }
             else if (data.message == 'Unsuccessful') {
-              alert(' Admin Please Enter valid credentials');
+
+              this.toast.error({detail:"Login Error Message",summary:"Incorrect Credentials",duration:4000});
+              //alert(' Admin Please Enter valid credentials');
             }
 
           },
@@ -116,9 +121,11 @@ get Password()
               /* const redirect = this.officerservice.redirecturl ? this.officerservice.redirecturl : '/officer'; */
               this.router.navigate(['officer']);
               sessionStorage.setItem('officer_id',data.User_id);
+              this.toast.success({detail:"Login Message",summary:"Login Successfully",duration:4000});
             }
             else if (data.message == 'Unsuccessful') {
-              alert('Officer Please valid credentials');
+              this.toast.error({detail:"Login Error Message",summary:"Incorrect Credentials",duration:4000});
+              //alert('Officer Please valid credentials');
             }
 
           },
@@ -143,10 +150,12 @@ get Password()
                 /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
                 this.router.navigate(['qrcode']);
                 sessionStorage.setItem('user_id',data.User_id);
+                this.toast.success({detail:"Login Message",summary:"Login Successfully",duration:4000});
               }
               else if (data.message =='Unsuccessful')
               {
-                alert(' Student Please Enter valid credentials');
+                this.toast.error({detail:"Login Error",summary:"Incorrect Credentials",duration:4000});
+                //alert(' Student Please Enter valid credentials');
               }
 
             },
@@ -169,10 +178,12 @@ get Password()
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
               this.router.navigate(['qrcode']);
               sessionStorage.setItem('user_id',data.User_id);
+              this.toast.success({detail:"Login Message",summary:"Login Successfully",duration:4000});
             }
             else if (data.message =='Unsuccessful')
             {
-              alert(' Visitor Please Enter valid credentials');
+              this.toast.error({detail:"Login Error",summary:"Incorrect Credentials",duration:4000});
+              //alert(' Visitor Please Enter valid credentials');
             }
 
           },
@@ -194,10 +205,12 @@ get Password()
               /* const redirect = this.userservice.redirecturl ? this.userservice.redirecturl : '/qrcode'; */
               this.router.navigate(['qrcode']);
               sessionStorage.setItem('user_id',data.User_id);
+              this.toast.success({detail:"Login Message",summary:"Login Successfully",duration:4000});
             }
             else if (data.message =='Unsuccessful')
             {
-              alert(' Staff Please Enter valid credentials');
+              this.toast.error({detail:"Login Error",summary:"Incorrect Credentials",duration:4000});
+              //alert(' Staff Please Enter valid credentials');
             }
 
           },

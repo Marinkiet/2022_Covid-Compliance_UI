@@ -4,6 +4,8 @@ import { User } from 'src/app/interfaces/user';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { delay } from 'rxjs';
+import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-update-password',
@@ -12,21 +14,28 @@ import { delay } from 'rxjs';
 })
 export class UpdatePasswordComponent implements OnInit {
 
-  constructor(private userservice:UserService,
+  constructor(
+    private toast:NgToastService,
+    private userservice:UserService,
     private activatedRoute:ActivatedRoute,
     private router:Router,
-    private route:Router,) { }
+    private route:Router,
+    private customvalidator:CustomvalidationService) { }
 
  
   passwForm: any;
   User_id_Param:any;
+  hide=true;
 
   ngOnInit(): void {
     this.passwForm=new FormGroup
     ({
   
-      Password:new FormControl('',[Validators.required])
-       
+      Password:new FormControl('',[Validators.required,Validators.minLength(8),this.customvalidator.patternPassValidator()]),
+      confirm_password:new FormControl('',[Validators.required]),
+    },
+    {
+      validators: this.customvalidator.passwordMatch('Password','confirm_password')
     })
      //  alert(sessionStorage.getItem('Email'))
 
@@ -39,15 +48,25 @@ export class UpdatePasswordComponent implements OnInit {
     //alert(this.UserEmail_Param);
     this.passwForm.controls['Password'].setValue('Password');
   }
+
+  get Password()
+  {
+    return this.passwForm.get('Password');
+  }
+  get confirm_password()
+  {
+    return this.passwForm.get('confirm_password');
+  }
+
   users!: User[];
   onGetUser(User_id:string)
   {
     this.userservice.getUser(`${User_id}`).subscribe(
       (response: any) => {
         if (response.message == 'Successful') {
-          alert(response)
+          //alert(response)
           this.users = response.data;
-          alert(this.users)
+          //alert(this.users)
         }
       },
       (error: any) => console.log('this is the error' + error),
@@ -56,20 +75,22 @@ export class UpdatePasswordComponent implements OnInit {
   }
   onUpdatePassw()
   {
-    this.userservice.updatePassword(this.passwForm.value,this.User_id_Param).subscribe(
+    if(this.passwForm.valid)
+    {
+      this.userservice.updatePassword(this.passwForm.value,this.User_id_Param).subscribe(
        (response: any)=>
         {
           console.log(response);
           console.log('Update successful');
+          this.toast.success({detail:"Password Message",summary:"Password Updated",duration:3500})
           this.router.navigate(['/login']);
-          
         },
         (error: any) => console.log('this is the error' + error),
         () => console.log('Done getting user'),
       )
       this.passwForm.reset();
-
-    
+    }
+ 
   }
   
 

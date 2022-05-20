@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { ViewImage } from 'src/app/interfaces/file-to-upload';
 import { ApiService } from 'src/app/services/api.service';
 @Component({
@@ -13,6 +14,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AdminComponent implements OnInit {
   constructor(
+    private toast:NgToastService,
     private http: HttpClient, private router: Router,
     private api: ApiService
   ) { }
@@ -44,10 +46,13 @@ export class AdminComponent implements OnInit {
 
     this.http.post('http://localhost:3000/upload_image/image', formData).subscribe(
       res => {
+        this.toast.success({detail:"Image",summary:"Image Uploaded",duration:3000})
         console.log(res)
+        this.onView();
+        window.location.reload()
       }
     )
-    this.onView();
+   
     
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { first } from 'rxjs';
 import { RegisterUser } from 'src/app/interfaces/user';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
@@ -14,7 +15,7 @@ import { UserService } from 'src/app/services/user.service';
 export class RegisteruserComponent implements OnInit {
 
   constructor(
-    private userservice:UserService,private router:Router,private customvalidator:CustomvalidationService) { }
+    private toast:NgToastService,private userservice:UserService,private router:Router,private customvalidator:CustomvalidationService) { }
 
   campuses:any[]=['Arcadia','Arts','eMalahleni','Ga-Rankuwa','Mbombela','Polokwane','Pretoria','Soshanguve South','Soshanguve North',];
   userRegForm:any;
@@ -94,18 +95,21 @@ export class RegisteruserComponent implements OnInit {
           console.log(res.message);
           if(res.message == 'Successful')
           {
-            alert('User registered successfully');
+            //alert('User registered successfully');
+            this.toast.success({detail:"Register Message",summary:"Registered Successfully",duration:4000})
              this.router.navigate(['login']);
            
           }
           else if(res.message == 'Unsuccessful')
           {
-            alert('Email already registered Please re-register')
+            //alert('Email already registered Please re-register')
+            this.toast.error({detail:"Email Message",summary:"E-mail already Registered",duration:4000})
             
           }
         },
         error:()=>{
-         alert('Could no register User ');
+          this.toast.error({detail:"Register Message",summary:"Unable To Register",duration:4000})
+         //alert('Could no register User ');
         }
         
       })
