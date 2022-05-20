@@ -21,7 +21,7 @@ export class UserProfileComponent implements OnInit {
   userProfile !: FormGroup;
   actionBtn:string = "Update";
 
-  constructor( 
+  constructor(
     private router:Router,
     private formBuilder: FormBuilder,
     private dialog: MatDialog,
@@ -41,7 +41,7 @@ export class UserProfileComponent implements OnInit {
     this.profilePicture=this.viewStudentProfile(sessionStorage.getItem('user_id'))
     this.userProfile = this.formBuilder.group
     ({
-    
+
       User_id: ['', Validators.required],
       //Camp_id: ['', Validators.required],
       //First_name: ['', Validators.required],
@@ -53,10 +53,10 @@ export class UserProfileComponent implements OnInit {
       Password: ['', Validators.required],
       //newPassword: ['', Validators.required],
     });
-    
+
     this.getUserProfile(`${sessionStorage.getItem('user_id')}`);
    // alert(`${sessionStorage.getItem('user_id')}`)
-  
+
     //this.userProfile.controls['Password'].setValue(this.userInte.User_id);
    // this.userProfile.controls['Password'].setValue(this.userInte.Password);
   }
@@ -96,9 +96,9 @@ export class UserProfileComponent implements OnInit {
                 this.userProfile.controls['User_id'].setValue(this.users[0].User_id);
                 this.userProfile.controls['Password'].setValue(this.users[0].Password);
                 this.userProfile.controls['Cellphone_number'].setValue(this.users[0].Cellphone_number);
-                
+
                 this.userProfile.controls['Email'].setValue(this.users[0].Email);
-                
+
               }})}
 
 
@@ -110,8 +110,8 @@ export class UserProfileComponent implements OnInit {
            this.userProfile.controls['User_id'].setValue(this.users[0].User_id);
           this.userProfile.controls['Password'].setValue(this.users[0].Password);
           this.userProfile.controls['Cellphone_number'].setValue(this.users[0].Cellphone_number);
-          this.userProfile.controls['Email'].setValue(this.users[0].Email); 
- 
+          this.userProfile.controls['Email'].setValue(this.users[0].Email);
+
           //this.officerprofile.reset();
          alert('User details UPdated')
         }, error: () => {
@@ -141,7 +141,7 @@ export class UserProfileComponent implements OnInit {
 
       pic_path: any;
       User_id: string = "";
-    
+
     /*   getName(name: string) {
         this.name = name;
       } */
@@ -150,26 +150,26 @@ export class UserProfileComponent implements OnInit {
         //console.log('File '+this.pic_path)
         console.log(this.pic_path)
       }
-    
+
       onUpload() {
         let formData = new FormData()
         formData.append('User_id',`${sessionStorage.getItem('user_id')}`)
         formData.append('pic_path', this.pic_path)
         //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
-    
+
         this.http.put('http://localhost:3000/upload_pp/upload_pp',formData).subscribe(
           res => {
             console.log(res)
           }
         )
         //this.onView();
-        
+
       }
-    
+
       //pic: string = 'pic_path-1650626677588.png';
       //profile_pics!:ViewProfilePicture[];
-    
-    
+
+
       viewStudentProfile(studentNumber)
       {
         return `http://localhost:3000/select_pp/view/${studentNumber}`;
@@ -191,7 +191,7 @@ export class UserProfileComponent implements OnInit {
 
 
 }
-  
+
 
 
    /*    pic_path:any;
@@ -207,14 +207,14 @@ export class UserProfileComponent implements OnInit {
         formData.set('User_id',`${sessionStorage.getItem('user_id')}`)
         formData.set('pic_path', this.pic_path)
         //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
-    
+
         this.http.put('http://localhost:3000/upload_pp/upload_pp', formData).subscribe(
           res => {
             console.log(res)
           }
         )
         this.onView();
-        
+
       }
 
       images!: ViewImage[];
@@ -233,10 +233,10 @@ export class UserProfileComponent implements OnInit {
             //console.log(res)
         //  }
         //  );
-        //} 
+        //}
 
 
-        
+
 
 
 
@@ -259,5 +259,5 @@ export class UserProfileComponent implements OnInit {
          console.log(res)
          this.userProfile.patchValue(res);
        //  this.userProfile.controls.name.patchValue(res.name); // set value of single property
- 
+
        }})} */
