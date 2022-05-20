@@ -1,0 +1,109 @@
+
+<mat-toolbar class="mat-elevation-z8">
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+  
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+  
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+  
+    </button>
+    <a href="" ><img routerLink="/home" class="logo" src="../../../assets/logo6.png">
+    </a><!--  <a class="left-nav"  routerLink="/aboutus"><h3>About Us</h3></a>
+        <a class="left-nav"  routerLink="/contactus"><h3>Contact Us</h3></a>
+  
+  -->
+    <span class="right-nav"></span>
+    <button mat-raised-button color="warn" routerLink="/login">Get Started</button>
+  
+  </mat-toolbar>
+  
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+  
+       <!--  <img class="avatar" src="../../../assets/social-care.png" alt = "userImage"> -->
+  
+        <mat-divider></mat-divider>
+  
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+  
+        <button mat-button class="menu-button" routerLink="/aboutus">
+            <mat-icon>information</mat-icon>
+            <span>About Us</span>
+        </button>
+  
+      <!--   <button mat-button class="menu-button" routerLink="/contactus">
+            <mat-icon>phone</mat-icon>
+            <span>Contact Us</span>
+        </button> -->
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/help">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+  <mat-sidenav-content>
+      <div>
+        <img class="img-note" src="../../../assets/note.jpg">
+      </div>
+
+    <div class="container">
+        
+        
+        <form [formGroup]="contactForm" (ngSubmit)="submitForm()" class="example-form container-content" >
+           
+            <h1 class="header">Send us an email.   <mat-icon>email</mat-icon></h1>
+            <mat-divider></mat-divider>
+           <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Identity Number</mat-label>
+                        <input type="text" matInput formControlName="User_id">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput type="text" formControlName="fullname">
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+           
+                <mat-form-field class="example-full-width" appearance="fill">
+                   
+                    <mat-label>Email</mat-label>
+                    <input type="email" matInput formControlName="email" placeholder="Ex. pat@example.com">
+                    <mat-error *ngIf="contactForm.hasError('email') && !contactForm.hasError('required')">
+                      Please enter a valid email address
+                    </mat-error>
+                    <mat-error *ngIf="contactForm.hasError('required')">
+                      Email is <strong>required</strong>
+                    </mat-error>
+                  </mat-form-field>
+
+                 
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Message</mat-label>
+                <textarea formControlName="message" matInput placeholder="Ex. It makes me feel..."></textarea>
+              </mat-form-field>
+           
+            <button style="margin-left:10px" mat-raised-button color="primary" type="submit" >Submit</button>
+            <br>
+
+        </form>
+    </div>
+
+    </mat-sidenav-content>
+
+   
+</mat-sidenav-container>
+<app-footer></app-footer>

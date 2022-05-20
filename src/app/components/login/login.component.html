@@ -1,48 +1,133 @@
-<div class="back_color">
+<mat-toolbar class="mat-elevation-z8">
 
-    
-    <div class="content">
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+
+    </button>
+    <a href=""><img class="logo" routerLink="/home" src="../../../assets/logo6.png"></a>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
 
 
-        <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
-        <div class="form_1">
-    
-            <mat-label class="txt_head">Login</mat-label>
-    
-            <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Username</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
-        
-            </mat-form-field>
-            <br><br>
-            <mat-form-field appearance="fill">
-        
-                <mat-label>Password</mat-label>
-                <input matInput required >
-                <mat-hint>testing</mat-hint>
-        
-            </mat-form-field>
-            <br><br>
-            
-            <button mat-raised-button>Login</button>
-            <br><br>
-        
-            <mat-label>Don`t have an account? <span class="txt_sign_up"><a routerLink="/register">Sign-up</a></span></mat-label>
-            <br><br>
-        
-        
-        
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button" routerLink="/home">
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/aboutus">
+            <mat-icon>information</mat-icon>
+            <span>About Us</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="/contactus">
+            <mat-icon>phone</mat-icon>
+            <span>Contact Us</span>
+        </button>
+        <mat-divider></mat-divider>
+        <button mat-button class="menu-button" routerLink="/help">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div class="container">
+            <div class="box">
+
+                <div class="title">
+                    <span class="block"></span>
+                    <h1>COVID COMPLIANCE<span></span></h1>
+                </div>
+                <br>
+                <div class="role">
+                    <div class="block"></div>
+                    <p>Tshwane University of Technology</p>
+                </div>
+
+            </div>
         </div>
-        
-    
-    
-    <app-footer></app-footer>
-    
-    </div>
+        <div class="back_color">
 
 
-</div>
+            <div class="content">
 
+
+                <!--<img src="../../../assets/logo.png"  width="300" alt="">-->
+                <div class="form_1">
+
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <mat-label class="txt_head">Login</mat-label>
+
+                        <br><br>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>User Type</mat-label>
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon matSuffix>people</mat-icon>
+                    </button>
+                            <mat-select formControlName="user_type" [(ngModel)]="selectedUser">
+                                <mat-option *ngFor="let user of users" [value]="user.id">{{user.type}}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <br><br>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Username</mat-label>
+                            <input matInput formControlName="User_id">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                        <mat-icon matSuffix>face</mat-icon>
+                      </button>
+                            <mat-error *ngIf="User_id.invalid && User_id.touched">Username Reguired</mat-error>
+                            <mat-hint>Staff/Student Number</mat-hint>
+
+                        </mat-form-field>
+                        <br><br>
+                        <mat-form-field appearance="fill">
+
+                            <mat-label>Password</mat-label>
+                            <input matInput [type]="hide ? 'password' : 'text'" formControlName="Password">
+                            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+
+                            <mat-error *ngIf="(Password.touched || submitted)&& Password.errors?.required">Password is required</mat-error>
+
+                            <mat-error *ngIf="(Password.touched && Password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error>
+                            <mat-hint>Minimum of 8 characters</mat-hint>
+                        </mat-form-field>
+                        <br><br>
+                        <br>
+                        <button mat-raised-button [disabled]="loginForm.invalid" (click)="UserSelected(selectedUser)" href="officer">Login</button> &nbsp;&nbsp;
+
+                        <button class='fpass' mat-raised-button routerLink="/resetpass">Forgot Password</button>
+                        <br><br>
+
+                        <mat-label>Don`t have an account? <span class="txt_sign_up"><a routerLink="/register">Sign-up</a></span></mat-label>
+                        <br><br>
+
+                    </form>
+
+                    <!-- <p>selected value is {{selectedUser}}</p><br> -->
+
+
+
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+        <app-footer></app-footer>

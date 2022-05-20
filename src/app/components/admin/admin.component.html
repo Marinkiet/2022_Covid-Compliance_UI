@@ -1,0 +1,141 @@
+<mat-toolbar class="mat-elevation-z8">
+
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+
+      <mat-icon *ngIf="!sidenav.opened">
+          menu
+      </mat-icon>
+
+      <mat-icon *ngIf="sidenav.opened">
+          close
+      </mat-icon>
+
+  </button>
+  <img class="logo" src="../../../assets/logo6.png" alt="logo">
+  
+      <h3>Covid Compliance</h3>
+
+  <span class="right-nav"></span>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+      <img class="avatar" src="../../../assets/social-care.png" alt = "userImage">
+
+      <h4 class="name">ADMIN</h4>
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" routerLink="/admin">
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+      </button>
+
+      <button mat-button class="menu-button" >
+          <mat-icon>person</mat-icon>
+          <span>Profile</span>
+         
+      </button>
+
+      <button mat-button class="menu-button" routerLink="/manageofficers">
+        <mat-icon>accessibility_new</mat-icon>
+        <mat-form-field appearance="fill">
+        <span>Officers</span>
+            <mat-label>Officer_id</mat-label>
+            <input matInput formControlName="Officer_id" >
+            <mat-error *ngIf="(Officer_id.touched || submitted)&& Officer_id.errors?.required">Oficcer id is required</mat-error>
+        </mat-form-field>
+   
+       
+
+
+      </button> <button mat-button class="menu-button" routerLink="/report">
+        <mat-icon>assignment</mat-icon>
+        <span>Report</span>
+    </button>
+   <!--  <button mat-button class="menu-button" routerLink="/adminfeedback">
+        <mat-icon>assignment</mat-icon>
+        <span>Comments</span>
+    </button> -->
+
+
+
+   <!--  <button mat-button class="menu-button" routerLink="/stats">
+        <mat-icon>assignment</mat-icon>
+        <span>Stats</span>
+    </button> -->
+
+    <button mat-button class="menu-button" routerLink="/newsfeed">
+        <mat-icon>assignment</mat-icon>
+        <span>NewsFeed</span>
+    </button>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button">
+        <mat-icon>edit</mat-icon>
+        <span>Edit Home</span>
+    </button>
+
+      <button mat-button class="menu-button">
+          <mat-icon>help</mat-icon>
+          <span>Help</span>
+      </button>
+      
+      <button mat-button class="menu-button" (click)="deletesession()">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Logout</span>
+      </button>
+      
+</mat-sidenav>
+
+  <mat-sidenav-content>
+      
+        <h1 class="header">Hover over each logo to edit carousel items</h1>
+       
+        <div class="flip-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                <div class="flip-card-front">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Carousel Image Items</h1> 
+                    <h3>Please Select an Image (png/jpg/gif)</h3>      
+                    <!-- <input type="text"  (change)="getName(name.value)" #name> --><br>
+                    <input type="file"  (change)="onFileSelected($event)" placeholder="Upload image">
+                    <button (click)="onUpload()">upload</button>
+                    <br><br>   
+                </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                <div class="flip-card-front">
+                </div>
+                <div class="flip-card-back">
+                    <h1>Carousel Video Items</h1> 
+                    <h3>Please Select a Video (.mp4)</h3> 
+                    <input type="text"  (change)="getName(name.value)" #name placeholder="Image name"><br>
+                    <input type="file"  (change)="onFileSelected($event)" placeholder="upload image">
+                    <button (click)="onUpload()">upload</button>
+                </div>
+                </div>
+            </div>
+            </div>  
+            <h1 class="header">Uploaded Images</h1>
+
+            <div class="carousel-images">
+                <ul  *ngFor="let image of images;">
+                <li><img   src={{image.pic_path}} height="300px" width="400px" alt="picture"></li>
+                <li><video  loop src={{image.pic_path}} autoplay height="300px" width="400px"></video></li>
+                </ul>
+        
+                <br>
+            </div>
+      
+     </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!-- <app-stats></app-stats> -->

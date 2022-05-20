@@ -1,0 +1,213 @@
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: white !important;
+   }
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: blue !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: blue !important;;
+  }
+  
+  .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+    background-color: #e6b102;
+  }
+
+mat-toolbar {
+    background:#003883;
+    color: #ffffff;
+    height: 60px;
+    text-align: center;
+    margin-left: -14px;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #ffffff;
+    color: #003883;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+section {
+    background: white;
+    padding: 10px 0;
+}
+.container2 {
+    max-width: 85%;
+    margin: 20px;
+    padding: 0 10px;
+}
+
+/*//////////here*/
+.right-nav {
+    display: flex;
+    flex: 1 1 auto;
+  }
+.left-nav{
+    display: flex;
+    margin-left: 20px;
+    text-decoration: none;
+    
+}
+.left-nav:visited{
+    color: #f7f7f7;
+    text-decoration: none;
+
+}
+.mat-drawer-container {
+   /* background-image: url('../../../assets/logo4.jpg');*/
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-color: rgb(255, 255, 255);
+    color: #003883;
+}
+.logo{
+    width: 170px;
+    height: fit-content;
+    background-color: white ;
+    margin-right: 20px;
+  }
+  .mat-progress-spinner circle, .mat-spinner circle {
+    stroke: #003883;
+}
+
+
+.container {
+    width: 100%;
+    height: 30%;
+   /* background: #232323;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-image: url(../../../assets/videos/covid.gif)*/
+}
+
+.container .box .title {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 50px;
+   
+}
+.container .box .title .block {
+    width: 0%;
+    height: inherit;
+    background: #ffb510;
+    position: absolute;
+    animation: mainBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    display: flex;
+}
+.container .box .title h1 {
+    font-family: 'Poppins';
+    color: rgb(0, 0, 0); /*white*/
+    font-size: 40px;
+    -webkit-animation: mainFadeIn 2s forwards;
+    -o-animation: mainFadeIn 2s forwards;
+    animation: mainFadeIn 2s forwards;
+    animation-delay: 1.6s;
+    opacity: 0;
+    display: flex;
+    align-items: baseline;
+    position: relative;
+}
+.container .box .title h1 span {
+    width: 0px;
+    height: 0px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background: #ffb510;
+    -webkit-animation: load 0.6s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation: popIn 0.8s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: 2s;
+    margin-left: 5px;
+    margin-top: -10px;
+    position: absolute;
+    bottom: 13px;
+    right: -12px;
+}
+.container .box .role {
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 30px;
+    margin-top: 0x;
+}
+.container .box .role .block {
+    width: 0%;
+    height: inherit;
+    background:red;
+    position: absolute;
+    animation: secBlock 2s cubic-bezier(0.74, 0.06, 0.4, 0.92) forwards;
+    animation-delay: 2s;
+    display: flex;
+}
+.container .box .role p {
+    animation: secFadeIn 2s forwards;
+    animation-delay: 3.2s;
+    opacity: 0;
+    font-weight: 400;
+    font-family: 'Lato';
+    color: rgb(0, 0, 0); /*white*/
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+
+.content
+{
+    /*background-image: url('../../../assets/backdrop.jpg');*/
+    height:100vh;
+    margin: 0;
+    padding: 10px;
+    overflow:hidden;
+}
+.form_1
+{
+    text-align: center;
+    background-color: #464646;
+    padding-top:45px;
+    width: 50%;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+   
+}
+
+.txt_head
+{
+    font-size: 25px;
+    color:white;
+    text-align: center;
+
+}
+.txt_sign_in
+{
+    color:white;
+}
+a
+{
+    text-decoration: none;
+    color: white;
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 20px;
+    padding-top: 10px;
+}
+.file-input {
+    display: none;
+  }
+  .mat-raised-button {
+    background-color: #003883;
+}

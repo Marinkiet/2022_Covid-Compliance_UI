@@ -1,0 +1,89 @@
+<h1 mat-dialog-title>{{lblType}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="officerForm">
+        <mat-form-field appearance="fill">
+            <mat-label>User Id</mat-label>
+            <input matInput formControlName="Officer_id" placeholder="User Id"> 
+            <mat-error *ngIf="(Officer_id.touched || submitted)&& Officer_id.errors?.required">User Id is required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Campus</mat-label>
+            <input formControlName="Campus_id" matInput>
+            <mat-icon matSuffix>face</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="First_name" placeholder="First Name" >
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="(First_name.touched || submitted)&& First_name.errors?.required">First Name is required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input  matInput formControlName="Last_name" placeholder="Last Name">
+            <mat-icon matSuffix>face</mat-icon>
+            <mat-error *ngIf="(Last_name.touched || submitted)&& Last_name.errors?.required">Last Name is required</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="Gender" placeholder="Gender">
+                <mat-option value="Male">Male</mat-option>
+                <mat-option value="Female">Female</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email Address</mat-label>
+            <input formControlName="Email" matInput placeholder="Email Address">
+            <mat-icon matSuffix>mail_outline</mat-icon>
+            <mat-error *ngIf="(Email.touched || submitted)&& Email.errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="Email.touched && Email.errors?.Email">Enter a valid email address</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Phone Number</mat-label>
+            <input formControlName="Cellphone_number" matInput placeholder="Phone Number">
+            <mat-error *ngIf="(Cellphone_number.touched || submitted)&& Cellphone_number.errors?.required">Cell Phone Number required</mat-error>
+            <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>{{passwType}}</mat-label>
+            <mat-icon matSuffix>password</mat-icon>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+
+            <mat-error *ngIf="(password.touched || submitted)&& password.errors?.required">Password is required</mat-error>
+
+            <p><mat-error *ngIf="(password.touched && password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error></p>
+            <mat-hint>password</mat-hint>  
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill">
+            <mat-label>Confirm Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password" >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+  
+        <p><mat-error *ngIf="(confirm_password.touched && confirm_password.errors?.passwordMismatch)">Password should match</mat-error></p>
+            <mat-hint>Re-type password</mat-hint>
+
+        </mat-form-field>
+
+    </form>
+
+    <div mat-dialog-action [align]="'end'">
+        <button mat-raised-button color="warn" mat-dialog-close="">Close</button>
+        <button style="margin-left:10px" mat-raised-button color="primary" (click)="addOfficer()">{{actionBtn}}</button>
+    </div>
+</div>

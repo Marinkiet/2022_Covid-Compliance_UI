@@ -1,0 +1,102 @@
+
+        <form [formGroup]="userRegForm" (ngSubmit)="onSubmit()">
+ 
+            <div class="example-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Staff/Student Number</mat-label>
+                    <mat-icon matSuffix>edit</mat-icon>
+                    <input matInput formControlName="userId" placeholder="Staff/Student Number">
+                    <mat-error *ngIf="(userId.touched || submitted)&& userId.errors?.required">Identity Number required</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field appearance="fill">
+        
+                    <mat-label>E-mail</mat-label>
+                    <input matInput formControlName="email" >
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-error *ngIf="(email.touched || submitted)&& email.errors?.required">E-mail is required</mat-error>
+                    <mat-error *ngIf="email.touched && email.errors?.email">Enter a valid email address</mat-error>
+             
+                </mat-form-field>
+            </div>
+
+            <div class="example-container">
+
+                <mat-form-field appearance="fill">
+                    <mat-label>First Name</mat-label>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <input matInput formControlName="firstNames" >
+                    <mat-error *ngIf="(firstNames.touched || submitted)&& firstNames.errors?.required">First Name is required</mat-error>
+                </mat-form-field>
+               
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Last Name</mat-label>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <input matInput formControlName="lastName" >
+                    <mat-error *ngIf="(lastName.touched || submitted)&& lastName.errors?.required">Last Name is required</mat-error>
+                </mat-form-field>
+           
+         
+        </div>
+        <div class="example-container">
+        
+            <mat-form-field appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <mat-icon matSuffix>phone</mat-icon>
+                <input matInput formControlName="cellphone">
+                <mat-error *ngIf="(cellphone.touched || submitted)&& cellphone.errors?.required">Cell Phone Number required</mat-error>
+                <!-- <mat-hint>optional</mat-hint> -->
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Campus</mat-label>
+                <mat-icon matSuffix>place</mat-icon>
+                <mat-select>
+                    <mat-option *ngFor="let i of campuses" [value]="i"> {{i}} </mat-option>
+                </mat-select>
+            </mat-form-field>
+       </div>
+
+   
+        <div class="example-container">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" >
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            
+            <mat-error *ngIf="(password.touched || submitted)&& password.errors?.required">Password is required</mat-error>
+
+            <p><mat-error *ngIf="(password.touched && password.errors?.invalidPassword)">Password should have minimum 8 of characters,at least 1 uppercase letter,1 lowercase letter and 1 number</mat-error></p>
+            <mat-hint>password</mat-hint>
+           
+        </mat-form-field>
+            <mat-form-field appearance="fill">
+        
+                <mat-label>Confirm Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" formControlName="confirm_password" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+
+                
+            <p><mat-error *ngIf="(confirm_password.touched && confirm_password.errors?.passwordMismatch)">Password should match</mat-error></p>
+                <mat-hint>Re-type password</mat-hint>
+        
+            </mat-form-field>
+       </div>
+       
+            <button mat-raised-button routerLink="login" [disabled]="userRegForm.invalid">Register</button>
+            <br><br>
+        
+            <mat-label>Are you already registered? <span class="txt_sign_in"><a routerLink="/login">Sign-in</a></span></mat-label>
+            <br><br>
+        
+        </form>
+
+
+
