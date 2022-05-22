@@ -52,6 +52,7 @@ export class ApiService {
     return this.http.post<any>("http://localhost:3000/upload_image/image",formData);
   
   }
+ 
   updateUser(User_id: number): Observable<updatetheUser[]> {
     return this.http.put<updatetheUser[]>("http://localhost:3000/update/user/", User_id);
   }

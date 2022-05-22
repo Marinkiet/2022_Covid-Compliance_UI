@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder,Validators} from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { first } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { HealthformService } from 'src/app/services/health-form.service';
-/* import { HealthFormService } from 'src/app/services/health-form.service'; */
-/* import { HealthformService } from 'src/app/services/healthform.service'; */
-
+import { UserService } from 'src/app/services/user.service';
+import { ApiService } from 'src/app/services/api.service';
 @Component({
   selector: 'app-health-form',
   templateUrl: './health-form.component.html',
@@ -23,8 +23,13 @@ export class HealthFormComponent implements OnInit {
     private formservice:HealthformService,
     private formBuilder: FormBuilder,
     private dialogRef: MatDialogRef<HealthFormComponent>,
+    private api:ApiService,
+    private http:HttpClient,
+    private userservice:UserService,
     )
      { }
+     pic_path: any;
+     users!: User[];
 
   ngOnInit(): void {
 
@@ -90,12 +95,36 @@ export class HealthFormComponent implements OnInit {
     this.healthform.controls['User_id'].setValue(sessionStorage.getItem('user_id'))
   }
 
+  onFileSelected(event: any) {
+    this.pic_path = event.target.files[0];
+    console.log(this.pic_path)
+  }
+ 
+  user=(this.get())
+      get()
+      {
+        sessionStorage.getItem('user_id');
+      }
+      deletesession()
+      {
+        sessionStorage.removeItem('user_id')
+      }
   postHealthData()
   {
    
     this.formservice.form(this.healthform.value).pipe(first()).subscribe(
         data => {
-          console.log(data)
+          console.log(data);
+          let formData = new FormData()
+      formData.append('User_id',`${sessionStorage.getItem('user_id')}`)
+      formData.append('pic_path', this.pic_path)
+      //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
+    
+      this.http.put('http://localhost:3000/insert_vaccination_card/insert_vaccinationCard',formData).subscribe(
+          res => {
+            console.log(res)
+          }
+      )
         this.dialogRef.close('formchecked');
         },
       );
@@ -117,8 +146,10 @@ export class HealthFormComponent implements OnInit {
     {
       alert('form submitted successfully');
       console.table(this.healthform.value);
+      
     }
   }
+ 
 
 
 }
