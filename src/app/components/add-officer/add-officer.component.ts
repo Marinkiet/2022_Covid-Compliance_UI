@@ -1,7 +1,12 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl,FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+
+
+
+
 @Component({
   selector: 'app-add-officer',
   templateUrl: './add-officer.component.html',
@@ -13,25 +18,33 @@ export class AddOfficerComponent implements OnInit {
   lblType:string = 'Add Officer';
   passwType:string = 'Password';
   passwTypeConfirm = 'Confirm Password';
+  customValidator: any;
+
   constructor(
     private formBuilder: FormBuilder,
     private api:ApiService,
     private dialogRef : MatDialogRef<AddOfficerComponent>,
     //inject mat-dialog-data to get a single row array of data
     @Inject(MAT_DIALOG_DATA) public editData:any
+   
     ) { }
 
   ngOnInit(): void {
-    this.officerForm = this.formBuilder.group({
-      Officer_id: ['', Validators.required],
-      Campus_id: ['', Validators.required],
-      First_name: ['', Validators.required],
-      Last_name: ['', Validators.required],
-      Gender: ['', Validators.required],
-      Cellphone_number: ['', Validators.required],
-      Email: ['', Validators.required],
-      Password: ['', Validators.required],
+    this.officerForm = new FormGroup({
 
+      Officer_id:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
+      firstNames:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      lastName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      password:new FormControl('',[Validators.required,Validators.minLength(8),this.customValidator.patternPassValidator()]),
+      confirm_password:new FormControl('',[Validators.required]),
+      Campus_id:new FormControl ('', Validators.required),
+      Gender: new FormControl ('', Validators.required),
+      Cellphone_number: new FormControl ('', Validators.required),
+      email:new FormControl('',[Validators.required,Validators.email]),
+      
+     
+    
+      
     });
     //check if row data is reflecting from the dialog then patch into dialof input fields
     //console.log(this.editData);
