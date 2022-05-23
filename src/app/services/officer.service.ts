@@ -38,6 +38,7 @@ export class OfficerService {
     /* return this.http.post(`${this.apiUrl}/login/user`,user); */
   }
 
+  
   getOfficerProfile(id: string): Observable<Officer[]> {
     return this.http.get<Officer[]>(`${this.apiUrl}/retrieve_officer/user/`+ id)
   }
