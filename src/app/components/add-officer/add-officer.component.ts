@@ -35,7 +35,7 @@ export class AddOfficerComponent implements OnInit {
       Officer_id:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
       firstNames:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       lastName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      password:new FormControl('',[Validators.required,Validators.minLength(8),this.customValidator.patternPassValidator()]),
+      password:new FormControl('',[Validators.required,Validators.minLength(9),this.customValidator.patternPassValidator()]),
       confirm_password:new FormControl('',[Validators.required]),
       Campus_id:new FormControl ('', Validators.required),
       Gender: new FormControl ('', Validators.required),
