@@ -33,15 +33,14 @@ export class AddOfficerComponent implements OnInit {
     this.officerForm = new FormGroup({
 
       Officer_id:new FormControl('',[Validators.required,Validators.pattern('^(0|[1-9][0-9]*)$')]),
-      firstNames:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      lastName:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
-      password:new FormControl('',[Validators.required,Validators.minLength(9),this.customValidator.patternPassValidator()]),
-      confirm_password:new FormControl('',[Validators.required]),
       Campus_id:new FormControl ('', Validators.required),
+      First_Name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
+      Last_Name:new FormControl('',[Validators.required,Validators.pattern('[a-zA-Z]*')]),
       Gender: new FormControl ('', Validators.required),
       Cellphone_number: new FormControl ('', Validators.required),
-      email:new FormControl('',[Validators.required,Validators.email]),
-      
+      Email:new FormControl('',[Validators.required,Validators.email]),
+      password:new FormControl('',[Validators.required,Validators.minLength(9),this.customValidator.patternPassValidator()]),
+      confirm_password:new FormControl('',[Validators.required]),
      
     
       
@@ -70,6 +69,7 @@ export class AddOfficerComponent implements OnInit {
     const draft = sessionStorage.getItem("userEdits");
     if (draft)
     {
+      
       this.officerForm.setValue(JSON.parse(draft));
     }
     this.officerForm.valueChanges.pipe()
