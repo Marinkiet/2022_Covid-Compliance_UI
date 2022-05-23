@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { AdminLogin } from '../interfaces/user';
 
 @Injectable({
@@ -11,12 +12,12 @@ export class AdminService {
   redirecturl!: string;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
-  //private apiUrl=environment.apiUrl;
+  private apiUrl=environment.apiUrl;
 
   constructor(private http: HttpClient/*injection of the services*/) { }
 
   loginAdmin(user: AdminLogin) {
-    return this.http.post<AdminLogin>(`http://localhost:3000/login_admin/admin`, {
+    return this.http.post<AdminLogin>(`${this.apiUrl}/login_admin/admin`, {
       User_id: user.User_id, Password: user.Password
     }).pipe(
       map((Admins) => {
@@ -34,7 +35,7 @@ export class AdminService {
         return Admins;
       })
     )
-    /* return this.http.post(`http://localhost:3000/login/user`,user); */
+    /* return this.http.post(`${this.apiUrl}/login/user`,user); */
   }
 /*   setToken(token: string) {
     localStorage.setItem('token', token);

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Newsfeed } from '../interfaces/newsfeed';
 
 @Injectable({
@@ -9,11 +10,11 @@ import { Newsfeed } from '../interfaces/newsfeed';
 export class NewsfeedService {
 
   constructor(private http:HttpClient) { }
-
+  private apiUrl=environment.apiUrl;
 
   sentNewsFeed(newsfeed:Newsfeed)
   {
-    return this.http.post<Newsfeed>(`http://localhost:3000/insert_news/newsfeed`,newsfeed).pipe(
+    return this.http.post<Newsfeed>(`${this.apiUrl}/insert_news/newsfeed`,newsfeed).pipe(
       map((comments)=>
       {
         console.log(comments);
@@ -23,7 +24,7 @@ export class NewsfeedService {
   }
   getNewsFeed():Observable<Newsfeed>
   {
-    return this.http.get<Newsfeed>(`http://localhost:3000/select_news_feed/newsfeed`).pipe(
+    return this.http.get<Newsfeed>(`${this.apiUrl}/select_news_feed/newsfeed`).pipe(
       map((comments)=>
       {
         console.log(comments);
@@ -33,7 +34,7 @@ export class NewsfeedService {
   }
 
   deleteNewsFeed(id:number):Observable<Newsfeed[]>{
-    return this.http.delete<Newsfeed[]>("http://localhost:3000/delete_news/news_id/"+id);
+    return this.http.delete<Newsfeed[]>(`${this.apiUrl}/delete_news/news_id/`+id);
   }
 
 }

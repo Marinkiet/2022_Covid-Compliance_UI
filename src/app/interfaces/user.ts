@@ -17,6 +17,7 @@ export interface User
     Email:string;
     Password:string;
     profile_pic:string;
+    vaccination_card:string;
 }
 export interface Officer
 {
@@ -38,6 +39,8 @@ export interface UpdateUser {
     Cellphone_number: string;
     Email: string;
     Password: string;
+    vaccination_card:string;
+
 }
 
 export interface UserLogin
@@ -68,6 +71,7 @@ export interface VisitorLogin
 
 export interface Record
 {
+    message: any;
     Officer_id:string;
     User_id:string;
     Form_check:string;
@@ -201,6 +205,8 @@ export interface updatetheUser {
     Cellphone_number: string;
     Email: string;
     Password: string;
+    vaccination_card:string;
+
 }
 export interface getTheUser {
     User_id: string;

@@ -1,4 +1,4 @@
-import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer, GetAllOfficers, GetAllRecords, UpdatePassword } from './../interfaces/user';
+import { Images, RegisterUser, UpdateRecord, UserLogin, UpdateUser, UpdateOfficer, GetAllOfficers, GetAllRecords, UpdatePassword, Record } from './../interfaces/user';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { map, Observable} from 'rxjs';
@@ -38,13 +38,13 @@ export class UserService
   redirecturl!:string;
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
 
-  //private apiUrl=environment.apiUrl;
+  private apiUrl=environment.apiUrl;
 
   constructor(private http:HttpClient/*injection of the services*/){ }
 
   loginUser(user:UserLogin)
   {
-    return this.http.post<UserLogin>(`http://localhost:3000/login/user`, {
+    return this.http.post<UserLogin>(`${this.apiUrl}/login/user`, {
       User_id: user.User_id, Password: user.Password
     }).pipe(
           map((Users)=>
@@ -113,7 +113,7 @@ export class UserService
 
   registerUser(data : any)
   {
-    return this.http.post<any>("http://localhost:3000/add_user/user",data)
+    return this.http.post<any>(`${this.apiUrl}/add_user/user`,data)
   }
 
 
@@ -128,24 +128,24 @@ export class UserService
   */
   getUser(username:string):Observable<User>
   {
-    return this.http.get<User>(`http://localhost:3000/view_user/user/${username}`)
+    return this.http.get<User>(`${this.apiUrl}/view_user/user/${username}`)
   }
 
 
 
   getImage(imagename:number):Observable<Images>
   {
-    return this.http.get<Images>(`http://localhost:3000/select_image/image/${imagename}`)
+    return this.http.get<Images>(`${this.apiUrl}/select_image/image/${imagename}`)
   }
  
   onView(username:string):Observable<ViewProfilePicture>
   {
-    return this.http.get<ViewProfilePicture>(`http://localhost:3000/select_pp/view/${username}`);
+    return this.http.get<ViewProfilePicture>(`${this.apiUrl}/select_pp/view/${username}`);
   }
 
   updateRecord(officer: UpdateRecord, User_id:any):Observable<GetAllRecords[]>
   {
-    return this.http.put<any>(`http://localhost:3000/updateRecord/record/${User_id}`, officer).pipe(
+    return this.http.put<any>(`${this.apiUrl}/updateRecord/record/${User_id}`, officer).pipe(
       map((record) => {
         //console.log(record);
         // console.log("This is the temperature "+officer.Tempareture);
@@ -157,7 +157,7 @@ export class UserService
     
   }
   updatePassword(email:string,User_id:any):Observable<User[]>{
-    return this.http.put<any>(`http://localhost:3000/reset_password/reset_password/${User_id}`,email).pipe(
+    return this.http.put<any>(`${this.apiUrl}/reset_password/reset_password/${User_id}`,email).pipe(
       map((record) => {
         console.log('tHE '+record);
         return record;
@@ -170,37 +170,26 @@ export class UserService
 
   form(data:FormData)
   {
-    return this.http.post<FormData>("http://localhost:3000/insert_healthform/user",{data})
+    return this.http.post<FormData>(`${this.apiUrl}/insert_healthform/user`,{data})
   }  
 
   updateofficerInfo(officerdata: UpdateOfficer, id: string): Observable<UpdateOfficer[]> {
     {
-      return this.http.put<UpdateOfficer[]>("http://localhost:3000/update/user/:"+ id,officerdata);
+      return this.http.put<UpdateOfficer[]>(`${this.apiUrl}/update/user/:`+ id,officerdata);
     }
   }
   
 
-  
-/*  
-  getUsers():Observable<User[]>
+  getStudentFormCheck(username:string):Observable<Record>
   {
-    return this.http.get<User[]>(`${this.apiUrl}/viewall`);
+    return this.http.get<Record>(`${this.apiUrl}/two_items/record/${username}`).pipe(
+      map((Users)=>
+      {
+        console.log(Users);
+        return Users;
+      })
+    )
   }
-  getUser():Observable<User> //getting only one user
-  {
-    return this.http.get<User>(`${this.apiUrl}/view_user/user/0000`);
-  }
- */
-
-/*   registerUser(user:any)
-  {
-    return this.http.post<any>(`${this.apiUrl}/add_user/user`,user);
-  }
-
-  postOfficer(data : any){
-    return this.http.post<any>("http://localhost:3000/officers/",data);
-  } */
-
 
 }
 

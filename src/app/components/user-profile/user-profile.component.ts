@@ -13,6 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { ViewImage, ViewProfilePicture } from 'src/app/interfaces/file-to-upload';
 import { NgToastService } from 'ng-angular-popup';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -22,6 +23,7 @@ export class UserProfileComponent implements OnInit {
   userProfile !: FormGroup;
   actionBtn:string = "Update";
 
+  private apiUrl=environment.apiUrl;
   constructor( 
     private toast:NgToastService,
     private router:Router,
@@ -120,7 +122,7 @@ export class UserProfileComponent implements OnInit {
           this.userProfile.controls['Email'].setValue(this.users[0].Email); 
  
           //this.officerprofile.reset();
-          this.toast.success({detail:"Success Message",summary:"Profile Updated",duration:3500})
+          this.toast.success({detail:"Profile Update",summary:"Profile Information Updated",duration:4000})
         // alert('User details UPdated')
         }, error: () => {
           alert("Error while updating user");
@@ -131,6 +133,7 @@ export class UserProfileComponent implements OnInit {
   onUpdate() {
     this.updateUser(`${sessionStorage.getItem('user_id')}`);
    // alert(`${sessionStorage.getItem('user_id')}`)
+   
     location.reload()
   }
 
@@ -165,9 +168,10 @@ export class UserProfileComponent implements OnInit {
         formData.append('pic_path', this.pic_path)
         //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
     
-        this.http.put('http://localhost:3000/upload_pp/upload_pp',formData).subscribe(
+        this.http.put(`${this.apiUrl}/upload_pp/upload_pp`,formData).subscribe(
           res => {
             console.log(res)
+            this.toast.info({detail:"Profile Message",summary:"Profile Picture Uploaded",duration:3500})
           }
         )
         //this.onView();
@@ -180,7 +184,7 @@ export class UserProfileComponent implements OnInit {
     
       viewStudentProfile(studentNumber)
       {
-        return `http://localhost:3000/select_pp/view/${studentNumber}`;
+        return `${this.apiUrl}/select_pp/view/${studentNumber}`;
       }
 
 
@@ -216,7 +220,7 @@ export class UserProfileComponent implements OnInit {
         formData.set('pic_path', this.pic_path)
         //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
     
-        this.http.put('http://localhost:3000/upload_pp/upload_pp', formData).subscribe(
+        this.http.put('${this.apiUrl}/upload_pp/upload_pp', formData).subscribe(
           res => {
             console.log(res)
           }
@@ -229,7 +233,7 @@ export class UserProfileComponent implements OnInit {
 
       image:any;
       onView() {
-        this.http.get("http://localhost:3000/select_pp/view/218179088").subscribe(
+        this.http.get("${this.apiUrl}/select_pp/view/218179088").subscribe(
           (res: any) => {
 
             alert(res);

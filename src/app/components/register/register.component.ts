@@ -7,6 +7,7 @@ import { Typeuser } from 'src/app/interfaces/registertypes/typeuser';
 import { RegisterUser } from 'src/app/interfaces/user';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
 import { UserService } from 'src/app/services/user.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private http:HttpClient
     )
-  {}
+  {} private apiUrl=environment.apiUrl;
   ngOnInit()
   {
     this.registerform=new FormGroup
@@ -71,7 +72,7 @@ export class RegisterComponent implements OnInit {
 
         formData.append("filename", file);
 
-        const upload$ = this.http.post("http://localhost:3000/users/", formData);
+        const upload$ = this.http.post(`${this.apiUrl}/users/`, formData);
 
         upload$.subscribe();
     }

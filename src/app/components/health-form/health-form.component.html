@@ -18,6 +18,11 @@
         </mat-select>
       </mat-form-field>
 
+        <div style="display: block;display: flex;justify-content: center;align-items: center;">
+        <mat-label>Please upload your vaccination card </mat-label>
+        <input type="file"  (change)="onFileSelected($event)" >
+        </div>
+
       <mat-form-field appearance="outline">
         <mat-label>Do you have Convid-19? </mat-label>
         <mat-select formControlName="covid19" placeholder="No">
@@ -74,4 +79,3 @@
 
 
 </form>
-

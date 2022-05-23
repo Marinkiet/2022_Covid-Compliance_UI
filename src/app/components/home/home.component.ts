@@ -8,6 +8,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { HealthFormComponent } from '../health-form/health-form.component';
 import { User } from 'src/app/interfaces/user';
 import { ApiService } from 'src/app/services/api.service';
+import { UserService } from 'src/app/services/user.service';
+import { NgToastService } from 'ng-angular-popup';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -27,12 +30,12 @@ export class HomeComponent implements OnInit {
         this.openDialog();   //open dialog imediatly when clicking qrcode and after clicking login button
       } */
 
+      this.formcheck=this.theFormIsChecked
       if(sessionStorage.getItem(`user_id`)!=null)
       {
         this.theFormIsChecked=sessionStorage.getItem('Form_check')
-       
-        
       }
+      this.WhoFilledForm(`${sessionStorage.getItem('user_id')}`);
       //alert(this.theButtonCheck)
       this.profilePicture=this.viewStudentProfile(sessionStorage.getItem('user_id'))
       this.getUserProfile(`${sessionStorage.getItem('user_id')}`);
@@ -42,11 +45,13 @@ export class HomeComponent implements OnInit {
     sidenav!: MatSidenav;
   
     constructor(
+      private toast:NgToastService,
+      private userservice:UserService,
       private router:Router,
       private observer: BreakpointObserver,
       private api:ApiService,
       private dialog: MatDialog){}
-
+      private apiUrl=environment.apiUrl;
 
   /* openDialog() {
     this.dialog.open(HealthFormComponent, {
@@ -85,15 +90,16 @@ export class HomeComponent implements OnInit {
   {
     this.dialog.open(HealthFormComponent, {
       width: '30%'
+
   }).afterClosed().subscribe(val => 
       {
         if (val === 'formchecked')
         {
-          alert('Form is checked');
-          this.formcheck=true;
-          this.buttoncheck=false;
-          sessionStorage.setItem('Form_check',`${this.formcheck}`)
-          sessionStorage.setItem('buttoncheck',`${this.buttoncheck}`)
+          this.toast.success({detail:"Form Check",summary:"Health Form Completed",duration:4000})
+          /* this.formcheck=true;
+          this.buttoncheck=false; */
+         /*  sessionStorage.setItem('Form_check',`${this.formcheck}`)
+          sessionStorage.setItem('buttoncheck',`${this.buttoncheck}`) */
           window.location.reload();
         }
     })
@@ -125,7 +131,23 @@ getUserProfile(user:string):void
 
     viewStudentProfile(studentNumber)
     {
-      return `http://localhost:3000/select_pp/view/${studentNumber}`;
+      return `${this.apiUrl}/select_pp/view/${studentNumber}`;
+    }
+
+    WhoFilledForm(user:string)
+    {
+      this.userservice.getStudentFormCheck(user).subscribe(
+        data=>
+        {
+          if(data.message == 'Successful')
+          {
+            this.theFormIsChecked=true;
+            this.buttoncheck=false;
+          }
+          //alert(data.message)
+        }
+        
+      )
     }
 
 }

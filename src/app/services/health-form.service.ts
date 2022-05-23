@@ -2,6 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormData} from '../interfaces/user';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -11,11 +12,11 @@ import { FormData} from '../interfaces/user';
 export class HealthformService {
 
   constructor(private http:HttpClient) {}
-
+  private apiUrl=environment.apiUrl;
 
     form(data:FormData)
     {
-      return this.http.post<FormData>("http://localhost:3000/insert_healthform/user",data)
+      return this.http.post<FormData>(`${this.apiUrl}/insert_healthform/user`,data)
     }  
 }
 

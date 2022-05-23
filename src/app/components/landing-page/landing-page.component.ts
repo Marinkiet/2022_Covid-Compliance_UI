@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ViewImage } from 'src/app/interfaces/file-to-upload';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-landing-page',
@@ -16,6 +17,7 @@ export class LandingPageComponent implements OnInit {
 
   constructor(private router: Router, private api: ApiService
     , private http: HttpClient) { }
+    private apiUrl=environment.apiUrl;
   ngOnInit(): void {
     this.deletesession();
     this.onView();
@@ -27,7 +29,7 @@ export class LandingPageComponent implements OnInit {
   thesrc3!: string;
   thesrc4!: string;
   onView() {
-    this.http.get('http://localhost:3000/select_all_image/').subscribe(
+    this.http.get(`${this.apiUrl}/select_all_image/`).subscribe(
       (res: any) => {
         this.images = res.data;
         this.thesrc = this.images[0].pic_path;

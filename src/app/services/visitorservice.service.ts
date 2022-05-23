@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { VisitorLogin } from '../interfaces/user';
 
 @Injectable({
@@ -10,12 +11,14 @@ export class VisitorserviceService {
 
   constructor(private http:HttpClient) { }
 
+  private apiUrl=environment.apiUrl;
+
   registerVisitor(data: any) {
-    return this.http.post<any>("http://localhost:3000/add_visitor/visitor", data)
+    return this.http.post<any>(`${this.apiUrl}/add_visitor/visitor`, data)
   }
 
   loginVisitor(visitor:VisitorLogin) {
-    return this.http.post<VisitorLogin>(`http://localhost:3000/login_visitor/visitor`, {
+    return this.http.post<VisitorLogin>(`${this.apiUrl}/login_visitor/visitor`, {
       User_id: visitor.User_id, Password: visitor.Password
     }).pipe(
       map((Visitors) => 
@@ -32,7 +35,7 @@ export class VisitorserviceService {
         return Visitors;
       })
     )
-    /* return this.http.post(`http://localhost:3000/login/user`,user); */
+    /* return this.http.post(`${this.apiUrl}/login/user`,user); */
   }
 
 

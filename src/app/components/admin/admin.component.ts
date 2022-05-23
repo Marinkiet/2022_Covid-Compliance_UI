@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { ViewImage } from 'src/app/interfaces/file-to-upload';
 import { ApiService } from 'src/app/services/api.service';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
@@ -19,6 +20,8 @@ export class AdminComponent implements OnInit {
     private api: ApiService
   ) { }
 
+  private apiUrl=environment.apiUrl;
+  
   ngOnInit(): void {
     this.onView();
   }
@@ -44,7 +47,7 @@ export class AdminComponent implements OnInit {
     formData.append('pic_path', this.pic_path)
     //fd.append('pic_path',this.selectedFile,this.selectedFile.name);
 
-    this.http.post('http://localhost:3000/upload_image/image', formData).subscribe(
+    this.http.post(`${this.apiUrl}/upload_image/image`, formData).subscribe(
       res => {
         this.toast.success({detail:"Image",summary:"Image Uploaded",duration:3000})
         console.log(res)
@@ -61,7 +64,7 @@ export class AdminComponent implements OnInit {
 
   
   onView() {
-    this.http.get('http://localhost:3000/select_all_image/').subscribe(
+    this.http.get(`${this.apiUrl}/select_all_image/`).subscribe(
       (res: any) => {
         this.images = res.data
         /* console.log("This is the paths "+this.images[0].pic_path);

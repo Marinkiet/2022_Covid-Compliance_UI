@@ -61,6 +61,7 @@ import { QrCodeComponent } from './components/qr-code/qr-code.component';
 import { AdminfeedComponent } from './components/adminfeed/adminfeed.component';
 import { UpdatePasswordComponent } from './components/update-password/update-password.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { VacCardComponent } from './components/vac-card/vac-card.component';
 
 @NgModule({
   declarations: [
@@ -96,6 +97,7 @@ import { NgToastModule } from 'ng-angular-popup';
    // StatsComponent,
     AdminfeedComponent,
     UpdatePasswordComponent,
+    VacCardComponent,
   
   ],
   imports: [

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Comments } from '../interfaces/user';
 
 @Injectable({
@@ -9,10 +10,11 @@ import { Comments } from '../interfaces/user';
 export class CommentService {
 
   constructor(private http:HttpClient) { }
-
+  private apiUrl=environment.apiUrl;
+  
   postComment(comment:Comments)
   {
-    return this.http.post<Comments>(`http://localhost:3000/insert_feedback/feedback`,comment).pipe(
+    return this.http.post<Comments>(`${this.apiUrl}/insert_feedback/feedback`,comment).pipe(
       map((comments)=>
       {
         return comments;
@@ -22,6 +24,6 @@ export class CommentService {
 
   getComment():Observable<Comments[]>
   {
-      return this.http.get<Comments[]>('http://localhost:3000/select_all_feedback/feedback');
+      return this.http.get<Comments[]>(`${this.apiUrl}/select_all_feedback/feedback`);
   }
 }

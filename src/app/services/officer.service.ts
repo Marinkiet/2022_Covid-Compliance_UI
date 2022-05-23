@@ -2,6 +2,7 @@ import { Officer, OfficerLogin, UpdateOfficer } from './../interfaces/user';
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
 import { map, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,9 +16,10 @@ export class OfficerService {
   //private apiUrl=environment.apiUrl;
 
   constructor(private http: HttpClient/*injection of the services*/) { }
-
+  private apiUrl=environment.apiUrl;
+  
   loginOfficer(user: OfficerLogin) {
-    return this.http.post<OfficerLogin>(`http://localhost:3000/login_officer/officer`, {
+    return this.http.post<OfficerLogin>(`${this.apiUrl}/login_officer/officer`, {
       User_id: user.User_id, Password: user.Password
     }).pipe(
       map((Officers) => 
@@ -33,25 +35,25 @@ export class OfficerService {
         return Officers;
       })
     )
-    /* return this.http.post(`http://localhost:3000/login/user`,user); */
+    /* return this.http.post(`${this.apiUrl}/login/user`,user); */
   }
 
   getOfficerProfile(id: string): Observable<Officer[]> {
-    return this.http.get<Officer[]>("http://localhost:3000/retrieve_officer/user/"+ id)
+    return this.http.get<Officer[]>(`${this.apiUrl}/retrieve_officer/user/`+ id)
   }
 
 
   updateofficerInfo(officerdata:UpdateOfficer,id: string):Observable<UpdateOfficer[] >
   {
       {
-      return this.http.put<UpdateOfficer[]>("http://localhost:3000/update_officer/officer/:"+id,officerdata);
+      return this.http.put<UpdateOfficer[]>(`${this.apiUrl}/update_officer/officer/:`+id,officerdata);
     }
   }
 
 
   getOfficer(username:string):Observable<Officer>
   {
-    return this.http.get<Officer>(`http://localhost:3000/view_user/user/${username}`)
+    return this.http.get<Officer>(`${this.apiUrl}/view_user/user/${username}`)
   }
 
  /*  setToken(token: string) {
